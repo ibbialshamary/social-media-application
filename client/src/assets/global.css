@@ -1,0 +1,539 @@
+@import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
+
+:root {
+    /* primary */
+    --primaryColour: slateblue;
+    --primaryFontColour: white;
+    --primaryInputColourThemeOpp: white;
+    --navigationBarLinkHover: rgb(207, 207, 207);
+    /* secondary */
+    --secondaryColour:  rgb(54, 47, 104);
+    --secondaryFontColour: black;
+    --errorMessageColour: orangered;
+
+    --buttonHoveredColour: rgb(46, 36, 112);
+    --buttonBackgroundColour: slateblue;
+    --buttonTextColour: white;
+
+    /* gradients */
+    --mainContainerGradientChrome: -webkit-linear-gradient(to left, #414345, #232526);
+    --mainContainerGradientFirefox: linear-gradient(to left, #414345, #232526);
+
+    /* grid items */
+    --gridItemBackground:  rgb(36, 32, 32);
+
+    /* section background colours */
+    --rightSideBackgroundColour: #1e2020;
+    --leftSideBackgroundColour: #1b1c1d;
+
+    /* heading */
+    --headingFontSize: 50px;
+
+    /* button */
+    --buttonHeight: 40px;
+    --buttonWidth: 160px;
+
+    /* measurements */
+    --defaultHeight: 700px;
+    --defaultWidth: 30%;
+    --defaultBorderRadius: 16px;
+    --marginFromHeader: 2%;
+    --settingsTitleHeadingHeight: 10%;
+    --leftSectionWidth: 25%;
+
+    /* defaults */
+    --defaultFontSize: 16px;
+}
+
+[data-theme="dark"] {
+    /* primary */
+    --primaryColour: slateblue;
+    --primaryFontColour: white;
+    --primaryInputColourThemeOpp: white;
+    --navigationBarLinkHover: rgb(207, 207, 207);
+    /* secondary */
+    --secondaryColour:  rgb(54, 47, 104);
+    --secondaryFontColour: black;
+    --errorMessageColour: orangered;
+
+    --buttonHoveredColour: rgb(46, 36, 112);
+    --buttonBackgroundColour: slateblue;
+    --buttonTextColour: white;
+
+    /* gradients */
+    --mainContainerGradientChrome: -webkit-linear-gradient(to left, #414345, #232526);
+    --mainContainerGradientFirefox: linear-gradient(to left, #414345, #232526);
+
+    /* grid items */
+    --gridItemBackground:  rgb(36, 32, 32);
+
+    /* section background colours */
+    --rightSideBackgroundColour: #1e2020;
+    --leftSideBackgroundColour: #1b1c1d;
+}
+
+[data-theme="light"] {
+    /* primary */
+    --primaryColour: #356afa;
+    --primaryFontColour: black;
+    --primaryInputColourThemeOpp: #1e2020;
+    --navigationBarLinkHover: rgb(43, 43, 43);
+    /* secondary */
+    --secondaryColour:  #1E51EB;
+    --secondaryFontColour: white;
+    --errorMessageColour: rgba(126, 0, 0, 0.89);
+
+    --buttonHoveredColour: #1d4bd4;
+    --buttonBackgroundColour: var(--primaryColour);
+    --buttonTextColour: black;
+
+    /* gradients */
+    --mainContainerGradientChrome: -webkit-linear-gradient(to left, #414345, #232526);
+    --mainContainerGradientFirefox: linear-gradient(to left, #ffffff, #e6e6e6);
+
+    /* grid items */
+    --gridItemBackground:  white;
+
+    /* section background colours */
+    --rightSideBackgroundColour: #ffffff;
+    --leftSideBackgroundColour: #e6e6e6;
+}
+
+body {
+    background-color: var(--primaryColour);
+    color: var(--primaryFontColour);
+    font-family: 'ABeeZee', sans-serif;
+}
+
+/* styling of navigation bar and its elements */
+#navigationBar {
+    position: relative;
+    background-color: var(--secondaryColour);
+    height: 80px;
+    text-transform: uppercase;
+}
+
+#navigationBar .navigationBarLogo {
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+    margin-left: 2%;
+    pointer-events: none;
+}
+
+#lightBulb {
+    color: var(--primaryFontColour);
+    position: absolute;
+    left: 50%;
+    transform: rotate(-180deg) translateX(-50%);
+    font-size: 35px;
+}
+
+#lightBulb:hover {
+    cursor: pointer;
+    
+}
+
+.navigationLinks {
+    position: absolute;
+    top: 50%;
+    right: 0%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    display: flex;
+}
+
+#navigationBar p {
+    margin-left: 5%;
+}
+
+#navigationBar a {
+    color: var(--primaryFontColour);
+    overflow: hidden;
+}
+
+#navigationBar h1 {
+    font-size: var(--defaultFontSize);
+}
+
+#navigationBar a:hover {
+    color: var(--navigationBarLinkHover);
+    text-decoration: none;
+    list-style-type: none;
+}
+
+/* styling of profile page */
+.profileHeading {
+    background-color: var(--secondaryColour);
+    color: rgba(255, 255, 255, 0.863);
+    border-radius: var(--defaultBorderRadius);
+
+    width: var(--defaultWidth);
+    height: var(--defaultHeight);
+    
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* for the border */
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    box-shadow: 20px 20px rgba(0,0,0,.15);
+    transition: all .4s ease;
+}
+
+/* hover over the login form border */
+.profileHeading:hover {
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+    box-shadow: 10px 10px rgba(0,0,0,.25);
+}
+
+.profileHeading h1 {
+    font-weight: bold;
+    font-size: var(--headingFontSize);
+    text-align: center;
+}
+
+.profileHeading p {
+    text-align: center;
+}
+
+.profileHeading img {
+    margin-top: 8%;
+    position: relative;
+    height: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    padding: 8px;
+    border: solid 3px var(--buttonBackgroundColour);
+}
+
+.profileSettingsButton {
+    position: absolute;
+    top: 95%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+}
+
+/* styling of button */
+button, .button, #button {
+    background-color: var(--buttonBackgroundColour);
+    border: none;
+    color: var(--buttonTextColour);
+    width: var(--buttonWidth);
+    height: var(--buttonHeight);
+}
+.button:hover, #button:hover, button:hover {
+    background-color: var(--buttonHoveredColour);
+}
+
+/* styling of login page */
+.loginForm {
+    position: absolute;
+    background-color: var(--secondaryColour);
+    padding: 34px;
+
+    width: var(--defaultWidth);
+    height: calc(var(--defaultHeight) - 26%);
+    /* border-radius: var(--defaultBorderRadius); */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* for the border */
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    box-shadow: 20px 20px rgba(0,0,0,.15);
+    transition: all .4s ease;
+}
+
+/* hover over the login form border */
+.loginForm:hover {
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+    box-shadow: 10px 10px rgba(0,0,0,.25);
+}
+
+.buttonContainer {
+    position: relative;
+}
+
+.childContainer {
+    display: inline-block;
+    position: absolute;
+    left: 50%;
+    transform: translateX(-50%);
+}
+
+.loginForm h1 {
+    text-align: center;
+    user-select: none;
+}
+
+/* styling of register page */
+.registerForm {
+    position: absolute;
+    background-color: var(--secondaryColour);
+    padding: 34px;
+
+    width: var(--defaultWidth);
+    height: calc(var(--defaultHeight) - 8%);
+    /* border-radius: var(--defaultBorderRadius); */
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+
+    /* for the border */
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    box-shadow: 20px 20px rgba(0,0,0,.15);
+    transition: all .4s ease;
+}
+
+/* hover over the login form border */
+.registerForm:hover {
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+    box-shadow: 10px 10px rgba(0,0,0,.25);
+}
+
+.buttonContainer {
+    text-align: center;
+}
+
+
+.registerForm h1 {
+    text-align: center;
+    user-select: none;
+}
+
+#errorMessage {
+    margin-top: 2%;
+    text-align: center; 
+    color: var(--errorMessageColour);
+}
+
+a {
+    cursor: pointer;
+}
+
+/* homepage css */
+.mainContainer {
+    border-radius: 0% 100% 50% 50% / 0% 0% 100% 100% ;
+    position: relative; 
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: var(--marginFromHeader);
+
+    background: #232526;  /* fallback for old browsers */
+    background: var(--mainContainerGradientChrome);  /* Chrome 10-25, Safari 5.1-6 */
+    background: var(--mainContainerGradientFirefox); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    
+
+
+    width: 90%;
+    height: 80vh;
+}
+
+/* posts tab */
+.postsContainer {
+    position: absolute;
+    top: 50%;
+    left: 75%;
+
+    transform: translate(-50%, -50%);
+    margin-top: 2%;
+    width: 45%;
+    height: 80%;
+    background-color: var(--secondaryColour);
+
+    /* for the border */
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    box-shadow: 20px 20px rgba(0,0,0,.15);
+    transition: all .4s ease;
+}
+
+/* hover over the posts form border */
+.postsContainer:hover {
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+    box-shadow: 10px 10px rgba(0,0,0,.25);
+}
+
+.grid-container {
+    display: grid;
+    grid-column-gap: 20px;
+    grid-row-gap: 20px;
+    grid-template-columns: auto auto ;
+    padding: 20px 80px 20px 80px;
+  }
+  
+.grid-item {
+    background-color: var(--gridItemBackground);
+    /* passing: inside or the content of the grid container, so the text for example, how far away it is from the div */
+    padding: 20px 50px 20px 50px;
+    text-align: center;
+}
+
+/* whispers tab */
+.whispersContainer {
+    position: absolute;
+    top: 50%;
+    left: 25%;
+
+    transform: translate(-50%, -50%);
+    margin-top: 2%;
+
+    width: 45%;
+    height: 80%;
+    background-color: var(--secondaryColour);
+
+    /* for the border */
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    box-shadow: 20px 20px rgba(0,0,0,.15);
+    transition: all .4s ease;
+}
+
+/* hover over the whispers form border */
+.whispersContainer:hover {
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+    box-shadow: 10px 10px rgba(0,0,0,.25);
+}
+
+h1 {
+    color: var(--primaryFontColour);
+    user-select: none;
+}
+
+p {
+    color: var(--primaryFontColour);
+}
+
+br, img, button {
+    user-select: none;
+}
+
+/* styling of settings page */
+.profileSettingsHeading {
+    background-color: white;
+    color: rgba(255, 255, 255, 0.863);
+
+    width: calc(var(--defaultWidth) + 800px);
+    height: var(--defaultHeight);
+    margin-top: 5%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+
+    /* for the border */
+    border-radius: 12px 12px 0 0;
+    box-shadow: 20px 20px rgba(0,0,0,.15);
+    transition: all .4s ease;
+}
+
+/* hover over the form border */
+.profileSettingsHeading:hover {
+    /* border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ; */
+    box-shadow: 10px 10px rgba(0,0,0,.25);
+}
+
+.settingsTitleHeading {
+    position: relative;
+    width: 100%;
+    height: 10%;
+    background-color: var(--secondaryColour);
+    border-radius: 12px 12px 0 0;
+}
+
+.settingsTitleHeading p {
+    color: var(--primaryFontColour);
+    margin-left: 2.5%;
+    user-select: none;
+}
+
+.leftSection {
+    position: absolute;
+    background-color:  var(--leftSideBackgroundColour);
+    width: 25%;
+    height: calc(100% - var(--settingsTitleHeadingHeight));
+    top: calc(0% + var(--settingsTitleHeadingHeight));
+    
+}
+
+.rightSection {
+    position: absolute;
+    background-color: var(--rightSideBackgroundColour);
+    width: calc(100% - var(--leftSectionWidth));
+    height: calc(100% - var(--settingsTitleHeadingHeight));
+    top: calc(0% + var(--settingsTitleHeadingHeight));
+    left: var(--leftSectionWidth);
+
+    -webkit-box-shadow: inset 25px 0px 25px -25px rgba(0, 0, 0, 0.45), inset -25px 0px 25px -25px var(--secondaryFontColour);
+    -moz-box-shadow: inset 25px 0px 25px -25px rgba(0, 0, 0, 0.45), inset -25px 0px 25px -25px var(--secondaryFontColour);
+    box-shadow: inset 25px 0px 25px -25px rgba(0, 0, 0, 0.45), inset -25px 0px 25px -25px var(--secondaryFontColour);
+}
+
+.leftSection img {
+    margin-top: 8%;
+    position: relative;
+    height: 20%;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 50%;
+    padding: 8px;
+    border: solid 3px var(--buttonBackgroundColour);
+}
+
+.leftSection .userNameParagraph {
+    margin-top: 5%;
+    text-align: center;
+    user-select: none;
+}
+
+.settingsOptions p {
+    position: absolute;
+    float: left;
+    margin-left: 5%;
+    margin-top: 2%;
+}
+
+.settingsOptions button {
+    width: 100%;
+    text-align: left;
+}
+
+.buttonHighlighter {
+    left: 0%;
+    transform: translateX(-50%);
+    width: 5%;
+    height: 100%;
+    background-color: var(--secondaryColour);
+    float: left;
+}
+
+.settingsOptions button:focus {
+    outline: 0;
+    background-color: var(--buttonHoveredColour);
+}
+
+.settingsOptions .buttonHighlighter {
+    visibility: hidden;
+}
+
+.settingsOptions #aboutSection {
+    visibility: visible;
+}
+
+.rightSection #sectionsContainer {
+    margin-left: 5%;
+    color: var(--primaryFontColour);
+}
+
+.rightSection input {
+    background-color: var(--primaryInputColourThemeOpp);
+    width: 80%;
+    user-select: none; pointer-events: none;
+    color: var(--secondaryFontColour);
+    border: solid 3px var(--primaryInputColourThemeOpp);
+    border-radius: 2px;
+}
+
+#rightProfileSection, #rightPreferencesSection, #rightNotificationsSection, #rightSecuritySection {
+    display: none;
+}
