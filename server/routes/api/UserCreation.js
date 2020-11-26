@@ -8,7 +8,7 @@ const passport = require('passport');
 const key = require('../../config/keys').secret;
 
 /**
- * @route POST api/users/register
+ * @route POST api/UserCreation/register
  * @desc Register the User
  * @access Public
  */
@@ -18,7 +18,10 @@ router.post('/register', async(req, res) => {
     // validate data before user is created
     const { error } = registerValidation(req.body);
     if(error) {
-        return res.status(404).send(error.details[0].message);
+        return res.status(404).json({
+            success: false,
+            msg: 'Your ' + error.details[0].message
+        });
     }
 
     // check if user exists
@@ -33,7 +36,7 @@ router.post('/register', async(req, res) => {
     }
 
     // check if passwords match
-    if(req.body.password != req.body.confirm_password) {
+    if(req.body.password !== req.body.confirm_password) {
         return res.status(404).json({
             success: false,
             msg: 'The passwords you have entered do not match'
@@ -67,7 +70,7 @@ router.post('/register', async(req, res) => {
 
 
 /**
- * @route POST api/users/login
+ * @route POST api/UserCreation/login
  * @desc Signing in the User
  * @access Public
  */
@@ -77,7 +80,10 @@ router.post('/login', async(req, res) => {
     // validate data
     const { error } = loginValidation(req.body);
     if(error) {
-        return res.status(404).send(error.details[0].message);
+        return res.status(404).json({
+            success: false,
+            msg: error.details[0].message
+        });
     }
     
     // check if email exists
@@ -121,7 +127,7 @@ router.post('/login', async(req, res) => {
 
 
 /**
- * @route POST api/users/profile
+ * @route POST api/UserCreation/profile
  * @desc Return the User's Data
  * @access Private
  */

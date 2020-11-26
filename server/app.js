@@ -39,8 +39,8 @@ mongoose.connect(databaseKey, {
 });
 
 // bring in the users route
-const users = require('./routes/api/users');
-app.use('/api/users', users);
+const users = require('./routes/api/UserCreation');
+app.use('/api/UserCreation', users);
 
 
 app.get('*', (req, res) => {

@@ -23,7 +23,7 @@ const actions = {
     async login({ commit }, user) {
         commit('auth_request');
         try {
-            let res = await axios.post('http://localhost:5000/api/users/login', user)
+            let res = await axios.post('http://localhost:5000/api/UserCreation/login', user)
             if(res.data.success){
                 const token = res.data.token;
                 const user = res.data.user;
@@ -43,7 +43,7 @@ const actions = {
     async register({ commit }, user) {
         commit('register_request');
         try {
-            let res = await axios.post('http://localhost:5000/api/users/register', user);
+            let res = await axios.post('http://localhost:5000/api/UserCreation/register', user);
             if(res.data.success !== undefined) {
                 commit('register_success');
             }
@@ -57,7 +57,7 @@ const actions = {
     async getProfile({ commit }) {
         try {
             commit('profile_request');
-            let res = await axios.get('http://localhost:5000/api/users/profile');
+            let res = await axios.get('http://localhost:5000/api/UserCreation/profile');
             commit('user_profile', res.data.user);
             return res;
         } catch(err) {
