@@ -23,13 +23,13 @@ const loginValidation = (data) => {
     const schema = Joi.object({
         username: Joi.string().min(6).required().messages({
             'string.base': `Please enter a valid username`,
-            'string.empty': `Your username cannot be empty`,
+            'string.empty': `Please enter a username`,
             'string.min': `Your username should have a minimum length of {#limit} characters`,
             'any.required': `The username field is required`
         }),
         password: Joi.string().min(6).required().messages({
             'string.base': `Please enter a valid password`,
-            'string.empty': `Your password cannot be empty`,
+            'string.empty': `Please enter a password`,
             'string.min': `Your password should have a minimum length of {#limit} characters`,
             'any.required': `The password field is required`
         }),

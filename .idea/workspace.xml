@@ -20,10 +20,17 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/client/src/Warehouse/Auth.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/Warehouse/Auth.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Register.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/components/ChatRoom.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Chat.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/api/users.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/UserCreation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/server/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/validation/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/validation/validation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -33,6 +40,9 @@
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="PackageJsonUpdateNotifier">
+    <dismissed value="$PROJECT_DIR$/package.json" />
   </component>
   <component name="ProjectId" id="1kpNMosSynLafKFlpxdFbVjUqFp" />
   <component name="ProjectViewState">
@@ -44,11 +54,22 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="vue.rearranger.settings.migration" value="true" />
+  </component>
+  <component name="RecentsManager">
+    <key name="CopyFile.RECENT_KEYS">
+      <recent name="C:\Users\alsha\Desktop\Social Media Application\server" />
+      <recent name="C:\Users\alsha\Desktop\Social Media Application\client\src\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alsha\Desktop\Social Media Application\server" />
+    </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
   <component name="TaskManager">
@@ -58,7 +79,15 @@
       <option name="number" value="Default" />
       <option name="presentableId" value="Default" />
       <updated>1606393533636</updated>
-      <workItem from="1606393537751" duration="2837000" />
+      <workItem from="1606393537751" duration="3838000" />
+      <workItem from="1606406649448" duration="2088000" />
+      <workItem from="1606419949600" duration="2687000" />
+      <workItem from="1606422695959" duration="51000" />
+      <workItem from="1606435056437" duration="351000" />
+      <workItem from="1606435496046" duration="530000" />
+      <workItem from="1606496677607" duration="3150000" />
+      <workItem from="1606507813246" duration="132000" />
+      <workItem from="1606519453723" duration="3988000" />
     </task>
     <servers />
   </component>
@@ -75,27 +104,44 @@
         </entry>
       </map>
     </option>
+    <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1606394220574">
+    <state x="1061" y="443" key="FileChooserDialogImpl" timestamp="1606498572670">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606394220574" />
-    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1606394220574">
+    <state x="1061" y="443" key="FileChooserDialogImpl/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606498572670" />
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1606399186364">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606394220574" />
-    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1606394220574">
+    <state width="2539" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606399186364" />
+    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1606399186364">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606394220574" />
-    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1606394220574">
+    <state width="2539" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606399186364" />
+    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1606399186364">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606394220574" />
-    <state x="988" y="300" width="585" height="801" key="find.popup" timestamp="1606394841602">
+    <state width="2539" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606399186364" />
+    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1606399186364">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="988" y="300" width="585" height="801" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606394841602" />
+    <state width="2539" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606399186364" />
+    <state x="782" y="346" key="SettingsEditor" timestamp="1606396668481">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="782" y="346" key="SettingsEditor/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606396668481" />
+    <state x="1098" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606498509539">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1098" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606498509539" />
+    <state x="988" y="300" width="585" height="801" key="find.popup" timestamp="1606520185827">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="988" y="300" width="585" height="801" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606520185827" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1606435200754">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606435200754" />
   </component>
 </project>

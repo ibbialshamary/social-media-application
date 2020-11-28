@@ -3,11 +3,13 @@
 :root {
     /* primary */
     --primaryColour: slateblue;
+    --borderPrimaryColour:  rgba(41.6, 35.3, 80.4, 0.95);
     --primaryFontColour: white;
     --primaryInputColourThemeOpp: white;
     --navigationBarLinkHover: rgb(207, 207, 207);
     /* secondary */
     --secondaryColour:  rgb(54, 47, 104);
+    --borderSecondaryColour:  rgba(54, 47, 104, 0.25);
     --secondaryFontColour: black;
     --errorMessageColour: orangered;
 
@@ -28,7 +30,7 @@
 
     /* heading */
     --headingFontSize: 50px;
-
+    --chatHeaderHeight: 150px;
     /* button */
     --buttonHeight: 40px;
     --buttonWidth: 160px;
@@ -43,6 +45,7 @@
 
     /* defaults */
     --defaultFontSize: 16px;
+    --navigationBarHeight: 80px;
 }
 
 [data-theme="dark"] {
@@ -53,6 +56,7 @@
     --navigationBarLinkHover: rgb(207, 207, 207);
     /* secondary */
     --secondaryColour:  rgb(54, 47, 104);
+    --borderSecondaryColour:  rgba(54, 47, 104, 0.25);
     --secondaryFontColour: black;
     --errorMessageColour: orangered;
 
@@ -79,7 +83,8 @@
     --primaryInputColourThemeOpp: #1e2020;
     --navigationBarLinkHover: rgb(43, 43, 43);
     /* secondary */
-    --secondaryColour:  #1E51EB;
+    --secondaryColour: rgb(30,81,235);
+    --borderSecondaryColour: rgba(30,81,235, 0.25);
     --secondaryFontColour: white;
     --errorMessageColour: rgba(126, 0, 0, 0.89);
 
@@ -109,8 +114,9 @@ body {
 #navigationBar {
     position: relative;
     background-color: var(--secondaryColour);
-    height: 80px;
+    height: var(--navigationBarHeight);
     text-transform: uppercase;
+    transition: all .4s ease;
 }
 
 #navigationBar .navigationBarLogo {
@@ -166,7 +172,6 @@ body {
 .profileHeading {
     background-color: var(--secondaryColour);
     color: rgba(255, 255, 255, 0.863);
-    border-radius: var(--defaultBorderRadius);
 
     width: var(--defaultWidth);
     height: var(--defaultHeight);
@@ -176,6 +181,7 @@ body {
     left: 50%;
     transform: translate(-50%, -50%);
 
+    border-radius: var(--defaultBorderRadius);
     /* for the border */
     border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
     box-shadow: 20px 20px rgba(0,0,0,.15);
@@ -487,19 +493,18 @@ br, img, button {
 }
 
 .settingsOptions p {
-    position: absolute;
-    float: left;
     margin-left: 5%;
     margin-top: 2%;
 }
 
 .settingsOptions button {
+    border: var(--borderSecondaryColour) 1px solid;
     width: 100%;
     text-align: left;
 }
 
 .buttonHighlighter {
-    left: 0%;
+    left: 0;
     transform: translateX(-50%);
     width: 5%;
     height: 100%;
@@ -509,7 +514,6 @@ br, img, button {
 
 .settingsOptions button:focus {
     outline: 0;
-    background-color: var(--buttonHoveredColour);
 }
 
 .settingsOptions .buttonHighlighter {
@@ -536,4 +540,78 @@ br, img, button {
 
 #rightProfileSection, #rightPreferencesSection, #rightNotificationsSection, #rightSecuritySection {
     display: none;
+}
+
+.chatClass {
+    display: flex;
+    flex-direction: column;
+    height: calc(100vh - var(--navigationBarHeight));
+    width: 100%;
+    padding: 1px;
+    box-sizing: border-box;
+
+    background-color: var(--primaryFontColour);
+
+    border-radius: var(--defaultBorderRadius);
+    /* for the border */
+    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
+    box-shadow: 20px 20px rgba(0,0,0,.15);
+    transition: all .4s ease;
+    color: var(--primaryFontColour);
+}
+
+/* hover over the login form border */
+.chatClass:hover {
+    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+    box-shadow: 10px 10px rgba(0,0,0,.25);
+}
+
+
+.chatWindow {
+    flex: 1;
+    display: flex;
+    flex-direction: column;
+    background-color: #F9F9F9;
+    box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.15);
+}
+
+.messages {
+    flex: 1;
+    overflow: scroll;
+    max-height: calc(100vh - (calc(var(--navigationBarHeight) + var(--chatHeaderHeight))));
+}
+
+.message {
+    display: flex;
+    border-bottom: 1px solid #EFEFEF;
+    padding: 10px;
+}
+
+.message:last-of-type {
+     border-bottom: none;
+ }
+
+
+
+.messageText {
+    flex: 1;
+}
+
+.inputContainer {
+    display: flex;
+}
+
+input {
+    flex: 1;
+    font-size: 18px;
+    box-sizing: border-box;
+}
+
+.chatClass .header {
+    text-align: center;
+    height: var(--chatHeaderHeight)
+}
+
+.chatClass h1, .chatClass p, .chatWindow h1, .chatWindow p {
+    color: var(--secondaryFontColour)
 }
