@@ -16,7 +16,7 @@ io.on("connection", socket => {
     socket.emit("loggedIn", {
         users: users.map(s => s.username),
         messages: messages
-    })
+    });
     // connect
     socket.on("newUser", username => {
         socket.username = username;
@@ -25,7 +25,12 @@ io.on("connection", socket => {
         users.push(socket);
         io.emit("userOnline", socket.username);
     });
+    // // get users
+    // socket.on('roomUsers', users => {
+    //    outputUsers(users);
+    // });
 
+    // send message
     socket.on("msg", msg => {
         let message = {
             index: index,
@@ -49,5 +54,9 @@ io.on("connection", socket => {
 });
 
 http.listen(process.env.PORT || 3000, () => {
-    console.log("Listening on port %s", process.env.PORT || 3000);
+    console.log("Chat Server is listening on port %s", process.env.PORT || 3000);
 })
+
+// function outputUsers(users) {
+//     userList.innerHTML = `${users.map(user => `<li>${user.username}</li>`).join('')}`;
+// }

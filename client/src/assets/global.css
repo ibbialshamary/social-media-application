@@ -542,43 +542,38 @@ br, img, button {
     display: none;
 }
 
+.chatClass h1, .chatClass p, .chatWindow h1, .chatWindow p {
+    color: #1b1c1d;
+}
+
 .chatClass {
-    display: flex;
-    flex-direction: column;
-    height: calc(100vh - var(--navigationBarHeight));
+    background-color: white;
+    color: black;
+}
+
+.chatClass .inputContainer {
     width: 100%;
-    padding: 1px;
-    box-sizing: border-box;
-
-    background-color: var(--primaryFontColour);
-
-    border-radius: var(--defaultBorderRadius);
-    /* for the border */
-    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;
-    box-shadow: 20px 20px rgba(0,0,0,.15);
-    transition: all .4s ease;
-    color: var(--primaryFontColour);
 }
 
-/* hover over the login form border */
-.chatClass:hover {
-    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
-    box-shadow: 10px 10px rgba(0,0,0,.25);
-}
-
-
-.chatWindow {
+.messageText {
     flex: 1;
+}
+
+.inputContainer {
     display: flex;
-    flex-direction: column;
-    background-color: #F9F9F9;
-    box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.15);
+}
+
+input {
+    flex: 1;
+    font-size: 18px;
+    box-sizing: border-box;
 }
 
 .messages {
     flex: 1;
     overflow: scroll;
-    max-height: calc(100vh - (calc(var(--navigationBarHeight) + var(--chatHeaderHeight))));
+    height: calc(100vh - (calc(var(--navigationBarHeight) + var(--chatHeaderHeight))));
+    max-height: calc(100vh - (calc(var(--navigationBarHeight) + var(--chatHeaderHeight) + 26px)));
 }
 
 .message {
@@ -597,21 +592,80 @@ br, img, button {
     flex: 1;
 }
 
-.inputContainer {
-    display: flex;
-}
+/*.chatClass {*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    height: calc(100vh - var(--navigationBarHeight));*/
+/*    width: 100%;*/
+/*    padding: 1px;*/
+/*    box-sizing: border-box;*/
 
-input {
-    flex: 1;
-    font-size: 18px;
-    box-sizing: border-box;
-}
+/*    background-color: var(--primaryFontColour);*/
 
-.chatClass .header {
-    text-align: center;
-    height: var(--chatHeaderHeight)
-}
+/*    border-radius: var(--defaultBorderRadius);*/
+/*    !* for the border *!*/
+/*    border-radius: 0% 0% 0% 0% / 0% 0% 0% 0% ;*/
+/*    box-shadow: 20px 20px rgba(0,0,0,.15);*/
+/*    transition: all .4s ease;*/
+/*    color: var(--primaryFontColour);*/
+/*}*/
 
-.chatClass h1, .chatClass p, .chatWindow h1, .chatWindow p {
-    color: var(--secondaryFontColour)
-}
+/*!* hover over the login form border *!*/
+/*.chatClass:hover {*/
+/*    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;*/
+/*    box-shadow: 10px 10px rgba(0,0,0,.25);*/
+/*}*/
+
+
+/*.chatWindow {*/
+/*    flex: 1;*/
+/*    display: flex;*/
+/*    flex-direction: column;*/
+/*    background-color: #F9F9F9;*/
+/*    box-shadow: 1px 1px 6px 0px rgba(0, 0, 0, 0.15);*/
+/*}*/
+
+/*.messages {*/
+/*    flex: 1;*/
+/*    overflow: scroll;*/
+/*    max-height: calc(100vh - (calc(var(--navigationBarHeight) + var(--chatHeaderHeight))));*/
+/*}*/
+
+/*.message {*/
+/*    display: flex;*/
+/*    border-bottom: 1px solid #EFEFEF;*/
+/*    padding: 10px;*/
+/*}*/
+
+/*.message:last-of-type {*/
+/*     border-bottom: none;*/
+/* }*/
+
+
+
+/*.messageText {*/
+/*    flex: 1;*/
+/*}*/
+
+/*.inputContainer {*/
+/*    display: flex;*/
+/*}*/
+
+/*input {*/
+/*    flex: 1;*/
+/*    font-size: 18px;*/
+/*    box-sizing: border-box;*/
+/*}*/
+
+/*.chatClass {*/
+/*    position: absolute;*/
+/*}*/
+
+/*.chatClass .header {*/
+/*    text-align: center;*/
+/*    height: var(--chatHeaderHeight)*/
+/*}*/
+
+/*.chatClass h1, .chatClass p, .chatWindow h1, .chatWindow p {*/
+/*    color: var(--secondaryFontColour)*/
+/*}*/

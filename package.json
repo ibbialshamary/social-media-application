@@ -7,8 +7,9 @@
     "client-install": "npm install --prefix client",
     "start": "node app.js",
     "server": "nodemon server/app.js",
+    "chatServer": "nodemon server/ChatServer.js",
     "client": "npm run serve --prefix client",
-    "dev": "concurrently \"npm run server\" \"npm run client\""
+    "dev": "concurrently \"npm run server\" \"npm run chatServer\" \"npm run client\""
   },
   "author": "Ibbi",
   "license": "N/A",

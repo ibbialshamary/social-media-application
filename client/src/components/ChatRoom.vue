@@ -8,7 +8,7 @@
     </div>
     <form class="inputContainer" v-on:submit="sendMessage">
       <input type="text" v-model="msg">
-      <button v-on:click="sendMessage" v-bind:disabled="!msg">Send Message</button>
+      <button v-on:click="sendMessage(); scrollToBottom();" v-bind:disabled="!msg">Send Message</button>
     </form>
   </div>
 </template>
@@ -30,7 +30,13 @@ export default {
         return;
       }
       this.$emit('sendMessage', this.msg);
+      // empty out the message input
       this.msg = "";
+    },
+    scrollToBottom() {
+      //  scroll down
+      let messagesContainer = document.getElementsByClassName("chatClass")[0];
+      messagesContainer.scrollTop = messagesContainer.scrollHeight - messagesContainer.clientHeight;
     }
   },
 }

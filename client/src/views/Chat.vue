@@ -3,7 +3,7 @@
     <div class="chatClass">
       <div class="header">
         <h1>Chat Room</h1>
-        <p class="username">Username: {{ username }}</p>
+        <p class="username">Username: {{ user.username }}</p>
         <p class="online">Online: {{ users.length}}</p>
       </div>
       <Chatroom v-bind:messages="messages" v-on:sendMessage="this.sendMessage"></Chatroom>
@@ -14,11 +14,17 @@
 <script>
 import io from "socket.io-client";
 import Chatroom from "@/components/ChatRoom";
+import { mapGetters, mapState } from 'vuex'
 
 export default {
   name: "App",
   components: {
     Chatroom
+  },
+  computed: {
+    ...mapGetters({
+      user: "user"
+    })
   },
   data: function() {
     return {
@@ -33,7 +39,7 @@ export default {
       this.socket.on('loggedIn', data => {
         this.messages = data.messages;
         this.users = data.users;
-        this.socket.emit("newUser", this.username);
+        this.socket.emit("newUser", this.user.username);
       });
       this.listen();
     },
@@ -46,6 +52,7 @@ export default {
       });
       this.socket.on('msg', message => {
         this.messages.push(message);
+
       });
     },
     sendMessage: function(message) {
@@ -53,10 +60,8 @@ export default {
     }
   },
   mounted() {
-    this.username = prompt("What is your username?", "Anonymous");
-
-    if(!this.username) {
-      this.username = "Anonymous";
+    if(!this.user) {
+      this.user.username = "Uninvited Guest";
     }
 
     this.joinServer();
