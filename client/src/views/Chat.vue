@@ -1,12 +1,7 @@
 <template>
-  <div class="chatClass">
-    <div id="chatApp">
-<!--      <div class="header">-->
-<!--        <h1>Username: {{ username }}</h1>-->
-<!--        <p class="online">Active: <green>{{ users.length}} users</green></p>-->
-<!--      </div>-->
-      <Chatroom v-bind:messages="messages" v-on:sendMessage="this.sendMessage"></Chatroom>
-    </div>
+  <div class="app">
+<!--    <br><h1 style="text-align: center;">Connected as: {{ username }}</h1> <p>Active: <green>{{ users.length }} users</green></p>-->
+    <Chatroom v-bind:messages="messages" v-on:sendMessage="this.sendMessage"></Chatroom>
   </div>
 </template>
 

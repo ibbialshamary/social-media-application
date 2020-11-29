@@ -331,9 +331,6 @@ a {
     background: #232526;  /* fallback for old browsers */
     background: var(--mainContainerGradientChrome);  /* Chrome 10-25, Safari 5.1-6 */
     background: var(--mainContainerGradientFirefox); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
-    
-
-
     width: 90%;
     height: 80vh;
 }
@@ -766,18 +763,39 @@ br, img, button {
 .activeUsers {
     background-color: #356afa;
 }
-p green {
+green {
     color: #3ecb74;
 }
 
-/*#chatApp {*/
-/*    margin: 0 0 5px 0;*/
-/*    background-color: white;*/
-/*    border-radius: 8px;*/
-/*}*/
+.chatApp h1, p {
+    text-align: center;
+    margin: 0;
+}
+/* main chat container css */
+.mainChatContainer {
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    margin-top: var(--marginFromHeader);
+    background: #232526;  /* fallback for old browsers */
+    background: var(--mainContainerGradientChrome);  /* Chrome 10-25, Safari 5.1-6 */
+    background: var(--mainContainerGradientFirefox); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    width: 100%;
+    height: 80vh;
+}
 
-.chatClass {
+/* chat tab */
+.chatContainer {
+    position: absolute;
+    top: 50%;
+    left: 75%;
+    transform: translate(-50%, -50%);
+    margin-top: 2%;
+    width: 45%;
+    height: 80%;
 
+    /* for the border */
+    transition: all .4s ease;
 }
 
 .header p, .header h1 {
@@ -795,18 +813,19 @@ p green {
 .chatClass {
     display: flex;
     flex-direction: column;
-    height: calc(100vh - (calc(var(--navigationBarHeight) + var(--chatHeaderHeight))));
+    height: 100%;
     width: 100%;
     max-width: 768px;
     margin: 0 auto;
     box-sizing: border-box;
+
 }
 
 .chatWindow {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background-color: rgba(0, 0, 0, 0.85);
+    background-color: var(--secondaryColour);
     box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.15);
 
 }
@@ -814,21 +833,21 @@ p green {
 .messages {
     flex: 1;
     overflow: scroll;
-    height: calc(100vh - (calc(var(--navigationBarHeight) + var(--chatHeaderHeight))));
-    max-height: calc(100vh - (calc(var(--navigationBarHeight) + var(--chatHeaderHeight) + 26px)));
+    overflow-x: hidden;
+    max-height: 60vh;
 }
 
 .messages::-webkit-scrollbar {
-    width: 12px;
+    background: var(--mainContainerGradientFirefox);
 }
 
 .messages::-webkit-scrollbar-track {
-    background-color: #123456;
+    background: var(--primaryColour);
 }
 
 .messages::-webkit-scrollbar-thumb {
-    background: #123456;
-    outline: 1px solid #654321;
+    background: var(--mainContainerGradientFirefox);
+    outline: 1px solid var(--secondaryColour);
 }
 
 .greyMessageBubble {
