@@ -1,20 +1,18 @@
 <template>
-  <div id="app">
-    <div class="chatClass">
-      <div class="header">
-        <h1>Chat Room</h1>
-        <p class="username">Username: {{ user.username }}</p>
-        <p class="online">Online: {{ users.length}}</p>
-      </div>
-      <Chatroom v-bind:messages="messages" v-on:sendMessage="this.sendMessage"></Chatroom>
+  <div id="chatApp">
+    <div class="header">
+      <h1>Chat Room</h1>
+      <p class="username">Username: {{ username }}</p>
+      <p class="online">Online: {{ users.length}}</p>
     </div>
+    <Chatroom v-bind:messages="messages" v-on:sendMessage="this.sendMessage"></Chatroom>
   </div>
 </template>
 
 <script>
 import io from "socket.io-client";
 import Chatroom from "@/components/ChatRoom";
-import { mapGetters, mapState } from 'vuex'
+import { mapGetters, mapState } from 'vuex';
 
 export default {
   name: "App",
@@ -23,7 +21,7 @@ export default {
   },
   computed: {
     ...mapGetters({
-      user: "user"
+      userFromMapGetters: "user",
     })
   },
   data: function() {
@@ -39,7 +37,7 @@ export default {
       this.socket.on('loggedIn', data => {
         this.messages = data.messages;
         this.users = data.users;
-        this.socket.emit("newUser", this.user.username);
+        this.socket.emit("newUser", this.username);
       });
       this.listen();
     },
@@ -52,7 +50,6 @@ export default {
       });
       this.socket.on('msg', message => {
         this.messages.push(message);
-
       });
     },
     sendMessage: function(message) {
@@ -60,8 +57,10 @@ export default {
     }
   },
   mounted() {
-    if(!this.user) {
-      this.user.username = "Uninvited Guest";
+    this.username = this.userFromMapGetters.username;
+
+    if(!this.username) {
+      this.username = "Anonymous";
     }
 
     this.joinServer();
@@ -69,3 +68,15 @@ export default {
 }
 </script>
 
+<style>
+#chatApp {
+  display: flex;
+  flex-direction: column;
+  height: 100vh;
+  width: 100%;
+  max-width: 768px;
+  margin: 0 auto;
+  padding: 50px;
+  box-sizing: border-box;
+}
+</style>

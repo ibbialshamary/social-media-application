@@ -20,13 +20,12 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ChatRoom.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatRoom.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Chat.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/ChatServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/ChatServer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/app.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/app.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -49,7 +48,7 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/server" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ChatApplication" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -84,7 +83,10 @@
       <workItem from="1606496677607" duration="3150000" />
       <workItem from="1606507813246" duration="132000" />
       <workItem from="1606519453723" duration="4267000" />
-      <workItem from="1606578632874" duration="5986000" />
+      <workItem from="1606578632874" duration="7452000" />
+      <workItem from="1606595280912" duration="6847000" />
+      <workItem from="1606610402874" duration="4423000" />
+      <workItem from="1606666087033" duration="2017000" />
     </task>
     <servers />
   </component>
@@ -104,9 +106,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1061" y="443" key="FileChooserDialogImpl" timestamp="1606498572670">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="-1124" y="695" key="FileChooserDialogImpl" timestamp="1606667581310">
+      <screen x="-1920" y="366" width="1920" height="1040" />
     </state>
+    <state x="-1124" y="695" key="FileChooserDialogImpl/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@-1920.366.1920.1040" timestamp="1606667581310" />
     <state x="1061" y="443" key="FileChooserDialogImpl/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606498572670" />
     <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1606399186364">
       <screen x="0" y="0" width="2560" height="1400" />
