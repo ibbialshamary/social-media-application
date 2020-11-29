@@ -1,11 +1,10 @@
 <template>
   <div class="chatClass">
     <div id="chatApp">
-      <div class="header">
-        <h1>Chat Room</h1>
-        <p class="username">Username: {{ username }}</p>
-        <p class="online">Online: {{ users.length}}</p>
-      </div>
+<!--      <div class="header">-->
+<!--        <h1>Username: {{ username }}</h1>-->
+<!--        <p class="online">Active: <green>{{ users.length}} users</green></p>-->
+<!--      </div>-->
       <Chatroom v-bind:messages="messages" v-on:sendMessage="this.sendMessage"></Chatroom>
     </div>
   </div>
@@ -38,7 +37,7 @@ export default {
     scrollToChatEnd: function() {
       let messagesContainer = document.getElementsByClassName("messages")[0];
       messagesContainer.scrollTop = messagesContainer.scrollHeight;
-      alert("Scroll Finished");
+      // alert("Scroll Finished");
     },
     joinServer: function() {
       this.socket.on('loggedIn', data => {
@@ -63,6 +62,10 @@ export default {
       this.socket.emit('msg', message);
       this.scrollToChatEnd();
 
+      //  show sent message to its user's client
+      let sentMessage = document.getElementsByClassName("messages")[0];
+      sentMessage.insertAdjacentHTML('beforeend',
+          `<div class="blueMessageBubble"><div class="username">${this.username}: </div><div class="message">${message}</div> </div>`);
     }
   },
   mounted() {

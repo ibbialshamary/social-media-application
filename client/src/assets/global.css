@@ -762,8 +762,22 @@ br, img, button {
 
 
 /* new version of chat */
+
+.activeUsers {
+    background-color: #356afa;
+}
+p green {
+    color: #3ecb74;
+}
+
+/*#chatApp {*/
+/*    margin: 0 0 5px 0;*/
+/*    background-color: white;*/
+/*    border-radius: 8px;*/
+/*}*/
+
 .chatClass {
-    background-color: white;
+
 }
 
 .header p, .header h1 {
@@ -775,6 +789,7 @@ br, img, button {
 .chatClass .header {
     background-color: #e8f0f6;
     padding: 1.1% 0 1.1% 0;
+
 }
 
 .chatClass {
@@ -803,7 +818,30 @@ br, img, button {
     max-height: calc(100vh - (calc(var(--navigationBarHeight) + var(--chatHeaderHeight) + 26px)));
 }
 
-.message {
+.messages::-webkit-scrollbar {
+    width: 12px;
+}
+
+.messages::-webkit-scrollbar-track {
+    background-color: #123456;
+}
+
+.messages::-webkit-scrollbar-thumb {
+    background: #123456;
+    outline: 1px solid #654321;
+}
+
+.greyMessageBubble {
+    border: 2px solid silver;
+    background-color: silver;
+    color: black;
+    border-radius: 5px;
+    padding: 10px;
+    margin: 10px 10px;
+    display: flex;
+}
+
+.blueMessageBubble {
     border: 2px solid #009bf4;
     background-color: #009bf4;
     border-radius: 5px;
@@ -829,10 +867,15 @@ br, img, button {
 
 
 }
-input {
+
+.inputContainer input {
     flex: 1;
     font-size: 18px;
     box-sizing: border-box;
+}
+
+.inputContainer input, .inputContainer button {
+    margin: 5px;
 }
 
 .chatClass button {

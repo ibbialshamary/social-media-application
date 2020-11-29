@@ -1,16 +1,18 @@
 <template>
-  <div class="chatClass">
-    <div class="chatWindow">
-      <div class="messages">
-        <div class="message" v-for="message in messages" v-bind:key="message.index">
-          <div class="username"> {{ message.username }}: </div>
-          <div class="messageText">{{ message.msg }}</div>
+  <div class="chatMainContainer">
+    <div class="chatClass">
+      <div class="chatWindow">
+        <div class="messages">
+          <div class="greyMessageBubble" v-for="message in messages" v-bind:key="message.index">
+            <div class="username"> {{ message.username }}: </div>
+            <div class="messageText">{{ message.msg }}</div>
+          </div>
         </div>
+        <form class="inputContainer" v-on:submit="sendMessage">
+          <input class="messageInput" type="text" v-model="msg">
+          <button v-on:click="sendMessage" v-bind:disabled="!msg">Send Message</button>
+        </form>
       </div>
-      <form class="inputContainer" v-on:submit="sendMessage">
-        <input type="text" v-model="msg">
-        <button v-on:click="sendMessage" v-bind:disabled="!msg">Send Message</button>
-      </form>
     </div>
   </div>
 </template>
@@ -34,6 +36,8 @@ export default {
       }
       this.$emit('sendMessage', this.msg);
       this.msg = "";
+
+
     }
   },
 }

@@ -51,7 +51,7 @@
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
+    <property name="settings.editor.selected.configurable" value="terminal" />
     <property name="ts.external.directory.path" value="D:\Program Files\WebStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
@@ -87,6 +87,8 @@
       <workItem from="1606666087033" duration="2172000" />
       <workItem from="1606670926706" duration="2566000" />
       <workItem from="1606673513333" duration="52000" />
+      <workItem from="1606673637037" duration="488000" />
+      <workItem from="1606685279962" duration="3720000" />
     </task>
     <servers />
   </component>
@@ -127,14 +129,14 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2539" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606399186364" />
-    <state x="782" y="346" key="SettingsEditor" timestamp="1606396668481">
+    <state x="782" y="346" key="SettingsEditor" timestamp="1606674024454">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="782" y="346" key="SettingsEditor/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606396668481" />
-    <state x="1098" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606498509539">
+    <state x="782" y="346" key="SettingsEditor/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606674024454" />
+    <state x="1098" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606685471957">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1098" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606498509539" />
+    <state x="1098" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606685471957" />
     <state x="988" y="300" width="585" height="801" key="find.popup" timestamp="1606581427709">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
