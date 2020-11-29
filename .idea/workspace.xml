@@ -20,12 +20,10 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/inspectionProfiles/Project_Default.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ChatRoom.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatRoom.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Chat.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/ChatServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/ChatServer.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -86,7 +84,9 @@
       <workItem from="1606578632874" duration="7452000" />
       <workItem from="1606595280912" duration="6847000" />
       <workItem from="1606610402874" duration="4423000" />
-      <workItem from="1606666087033" duration="2017000" />
+      <workItem from="1606666087033" duration="2172000" />
+      <workItem from="1606670926706" duration="2566000" />
+      <workItem from="1606673513333" duration="52000" />
     </task>
     <servers />
   </component>

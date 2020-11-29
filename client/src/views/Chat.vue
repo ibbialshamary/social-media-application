@@ -1,11 +1,13 @@
 <template>
-  <div id="chatApp">
-    <div class="header">
-      <h1>Chat Room</h1>
-      <p class="username">Username: {{ username }}</p>
-      <p class="online">Online: {{ users.length}}</p>
+  <div class="chatClass">
+    <div id="chatApp">
+      <div class="header">
+        <h1>Chat Room</h1>
+        <p class="username">Username: {{ username }}</p>
+        <p class="online">Online: {{ users.length}}</p>
+      </div>
+      <Chatroom v-bind:messages="messages" v-on:sendMessage="this.sendMessage"></Chatroom>
     </div>
-    <Chatroom v-bind:messages="messages" v-on:sendMessage="this.sendMessage"></Chatroom>
   </div>
 </template>
 
@@ -33,6 +35,11 @@ export default {
     }
   },
   methods: {
+    scrollToChatEnd: function() {
+      let messagesContainer = document.getElementsByClassName("messages")[0];
+      messagesContainer.scrollTop = messagesContainer.scrollHeight;
+      alert("Scroll Finished");
+    },
     joinServer: function() {
       this.socket.on('loggedIn', data => {
         this.messages = data.messages;
@@ -54,29 +61,19 @@ export default {
     },
     sendMessage: function(message) {
       this.socket.emit('msg', message);
+      this.scrollToChatEnd();
+
     }
   },
   mounted() {
     this.username = this.userFromMapGetters.username;
-
     if(!this.username) {
       this.username = "Anonymous";
     }
-
     this.joinServer();
   },
 }
 </script>
 
 <style>
-#chatApp {
-  display: flex;
-  flex-direction: column;
-  height: 100vh;
-  width: 100%;
-  max-width: 768px;
-  margin: 0 auto;
-  padding: 50px;
-  box-sizing: border-box;
-}
 </style>
