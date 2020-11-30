@@ -23,7 +23,6 @@
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ChatRoom.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatRoom.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/views/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Chat.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +87,8 @@
       <workItem from="1606670926706" duration="2566000" />
       <workItem from="1606673513333" duration="52000" />
       <workItem from="1606673637037" duration="488000" />
-      <workItem from="1606685279962" duration="8164000" />
+      <workItem from="1606685279962" duration="8261000" />
+      <workItem from="1606693695141" duration="4986000" />
     </task>
     <servers />
   </component>

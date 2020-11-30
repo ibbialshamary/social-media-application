@@ -3,6 +3,7 @@
 :root {
     /* primary */
     --primaryColour: slateblue;
+    --borderColour: rgba(255, 255, 255, 0.2);
     --borderPrimaryColour:  rgba(41.6, 35.3, 80.4, 0.95);
     --primaryFontColour: white;
     --primaryInputColourThemeOpp: white;
@@ -51,6 +52,7 @@
 [data-theme="dark"] {
     /* primary */
     --primaryColour: slateblue;
+    --borderColour: rgba(255, 255, 255, 0.2);
     --primaryFontColour: white;
     --primaryInputColourThemeOpp: white;
     --navigationBarLinkHover: rgb(207, 207, 207);
@@ -79,6 +81,7 @@
 [data-theme="light"] {
     /* primary */
     --primaryColour: #356afa;
+    --borderColour: rgba(0, 0, 0, 0.2);
     --primaryFontColour: black;
     --primaryInputColourThemeOpp: #1e2020;
     --navigationBarLinkHover: rgb(43, 43, 43);
@@ -777,25 +780,78 @@ green {
     left: 50%;
     transform: translateX(-50%);
     margin-top: var(--marginFromHeader);
-    background: #232526;  /* fallback for old browsers */
-    background: var(--mainContainerGradientChrome);  /* Chrome 10-25, Safari 5.1-6 */
-    background: var(--mainContainerGradientFirefox); /* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ */
+    /*background: #232526;  !* fallback for old browsers *!*/
+    /*background: var(--mainContainerGradientChrome);  !* Chrome 10-25, Safari 5.1-6 *!*/
+    /*background: var(--mainContainerGradientFirefox); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
     width: 100%;
     height: 80vh;
+    user-select: none;
 }
 
+.messages p {
+    padding: 10px 10px 10px 10px;
+    border-bottom: solid 1px rgba(128, 128, 128, 0.25);
+    color: var(--primaryFontColour);
+    text-align: left;
+    position: fixed;
+    background: var(--mainContainerGradientFirefox);
+    width: 74%;
+    opacity: 0.98;
+}
+
+.chatHeading {
+    padding: 10px 10px 10px 10px;
+    border-bottom: solid 1px rgba(128, 128, 128, 0.25);
+    border-left: solid 1px rgba(128, 128, 128, 0.25);
+}
+
+.chatHeading p {
+    color: var(--primaryFontColour);
+    text-align: left;
+}
+/* active users tab */
+.activeUsersContainer {
+    position: relative;
+    margin-top: 2%;
+    width: 25%;
+    height: 85%;
+
+    background: var(--primaryColour);
+    display: inline-block;
+    float: right;
+}
+
+.activeUsers p {
+    background: var(--secondaryColour);
+
+    text-align: left;
+    color: var(--primaryFontColour);
+    padding: 10px 10px 10px 10px;
+    border-bottom: solid 1px rgba(128, 128, 128, 0.25);
+}
+
+.activeUsers .users p {
+    background: var(--mainContainerGradientFirefox);
+
+    border-bottom: solid 1px rgba(128, 128, 128, 0.25);
+
+}
+
+.activeUsers {
+    height: 100%;
+    background: var(--mainContainerGradientFirefox);
+
+
+}
 /* chat tab */
 .chatContainer {
-    position: absolute;
-    top: 50%;
-    left: 75%;
-    transform: translate(-50%, -50%);
+    position: relative;
     margin-top: 2%;
-    width: 45%;
-    height: 80%;
+    width: 75%;
 
-    /* for the border */
-    transition: all .4s ease;
+    background: var(--secondaryColour);
+    display: inline-block;
+    float: right;
 }
 
 .header p, .header h1 {
@@ -807,7 +863,6 @@ green {
 .chatClass .header {
     background-color: #e8f0f6;
     padding: 1.1% 0 1.1% 0;
-
 }
 
 .chatClass {
@@ -815,7 +870,6 @@ green {
     flex-direction: column;
     height: 100%;
     width: 100%;
-    max-width: 768px;
     margin: 0 auto;
     box-sizing: border-box;
 
@@ -825,8 +879,11 @@ green {
     flex: 1;
     display: flex;
     flex-direction: column;
-    background-color: var(--secondaryColour);
-    box-shadow: 1px 1px 6px 0 rgba(0, 0, 0, 0.15);
+    background: var(--mainContainerGradientFirefox);
+    -webkit-box-shadow: inset 25px 0px 25px -25px rgba(0, 0, 0, 0.45), inset -25px 0px 25px -25px var(--secondaryFontColour);
+    -moz-box-shadow: inset 25px 0px 25px -25px rgba(0, 0, 0, 0.45), inset -25px 0px 25px -25px var(--secondaryFontColour);
+    box-shadow: inset 25px 0px 25px -25px rgba(0, 0, 0, 0.45), inset -25px 0px 25px -25px var(--secondaryFontColour);
+
 
 }
 
@@ -834,7 +891,7 @@ green {
     flex: 1;
     overflow: scroll;
     overflow-x: hidden;
-    max-height: 60vh;
+    max-height: 565px
 }
 
 .messages::-webkit-scrollbar {
@@ -842,7 +899,7 @@ green {
 }
 
 .messages::-webkit-scrollbar-track {
-    background: var(--primaryColour);
+    background: var(--secondaryColour);
 }
 
 .messages::-webkit-scrollbar-thumb {
@@ -856,16 +913,19 @@ green {
     color: black;
     border-radius: 5px;
     padding: 10px;
-    margin: 10px 10px;
+    margin: 10px 30% 10px 10px;
     display: flex;
+
+
 }
 
 .blueMessageBubble {
     border: 2px solid #009bf4;
     background-color: #009bf4;
+    color: white;
     border-radius: 5px;
     padding: 10px;
-    margin: 10px 10px;
+    margin: 10px 10px 10px 30%;
     display: flex;
 }
 
@@ -882,19 +942,22 @@ green {
 
 .inputContainer {
     display: flex;
-    background-color: #e8f0f6;
-
-
 }
 
 .inputContainer input {
     flex: 1;
     font-size: 18px;
     box-sizing: border-box;
+    background: var(--mainContainerGradientFirefox);
+    border: 1px solid var(--primaryFontColour);
+    color: var(--primaryFontColour);
+    padding: 5px 5px;
 }
 
 .inputContainer input, .inputContainer button {
     margin: 5px;
+    background: var(--mainContainerGradientFirefox);
+    border: 1px solid var(--borderColour);
 }
 
 .chatClass button {
