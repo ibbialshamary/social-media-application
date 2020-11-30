@@ -35,19 +35,19 @@
         </div>
 
         <div id="rightProfileSection" class="sectionClass">
-          <br><h1>Profile</h1><br>
+          <br><h2>Profile</h2><br>
         </div>
 
         <div id="rightPreferencesSection" class="sectionClass">
-          <br><h1>Preferences</h1><br>
+          <br><h2>Preferences</h2><br>
         </div>
 
         <div id="rightNotificationsSection" class="sectionClass">
-          <br><h1>Notifications</h1><br>
+          <br><h2>Notifications</h2><br>
         </div>
 
         <div id="rightSecuritySection" class="sectionClass">
-          <br><h1>Security</h1><br>
+          <br><h2>Security</h2><br>
         </div>
       </div>
     </div>

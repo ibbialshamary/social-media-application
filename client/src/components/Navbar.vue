@@ -54,7 +54,7 @@ export default {
             lightModeEnabled: false,
         };
     },
-    created: function () {
+    mounted: function () {
         // call the function under methods that gets saved theme from localstorage
         this.getThemeFromLocalStorage();
     },
@@ -78,6 +78,7 @@ export default {
 
             if (currentTheme) {
                 document.documentElement.setAttribute('data-theme', currentTheme);
+                this.lightModeEnabled = true;
                 if (currentTheme === 'dark') {
                     document.documentElement.setAttribute('data-theme', currentTheme);
                     this.lightModeEnabled = false;
