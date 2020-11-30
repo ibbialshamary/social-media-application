@@ -1,26 +1,26 @@
 <template>
   <div class="mainContainer">
-    <br><h1 style="text-align: center;">Welcome back, {{ user.name }}, here is what you have missed:</h1>
+    <br><h2 style="text-align: center;">Welcome back, {{ user.name }}, here is what you have missed:</h2>
     <div class="postsContainer">
         <br><h1 style="text-align: center">Posts</h1>
         <div class="grid-container">
           <div class="grid-item">
-            <p>Test Post One</p>
+            <p2>Test Post One</p2>
           </div>
           <div class="grid-item">
-            <p>Test Post Two</p>
+            <p2>Test Post Two</p2>
           </div>
           <div class="grid-item">
-            <p>Test Post Three</p>
+            <p2>Test Post Three</p2>
           </div>
           <div class="grid-item">
-            <p>Test Post Four</p>
+            <p2>Test Post Four</p2>
           </div>
           <div class="grid-item">
-            <p>Test Post Five</p>
+            <p2>Test Post Five</p2>
           </div>
           <div class="grid-item">
-            <p>Test Post Six</p>
+            <p2>Test Post Six</p2>
           </div>
         </div>
     </div>

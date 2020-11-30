@@ -87,16 +87,16 @@
     --primaryFontColour: white;
     --primarySubHeadingFontColour: black;
     --primaryInputColourThemeOpp: #1e2020;
-    --navigationBarLinkHover: rgb(43, 43, 43);
+    --navigationBarLinkHover: rgb(207, 207, 207);
     /* secondary */
     --secondaryColour: rgb(30,81,235);
     --borderSecondaryColour: rgba(30,81,235, 0.25);
     --secondaryFontColour: #ffffff;
-    --errorMessageColour: rgba(126, 0, 0, 0.89);
+    --errorMessageColour: rgba(121, 0, 0, 0.95);
 
     --buttonHoveredColour: #1d4bd4;
     --buttonBackgroundColour: var(--primaryColour);
-    --buttonTextColour: black;
+    --buttonTextColour: white;
 
     /* gradients */
     --mainContainerGradientChrome: -webkit-linear-gradient(to left, #414345, #232526);
@@ -143,7 +143,7 @@ body {
 
 #lightBulb:hover {
     cursor: pointer;
-    
+
 }
 
 .navigationLinks {
@@ -181,7 +181,7 @@ body {
 
     width: var(--defaultWidth);
     height: var(--defaultHeight);
-    
+
     position: absolute;
     top: 50%;
     left: 50%;
@@ -200,15 +200,17 @@ body {
     box-shadow: 10px 10px rgba(0,0,0,.25);
 }
 
-.profileHeading h1 {
+.profileHeading h2 {
     font-weight: bold;
     font-size: var(--headingFontSize);
+}
+
+.profileHeading h2, .profileHeading p {
+    color: var(--primaryFontColour);
     text-align: center;
 }
 
-.profileHeading p {
-    text-align: center;
-}
+
 
 .profileHeading img {
     margin-top: 8%;
@@ -318,7 +320,7 @@ button, .button, #button {
 
 #errorMessage {
     margin-top: 2%;
-    text-align: center; 
+    text-align: center;
     color: var(--errorMessageColour);
 }
 
@@ -329,7 +331,7 @@ a {
 /* homepage css */
 .mainContainer {
     border-radius: 0% 100% 50% 50% / 0% 0% 100% 100% ;
-    position: relative; 
+    position: relative;
     left: 50%;
     transform: translateX(-50%);
     margin-top: var(--marginFromHeader);
@@ -371,8 +373,8 @@ a {
     grid-row-gap: 20px;
     grid-template-columns: auto auto ;
     padding: 20px 80px 20px 80px;
-  }
-  
+}
+
 .grid-item {
     background-color: var(--gridItemBackground);
     /* passing: inside or the content of the grid container, so the text for example, how far away it is from the div */
@@ -408,10 +410,21 @@ a {
 h1 {
     color: var(--primaryFontColour);
     user-select: none;
+    font-size: 40px;
+}
+
+h2 {
+    color: var(--primarySubHeadingFontColour);
+    user-select: none;
+    font-size: 40px;
 }
 
 p {
     color: var(--primaryFontColour);
+}
+
+p2 {
+    color: var(--primarySubHeadingFontColour);
 }
 
 br, img, button {
@@ -462,8 +475,12 @@ br, img, button {
     width: 25%;
     height: calc(100% - var(--settingsTitleHeadingHeight));
     top: calc(0% + var(--settingsTitleHeadingHeight));
-    
 }
+
+.leftSection p {
+    color: var(--primaryFontColour);
+}
+
 
 .rightSection {
     position: absolute;
@@ -476,6 +493,10 @@ br, img, button {
     -webkit-box-shadow: inset 25px 0px 25px -25px rgba(0, 0, 0, 0.45), inset -25px 0px 25px -25px var(--secondaryFontColour);
     -moz-box-shadow: inset 25px 0px 25px -25px rgba(0, 0, 0, 0.45), inset -25px 0px 25px -25px var(--secondaryFontColour);
     box-shadow: inset 25px 0px 25px -25px rgba(0, 0, 0, 0.45), inset -25px 0px 25px -25px var(--secondaryFontColour);
+}
+
+.sectionClass {
+    color: var(--primarySubHeadingFontColour);
 }
 
 .leftSection img {
@@ -493,6 +514,7 @@ br, img, button {
     margin-top: 5%;
     text-align: center;
     user-select: none;
+    color: var(--primarySubHeadingFontColour);
 }
 
 .settingsOptions p {
@@ -966,4 +988,6 @@ green {
 
 .chatClass button {
     margin-left: 1%;
+    color: var(--primarySubHeadingFontColour);
+
 }

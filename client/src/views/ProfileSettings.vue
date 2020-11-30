@@ -21,12 +21,12 @@
       <div class="settingsOptions">
         <button @click="showSelectedPage('buttonHighlighter', 'securitySection', 'sectionClass', 'rightSecuritySection')"><div class="buttonHighlighter" id="securitySection"></div><p>Security</p></button>
       </div>
-
     </div>
+
     <div class="rightSection">
       <div id="sectionsContainer">
         <div id="rightAboutSection" class="sectionClass">
-          <br><h1>About</h1><br>
+          <br><h2>About</h2><br>
           Name: <br><input type="text" value="Ibrahim" readonly><br><br>
           Username: <br><input type="text" value="ibbialshamary" readonly><br><br>
           Email: <br><input type="text" value="ibbialshamary@gmail.com" readonly><br><br>

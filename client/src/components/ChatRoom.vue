@@ -9,7 +9,7 @@
       <div class="chatClass">
         <div class="chatWindow">
           <div class="messages">
-            <p>Chatting to everyone<br><green>9 </green>online</p>
+            <p class="messagesFixedBanner">Chatting to everyone<br><green>9 </green>online</p>
             <div class="greyMessageBubble" v-for="message in messages" v-bind:key="message.index">
               <div class="username"> {{ message.username }}: </div>
               <div class="messageText">{{ message.msg }}</div>
@@ -24,7 +24,9 @@
     </div>
     <div class="activeUsersContainer">
       <div class="activeUsers">
-        <p>Active Users</p>
+        <div class="activeUsersHeading">
+          <p>Active Users</p>
+        </div>
         <div class="users">
           <p>John</p>
           <p>Billy</p>
