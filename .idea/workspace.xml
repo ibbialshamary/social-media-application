@@ -22,7 +22,6 @@
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ChatRoom.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatRoom.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -88,7 +87,8 @@
       <workItem from="1606673513333" duration="52000" />
       <workItem from="1606673637037" duration="488000" />
       <workItem from="1606685279962" duration="8261000" />
-      <workItem from="1606693695141" duration="4986000" />
+      <workItem from="1606693695141" duration="5068000" />
+      <workItem from="1606703483518" duration="1164000" />
     </task>
     <servers />
   </component>

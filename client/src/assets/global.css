@@ -6,6 +6,7 @@
     --borderColour: rgba(255, 255, 255, 0.2);
     --borderPrimaryColour:  rgba(41.6, 35.3, 80.4, 0.95);
     --primaryFontColour: white;
+    --primarySubHeadingFontColour: white;
     --primaryInputColourThemeOpp: white;
     --navigationBarLinkHover: rgb(207, 207, 207);
     /* secondary */
@@ -54,6 +55,7 @@
     --primaryColour: slateblue;
     --borderColour: rgba(255, 255, 255, 0.2);
     --primaryFontColour: white;
+    --primarySubHeadingFontColour: white;
     --primaryInputColourThemeOpp: white;
     --navigationBarLinkHover: rgb(207, 207, 207);
     /* secondary */
@@ -82,7 +84,8 @@
     /* primary */
     --primaryColour: #356afa;
     --borderColour: rgba(0, 0, 0, 0.2);
-    --primaryFontColour: black;
+    --primaryFontColour: white;
+    --primarySubHeadingFontColour: black;
     --primaryInputColourThemeOpp: #1e2020;
     --navigationBarLinkHover: rgb(43, 43, 43);
     /* secondary */
@@ -791,7 +794,7 @@ green {
 .messages p {
     padding: 10px 10px 10px 10px;
     border-bottom: solid 1px rgba(128, 128, 128, 0.25);
-    color: var(--primaryFontColour);
+    color: var(--primarySubHeadingFontColour);
     text-align: left;
     position: fixed;
     background: var(--mainContainerGradientFirefox);
@@ -803,6 +806,7 @@ green {
     padding: 10px 10px 10px 10px;
     border-bottom: solid 1px rgba(128, 128, 128, 0.25);
     border-left: solid 1px rgba(128, 128, 128, 0.25);
+    height: 45px;
 }
 
 .chatHeading p {
@@ -832,7 +836,7 @@ green {
 
 .activeUsers .users p {
     background: var(--mainContainerGradientFirefox);
-
+    color: var(--primarySubHeadingFontColour);
     border-bottom: solid 1px rgba(128, 128, 128, 0.25);
 
 }
@@ -868,7 +872,7 @@ green {
 .chatClass {
     display: flex;
     flex-direction: column;
-    height: 100%;
+    height: calc(565px + 45px);
     width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
@@ -904,7 +908,7 @@ green {
 
 .messages::-webkit-scrollbar-thumb {
     background: var(--mainContainerGradientFirefox);
-    outline: 1px solid var(--secondaryColour);
+    outline: 1px solid var(--mainContainerGradientFirefox);
 }
 
 .greyMessageBubble {
@@ -949,8 +953,8 @@ green {
     font-size: 18px;
     box-sizing: border-box;
     background: var(--mainContainerGradientFirefox);
-    border: 1px solid var(--primaryFontColour);
-    color: var(--primaryFontColour);
+    border: 1px solid var(--primarySubHeadingFontColour);
+    color: var(--primarySubHeadingFontColour);
     padding: 5px 5px;
 }
 
