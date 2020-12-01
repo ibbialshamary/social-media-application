@@ -1,7 +1,6 @@
 <template>
   <div class="mainChatContainer">
-<!--    <br><h1 style="text-align: center;">Welcome back, {{ userFromMapGetters.username }}, here is what you have missed:</h1>-->
-
+    <!--    <br><h1 style="text-align: center;">Welcome back, {{ userFromMapGetters.username }}, here is what you have missed:</h1>-->
     <div class="chatContainer">
       <div class="chatHeading">
         <p>Welcome to your chat and chat history, the chat is deleted every 24 hours</p>

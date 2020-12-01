@@ -12,6 +12,7 @@ import { mapGetters, mapState } from 'vuex';
 
 export default {
   name: "App",
+
   components: {
     Chatroom
   },
