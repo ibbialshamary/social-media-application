@@ -44,6 +44,7 @@
     --marginFromHeader: 2%;
     --settingsTitleHeadingHeight: 10%;
     --leftSectionWidth: 25%;
+    --subHeadingHeight: 45px;
 
     /* defaults */
     --defaultFontSize: 16px;
@@ -149,7 +150,7 @@ body {
 .navigationLinks {
     position: absolute;
     top: 50%;
-    right: 0%;
+    right: 0;
     transform: translate(-50%, -50%);
     user-select: none;
     display: flex;
@@ -518,8 +519,8 @@ br, img, button {
 }
 
 .settingsOptions p {
-    margin-left: 5%;
     margin-top: 2%;
+
 }
 
 .settingsOptions button {
@@ -607,19 +608,31 @@ green {
     opacity: 0.98;
 }
 
-.chatHeading {
+.chatHeading, .chatApp .chatHeading {
     padding: 10px 10px 10px 10px;
     border-top: solid 1px rgba(128, 128, 128, 0.25);
     border-bottom: solid 1px rgba(128, 128, 128, 0.25);
     border-left: solid 1px rgba(128, 128, 128, 0.25);
-    height: 45px;
+    height: var(--subHeadingHeight);
     background-color: var(--primaryColour);
 }
 
-.chatHeading p {
+.chatHeading p, .chatApp .chatHeading {
     color: var(--primaryFontColour);
     text-align: left;
 }
+
+.chatApp .chatHeading p2 {
+    position: absolute;
+    top: 50%;
+    left: 95%;
+    width: 10%;
+    transform: translate(-50%, -50%);
+    user-select: none;
+    display: flex;
+    pointer-events: none;
+}
+
 /* active users tab */
 .activeUsersContainer {
     position: relative;
@@ -630,12 +643,17 @@ green {
     float: right;
 }
 
-.activeUsersHeading {
-    height: 45px;
-}
-.activeUsers p {
-    background: var(--primaryColour);
 
+.chatApp .activeUsersHeading {
+    width: 25%;
+}
+
+
+.activeUsersHeading, .chatApp .activeUsersHeading {
+    height: var(--subHeadingHeight);
+}
+.activeUsers p, .chatApp .activeUsersHeading p {
+    background: var(--primaryColour);
     text-align: left;
     color: var(--primaryFontColour);
     padding: 10px 10px 10px 10px;
@@ -652,11 +670,11 @@ green {
 
 .activeUsers {
     /*height: calc(565px + 50px);*/
-    height: calc(100vh - calc(var(--navigationBarHeight)));
+    height: calc(100vh - calc(var(--navigationBarHeight)) - var(--subHeadingHeight));
     background: var(--mainContainerGradientFirefox);
 }
 /* chat tab */
-.chatContainer {
+.chatContainer{
     position: relative;
     width: 75%;
 
@@ -664,6 +682,18 @@ green {
     display: inline-block;
     float: right;
 }
+
+.chatApp .chatHeading {
+    position: relative;
+    width: 75%;
+
+
+    background: var(--primaryColour);
+    display: inline-block;
+    float: right;
+}
+
+
 
 .header p, .header h1 {
     margin: 0;
@@ -680,7 +710,7 @@ green {
     display: flex;
     flex-direction: column;
     /*height: calc(565px + 5px);*/
-    height: calc(100vh - calc(var(--navigationBarHeight)) - 45px);
+    height: calc(100vh - calc(var(--navigationBarHeight)) - var(--subHeadingHeight));
     width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
@@ -703,7 +733,7 @@ green {
     overflow: scroll;
     overflow-x: hidden;
     /*max-height: calc(565px - 45px);*/
-    max-height: calc(100vh - calc(var(--navigationBarHeight) + 95px));
+    max-height: calc(100vh - calc(var(--navigationBarHeight)) - calc(var(--subHeadingHeight) * 2) - 5px);
 }
 
 .messages::-webkit-scrollbar {

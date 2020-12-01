@@ -1,6 +1,16 @@
 <template>
   <div class="chatApp">
 <!--    <br><h1 style="text-align: center;">Connected as: {{ username }}</h1> <p>Active: <green>{{ users.length }} users</green></p>-->
+
+    <div class="chatHeading">
+      <p>Welcome to your chat and chat history, {{ username }}, the chat is deleted every 24 hours</p>
+      <p2>Active: <green>{{ users.length }} users</green></p2>
+    </div>
+
+
+    <div class="activeUsersHeading">
+      <p>Active Users</p>
+    </div>
     <Chatroom v-bind:messages="messages" v-on:sendMessage="this.sendMessage"></Chatroom>
   </div>
 </template>
@@ -12,7 +22,6 @@ import { mapGetters, mapState } from 'vuex';
 
 export default {
   name: "App",
-
   components: {
     Chatroom
   },
