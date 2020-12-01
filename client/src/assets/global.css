@@ -581,10 +581,11 @@ green {
 }
 /* main chat container css */
 .mainChatContainer {
-    position: relative;
+    position: absolute;
     left: 50%;
     transform: translateX(-50%);
-    margin-top: var(--marginFromHeader);
+    /*margin-top: var(--marginFromHeader);*/
+
     /*background: #232526;  !* fallback for old browsers *!*/
     /*background: var(--mainContainerGradientChrome);  !* Chrome 10-25, Safari 5.1-6 *!*/
     /*background: var(--mainContainerGradientFirefox); !* W3C, IE 10+/ Edge, Firefox 16+, Chrome 26+, Opera 12+, Safari 7+ *!*/
@@ -592,6 +593,8 @@ green {
     height: 80vh;
     user-select: none;
 }
+
+
 
 .messages p {
     padding: 10px 10px 10px 10px;
@@ -643,7 +646,8 @@ green {
 }
 
 .activeUsers {
-    height: calc(565px + 50px);
+    /*height: calc(565px + 50px);*/
+    height: calc(100vh - calc(var(--navigationBarHeight) - 50px));
     background: var(--mainContainerGradientFirefox);
 
 
@@ -673,7 +677,8 @@ green {
 .chatClass {
     display: flex;
     flex-direction: column;
-    height: calc(565px + 5px);
+    /*height: calc(565px + 5px);*/
+    height: calc(100vh - calc(var(--navigationBarHeight)) + 5px);
     width: 100%;
     margin: 0 auto;
     box-sizing: border-box;
@@ -695,7 +700,8 @@ green {
     flex: 1;
     overflow: scroll;
     overflow-x: hidden;
-    max-height: calc(565px - 45px);
+    /*max-height: calc(565px - 45px);*/
+    max-height: calc(100vh - calc(var(--navigationBarHeight) + 45px));
 }
 
 .messages::-webkit-scrollbar {
@@ -766,6 +772,7 @@ green {
 
 .chatClass button {
     margin-left: 1%;
+    margin-right: 2%;
     color: var(--primarySubHeadingFontColour);
 
 }

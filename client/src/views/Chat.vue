@@ -1,5 +1,5 @@
 <template>
-  <div class="app">
+  <div class="chatApp">
 <!--    <br><h1 style="text-align: center;">Connected as: {{ username }}</h1> <p>Active: <green>{{ users.length }} users</green></p>-->
     <Chatroom v-bind:messages="messages" v-on:sendMessage="this.sendMessage"></Chatroom>
   </div>

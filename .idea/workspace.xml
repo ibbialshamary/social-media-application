@@ -22,8 +22,7 @@
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.css" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Navbar.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/views/ProfileSettings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/ProfileSettings.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Chat.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -91,7 +90,8 @@
       <workItem from="1606685279962" duration="8261000" />
       <workItem from="1606693695141" duration="5068000" />
       <workItem from="1606703483518" duration="3490000" />
-      <workItem from="1606739638022" duration="3897000" />
+      <workItem from="1606739638022" duration="3991000" />
+      <workItem from="1606856941023" duration="2054000" />
     </task>
     <servers />
   </component>
