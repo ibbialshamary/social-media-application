@@ -50,6 +50,24 @@ const router = new VueRouter({
       }
     },
     {
+      path: '/createPost',
+      name: 'Create Post',
+      component: () => import('../views/CreatePost.vue'),
+
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
+      path: '/createWhisper',
+      name: 'Create Whisper',
+      component: () => import('../views/CreateWhisper.vue'),
+
+      meta: {
+        requiresAuth: true
+      }
+    },
+    {
       path: '/chat',
       name: 'Chat',
       component: () => import('../views/Chat.vue'),

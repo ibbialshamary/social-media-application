@@ -20,10 +20,15 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/client/src/views/CreatePost.vue" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/client/src/views/CreateWhisper.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/ChatRoom.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatRoom.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Navbar.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/router/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/router/index.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Chat.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Home.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -56,12 +61,12 @@
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alsha\Desktop\Social Media Application\server" />
+    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\alsha\Desktop\Social Media Application\server" />
       <recent name="C:\Users\alsha\Desktop\Social Media Application\client\src\components" />
-    </key>
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\alsha\Desktop\Social Media Application\server" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -93,7 +98,14 @@
       <workItem from="1606703483518" duration="3490000" />
       <workItem from="1606739638022" duration="3991000" />
       <workItem from="1606856941023" duration="4043000" />
-      <workItem from="1606862324624" duration="2290000" />
+      <workItem from="1606862324624" duration="2359000" />
+      <workItem from="1606873977616" duration="3165000" />
+      <workItem from="1606878585804" duration="53000" />
+      <workItem from="1606879708596" duration="4000" />
+      <workItem from="1606996402186" duration="2262000" />
+      <workItem from="1607067093749" duration="6453000" />
+      <workItem from="1607108031035" duration="764000" />
+      <workItem from="1607264619044" duration="1249000" />
     </task>
     <servers />
   </component>
@@ -142,13 +154,14 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1098" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606685471957" />
-    <state x="988" y="300" width="585" height="801" key="find.popup" timestamp="1606739764991">
+    <state x="988" y="300" width="585" height="801" key="find.popup" timestamp="1607075260194">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="988" y="300" width="585" height="801" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606739764991" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1606435200754">
+    <state x="-1179" y="589" width="555" height="596" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@-1920.366.1920.1040" timestamp="1606998574829" />
+    <state x="988" y="300" width="585" height="801" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1607075260194" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1606875892858">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606435200754" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606875892858" />
   </component>
 </project>

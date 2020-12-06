@@ -23,6 +23,10 @@
             <p2>Test Post Six</p2>
           </div>
         </div>
+
+      <div class="createPostButton">
+        <button @click="goToCreatePost">Create a post</button>
+      </div>
     </div>
     <div class="whispersContainer">
       <br><h1 style="text-align: center">Whispers</h1>
@@ -39,6 +43,11 @@ export default {
     
   },
   methods: {
+    goToCreatePost: function() {
+      let url = window.location.href = "./createPost"
+      window.location(url);
+    },
+
     ...mapActions(['getProfile']),
     goToProfileSettings: function() {
       let url = window.location.href = "./profileSettings"

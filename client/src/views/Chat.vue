@@ -3,13 +3,15 @@
 <!--    <br><h1 style="text-align: center;">Connected as: {{ username }}</h1> <p>Active: <green>{{ users.length }} users</green></p>-->
 
     <div class="chatHeading">
-      <p>Welcome to your chat and chat history, {{ username }}, the chat is deleted every 24 hours</p>
-      <p2>Active: <green>{{ users.length }} users</green></p2>
+<!--      <p v-if="!username">Loading, please wait</p>-->
+      <p>Welcome to your chat and chat history, {{ username }}, the chat is deleted upon server restart</p>
+      <p>Active right now: <green>{{ users.length }} user(s)</green></p>
     </div>
 
 
     <div class="activeUsersHeading">
       <p>Active Users</p>
+      <p>Data not showing up correctly? <a @click="refreshData">Click here</a></p>
     </div>
     <Chatroom v-bind:messages="messages" v-on:sendMessage="this.sendMessage"></Chatroom>
   </div>
@@ -39,6 +41,16 @@ export default {
     }
   },
   methods: {
+    refreshData: function () {
+      this.$router.replace('/home');
+      // this.$router.go(0);
+        setTimeout(this.goToChat, 400);
+    },
+
+    goToChat: function () {
+      this.$router.replace('/chat');
+    },
+
     scrollToChatEnd: function() {
       let messagesContainer = document.getElementsByClassName("messages")[0];
       messagesContainer.scrollTop = messagesContainer.scrollHeight;
@@ -73,13 +85,16 @@ export default {
           `<div class="blueMessageBubble"><div class="username">${this.username}: </div><div class="message">${message}</div> </div>`);
     }
   },
-  mounted() {
+  beforeMount() {
     this.username = this.userFromMapGetters.username;
-    if(!this.username) {
-      this.username = "Anonymous";
-    }
+    // if(!this.username) {
+    //   this.username = "Anonymous";
+    // }
     this.joinServer();
   },
+  mounted() {
+    global.console.log(this.username);
+  }
 }
 </script>
 

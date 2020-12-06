@@ -18,6 +18,14 @@
                 </p>
 
                 <p v-if="isLoggedIn">
+                    <router-link to="/createPost">Post</router-link>
+                </p>
+
+                <p v-if="isLoggedIn">
+                    <router-link to="/createWhisper">Whisper</router-link>
+                </p>
+
+                <p v-if="isLoggedIn">
                     <router-link to="/chat">Chat</router-link>         
                 </p>
 
@@ -45,7 +53,6 @@ import { mapGetters, mapActions } from 'vuex';
 import fontawesome from "@fortawesome/fontawesome";
 import brands from "@fortawesome/fontawesome-free-brands";
 import solid from "@fortawesome/fontawesome-free-solid";
-import FontAwesomeIcon from "@fortawesome/vue-fontawesome";
 
 fontawesome.library.add(brands, solid);
 export default {

@@ -23,9 +23,6 @@
     </div>
     <div class="activeUsersContainer">
       <div class="activeUsers">
-<!--        <div class="activeUsersHeading">-->
-<!--          <p>Active Users</p>-->
-<!--        </div>-->
         <div class="users">
           <p>John</p>
           <p>Billy</p>
