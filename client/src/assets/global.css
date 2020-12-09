@@ -250,7 +250,7 @@ button, .button, #button {
     padding: 34px;
 
     width: var(--defaultWidth);
-    height: calc(var(--defaultHeight) - 26%);
+    /*height: calc(var(--defaultHeight) - 26%);*/
     /* border-radius: var(--defaultBorderRadius); */
     top: 50%;
     left: 50%;
@@ -772,8 +772,8 @@ green {
 }
 
 .blueMessageBubble {
-    border: 2px solid #009bf4;
-    background-color: #009bf4;
+    border: 2px solid var(--secondaryColour);
+    background-color: var(--secondaryColour);
     color: white;
     border-radius: 5px;
     padding: 10px;
@@ -888,6 +888,10 @@ green {
 .createPostForm input:focus {
     background: var(--mainContainerGradientFirefox);
     color: var(--primaryFontColour);
+}
+
+#postImage {
+    background-color: pink;
 }
 
 /* hover over the login form border */

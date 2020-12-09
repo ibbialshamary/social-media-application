@@ -61,8 +61,6 @@ export default {
       }
       this.$emit('sendMessage', this.msg);
       this.msg = "";
-
-
     }
   },
 }

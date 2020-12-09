@@ -90,11 +90,23 @@ export default {
     // if(!this.username) {
     //   this.username = "Anonymous";
     // }
+
     this.joinServer();
   },
   mounted() {
     global.console.log(this.username);
-  }
+
+    // setTimeout(function() {
+    //   if(this.username !== this.userFromMapGetters.username) {
+    //     alert("Your username does not match with our registered users database");
+    //   } else {
+    //     alert(this.username + "\n" + this.userFromMapGetters.username);
+    //   }
+    // }, 2000);
+
+
+  },
+
 }
 </script>
 
