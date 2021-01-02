@@ -45,6 +45,10 @@ mongoose.connect(databaseKey, {
 const usersConst = require('./routes/api/UserCreation');
 app.use('/api/UserCreation', usersConst);
 
+// bring in the posts route
+const postConst = require('./routes/api/PostCreation');
+app.use('/api/PostCreation', postConst);
+
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));

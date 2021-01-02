@@ -89,8 +89,7 @@ export default {
     ...mapActions(['getProfile']),
 
     goToProfileSettings: function() {
-      let url = window.location.href = "./profileSettings"
-      window.location(url);
+      this.$router.replace('/ProfileSettings');
     }
   },
   created() {

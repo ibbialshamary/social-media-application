@@ -6,43 +6,43 @@
             </div>
             <div class="navigationLinks">
                 <p v-if="isLoggedIn">
-                    <router-link to="/home">Home</router-link>
+                    <router-link to="/Home">Home</router-link>
                 </p>
 
                 <p v-if="isLoggedIn">
-                    <router-link to="/explore">Explore</router-link>         
+                    <router-link to="/Explore">Explore</router-link>
                 </p>
 
                 <p v-if="isLoggedIn">
-                    <router-link to="/profileSettings">Settings</router-link>         
+                    <router-link to="/ProfileSettings">Settings</router-link>
                 </p>
 
                 <p v-if="isLoggedIn">
-                    <router-link to="/createPost">Post</router-link>
+                    <router-link to="/CreatePost">Post</router-link>
                 </p>
 
                 <p v-if="isLoggedIn">
-                    <router-link to="/createWhisper">Whisper</router-link>
+                    <router-link to="/CreateWhisper">Whisper</router-link>
                 </p>
 
                 <p v-if="isLoggedIn">
-                    <router-link to="/chat">Chat</router-link>         
+                    <router-link to="/Chat">Chat</router-link>
                 </p>
 
                 <p v-if="!isLoggedIn">
-                    <router-link to="/login">Login</router-link>         
+                    <router-link to="/Login">Login</router-link>
                 </p>
 
                 <p v-if="!isLoggedIn">
-                    <router-link to="/register">Register</router-link>         
+                    <router-link to="/Register">Register</router-link>
                 </p>
 
                 <p v-if="isLoggedIn">
-                    <router-link to="/profile">Profile</router-link>         
+                    <router-link to="/Profile">Profile</router-link>
                 </p>
 
                 <p v-if="isLoggedIn">
-                    <a to="/logout" @click.prevent="logoutUser">Logout</a>         
+                    <a to="/Logout" @click.prevent="logoutUser">Logout</a>
                 </p>
             </div>
     </nav>

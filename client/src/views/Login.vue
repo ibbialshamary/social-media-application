@@ -9,7 +9,7 @@
       <input type="password" v-model="password" class="form-control" id="password" autocomplete="current-password"><br>
       <div class="buttonContainer">
         <input type="submit" class="button" tag="button" value="Login"><br><br>
-        <router-link to="/register" tag="button" id="signUpInsteadLink">Sign up instead</router-link><br>
+        <router-link to="/Register" tag="button" id="signUpInsteadLink">Sign up instead</router-link><br>
       </div>
         <div id="errorMessage"></div>
     </form>
@@ -65,7 +65,7 @@ export default {
       .then(res => {
         if(res.data.success) {
           // if the login information is correct, take them to the profile page
-          this.$router.push('/profile');
+          this.$router.push('/Profile');
           this.displaySuccessMessage();
         }
       }).catch(err => {

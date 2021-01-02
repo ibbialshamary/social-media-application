@@ -2,19 +2,18 @@ const router = require('express').Router();
 const User = require('../../model/User');
 const bcrypt = require('bcryptjs');
 const { registerValidation, loginValidation } = require('../../validation/validation');
-const express = require('express');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const key = require('../../config/keys').secret;
 
 /**
- * @route POST api/UserCreation/register
+ * @route POST api/UserCreation/Register
  * @desc Register the User
  * @access Public
  */
 
- // register
-router.post('/register', async(req, res) => {
+// register
+router.post('/Register', async(req, res) => {
     // validate data before user is created
     const { error } = registerValidation(req.body);
     if(error) {
@@ -70,13 +69,13 @@ router.post('/register', async(req, res) => {
 
 
 /**
- * @route POST api/UserCreation/login
+ * @route POST api/UserCreation/Login
  * @desc Signing in the User
  * @access Public
  */
 
 // login
-router.post('/login', async(req, res) => {
+router.post('/Login', async(req, res) => {
     // validate data
     const { error } = loginValidation(req.body);
     if(error) {
@@ -127,13 +126,13 @@ router.post('/login', async(req, res) => {
 
 
 /**
- * @route POST api/UserCreation/profile
+ * @route POST api/UserCreation/Profile
  * @desc Return the User's Data
  * @access Private
  */
 
  // profile
-router.get('/profile', passport.authenticate('jwt', {
+router.get('/Profile', passport.authenticate('jwt', {
     session: false
 }), (req, res) => {
     return res.json({

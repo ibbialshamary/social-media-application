@@ -42,13 +42,13 @@ export default {
   },
   methods: {
     refreshData: function () {
-      this.$router.replace('/home');
+      this.$router.replace('/Home');
       // this.$router.go(0);
         setTimeout(this.goToChat, 400);
     },
 
     goToChat: function () {
-      this.$router.replace('/chat');
+      this.$router.replace('/Chat');
     },
 
     scrollToChatEnd: function() {

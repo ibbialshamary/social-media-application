@@ -6,6 +6,7 @@
     --borderColour: rgba(255, 255, 255, 0.2);
     --borderPrimaryColour:  rgba(41.6, 35.3, 80.4, 0.95);
     --primaryFontColour: white;
+    --fontColour: black;
     --primarySubHeadingFontColour: white;
     --primaryInputColourThemeOpp: white;
     --navigationBarLinkHover: rgb(207, 207, 207);
@@ -56,6 +57,7 @@
     --primaryColour: slateblue;
     --borderColour: rgba(255, 255, 255, 0.2);
     --primaryFontColour: white;
+    --fontColour: white;
     --primarySubHeadingFontColour: white;
     --primaryInputColourThemeOpp: white;
     --navigationBarLinkHover: rgb(207, 207, 207);
@@ -86,6 +88,7 @@
     --primaryColour: #356afa;
     --borderColour: rgba(0, 0, 0, 0.2);
     --primaryFontColour: white;
+    --fontColour: #1e2020;
     --primarySubHeadingFontColour: black;
     --primaryInputColourThemeOpp: #1e2020;
     --navigationBarLinkHover: rgb(207, 207, 207);
@@ -237,7 +240,7 @@ button, .button, #button {
     border: none;
     color: var(--buttonTextColour);
     width: var(--buttonWidth);
-    height: var(--buttonHeight);
+    min-height: var(--buttonHeight);
 }
 .button:hover, #button:hover, button:hover {
     background-color: var(--buttonHoveredColour);
@@ -364,7 +367,7 @@ a {
 
 /* hover over the posts form border */
 .postsContainer:hover {
-    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+    border-radius: 0 0 50% 50% / 0 0 5% 5% ;
     box-shadow: 10px 10px rgba(0,0,0,.25);
 }
 
@@ -886,12 +889,11 @@ green {
 }
 
 .createPostForm input:focus {
-    background: var(--mainContainerGradientFirefox);
-    color: var(--primaryFontColour);
+    /*background: var(--mainContainerGradientFirefox);*/
+    color: var(--fontColour);
 }
 
 #postImage {
-    background-color: pink;
 }
 
 /* hover over the login form border */

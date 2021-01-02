@@ -1,5 +1,23 @@
 const Joi = require('@hapi/joi');
 
+const postValidation = (data) => {
+    const schema = Joi.object({
+        name: Joi.string().min(6).required(),
+        description: Joi.string().min(6).required(),
+        privacy: Joi.string().min(6).required(),
+        image: Joi.string().min(6).required()
+    });
+
+    const options = {
+        errors: {
+            wrap: {
+                label: ''
+            }
+        }
+    };
+    return schema.validate(data, options);
+};
+
 const registerValidation = (data) => {
     const schema = Joi.object({
         username: Joi.string().min(6).required(),
@@ -45,5 +63,6 @@ const loginValidation = (data) => {
     return schema.validate(data, options);
 };
 
+module.exports.postValidation = postValidation;
 module.exports.registerValidation = registerValidation;
 module.exports.loginValidation = loginValidation;

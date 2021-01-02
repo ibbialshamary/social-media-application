@@ -23,7 +23,7 @@ const router = new VueRouter({
       }
     },
     {
-      path: '/home',
+      path: '/Home',
       name: 'Home',
       component: Home,
 
@@ -32,7 +32,7 @@ const router = new VueRouter({
       }
     },
     {
-      path: '/explore',
+      path: '/Explore',
       name: 'Explore',
       component: () => import('../views/Explore.vue'),
 
@@ -41,7 +41,7 @@ const router = new VueRouter({
       }
     },
     {
-      path: '/profileSettings',
+      path: '/ProfileSettings',
       name: 'Settings',
       component: () => import('../views/ProfileSettings.vue'),
 
@@ -50,7 +50,7 @@ const router = new VueRouter({
       }
     },
     {
-      path: '/createPost',
+      path: '/CreatePost',
       name: 'Create Post',
       component: () => import('../views/CreatePost.vue'),
 
@@ -59,7 +59,7 @@ const router = new VueRouter({
       }
     },
     {
-      path: '/createWhisper',
+      path: '/CreateWhisper',
       name: 'Create Whisper',
       component: () => import('../views/CreateWhisper.vue'),
 
@@ -68,7 +68,7 @@ const router = new VueRouter({
       }
     },
     {
-      path: '/chat',
+      path: '/Chat',
       name: 'Chat',
       component: () => import('../views/Chat.vue'),
 
@@ -78,7 +78,7 @@ const router = new VueRouter({
     },
     // protect from authorised users
     {
-      path: '/login',
+      path: '/Login',
       name: 'Login',
       component: () => import('../views/Login.vue'),
 
@@ -87,7 +87,7 @@ const router = new VueRouter({
       }
     },
     {
-      path: '/register',
+      path: '/Register',
       name: 'Register',
       component: () => import('../views/Register.vue'),
 
@@ -98,7 +98,7 @@ const router = new VueRouter({
   
     // protect from unauthorised users to not access
     {
-      path: '/profile',
+      path: '/Profile',
       name: 'Profile',
       component: () => import('../views/Profile.vue'),
 
@@ -114,7 +114,7 @@ router.beforeEach((to, from, next) => {
     // if the user is not logged in
     if(!store.getters.isLoggedIn) {
       // redirect to login page
-      next('/login');
+      next('/Login');
     } else {
       next();
     }
@@ -123,7 +123,7 @@ router.beforeEach((to, from, next) => {
     // then they are sent to this function that automatically directs them to their profile
     if(store.getters.isLoggedIn) {
       // redirect to profile page
-      next('/profile');
+      next('/Profile');
     } else {
       next();
     }

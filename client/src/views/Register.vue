@@ -19,7 +19,7 @@
 
       <div class="buttonContainer">
           <input type="submit" class="button" tag="button" value="Register"><br><br>
-          <router-link to="/login" tag="button" id="loginInsteadLink">Login instead</router-link>
+          <router-link to="/Login" tag="button" id="loginInsteadLink">Login instead</router-link>
       </div>
       <!-- grab the error from mapGetters under computed -->
       <div id="errorMessage"></div>

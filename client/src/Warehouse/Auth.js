@@ -23,7 +23,7 @@ const actions = {
     async login({ commit }, user) {
         commit('auth_request');
         try {
-            let res = await axios.post('http://localhost:5000/api/UserCreation/login', user)
+            let res = await axios.post('http://localhost:5000/api/UserCreation/Login', user)
             if(res.data.success){
                 const token = res.data.token;
                 const user = res.data.user;
@@ -43,13 +43,27 @@ const actions = {
     async register({ commit }, user) {
         commit('register_request');
         try {
-            let res = await axios.post('http://localhost:5000/api/UserCreation/register', user);
+            let res = await axios.post('http://localhost:5000/api/UserCreation/Register', user);
             if(res.data.success !== undefined) {
                 commit('register_success');
             }
             return res;
         } catch(err) {
-            commit('auth_error', err);
+            commit('register_error', err);
+        }
+    },
+
+    // register action
+    async post({ commit }, post) {
+        commit('post_request');
+        try {
+            let res = await axios.post('http://localhost:5000/api/PostCreation/Post', post);
+            if(res.data.success !== undefined) {
+                commit('post_success');
+            }
+            return res;
+        } catch(err) {
+            commit('post_error', err);
         }
     },
 
@@ -57,7 +71,7 @@ const actions = {
     async getProfile({ commit }) {
         try {
             commit('profile_request');
-            let res = await axios.get('http://localhost:5000/api/UserCreation/profile');
+            let res = await axios.get('http://localhost:5000/api/UserCreation/Profile');
             commit('user_profile', res.data.user);
             return res;
         } catch(err) {
@@ -70,8 +84,7 @@ const actions = {
         await localStorage.removeItem('token');
         commit('logout');
         delete axios.defaults.headers.common['Authorization'];
-        router.push('/login');
-        return;
+        await router.push('/Login');
     }
 };
 
@@ -103,6 +116,19 @@ const mutations = {
         state.error = err.response.data.msg
     },
 
+    // post mutations
+    post_request(state) {
+        state.error = null
+        state.status = 'loading'
+    },
+    post_success(state) {
+        state.error = null
+        state.status = 'success'
+    },
+    post_error(state, err) {
+        state.error = err.response.data.msg
+    },
+
     // profile mutation
     // requests taken from profile action
     profile_request() {
@@ -115,8 +141,8 @@ const mutations = {
     // logout mutation
     logout(state) {
         state.error = null
-        state.status = '',
-        state.token = '',
+        state.status = ''
+        state.token = ''
         state.user = ''
     }
 };

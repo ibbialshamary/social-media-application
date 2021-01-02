@@ -44,14 +44,12 @@ export default {
   },
   methods: {
     goToCreatePost: function() {
-      let url = window.location.href = "./createPost"
-      window.location(url);
+      this.$router.replace('/CreatePost');
     },
 
     ...mapActions(['getProfile']),
     goToProfileSettings: function() {
-      let url = window.location.href = "./profileSettings"
-      window.location(url);
+      this.$router.replace('/ProfileSettings');
     }
   },
   created() {
