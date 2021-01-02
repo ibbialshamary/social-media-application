@@ -73,7 +73,7 @@ export default {
         let focusedElement = document.getElementById('errorMessages');
         focusedElement.innerHTML = '';
         },
-        // all these mapActions and the above mapGetters can be found in Auth.js under the Warehouse folder in the client parent directory
+        // all these mapActions and the above mapGetters can be found in UserREST.js under the warehouse folder in the client parent directory
         ...mapActions(['logout']),
         logoutUser() {
             this.logout();

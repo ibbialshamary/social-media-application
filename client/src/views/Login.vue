@@ -52,7 +52,7 @@ export default {
       }
     },
 
-    // the mapActions in the line below is taken from the const actions in the Auth.js file, the response in the method used
+    // the mapActions in the line below is taken from the const actions in the UserREST.js file, the response in the method used
     // in auth.js is taken from here and work is done from it, the creation of the token and user are both done in auth.js and 
     // committed with the name 'auth_success' alongside the two parameters mentioned
     ...mapActions(['login']),

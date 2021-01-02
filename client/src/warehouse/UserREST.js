@@ -13,9 +13,8 @@ const state = {
 const getters = {
     // using arrow functions
     isLoggedIn: state => !!state.token,
-    authState: state => state.status,
     user: state => state.user,
-    error: state => state.error
+    userError: state => state.error
 };
 
 const actions = {
@@ -50,20 +49,6 @@ const actions = {
             return res;
         } catch(err) {
             commit('register_error', err);
-        }
-    },
-
-    // register action
-    async post({ commit }, post) {
-        commit('post_request');
-        try {
-            let res = await axios.post('http://localhost:5000/api/PostCreation/Post', post);
-            if(res.data.success !== undefined) {
-                commit('post_success');
-            }
-            return res;
-        } catch(err) {
-            commit('post_error', err);
         }
     },
 
@@ -113,19 +98,6 @@ const mutations = {
         state.status = 'success'
     },
     register_error(state, err) {
-        state.error = err.response.data.msg
-    },
-
-    // post mutations
-    post_request(state) {
-        state.error = null
-        state.status = 'loading'
-    },
-    post_success(state) {
-        state.error = null
-        state.status = 'success'
-    },
-    post_error(state, err) {
         state.error = err.response.data.msg
     },
 

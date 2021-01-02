@@ -1,13 +1,15 @@
 import Vue from 'vue'
 import Vuex from 'vuex'
 
-import Auth from '../Warehouse/Auth';
+import UserWarehouseCRUD from '../warehouse/UserREST';
+import PostWarehouseCRUD from '../warehouse/PostREST';
 
 Vue.use(Vuex)
 
 export default new Vuex.Store({
   modules: {
-    Auth
+    UserWarehouseCRUD,
+    PostWarehouseCRUD
   },
 
   state: {
@@ -21,4 +23,4 @@ export default new Vuex.Store({
   actions: {
 
   }
-})
+});

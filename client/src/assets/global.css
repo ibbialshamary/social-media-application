@@ -294,7 +294,6 @@ button, .button, #button {
     padding: 34px;
 
     width: var(--defaultWidth);
-    height: calc(var(--defaultHeight) - 8%);
     /* border-radius: var(--defaultBorderRadius); */
     top: 50%;
     left: 50%;

@@ -49,7 +49,7 @@ export default {
       this.clearErrorMessage();
   },
   computed: {
-    ...mapGetters(['error'])
+    ...mapGetters(['userError'])
   },
   methods: {
     clearErrorMessage() {
@@ -57,17 +57,18 @@ export default {
       focusedElement.innerHTML = '';
     },
 
-    displaySuccessMessage() {
-      let focusedElement = document.getElementById('successMessage');
-      if(this.error) {
-        focusedElement.innerHTML = this.error;
-      }
-    },
+    // displaySuccessMessage() {
+    //   let focusedElement = document.getElementById('successMessage');
+    //   if(this.error) {
+    //     focusedElement.innerHTML = this.error;
+    //   }
+    // },
 
     displayErrorMessage() {
       let focusedElement = document.getElementById('errorMessage');
       if(this.error) {
         focusedElement.innerHTML = this.error;
+        console.log(this.error);
       }
     },
 
@@ -86,9 +87,6 @@ export default {
           this.$router.push('login');
         }
       }).catch(err => {
-        // this.error = "Registration failed, please try again.";
-        // alert("The login combination you have provided does not match.");
-        console.log(err);
         this.displayErrorMessage();
       });
     }

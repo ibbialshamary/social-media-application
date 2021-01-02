@@ -12,9 +12,6 @@
         <label for="postDescription">Post Description</label>
         <input type="text" class="form-control" id="postDescription" v-model="description">
 
-        <label for="postDate">Post Date</label>
-        <input type="date" class="form-control" id="postDate">
-
         <label for="postImage">Image</label>
         <input type="file" class="form-control" id="postImage" v-on:change="fileSelected">
 
@@ -39,7 +36,6 @@
 <script>
 import { mapActions, mapGetters } from 'vuex';
 export default {
-  computed: mapGetters(['user']),
   data() {
     return {
       name: "",
@@ -48,15 +44,22 @@ export default {
       image: ""
     }
   },
+
+  computed: {
+    ...mapGetters(['postError'])
+  },
+
   methods: {
+
     fileSelected(e) {
       this.image = e.target.files
     },
 
-    displayErrorMessage(errorMessage) {
-      let errorMessageContainer = document.getElementById('errorMessage');
-      if(this.error) {
-        errorMessageContainer.innerHTML = errorMessage;
+    displayErrorMessage() {
+      let focusedElement = document.getElementById('errorMessage');
+      if(this.postError) {
+        focusedElement.innerHTML = this.postError;
+        console.log(this.postError);
       }
     },
 
@@ -67,16 +70,16 @@ export default {
         name: this.name,
         description: this.description,
         privacy: this.privacy,
-        // image: this.image,
-        image: "Retrieve image link here"
+        image: this.image,
+        // image: "Retrieve image link here"
       };
       this.post(post).then(res => {
         if(res.data.success) {
-          this.$router.push('login');
+          // this.$router.push('login');
+          // console.log(this.image)
         }
       }).catch(err => {
-        console.log(err);
-        this.displayErrorMessage(err);
+        this.displayErrorMessage();
       });
     },
   },
