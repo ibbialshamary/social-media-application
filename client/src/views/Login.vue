@@ -30,9 +30,11 @@ export default {
       this.clearErrorMessage();
   },
   computed: {
-    ...mapGetters(['error'])
+    ...mapGetters(['userError'])
   },
   methods: {
+    ...mapActions(['login']),
+
     clearErrorMessage() {
       let focusedElement = document.getElementById('errorMessage');
       focusedElement.innerHTML = '';
@@ -40,22 +42,21 @@ export default {
 
     displaySuccessMessage() {
       let focusedElement = document.getElementById('successMessage');
-      if(this.error) {
-        focusedElement.innerHTML = this.error;
+      if(this.userError) {
+        focusedElement.innerHTML = this.userError;
       }
     },
 
     displayErrorMessage() {
       let focusedElement = document.getElementById('errorMessage');
-      if(this.error) {
-        focusedElement.innerHTML = this.error;
+      if(this.userError) {
+        focusedElement.innerHTML = this.userError;
       }
     },
 
     // the mapActions in the line below is taken from the const actions in the UserREST.js file, the response in the method used
     // in auth.js is taken from here and work is done from it, the creation of the token and user are both done in auth.js and 
     // committed with the name 'auth_success' alongside the two parameters mentioned
-    ...mapActions(['login']),
     loginUser(){
       let user = {
         username: this.username,

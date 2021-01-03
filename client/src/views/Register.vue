@@ -57,18 +57,10 @@ export default {
       focusedElement.innerHTML = '';
     },
 
-    // displaySuccessMessage() {
-    //   let focusedElement = document.getElementById('successMessage');
-    //   if(this.error) {
-    //     focusedElement.innerHTML = this.error;
-    //   }
-    // },
-
     displayErrorMessage() {
       let focusedElement = document.getElementById('errorMessage');
-      if(this.error) {
-        focusedElement.innerHTML = this.error;
-        console.log(this.error);
+      if(this.userError) {
+        focusedElement.innerHTML = this.userError;
       }
     },
 

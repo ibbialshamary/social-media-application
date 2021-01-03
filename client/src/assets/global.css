@@ -202,7 +202,7 @@ body {
 
 /* hover over the login form border */
 .profileHeading:hover {
-    border-radius: 0% 0% 50% 50% / 0% 0% 5% 5% ;
+    border-radius: 0 0 50% 50% / 0 0 5% 5% ;
     box-shadow: 10px 10px rgba(0,0,0,.25);
 }
 
@@ -356,41 +356,37 @@ a {
 
 /* posts tab */
 .postsContainer {
-    position: absolute;
-    top: 50%;
-    left: 75%;
-
-    transform: translate(-50%, -50%);
-    margin-top: 2%;
+    margin-top: 1.5%;
+    margin-right: 3%;
     width: 45%;
-    height: 80%;
     background-color: var(--secondaryColour);
-
+    float: right;
     /* for the border */
     border-radius: 0 0 0 0 / 0 0 0 0 ;
-    box-shadow: 20px 20px rgba(0,0,0,.15);
+    box-shadow: 20px 20px rgba(0, 0, 0, .15);
     transition: all .4s ease;
+    overflow: scroll;
+    height: 80%;
+    overflow-x: hidden !important;
 }
 
 /* hover over the posts form border */
 .postsContainer:hover {
-    border-radius: 0 0 50% 50% / 0 0 5% 5% ;
+    border-radius: 0 0 5% 5% / 0 0 2% 2% ;
     box-shadow: 10px 10px rgba(0,0,0,.25);
 }
 
 .grid-container {
-    display: grid;
-    grid-column-gap: 20px;
-    grid-row-gap: 20px;
-    grid-template-columns: auto auto ;
-    padding: 20px 80px 20px 80px;
+    float: left;
+    padding: 10px;
 }
 
-.grid-item {
+.postsGridItem {
     background-color: var(--gridItemBackground);
     /* passing: inside or the content of the grid container, so the text for example, how far away it is from the div */
     padding: 20px 50px 20px 50px;
     text-align: center;
+    width: 320px;
 }
 
 .createPostButton {
@@ -403,26 +399,23 @@ a {
 
 /* whispers tab */
 .whispersContainer {
-    position: absolute;
-    top: 50%;
-    left: 25%;
-
-    transform: translate(-50%, -50%);
-    margin-top: 2%;
-
+    margin-top: 1.5%;
+    margin-left: 3%;
     width: 45%;
-    height: 80%;
     background-color: var(--secondaryColour);
-
+    float: left;
     /* for the border */
     border-radius: 0 0 0 0 / 0 0 0 0 ;
-    box-shadow: 20px 20px rgba(0,0,0,.15);
+    box-shadow: 20px 20px rgba(0, 0, 0, .15);
     transition: all .4s ease;
+    overflow: scroll;
+    height: 80%;
+    overflow-x: hidden !important;
 }
 
 /* hover over the whispers form border */
 .whispersContainer:hover {
-    border-radius: 0 0 50% 50% / 0 0 5% 5%;
+    border-radius: 0 0 50% 50% / 0 0 2% 2%;
     box-shadow: 10px 10px rgba(0,0,0,.25);
 }
 
@@ -442,7 +435,7 @@ p {
     color: var(--primaryFontColour);
 }
 
-p2 {
+.postsGridItem p{
     color: var(--primarySubHeadingFontColour);
 }
 

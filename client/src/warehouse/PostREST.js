@@ -2,12 +2,14 @@ import axios from 'axios';
 
 const state = {
     post: {},
+    posts: {},
     status: '',
     error: null
 };
 
 const getters = {
     post: state => state.post,
+    posts: state => state.posts,
     postStatus: state => state.status,
     postError: state => state.error
 };
@@ -17,7 +19,7 @@ const actions = {
     async post({ commit }, post) {
         commit('post_request');
         try {
-            let res = await axios.post('http://localhost:5000/api/PostCreation/Post', post);
+            let res = await axios.post('http://localhost:5000/Post', post);
             if(res.data.success !== undefined) {
                 const post = res.data.post;
                 commit('post_success', post);
@@ -28,12 +30,12 @@ const actions = {
         }
     },
 
-    // action for getting post
-    async getProfile({ commit }) {
+    // action for getting all posts
+    async getAllPosts({ commit }) {
         try {
             commit('get_post_request');
-            let res = await axios.get('http://localhost:5000/api/PostCreation/Post');
-            commit('get_post_info', res.data.user);
+            let res = await axios.get('http://localhost:5000/post');
+            commit('getPostsInfo', res.data.posts);
             return res;
         } catch(err) {
             commit('get_post_error', err);
@@ -59,8 +61,8 @@ const mutations = {
     get_post_request(state) {
         state.status = 'Loading'
     },
-    get_post_info(state, post) {
-        state.post = post
+    getPostsInfo(state, posts) {
+        state.posts = posts
     },
     get_post_error(state, err) {
         state.error = err.response.data.msg
