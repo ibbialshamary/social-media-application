@@ -45,9 +45,9 @@ mongoose.connect(databaseKey, {
 const usersConst = require('./routes/api/UserCreation');
 app.use('/api/UserCreation', usersConst);
 
-// bring in the posts route
+// bring in the posts route, can be found under routers/api/PostCreation
 const postConst = require('./routes/api/PostCreation');
-app.use('/api/PostCreation', postConst);
+app.use('/', postConst);
 
 
 app.get('*', (req, res) => {
