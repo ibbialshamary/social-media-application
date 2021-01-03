@@ -23,7 +23,7 @@ app.use(bodyParser.json());
 // cors middleware
 app.use(cors());
 
-// seting up the static directory
+// setting up the static directory
 app.use(express.static(path.join(__dirname, 'public')));
 
 // use the passport middleware

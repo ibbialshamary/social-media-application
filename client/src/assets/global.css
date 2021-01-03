@@ -14,6 +14,7 @@
     --secondaryColour:  rgb(54, 47, 104);
     --borderSecondaryColour:  rgba(54, 47, 104, 0.25);
     --secondaryFontColour: black;
+    --successMessageColour: #ADEFD1FF;
     --errorMessageColour: orangered;
 
     --buttonHoveredColour: rgb(46, 36, 112);
@@ -143,11 +144,12 @@ body {
     left: 50%;
     transform: rotate(-180deg) translateX(-50%);
     font-size: 35px;
+    transition: color .5s ease-in;
 }
 
 #lightBulb:hover {
     cursor: pointer;
-
+    color: #a4a4a4;
 }
 
 .navigationLinks {
@@ -327,13 +329,19 @@ button, .button, #button {
     color: var(--errorMessageColour);
 }
 
+#successMessage {
+    margin-top: 2%;
+    text-align: center;
+    color: var(--successMessageColour);
+}
+
 a {
     cursor: pointer;
 }
 
 /* homepage css */
 .mainContainer {
-    border-radius: 0% 100% 50% 50% / 0% 0% 100% 100% ;
+    border-radius: 0 100% 50% 50% / 0 0 100% 100% ;
     position: relative;
     left: 50%;
     transform: translateX(-50%);

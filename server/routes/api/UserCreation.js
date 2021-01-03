@@ -111,7 +111,6 @@ router.post('/Login', async(req, res) => {
                 success: true,
                 user: user,
                 token: `Bearer ${token}`,
-                user: user,
                 msg: "User is now logged in."
             });
         })

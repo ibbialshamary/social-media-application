@@ -46,42 +46,81 @@ export default {
   },
 
   computed: {
-    ...mapGetters(['postError'])
+    ...mapGetters({
+      storePostError: 'postError',
+      storePostStatus: 'postStatus'
+    }),
+    postError: {
+      get() {
+        return this.storePostError
+      },
+      set(name) {
+        return name
+      }
+    },
+
+    postStatus: {
+      get() {
+        return this.storePostStatus
+      },
+      set(name) {
+        return name
+      }
+    },
   },
 
+
   methods: {
+    ...mapActions(['post']),
 
     fileSelected(e) {
-      this.image = e.target.files
+      this.image = e.target.files[0].name
+    },
+
+    publishPost() {
+        let post = {
+          name: this.name,
+          description: this.description,
+          privacy: this.privacy,
+          image: this.image,
+        };
+
+        this.post(post).then(res => {
+          if (res.data.success) {
+            this.displaySuccessfulMessage();
+            // this.$router.push('login');
+          }
+        }).catch(() => {
+          this.displayErrorMessage();
+        });
+    },
+
+    // validate and display error messages
+    displaySuccessfulMessage() {
+      let focusedElement = document.getElementById('successMessage');
+      let unfocusedElement = document.getElementById('errorMessage');
+      this.successfulMessage(focusedElement, unfocusedElement);
     },
 
     displayErrorMessage() {
       let focusedElement = document.getElementById('errorMessage');
+      let unfocusedElement = document.getElementById('successMessage');
       if(this.postError) {
-        focusedElement.innerHTML = this.postError;
-        console.log(this.postError);
+        this.failureMessage(focusedElement, unfocusedElement);
       }
     },
 
-    ...mapActions(['post']),
+    successfulMessage(focusedElement, unfocusedElement) {
+      unfocusedElement.innerText = "";
 
-    publishPost() {
-      let post = {
-        name: this.name,
-        description: this.description,
-        privacy: this.privacy,
-        image: this.image,
-        // image: "Retrieve image link here"
-      };
-      this.post(post).then(res => {
-        if(res.data.success) {
-          // this.$router.push('login');
-          // console.log(this.image)
-        }
-      }).catch(err => {
-        this.displayErrorMessage();
-      });
+      focusedElement.innerHTML = this.postStatus;
     },
+
+    failureMessage(focusedElement, unfocusedElement) {
+      unfocusedElement.innerText = "";
+      focusedElement.innerHTML = this.postError;
+    },
+
   },
   created() {
 
