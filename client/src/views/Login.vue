@@ -3,10 +3,10 @@
     <form @submit.prevent="loginUser">
       <h1>Login Here</h1>
       <label for="username">Username</label>
-      <input type="text" v-model="username" class="form-control" id="username" autocomplete="username"><br>
+      <input type="text" v-model="username" class="form-control" id="username" autocomplete="username" required><br>
 
       <label for="password">Password</label>
-      <input type="password" v-model="password" class="form-control" id="password" autocomplete="current-password"><br>
+      <input type="password" v-model="password" class="form-control" id="password" autocomplete="current-password" required><br>
       <div class="buttonContainer">
         <input type="submit" class="button" tag="button" value="Login"><br><br>
         <router-link to="/Register" tag="button" id="signUpInsteadLink">Sign up instead</router-link><br>

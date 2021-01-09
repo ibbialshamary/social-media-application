@@ -17,55 +17,82 @@ const getters = {
 const actions = {
     // action for creating post
     async post({ commit }, post) {
-        commit('post_request');
+        commit('createPostRequest');
         try {
             let res = await axios.post('http://localhost:5000/Post', post);
             if(res.data.success !== undefined) {
                 const post = res.data.post;
-                commit('post_success', post);
+                commit('createPostSuccess', post);
             }
             return res;
         } catch(err) {
-            commit('post_error', err);
+            commit('createPostError', err);
         }
     },
 
     // action for getting all posts
     async getAllPosts({ commit }) {
         try {
-            commit('get_post_request');
+            commit('getPostsRequest');
             let res = await axios.get('http://localhost:5000/post');
             commit('getPostsInfo', res.data.posts);
             return res;
         } catch(err) {
-            commit('get_post_error', err);
+            commit('getPostsError', err);
         }
     },
+
+    // action for getting one post
+    async getSinglePost({ commit }, post) {
+        try {
+            commit("getSinglePostRequest");
+            let res = await axios.get(`http://localhost:5000/${post._id}`)
+            commit("getSinglePostInfo", res.data.posts);
+            return res;
+        } catch(err) {
+            commit("getSinglePostError", err);
+        }
+    }
 };
 
+// mutations
 const mutations = {
-    // post mutations
-    post_request(state) {
-        state.error = null
-        state.status = 'Loading'
-    },
-    post_success(state) {
-        state.error = null
-        state.status = 'Post successfully added'
-    },
-    post_error(state, err) {
-        state.error = err.response.data.msg
+    // get single post
+    getSinglePostRequest(state) {
+        state.status = "Loading";
     },
 
-    // get post mutations
-    get_post_request(state) {
+    getSinglePostInfo(state, post) {
+        state.post = post;
+    },
+
+    getSinglePostError(state, error) {
+        // state.error = error.response.data.msg
+        state.error = error
+    },
+
+    // get all posts
+    getPostsRequest(state) {
         state.status = 'Loading'
     },
     getPostsInfo(state, posts) {
         state.posts = posts
     },
-    get_post_error(state, err) {
-        state.error = err.response.data.msg
+    getPostsError(state, error) {
+        state.error = error.response.data.msg
+    },
+
+    // create post
+    createPostRequest(state) {
+        state.error = null
+        state.status = 'Loading'
+    },
+    createPostSuccess(state) {
+        state.error = null
+        state.status = 'Post successfully added'
+    },
+    createPostError(state, error) {
+        state.error = error.response.data.msg
     },
 };
 

@@ -6,8 +6,8 @@ import axios from 'axios';
 
 Vue.config.productionTip = false
 
-// importing the global.css
-import './assets/global.css';
+// importing the global.scss
+import './assets/global.scss';
 
 
 // setting up default vue's http modules for api calls

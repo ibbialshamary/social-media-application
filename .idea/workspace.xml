@@ -21,9 +21,13 @@
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/global.css" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/main.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/main.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/CreatePost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/CreatePost.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/views/ProfileSettings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/ProfileSettings.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Login.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Login.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/warehouse/PostREST.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/warehouse/PostREST.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,22 +57,22 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../ChatApplication" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SolutionAND.js" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
-    <property name="settings.editor.selected.configurable" value="terminal" />
+    <property name="settings.editor.selected.configurable" value="preferences.pluginManager" />
     <property name="ts.external.directory.path" value="D:\Program Files\WebStorm 2020.2.3\plugins\JavaScriptLanguage\jsLanguageServicesImpl\external" />
     <property name="vue.rearranger.settings.migration" value="true" />
   </component>
   <component name="RecentsManager">
-    <key name="MoveFile.RECENT_KEYS">
-      <recent name="C:\Users\alsha\Desktop\Social Media Application\server" />
-    </key>
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\alsha\Desktop\Social Media Application\server" />
       <recent name="C:\Users\alsha\Desktop\Social Media Application\client\src\components" />
+    </key>
+    <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alsha\Desktop\Social Media Application\server" />
     </key>
   </component>
   <component name="SpellCheckerSettings" RuntimeDictionaries="0" Folders="0" CustomDictionaries="0" DefaultDictionary="application-level" UseSingleDictionary="true" transferred="true" />
@@ -121,7 +125,17 @@
       <workItem from="1609685536195" duration="7905000" />
       <workItem from="1609699067697" duration="6916000" />
       <workItem from="1609708284992" duration="2138000" />
-      <workItem from="1609722387910" duration="4016000" />
+      <workItem from="1609722387910" duration="4254000" />
+      <workItem from="1609762963542" duration="598000" />
+      <workItem from="1609848452310" duration="2268000" />
+      <workItem from="1609850732062" duration="2447000" />
+      <workItem from="1609888571372" duration="899000" />
+      <workItem from="1609994967748" duration="1230000" />
+      <workItem from="1610026909027" duration="26000" />
+      <workItem from="1610034805635" duration="7128000" />
+      <workItem from="1610043892403" duration="2593000" />
+      <workItem from="1610200294499" duration="8657000" />
+      <workItem from="1610217682327" duration="12252000" />
     </task>
     <servers />
   </component>
@@ -145,11 +159,11 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1024" y="525" key="#Notifications/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1609563343015" />
-    <state x="-1124" y="695" key="FileChooserDialogImpl" timestamp="1606667581310">
-      <screen x="-1920" y="366" width="1920" height="1040" />
+    <state x="1061" y="443" key="FileChooserDialogImpl" timestamp="1610034863166">
+      <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="-1124" y="695" key="FileChooserDialogImpl/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@-1920.366.1920.1040" timestamp="1606667581310" />
-    <state x="1061" y="443" key="FileChooserDialogImpl/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606498572670" />
+    <state x="1061" y="443" key="FileChooserDialogImpl/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610034863166" />
     <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1606399186364">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -166,10 +180,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state width="2539" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606399186364" />
-    <state x="782" y="346" key="SettingsEditor" timestamp="1606674024454">
+    <state x="782" y="346" key="SettingsEditor" timestamp="1610217721787">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="782" y="346" key="SettingsEditor/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606674024454" />
+    <state x="782" y="346" key="SettingsEditor/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610217721787" />
     <state x="1098" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606685471957">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -179,6 +193,10 @@
     </state>
     <state x="-1179" y="589" width="555" height="596" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@-1920.366.1920.1040" timestamp="1608029984694" />
     <state x="912" y="248" width="986" height="801" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1609709269477" />
+    <state x="937" y="331" key="run.anything.popup" timestamp="1610200804921">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="937" y="331" key="run.anything.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610200804921" />
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1606875892858">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
