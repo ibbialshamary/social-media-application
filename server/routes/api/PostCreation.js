@@ -28,6 +28,7 @@ router.post('/post', async(req, res) => {
         description: req.body.description,
         privacy: req.body.privacy,
         image: req.body.image,
+        poster: req.body.poster
     });
     try {
         newPost.save().then(post => {

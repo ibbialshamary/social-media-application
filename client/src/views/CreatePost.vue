@@ -48,7 +48,8 @@ export default {
   computed: {
     ...mapGetters({
       storePostError: 'postError',
-      storePostStatus: 'postStatus'
+      storePostStatus: 'postStatus',
+      gettersUser: 'user',
     }),
     postError: {
       get() {
@@ -62,6 +63,15 @@ export default {
     postStatus: {
       get() {
         return this.storePostStatus
+      },
+      set(name) {
+        return name
+      }
+    },
+
+    user: {
+      get() {
+        return this.gettersUser
       },
       set(name) {
         return name
@@ -83,12 +93,12 @@ export default {
           description: this.description,
           privacy: this.privacy,
           image: this.image,
+          poster: this.user.name
         };
 
         this.post(post).then(res => {
           if (res.data.success) {
             this.displaySuccessfulMessage();
-            // this.$router.push('login');
           }
         }).catch(() => {
           this.displayErrorMessage();

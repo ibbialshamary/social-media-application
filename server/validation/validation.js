@@ -5,7 +5,8 @@ const postValidation = (data) => {
         name: Joi.string().min(6).required(),
         description: Joi.string().min(6).required(),
         image: Joi.string().min(6).required(),
-        privacy: Joi.string().min(6).required()
+        privacy: Joi.string().min(6).required(),
+        poster: Joi.string().required()
     });
 
     const options = {

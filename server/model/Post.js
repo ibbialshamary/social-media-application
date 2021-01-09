@@ -29,6 +29,10 @@ const postSchema = new Schema({
         max: 1024,
         min: 6
     },
+    poster: {
+        type: String,
+        required: true,
+    },
 });
 
 module.exports = Post = mongoose.model('posts', postSchema);

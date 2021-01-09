@@ -1,7 +1,9 @@
 @import url('https://fonts.googleapis.com/css2?family=ABeeZee&display=swap');
 
 ::-webkit-scrollbar {
-    background: var(--secondaryColour);
+    background: var(--primaryColour);
+    padding: 20px;
+
 }
 
 ::-webkit-scrollbar-track {
@@ -9,8 +11,8 @@
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--secondaryColour);
-
+    background: var(--primaryColour);
+    border-radius: 18px;
 
     &:hover {
         background-color: var(--buttonHoveredColour);
@@ -181,7 +183,7 @@ body {
     left: 50%;
     transform: rotate(-180deg) translateX(-50%);
     font-size: 35px;
-    transition: color .5s ease-in;
+    transition: color .3s ease-in;
 
     &:hover {
         cursor: pointer;
@@ -551,7 +553,7 @@ a {
         margin-right: 25px;
         color: var(--primaryColour);
         font-size: 35px;
-        transition: all .5s ease-in;
+        transition: all .3s ease-in;
         &:hover {
             cursor: pointer;
             color: darkred;
@@ -924,18 +926,7 @@ green {
     /*max-height: calc(565px - 45px);*/
     max-height: calc(100vh - calc(var(--navigationBarHeight)) - calc(var(--subHeadingHeight) * 2) - 5px);
 
-    &::-webkit-scrollbar {
-        background: var(--primaryColour);
-    }
 
-    &::-webkit-scrollbar-track {
-        background: var(--mainContainerGradientFirefox);
-    }
-
-    &::-webkit-scrollbar-thumb {
-        background: var(--primaryColour);
-        outline: 1px solid var(--primaryColour);
-    }
 }
 
 .greyMessageBubble {
