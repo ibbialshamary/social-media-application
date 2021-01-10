@@ -514,8 +514,12 @@ a {
                 font-size: 20px;
             }
 
-            span {
+            span:first-child {
                 color: var(--primaryColour);
+            }
+
+            span:not(first-child) {
+                color: #2BAE66FF;
             }
         }
 
@@ -534,7 +538,7 @@ a {
             color: var(--primarySubHeadingFontColour);
             transition: all ease-in .5s;
             border-radius: 8px;
-            margin: 10px 0 0 0;
+            margin: 10px 0 10px 0;
             vertical-align: top;
             &:focus {
                 outline: none;
@@ -550,8 +554,12 @@ a {
             }
         }
         .previousComments {
+            .red {
+                background-color: orangered;
+            }
             button {
                 margin-left: 2px;
+                margin-top: 10px;
                 background-color: #2BAE66FF;
                 transition: all ease-in .3s;
                 &:hover {
@@ -571,9 +579,9 @@ a {
                 border-radius: 8px;
                 padding: 24px;
                 p {
-                    margin: 0;
                     text-align: left;
                     font-size: 16px;
+                    margin: 0 70px 0 0;
                 }
 
                 .ratings {
@@ -582,6 +590,7 @@ a {
                     top: 50%;
                     transform: translate(-50%, -50%);
                     font-size: 22px;
+
                     .upvote, .downvote {
                         margin-left: 5px;
                         transition: all ease-in .3s;

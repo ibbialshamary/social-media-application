@@ -22,14 +22,8 @@
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/store/index.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/store/index.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/views/CreatePost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/CreatePost.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/warehouse/PostREST.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/warehouse/PostREST.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/ChatServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/ChatServer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/model/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/validation/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/validation/validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/warehouse/CommentREST.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/warehouse/CommentREST.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -142,7 +136,8 @@
       <workItem from="1610241999757" duration="4347000" />
       <workItem from="1610283453928" duration="2264000" />
       <workItem from="1610285739369" duration="1494000" />
-      <workItem from="1610293140378" duration="12801000" />
+      <workItem from="1610293140378" duration="12872000" />
+      <workItem from="1610310326641" duration="5910000" />
     </task>
     <servers />
   </component>

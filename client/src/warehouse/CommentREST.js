@@ -30,7 +30,7 @@ const actions = {
         }
     },
 
-    // action for getting all comments
+    // action for getting all comments that belong to certain post
     async getPostComment({ commit }, id) {
         try {
             commit('getPostCommentRequest');
@@ -42,6 +42,20 @@ const actions = {
             commit('getPostCommentError', err);
         }
     },
+
+    async deleteComment({ commit }, id) {
+        try {
+            commit('deleteCommentRequest');
+            let res = await axios.delete("http://localhost:5000/comment/id/" + id);
+            const comments = res.data.comments;
+            commit('deleteCommentInfo', comments);
+            return res;
+        } catch(err) {
+            commit("deleteCommentError", err)
+        }
+    }
+
+
 };
 
 // mutations
@@ -68,6 +82,20 @@ const mutations = {
     createCommentError(state, error) {
         state.error = error.response.data.msg
     },
+
+    // delete comment
+    deleteCommentRequest(state) {
+        state.error = null
+        state.status = 'Loading'
+    },
+
+    deleteCommentInfo(state, comments) {
+        state.comments = comments
+    },
+
+    deleteCommentError(state, error) {
+        state.error = error.response.data.msg
+    }
 };
 
 export default {

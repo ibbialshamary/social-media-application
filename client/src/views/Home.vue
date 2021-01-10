@@ -1,39 +1,39 @@
 <template>
   <div class="mainContainer">
-    <br><h2 style="text-align: center;">Welcome back, {{ user.name }}, here is what you have missed:</h2>
+    <br>
+    <h2 style="text-align: center;">Welcome back, {{ user.name }}, here is what you have missed:</h2>
 
     <div class="enlargedPost" v-for="p of post" :key="p._id">
       <div class="content">
         <div class="postHeading">
-          <p><span>{{ p.poster }}</span> posted {{ p.name }} on {{ formatDate(p.date) }}</p>
+          <p><span>{{ p.poster }}</span> posted {{ p.name }} on <span>{{ formatDate(p.date) }}</span></p>
         </div>
         <p>{{ p.description }}</p>
         <img src="../images/defaultAvatar.png">
         <div class="comments">
-          <textarea v-model="commentDetails" placeholder="Add a comment" style="resize: none" required minlength="20"></textarea><br>
-          <button @click="addComment(p._id)">Post Comment</button><br>
+          <textarea v-model="commentDetails" placeholder="Add a comment" style="resize: none" required
+                    minlength="20"></textarea><br>
+          <button @click="addComment(p._id)">Post Comment</button>
+          <br>
           <div id="errorMessage"></div>
-
-
 
           <p v-if="recentComments.length">Recently Added Comments</p>
           <div class="previousComments" v-for="c in recentComments" :key="c._id">
             <div class="comment">
-              <p class="poster">{{ c.poster }} - {{ formatDate(c.date) }}</p>
+              <p class="poster"><span>{{ c.poster }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
               <p class="details">{{ c.comment }}</p>
               <div class="ratings">
                 <i class="fas fa-heart upvote"></i>
                 <i class="fas fa-thumbs-down downvote"></i>
               </div>
             </div>
-            <button>Reply</button>
-            <button>View Replies</button><br><br>
+            <br>
           </div>
 
           <p>Previous Comments</p>
           <div class="previousComments" v-for="c in comments" :key="c._id">
             <div class="comment">
-              <p class="poster">{{ c.poster }} - {{ formatDate(c.date) }}</p>
+              <p class="poster"><span>{{ c.poster }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
               <p class="details">{{ c.comment }}</p>
               <div class="ratings">
                 <i class="fas fa-heart upvote"></i>
@@ -41,7 +41,9 @@
               </div>
             </div>
             <button>Reply</button>
-            <button>View Replies</button><br><br>
+            <button>View Replies</button>
+            <button v-if="isCommentOwner(c.poster)" @click="removeComment(c._id, c.postId)" class="red">Delete Comment</button>
+            <br><br>
           </div>
         </div>
       </div>
@@ -49,32 +51,35 @@
     </div>
 
     <div class="postsContainer">
-        <br><h1 style="text-align: center">Posts</h1>
-        <div class="grid-container" v-for="post in posts" :key="post._id">
-          <div class="posts">
-            <div class="postsGridItem">
-              <div class="postContent" @click="enlargePost(post); getComments(post._id)">
-                <p><strong>{{ post.name }}</strong></p>
-                <p>{{ post.description }}</p>
-                <p>Posted on {{ formatDate(post.date) }}</p>
-              </div>
+      <br>
+      <h1 style="text-align: center">Posts</h1>
+      <div class="grid-container" v-for="post in posts" :key="post._id">
+        <div class="posts">
+          <div class="postsGridItem">
+            <div class="postContent" @click="enlargePost(post); getComments(post._id)">
+              <p><strong>{{ post.name }}</strong></p>
+              <p>{{ post.description }}</p>
+              <p>Posted on {{ formatDate(post.date) }}</p>
             </div>
-            <button v-on:click="enlargePost(post); getComments(post._id)">Enlarge Post</button>
           </div>
+          <button v-on:click="enlargePost(post); getComments(post._id)">Enlarge Post</button>
         </div>
+      </div>
       <div class="createPostButton">
         <button @click="goToCreatePost">Create a post</button>
       </div>
     </div>
 
     <div class="whispersContainer">
-      <br><h1 style="text-align: center">Whispers</h1>
+      <br>
+      <h1 style="text-align: center">Whispers</h1>
     </div>
   </div>
 </template>
 
 <script>
 import {mapActions, mapGetters} from 'vuex';
+
 export default {
   name: 'Home',
 
@@ -83,7 +88,7 @@ export default {
       post: [],
       formattedDate: '',
       commentDetails: "",
-      recentComments: [],
+      recentComments: []
     }
   },
 
@@ -121,20 +126,19 @@ export default {
       }
     },
   },
-  components: {
-    
-  },
+  components: {},
   methods: {
     ...mapActions(['getProfile']),
     ...mapActions(['getAllPosts']),
 
     ...mapActions(['getPostComment']),
     ...mapActions(['postComment']),
+    ...mapActions(['deleteComment']),
 
     async enlargePost(post) {
       try {
         this.post.push(post);
-      } catch(e) {
+      } catch (e) {
         alert(e);
       }
     },
@@ -161,7 +165,7 @@ export default {
     getComments(postId) {
       this.recentComments = [];
       this.getPostComment(postId).then(res => {
-        if(res.data.success) {
+        if (res.data.success) {
           this.recentComments(res.data.comment);
           this.commentDetails = "";
         }
@@ -172,11 +176,11 @@ export default {
       this.post = [];
     },
 
-    goToCreatePost: function() {
+    goToCreatePost: function () {
       this.$router.replace('/CreatePost');
     },
 
-    goToProfileSettings: function() {
+    goToProfileSettings: function () {
       this.$router.replace('/ProfileSettings');
     },
 
@@ -184,6 +188,30 @@ export default {
       let splitDateTime = nonSplitDate.split("T");
       let splitDate = splitDateTime[0].split("-");
       return `${splitDate[2]}/${splitDate[1]}/${splitDate[0]}`;
+    },
+
+    formatTime(nonSplitTime) {
+      let splitDateTime = nonSplitTime.split("T");
+      let splitTime = splitDateTime[1].split(":");
+      return `${splitTime[0]}:${splitTime[1]}`;
+    },
+
+    // if the comment belongs to the logged in user, return true
+    isCommentOwner(poster) {
+      return poster === this.user.username;
+    },
+
+    removeComment(commentId, postId) {
+      try {
+        this.deleteComment(commentId).then(res => {
+          console.log(res);
+          this.comments = [];
+          this.recentComments = [];
+          this.getPostComment(postId)
+        });
+      } catch(e) {
+        console.log(e);
+      }
     }
   },
   created() {
