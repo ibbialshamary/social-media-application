@@ -1,12 +1,12 @@
 const express = require('express');
 const router = express.Router();
-const Post = require('../../model/Post');
-const { postValidation } = require('../../validation/validation');
+const Comment = require('../../model/Comment');
+const { commentValidation } = require('../../validation/validation');
 
 // create post
-router.post('/post', async(req, res) => {
+router.post('/comment', async(req, res) => {
     // validate data before user is created
-    const { error } = postValidation(req.body);
+    const { error } = commentValidation(req.body);
     if(error) {
         return res.status(404).json({
             success: false,
@@ -16,20 +16,20 @@ router.post('/post', async(req, res) => {
 
 
     // create new post, get the Post schema from the model
-    const newPost = new Post({
-        name: req.body.name,
-        description: req.body.description,
-        privacy: req.body.privacy,
-        image: req.body.image,
-        poster: req.body.poster
+    const newComment = new Comment({
+        comment: req.body.comment,
+        upvotes: req.body.upvotes,
+        downvotes: req.body.downvotes,
+        poster: req.body.poster,
+        postId: req.body.postId
     });
     try {
-        newPost.save().then(post => {
-            console.log(post);
+        newComment.save().then(comment => {
+            console.log(comment);
             return res.status(201).json({
                 success: true,
-                msg: "Post published successfully",
-                post: post
+                msg: "Comment added successfully",
+                comment: comment
             });
         });
     } catch(err) {
@@ -37,17 +37,11 @@ router.post('/post', async(req, res) => {
     }
 })
 
-/**
- * @route POST api/PostCreation/Profile
- * @desc Return the post's data
- * @access Private
- */
-
 // get post
-router.get('/post',  async (req, res) => {
-    const posts = await Post.find();
+router.get('/comment',  async (req, res) => {
+    const comments = await Comment.find();
     return res.json({
-        posts: posts
+        comments: comments
     });
 })
 

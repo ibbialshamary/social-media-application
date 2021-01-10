@@ -36,7 +36,7 @@
     --secondaryColour:rgb(54, 47, 104);
     --borderSecondaryColour:rgba(54, 47, 104, 0.25);
     --secondaryFontColour:black;
-    --successMessageColour:#ADEFD1FF;
+    --successMessageColour:#2BAE66FF;
     --errorMessageColour:orangered;
     --buttonHoveredColour:rgb(46, 36, 112);
     --buttonBackgroundColour:slateblue;
@@ -498,7 +498,7 @@ a {
         top: 50%;
         transform: translateY(-50%);
         z-index: 1;
-        background: var(--postBackgroundColour);
+        background: var(--mainContainerGradientFirefox);
         animation-name: fadeIn;
         animation-duration: .5s;
         overflow-y: scroll;
@@ -534,7 +534,7 @@ a {
             &:focus {
                 outline: none;
                 border: 1px solid rgba(255, 69, 0, .55);
-                color: red;
+                color: orangered;
             }
 
             &:valid {
@@ -556,7 +556,7 @@ a {
         transition: all .3s ease-in;
         &:hover {
             cursor: pointer;
-            color: darkred;
+            color: #2BAE66FF;
         }
     }
 }

@@ -93,12 +93,12 @@ export default {
           description: this.description,
           privacy: this.privacy,
           image: this.image,
-          poster: this.user.name
+          poster: this.user.username
         };
 
         this.post(post).then(res => {
           if (res.data.success) {
-            this.displaySuccessfulMessage();
+            this.$router.replace('/Home');
           }
         }).catch(() => {
           this.displayErrorMessage();

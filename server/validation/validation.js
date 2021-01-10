@@ -19,6 +19,25 @@ const postValidation = (data) => {
     return schema.validate(data, options);
 };
 
+const commentValidation = (data) => {
+    const schema = Joi.object({
+        comment: Joi.string().min(2).required(),
+        upvotes: Joi.string().required(),
+        downvotes: Joi.string().required(),
+        poster: Joi.string().required(),
+        postId: Joi.string().required()
+    });
+
+    const options = {
+        errors: {
+            wrap: {
+                label: ''
+            }
+        }
+    };
+    return schema.validate(data, options);
+}
+
 const registerValidation = (data) => {
     const schema = Joi.object({
         username: Joi.string().min(6).required(),
@@ -67,3 +86,4 @@ const loginValidation = (data) => {
 module.exports.postValidation = postValidation;
 module.exports.registerValidation = registerValidation;
 module.exports.loginValidation = loginValidation;
+module.exports.commentValidation = commentValidation;
