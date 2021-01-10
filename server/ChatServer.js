@@ -49,5 +49,5 @@ io.on("connection", socket => {
 });
 
 http.listen(process.env.PORT || 3000, () => {
-    console.log("Listening on port %s", process.env.PORT || 3000);
+    console.log("Chat started on port %s", process.env.PORT || 3000);
 })

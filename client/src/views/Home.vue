@@ -10,11 +10,39 @@
         <p>{{ p.description }}</p>
         <img src="../images/defaultAvatar.png">
         <div class="comments">
-          <form>
-            <textarea placeholder="Add a comment" style="resize: none" required minlength="20"></textarea><br>
-            <button>Post Comment</button><br>
-            <div id="errorMessage"></div>
-          </form>
+          <textarea v-model="commentDetails" placeholder="Add a comment" style="resize: none" required minlength="20"></textarea><br>
+          <button @click="addComment(p._id)">Post Comment</button><br>
+          <div id="errorMessage"></div>
+
+
+
+          <p v-if="recentComments.length">Recently Added Comments</p>
+          <div class="previousComments" v-for="c in recentComments" :key="c._id">
+            <div class="comment">
+              <p class="poster">{{ c.poster }} - {{ formatDate(c.date) }}</p>
+              <p class="details">{{ c.comment }}</p>
+              <div class="ratings">
+                <i class="fas fa-heart upvote"></i>
+                <i class="fas fa-thumbs-down downvote"></i>
+              </div>
+            </div>
+            <button>Reply</button>
+            <button>View Replies</button><br><br>
+          </div>
+
+          <p>Previous Comments</p>
+          <div class="previousComments" v-for="c in comments" :key="c._id">
+            <div class="comment">
+              <p class="poster">{{ c.poster }} - {{ formatDate(c.date) }}</p>
+              <p class="details">{{ c.comment }}</p>
+              <div class="ratings">
+                <i class="fas fa-heart upvote"></i>
+                <i class="fas fa-thumbs-down downvote"></i>
+              </div>
+            </div>
+            <button>Reply</button>
+            <button>View Replies</button><br><br>
+          </div>
         </div>
       </div>
       <button @click="closeEnlargedPost"><i id="closePostButton" class="fas fa-times"></i></button>
@@ -25,13 +53,13 @@
         <div class="grid-container" v-for="post in posts" :key="post._id">
           <div class="posts">
             <div class="postsGridItem">
-              <div class="postContent" @click="enlargePost(post)">
+              <div class="postContent" @click="enlargePost(post); getComments(post._id)">
                 <p><strong>{{ post.name }}</strong></p>
                 <p>{{ post.description }}</p>
                 <p>Posted on {{ formatDate(post.date) }}</p>
               </div>
             </div>
-            <button v-on:click="enlargePost(post)">Enlarge Post</button>
+            <button v-on:click="enlargePost(post); getComments(post._id)">Enlarge Post</button>
           </div>
         </div>
       <div class="createPostButton">
@@ -47,15 +75,15 @@
 
 <script>
 import {mapActions, mapGetters} from 'vuex';
-// import axios from 'axios';
-
 export default {
   name: 'Home',
 
   data() {
     return {
       post: [],
-      formattedDate: ''
+      formattedDate: '',
+      commentDetails: "",
+      recentComments: [],
     }
   },
 
@@ -63,6 +91,8 @@ export default {
     ...mapGetters({
       gettersUser: 'user',
       gettersPosts: 'posts',
+
+      gettersComments: 'comments',
     }),
     user: {
       get() {
@@ -81,14 +111,25 @@ export default {
         return name
       }
     },
+
+    comments: {
+      get() {
+        return this.gettersComments
+      },
+      set(name) {
+        return name
+      }
+    },
   },
   components: {
     
   },
-
   methods: {
     ...mapActions(['getProfile']),
     ...mapActions(['getAllPosts']),
+
+    ...mapActions(['getPostComment']),
+    ...mapActions(['postComment']),
 
     async enlargePost(post) {
       try {
@@ -96,6 +137,35 @@ export default {
       } catch(e) {
         alert(e);
       }
+    },
+
+    addComment(postId) {
+      let comment = {
+        comment: this.commentDetails,
+        upvotes: 0,
+        downvotes: 0,
+        poster: this.user.username,
+        postId: postId,
+      };
+
+      this.postComment(comment).then(res => {
+        if (res.data.success) {
+          this.recentComments.push(res.data.comment);
+          this.commentDetails = "";
+        }
+      }).catch(() => {
+        alert("failed");
+      });
+    },
+
+    getComments(postId) {
+      this.recentComments = [];
+      this.getPostComment(postId).then(res => {
+        if(res.data.success) {
+          this.recentComments(res.data.comment);
+          this.commentDetails = "";
+        }
+      })
     },
 
     closeEnlargedPost() {

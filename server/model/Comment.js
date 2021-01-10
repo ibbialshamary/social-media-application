@@ -7,7 +7,7 @@ const commentSchema = new Schema({
         type: String,
         required: true,
         max: 255,
-        min: 6
+        min: 20
     },
     upvotes: {
         type: Number,

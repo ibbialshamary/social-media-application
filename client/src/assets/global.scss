@@ -8,10 +8,12 @@
 
 ::-webkit-scrollbar-track {
     background: var(--mainContainerGradientFirefox);
+
 }
 
 ::-webkit-scrollbar-thumb {
     background: var(--primaryColour);
+    border: solid var(--secondaryColour) 1.3px;
     border-radius: 18px;
 
     &:hover {
@@ -25,7 +27,7 @@
     --borderColour:rgba(255, 255, 255, 0.2);
     --borderPrimaryColour:rgba(41.6, 35.3, 80.4, 0.95);
     --primaryFontColour:white;
-    --fontColour:black;
+    --fontColour: white;
     --primarySubHeadingFontColour:white;
     --primaryInputColourThemeOpp:white;
     --navigationBarLinkHover:rgb(207, 207, 207);
@@ -502,6 +504,7 @@ a {
         animation-name: fadeIn;
         animation-duration: .5s;
         overflow-y: scroll;
+
         p {
             font-size: 18px;
             color: var(--fontColour);
@@ -520,6 +523,7 @@ a {
             width: 500px;
             height: 500px;
             border-radius: 18px;
+            border: 1px solid var(--borderColour)
         }
 
 
@@ -530,7 +534,8 @@ a {
             color: var(--primarySubHeadingFontColour);
             transition: all ease-in .5s;
             border-radius: 8px;
-            margin: 10px 0 10px 0;
+            margin: 10px 0 0 0;
+            vertical-align: top;
             &:focus {
                 outline: none;
                 border: 1px solid rgba(255, 69, 0, .55);
@@ -542,6 +547,56 @@ a {
                 border: 1px solid rgba(43, 174, 102, .55);
                 background-color: #FCF6F5FF;
                 color: #2BAE66FF;
+            }
+        }
+        .previousComments {
+            button {
+                margin-left: 2px;
+                background-color: #2BAE66FF;
+                transition: all ease-in .3s;
+                &:hover {
+                    background-color: hotpink;
+                }
+            }
+
+            .comment {
+                border: 1px solid var(--borderColour);
+                background: var(--mainContainerGradientFirefox);
+                color: var(--primarySubHeadingFontColour);
+                position: relative;
+                width: 500px;
+                left: 50%;
+                transform: translateX(-50%);
+                transition: all ease-in .5s;
+                border-radius: 8px;
+                padding: 24px;
+                p {
+                    margin: 0;
+                    text-align: left;
+                    font-size: 16px;
+                }
+
+                .ratings {
+                    position: absolute;
+                    right: 0;
+                    top: 50%;
+                    transform: translate(-50%, -50%);
+                    font-size: 22px;
+                    .upvote, .downvote {
+                        margin-left: 5px;
+                        transition: all ease-in .3s;
+                        &:hover {
+                            cursor: pointer;
+                        }
+                    }
+                    .upvote:hover {
+                        color: #f657bc;
+                    }
+                    .downvote:hover {
+                        color: orangered;
+                    }
+
+                }
             }
         }
     }

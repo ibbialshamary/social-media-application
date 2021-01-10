@@ -49,6 +49,7 @@ export default {
     ...mapGetters({
       storePostError: 'postError',
       storePostStatus: 'postStatus',
+
       gettersUser: 'user',
     }),
     postError: {

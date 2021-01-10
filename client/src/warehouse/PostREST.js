@@ -34,8 +34,9 @@ const actions = {
     async getAllPosts({ commit }) {
         try {
             commit('getPostsRequest');
-            let res = await axios.get('http://localhost:5000/post');
-            commit('getPostsInfo', res.data.posts);
+            let res = await axios.get('http://localhost:5000/Post');
+            const posts = res.data.posts;
+            commit('getPostsInfo', posts);
             return res;
         } catch(err) {
             commit('getPostsError', err);
@@ -46,7 +47,7 @@ const actions = {
     async getSinglePost({ commit }, post) {
         try {
             commit("getSinglePostRequest");
-            let res = await axios.get(`http://localhost:5000/${post._id}`)
+            let res = await axios.get("http://localhost:5000/post/id", post)
             commit("getSinglePostInfo", res.data.posts);
             return res;
         } catch(err) {

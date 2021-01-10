@@ -37,30 +37,22 @@ router.post('/comment', async(req, res) => {
     }
 })
 
-// get post
-router.get('/comment',  async (req, res) => {
-    const comments = await Comment.find();
-    return res.json({
-        comments: comments
-    });
-})
-
-// get specific post
-router.get('/post/id/:id',  async (req, res) => {
+// get a specific post's comments
+router.get('/comment/id/:id',  async (req, res) => {
     try {
-        const post = await Post.findById({_id: req.params.id})
+        const comments = await Comment.find({postId: {$eq: req.params.id}}).sort({date: -1});
         return res.json({
-            post: post
+            comments: comments
         });
     } catch(err) {
         res.status(404).send(err.message);
     }
 })
 
-// delete post
-router.delete('/post/id/:id',  async (req, res) => {
+// delete comment
+router.delete('/comment/id/:id',  async (req, res) => {
     try {
-        const post = await Post.findByIdAndDelete({_id: req.params.id})
+        const post = await Comment.findByIdAndDelete({_id: req.params.id})
         return res.json({
             id: post._id,
             name: post.name,
@@ -71,26 +63,12 @@ router.delete('/post/id/:id',  async (req, res) => {
     }
 })
 
-// update or patch post
-router.patch('/post/id/:id', async (req, res) => {
+// update or patch comment
+router.patch('/comment/id/:id', async (req, res) => {
     try {
-        const post = await Post.updateOne({_id: req.params.id}, {$set: req.body});
+        const post = await Comment.updateOne({_id: req.params.id}, {$set: req.body});
         return res.json({
             status: "Successfully patched"
-        });
-    } catch(err) {
-        res.status(404).send(err.message);
-    }
-})
-
-// get random post
-router.get('/post/random', async(req, res) => {
-    try {
-        const count = await Post.countDocuments();
-        const random = Math.floor(Math.random() * count);
-        const post = await Post.findOne().skip(random);
-        return res.json({
-            post: post
         });
     } catch(err) {
         res.status(404).send(err.message);

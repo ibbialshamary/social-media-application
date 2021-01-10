@@ -22,8 +22,8 @@ const postValidation = (data) => {
 const commentValidation = (data) => {
     const schema = Joi.object({
         comment: Joi.string().min(2).required(),
-        upvotes: Joi.string().required(),
-        downvotes: Joi.string().required(),
+        upvotes: Joi.required(),
+        downvotes: Joi.required(),
         poster: Joi.string().required(),
         postId: Joi.string().required()
     });
