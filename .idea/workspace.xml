@@ -22,6 +22,7 @@
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/ChatRoom.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatRoom.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Home.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -140,7 +141,9 @@
       <workItem from="1610318611207" duration="4961000" />
       <workItem from="1610358068929" duration="2801000" />
       <workItem from="1610367876070" duration="3824000" />
-      <workItem from="1610371717181" duration="1043000" />
+      <workItem from="1610371717181" duration="1133000" />
+      <workItem from="1610387036373" duration="3204000" />
+      <workItem from="1610397130582" duration="7450000" />
     </task>
     <servers />
   </component>
@@ -193,18 +196,18 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1098" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606685471957" />
-    <state x="912" y="248" width="986" height="801" key="find.popup" timestamp="1610320713452">
+    <state x="912" y="248" width="986" height="801" key="find.popup" timestamp="1610402898865">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="-1179" y="589" width="555" height="596" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@-1920.366.1920.1040" timestamp="1608029984694" />
-    <state x="912" y="248" width="986" height="801" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610320713452" />
+    <state x="912" y="248" width="986" height="801" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610402898865" />
     <state x="937" y="331" key="run.anything.popup" timestamp="1610200804921">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="937" y="331" key="run.anything.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610200804921" />
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1606875892858">
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1610397521318">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606875892858" />
+    <state x="943" y="315" width="672" height="678" key="search.everywhere.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610397521318" />
   </component>
 </project>

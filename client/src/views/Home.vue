@@ -13,7 +13,7 @@
         <div class="comments">
           <textarea v-model="commentDetails" placeholder="Add a comment" style="resize: none" required
                     minlength="20"></textarea><br>
-          <button @click="addComment(p._id)">Post Comment</button>
+          <button class="postCommentButton" @click="addComment(p._id)">Post Comment</button>
           <br>
           <div id="errorMessage"></div>
 

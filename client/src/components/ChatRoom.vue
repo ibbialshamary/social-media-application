@@ -15,7 +15,7 @@
             </div>
           </div>
           <form class="inputContainer" v-on:submit="sendMessage">
-            <input class="messageInput" type="text" v-model="msg">
+            <input class="messageInput" type="text" v-model="msg" required>
             <button v-on:click="sendMessage" v-bind:disabled="!msg">Send Message</button>
           </form>
         </div>

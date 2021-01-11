@@ -2,28 +2,26 @@
 
 ::-webkit-scrollbar {
     background: var(--primaryColour);
-    padding: 20px;
 
 }
 
 ::-webkit-scrollbar-track {
-    background: var(--mainContainerGradientFirefox);
+    background: var(--scrollBarTrack)
 
 }
 
 ::-webkit-scrollbar-thumb {
-    background: var(--primaryColour);
-    border: solid var(--secondaryColour) 1.3px;
+    background: var(--scrollBarThumb);
     border-radius: 18px;
 
     &:hover {
-        background-color: var(--buttonHoveredColour);
+        background-color: white;
     }
 }
 
 :root {
     /* primary */
-    --primaryColour:slateblue;
+    --primaryColour: #6a5acd;
     --borderColour:rgba(255, 255, 255, 0.2);
     --borderPrimaryColour:rgba(41.6, 35.3, 80.4, 0.95);
     --primaryFontColour:white;
@@ -33,11 +31,18 @@
     --navigationBarLinkHover:rgb(207, 207, 207);
     --postBackgroundColour: #2a2d34;
     --postContentBackground: 42, 45, 52;
+    --scrollBarThumb: rgb(88, 71, 205);
+    --whiteButtonBackground: white;
+    --blueButtonBackground: #06f;
+    --blueButtonHoverBackground: #042ae9;
+    --redButtonBackground: #f71735;
+    --redButtonHoverBackground: #a40419;
+    --whiteButtonHoverBackground: #d6cfcf;
 
     /* secondary */
     --secondaryColour:rgb(54, 47, 104);
     --borderSecondaryColour:rgba(54, 47, 104, 0.25);
-    --secondaryFontColour:black;
+    --secondaryFontColour: #343535;
     --successMessageColour:#2BAE66FF;
     --errorMessageColour:orangered;
     --buttonHoveredColour:rgb(46, 36, 112);
@@ -80,7 +85,7 @@
 
 [data-theme="dark"] {
     /* primary */
-    --primaryColour:#6a5acd;
+    --primaryColour: #6a5acd;
     --borderColour:rgba(255, 255, 255, 0.2);
     --primaryFontColour:white;
     --fontColour:white;
@@ -89,15 +94,17 @@
     --navigationBarLinkHover:rgb(207, 207, 207);
     --postBackgroundColour: #2a2d34;
     --postContentBackground: 42, 45, 52;
+    --scrollBarThumb: rgb(88, 71, 205);
 
     /* secondary */
     --secondaryColour:rgb(54, 47, 104);
     --borderSecondaryColour:rgba(54, 47, 104, 0.25);
-    --secondaryFontColour:black;
+    --secondaryFontColour: #343535;
     --errorMessageColour:orangered;
     --buttonHoveredColour:rgb(46, 36, 112);
     --buttonBackgroundColour:slateblue;
-    --buttonTextColour:white;
+    --buttonTextColour: white;
+    --scrollBarTrack: rgb(43, 34, 96);
 
     /* gradients */
     --mainContainerGradientChrome:-webkit-linear-gradient(to left, #414345, #232526);
@@ -113,28 +120,34 @@
 
 [data-theme="light"] {
     /* primary */
-    --primaryColour:#356afa;
+    --primaryColour: #ffbe7b;
     --borderColour:rgba(0, 0, 0, 0.2);
-    --primaryFontColour:white;
-    --fontColour:#1e2020;
+    --primaryFontColour: black;
+    --fontColour: #1e2020;
     --primarySubHeadingFontColour: black;
     --primaryInputColourThemeOpp:#1e2020;
-    --navigationBarLinkHover:rgb(207, 207, 207);
+    --navigationBarLinkHover: #EDF5E1;
     --postBackgroundColour: #dcdde1;
     --postContentBackground: 220, 221, 225;
+    --scrollBarThumb: rgb(255, 172, 92);
 
     /* secondary */
-    --secondaryColour: rgb(30, 81, 235);
+    --secondaryColour: #ffa351;
     --borderSecondaryColour: rgba(30, 81, 235, 0.25);
     --secondaryFontColour: #ffffff;
     --errorMessageColour: rgba(121, 0, 0, 0.95);
-    --buttonHoveredColour: #1d4bd4;
+    --buttonHoveredColour: black;
     --buttonBackgroundColour: var(--primaryColour);
-    --buttonTextColour: white;
+    --buttonTextColour: black;
+    --scrollBarTrack: rgb(231, 145, 63);
 
     /* gradients */
-    --mainContainerGradientChrome:-webkit-linear-gradient(to left, #414345, #232526);
-    --mainContainerGradientFirefox:linear-gradient(to left, #f5f6fa, #f5f6fa);
+    --mainContainerGradientChrome: -webkit-linear-gradient(to left, #414345, #232526);
+    --mainContainerGradientFirefox: linear-gradient(to left, #f9fcff 0%, #dee4ea 74%);
+
+
+
+
 
     /* grid items */
     --gridItemBackground:white;
@@ -287,11 +300,10 @@ button, .button, #button {
     color: var(--buttonTextColour);
     width: var(--buttonWidth);
     min-height: var(--buttonHeight);
+    border-radius: 10px;
+    transition: background-color .3s ease-in, color .3s ease-in;
 }
 
-.button:hover, #button:hover, button:hover {
-    background-color: var(--buttonHoveredColour);
-}
 
 /* styling of login page */
 
@@ -429,6 +441,10 @@ a {
         border-radius: 0 0 5% 5% / 0 0 2% 2%;
         box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
     }
+
+    button {
+        margin-top: 10px;
+    }
 }
 
 /* hover over the posts form border */
@@ -464,7 +480,9 @@ a {
 
     .postContent {
         cursor: pointer;
-        background-color: rgba(var(--postContentBackground), 0.65);
+        background: var(--mainContainerGradientFirefox);
+
+        opacity: .8;
         border-radius: 12px;
         padding: 12px;
         position: relative;
@@ -474,7 +492,7 @@ a {
         transition: all ease-in 0.225s;
 
         &:hover {
-            background-color: rgba(var(--postContentBackground), 1);
+            opacity: 1;
             transform: translate(-50%, -50%) scale(1.1);
         }
 
@@ -500,26 +518,35 @@ a {
         top: 50%;
         transform: translateY(-50%);
         z-index: 1;
-        background: var(--mainContainerGradientFirefox);
+        background: var(--secondaryColour);
         animation-name: fadeIn;
         animation-duration: .5s;
         overflow-y: scroll;
 
+        .postCommentButton {
+            color: #1e2020;
+            background-color: var(--whiteButtonBackground);
+            border: 1px solid var(--borderColour);
+            &:hover {
+                background-color: var(--whiteButtonHoverBackground);
+            }
+        }
+
+        button {
+            margin-top: 10px;
+        }
+
         p {
             font-size: 18px;
-            color: var(--fontColour);
+            color: var(--primaryFontColour);
 
             &:first-child {
                 margin: 5px 0 20px 0;
                 font-size: 20px;
             }
 
-            span:first-child {
-                color: var(--primaryColour);
-            }
-
             span:not(first-child) {
-                color: #2BAE66FF;
+                font-weight: bold;
             }
         }
 
@@ -527,7 +554,7 @@ a {
             width: 500px;
             height: 500px;
             border-radius: 18px;
-            border: 1px solid var(--borderColour);
+            //border: 1px solid var(--borderColour);
             margin-top: 10px;
         }
 
@@ -539,8 +566,9 @@ a {
             color: var(--primarySubHeadingFontColour);
             transition: all ease-in .5s;
             border-radius: 8px;
-            margin: 10px 0 10px 0;
+            margin: 10px 0 0 0;
             vertical-align: top;
+            border: 1px solid var(--borderColour);
             &:focus {
                 outline: none;
                 border: 1px solid rgba(255, 69, 0, .55);
@@ -556,18 +584,16 @@ a {
         }
         .previousComments {
             .red {
-                background: #f71735 linear-gradient(147deg, #f71735 0%, #db3445 74%);
+                background: var(--redButtonBackground);
                 &:hover {
-                    background: #fe7bb0 linear-gradient(315deg, #fe7bb0 0%, #ff748b 74%);
+                    background: var(--redButtonHoverBackground);
                 }
             }
             button {
-                margin-left: 2px;
-                margin-top: 10px;
-                background: #2BAE66FF linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
-                transition: all ease-in .3s;
+                margin-left: 8px;
+                background: var(--blueButtonBackground);
                 &:hover {
-                    background: #4dcc7c linear-gradient(315deg, #4dcc86 0%, #96e4a3 100%);
+                    background: var(--blueButtonHoverBackground);
                 }
             }
 
@@ -579,13 +605,14 @@ a {
                 width: 500px;
                 left: 50%;
                 transform: translateX(-50%);
-                transition: all ease-in .5s;
+                transition: all ease-in .3s;
                 border-radius: 8px;
                 padding: 24px;
                 p {
                     text-align: left;
                     font-size: 16px;
                     margin: 0 70px 0 0;
+                    color: var(--primarySubHeadingFontColour);
                 }
 
                 .ratings {
@@ -606,11 +633,16 @@ a {
                             cursor: pointer;
                         }
                     }
-                    .upvote:hover {
-                        color: #f657bc;
+
+                    .upvote {
+                        color: mediumseagreen;
                     }
-                    .downvote:hover {
-                        color: orangered;
+
+                    .downvote {
+                        color: #e34a4a;
+                    }
+                    .upvote:hover, .downvote:hover {
+                        color: var(--whiteButtonHoverBackground);
                     }
                 }
             }
@@ -627,7 +659,7 @@ a {
         transition: all .3s ease-in;
         &:hover {
             cursor: pointer;
-            color: #2BAE66FF;
+            color: white;
         }
     }
 }
@@ -1036,6 +1068,10 @@ green {
 .inputContainer {
     display: flex;
 
+    input[type=text] {
+        border-radius: 10px;
+        margin-left: 10px;
+    }
     input {
         flex: 1;
         font-size: 18px;
@@ -1050,7 +1086,7 @@ green {
 
     button {
         margin: 5px;
-        background: var(--mainContainerGradientFirefox);
+        background: var(--secondaryColour);
         border: 1px solid var(--borderColour);
     }
 }
