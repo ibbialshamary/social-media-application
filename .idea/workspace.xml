@@ -21,10 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/warehouse/CommentREST.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/warehouse/CommentREST.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/NodeServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/NodeServer.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +139,8 @@
       <workItem from="1610310326641" duration="6228000" />
       <workItem from="1610318611207" duration="4961000" />
       <workItem from="1610358068929" duration="2801000" />
-      <workItem from="1610367876070" duration="3057000" />
+      <workItem from="1610367876070" duration="3824000" />
+      <workItem from="1610371717181" duration="1043000" />
     </task>
     <servers />
   </component>

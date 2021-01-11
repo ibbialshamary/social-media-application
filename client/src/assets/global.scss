@@ -595,6 +595,8 @@ a {
                     transform: translateY(-50%);
                     font-size: 22px;
                     margin-right: 10px;
+                    user-select: none;
+                    cursor: pointer;
 
                     .upvote, .downvote {
                         margin-left: 15px;

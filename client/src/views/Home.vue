@@ -32,8 +32,8 @@
               <p class="poster"><span>{{ c.poster }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
               <p class="details">{{ c.comment }}</p>
               <div class="ratings">
-                <span @click="rateComment(c._id, c.poster, 'upvote')"><i class="fas fa-heart upvote"></i><span>{{ c.upvotes }}</span></span>
-                <span @click="rateComment(c._id, c.poster, 'downvote')"><i class="fas fa-thumbs-down downvote"></i><span>{{ c.downvotes }}</span></span>
+                <span @click="rateComment(c._id, c.postId, c.upvotes, 'upvote')"><i class="fas fa-heart upvote"></i><span>{{ c.upvotes }}</span></span>
+                <span @click="rateComment(c._id, c.postId, c.downvotes, 'downvote')"><i class="fas fa-thumbs-down downvote"></i><span>{{ c.downvotes }}</span></span>
               </div>
             </div>
             <button>Reply</button>
@@ -214,28 +214,26 @@ export default {
       }
     },
 
-    rateComment(commentId, postId, ratingType) {
+    rateComment(commentId, postId, ratingCount, ratingType) {
       let commentToPatch;
-
+      console.log(ratingCount);
 
       if(ratingType === "upvote") {
         commentToPatch = {
-          upvotes: this.upvotes++,
+          upvotes: ratingCount + 1
         }
-        console.log(this.upvotes + "\n");
       } else {
         commentToPatch = {
-          downvotes: this.downvotes++
+          downvotes: ratingCount + 1
         }
       }
       try {
         this.patchComment([commentToPatch, commentId]).then(res => {
-          // console.log(commentId);
-          // console.log(res.data);
-          // alert("Done");
-          // this.comments = [];
-          // this.recentComments = [];
-          // this.getComment(postId);
+          if(res.status === 200) {
+            this.comments = [];
+            this.recentComments = [];
+            this.getComments(postId)
+          }
         });
       } catch(err) {
         console.log(err);
