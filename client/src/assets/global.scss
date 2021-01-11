@@ -19,6 +19,10 @@
     }
 }
 
+input[type=text] {
+    border-radius: 10px;
+}
+
 :root {
     /* primary */
     --primaryColour: #6a5acd;
@@ -40,14 +44,15 @@
     --whiteButtonHoverBackground: #d6cfcf;
 
     /* secondary */
-    --secondaryColour:rgb(54, 47, 104);
-    --borderSecondaryColour:rgba(54, 47, 104, 0.25);
+    --secondaryColour: rgb(54, 47, 104);
+    --borderSecondaryColour: rgba(54, 47, 104, 0.25);
     --secondaryFontColour: #343535;
-    --successMessageColour:#2BAE66FF;
-    --errorMessageColour:orangered;
-    --buttonHoveredColour:rgb(46, 36, 112);
-    --buttonBackgroundColour:slateblue;
-    --buttonTextColour:white;
+    --successMessageColour: #2BAE66FF;
+    --errorMessageColour: orangered;
+    --buttonHoveredColour: rgb(46, 36, 112);
+    --buttonBackgroundColour: slateblue;
+    --buttonTextColour: white;
+    --defaultButtonHoverBackground: #533ce9;
 
     /* gradients */
     --mainContainerGradientChrome:-webkit-linear-gradient(to left, #414345, #232526);
@@ -95,6 +100,7 @@
     --postBackgroundColour: #2a2d34;
     --postContentBackground: 42, 45, 52;
     --scrollBarThumb: rgb(88, 71, 205);
+    --defaultButtonHoverBackground: #533ce9;
 
     /* secondary */
     --secondaryColour:rgb(54, 47, 104);
@@ -121,7 +127,7 @@
 [data-theme="light"] {
     /* primary */
     --primaryColour: #ffbe7b;
-    --borderColour:rgba(0, 0, 0, 0.2);
+    --borderColour: rgba(0, 0, 0, 0.4);
     --primaryFontColour: black;
     --fontColour: #1e2020;
     --primarySubHeadingFontColour: black;
@@ -130,6 +136,7 @@
     --postBackgroundColour: #dcdde1;
     --postContentBackground: 220, 221, 225;
     --scrollBarThumb: rgb(255, 172, 92);
+    --defaultButtonHoverBackground: #ee933f;
 
     /* secondary */
     --secondaryColour: #ffa351;
@@ -302,6 +309,9 @@ button, .button, #button {
     min-height: var(--buttonHeight);
     border-radius: 10px;
     transition: background-color .3s ease-in, color .3s ease-in;
+    &:hover {
+        background-color: var(--defaultButtonHoverBackground);
+    }
 }
 
 
@@ -1069,7 +1079,6 @@ green {
     display: flex;
 
     input[type=text] {
-        border-radius: 10px;
         margin-left: 10px;
     }
     input {
@@ -1087,7 +1096,6 @@ green {
     button {
         margin: 5px;
         background: var(--secondaryColour);
-        border: 1px solid var(--borderColour);
     }
 }
 
@@ -1175,9 +1183,14 @@ green {
         font-size: 18px;
         box-sizing: border-box;
         background: var(--mainContainerGradientFirefox);
-        border: 1px solid var(--borderColour);
+
         color: var(--primarySubHeadingFontColour);
         padding: 5px 5px;
+    }
+
+    button, input, select {
+        outline: 0;
+        border: 1px solid var(--borderColour);
     }
 }
 
