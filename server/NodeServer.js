@@ -36,7 +36,8 @@ require('./config/passport')(passport);
 // const databaseKey = require('./config/keys').mongoURI;
 mongoose.connect('mongodb://localhost:27017/SocialMediaApplication', {
     useNewUrlParser: true,
-    useUnifiedTopology: true
+    useUnifiedTopology: true,
+    useFindAndModify: false
 }).then(() => {
     console.log(`Database connection successful`)
 }).catch(err => {

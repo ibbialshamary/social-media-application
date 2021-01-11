@@ -15,21 +15,6 @@ const getters = {
 };
 
 const actions = {
-    // action for creating comment
-    async postComment({ commit }, comment) {
-        commit('createCommentRequest');
-        try {
-            let res = await axios.post('http://localhost:5000/comment', comment);
-            if(res.data.success !== undefined) {
-                const comment = res.data.comment;
-                commit('createCommentSuccess', comment);
-            }
-            return res;
-        } catch(err) {
-            commit('createCommentError', err);
-        }
-    },
-
     // action for getting all comments that belong to certain post
     async getComment({ commit }, id) {
         try {
@@ -55,12 +40,27 @@ const actions = {
         }
     },
 
-    async patchComment({ commit }, id, comment) {
+    // action for creating comment
+    async postComment({ commit }, comment) {
+        commit('createCommentRequest');
+        try {
+            let res = await axios.post('http://localhost:5000/comment', comment);
+            if(res.data.success !== undefined) {
+                const comment = res.data.comment;
+                commit('createCommentSuccess', comment);
+            }
+            return res;
+        } catch(err) {
+            commit('createCommentError', err);
+        }
+    },
+
+    async patchComment({ commit }, [commentToPatch, commentId]) {
         try {
             commit("patchCommentRequest");
-            let res = await axios.patch("http://localhost:5000/comment/id/" + id, comment);
-            const comments = res.data.comments;
-            commit("patchCommentInfo", comments);
+            let res = await axios.patch("http://localhost:5000/comment/id/" + commentId, commentToPatch);
+            const comment = res.data.comment;
+            commit("patchCommentSuccess", comment);
             return res;
         } catch(err) {
             commit("patchCommentError", err)
@@ -82,19 +82,6 @@ const mutations = {
         state.error = error.response.data.msg
     },
 
-    // create comment
-    createCommentRequest(state) {
-        state.error = null
-        state.status = 'Loading'
-    },
-    createCommentSuccess(state) {
-        state.error = null
-        state.status = 'Comment successfully added'
-    },
-    createCommentError(state, error) {
-        state.error = error.response.data.msg
-    },
-
     // delete comment
     deleteCommentRequest(state) {
         state.error = null
@@ -109,13 +96,27 @@ const mutations = {
         state.error = error.response.data.msg
     },
 
+    // create comment
+    createCommentRequest(state) {
+        state.error = null
+        state.status = 'Loading'
+    },
+    createCommentSuccess(state) {
+        state.error = null
+        state.status = 'Comment successfully added'
+    },
+    createCommentError(state, error) {
+        state.error = error.response.data.msg
+    },
+
     patchCommentRequest(state) {
         state.error = null
         state.status = 'Loading'
     },
 
-    patchCommentInfo(state, comments) {
-        state.comments = comments
+    patchCommentSuccess(state) {
+        state.error = null
+        state.status = 'Comment successfully patched'
     },
 
     patchCommentError(state, error) {

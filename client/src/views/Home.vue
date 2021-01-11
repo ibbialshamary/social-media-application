@@ -22,10 +22,6 @@
             <div class="comment">
               <p class="poster"><span>{{ c.poster }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
               <p class="details">{{ c.comment }}</p>
-              <div class="ratings">
-                <span @click="rateComment(c._id, c.poster)"><i class="fas fa-heart upvote"></i></span>
-                <span @click="rateComment"><i class="fas fa-thumbs-down downvote"></i></span>
-              </div>
             </div>
             <br>
           </div>
@@ -36,8 +32,8 @@
               <p class="poster"><span>{{ c.poster }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
               <p class="details">{{ c.comment }}</p>
               <div class="ratings">
-                <span @click="rateComment(c._id, c.poster)" ><i class="fas fa-heart upvote"></i><span>{{ c.upvotes }}</span></span>
-                <i @click="rateComment(c._id, c.poster)" class="fas fa-thumbs-down downvote"></i><span>{{ c.downvotes }}</span>
+                <span @click="rateComment(c._id, c.poster, 'upvote')"><i class="fas fa-heart upvote"></i><span>{{ c.upvotes }}</span></span>
+                <span @click="rateComment(c._id, c.poster, 'downvote')"><i class="fas fa-thumbs-down downvote"></i><span>{{ c.downvotes }}</span></span>
               </div>
             </div>
             <button>Reply</button>
@@ -87,8 +83,11 @@ export default {
     return {
       post: [],
       formattedDate: '',
+
       commentDetails: "",
-      recentComments: []
+      recentComments: [],
+      upvotes: 0,
+      downvotes: 0
     }
   },
 
@@ -142,10 +141,6 @@ export default {
       } catch (e) {
         alert(e);
       }
-    },
-
-    testFunction() {
-      alert("hello");
     },
 
     addComment(postId) {
@@ -219,18 +214,28 @@ export default {
       }
     },
 
-    rateComment(commentId, postId) {
-      let comment = {
-        upvotes: 55,
-        downvotes: 55,
-      };
+    rateComment(commentId, postId, ratingType) {
+      let commentToPatch;
 
+
+      if(ratingType === "upvote") {
+        commentToPatch = {
+          upvotes: this.upvotes++,
+        }
+        console.log(this.upvotes + "\n");
+      } else {
+        commentToPatch = {
+          downvotes: this.downvotes++
+        }
+      }
       try {
-        this.patchComment(commentId, comment).then(res => {
-          console.log(res);
-          this.comments = [];
-          this.recentComments = [];
-          this.getComment(postId);
+        this.patchComment([commentToPatch, commentId]).then(res => {
+          // console.log(commentId);
+          // console.log(res.data);
+          // alert("Done");
+          // this.comments = [];
+          // this.recentComments = [];
+          // this.getComment(postId);
         });
       } catch(err) {
         console.log(err);
