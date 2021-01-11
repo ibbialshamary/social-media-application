@@ -6,7 +6,7 @@
     <div class="enlargedPost" v-for="p of post" :key="p._id">
       <div class="content">
         <div class="postHeading">
-          <p><span>{{ p.poster }}</span> posted {{ p.name }} on <span>{{ formatDate(p.date) }}</span></p>
+          <p><span>{{ p.poster }}</span> posted <i>{{ p.name }}</i> on <span>{{ formatDate(p.date) }}</span></p>
         </div>
         <p>{{ p.description }}</p>
         <img src="../images/defaultAvatar.png">
@@ -23,8 +23,8 @@
               <p class="poster"><span>{{ c.poster }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
               <p class="details">{{ c.comment }}</p>
               <div class="ratings">
-                <i class="fas fa-heart upvote"></i>
-                <i class="fas fa-thumbs-down downvote"></i>
+                <span @click="rateComment(c._id, c.poster)"><i class="fas fa-heart upvote"></i></span>
+                <span @click="rateComment"><i class="fas fa-thumbs-down downvote"></i></span>
               </div>
             </div>
             <br>
@@ -36,8 +36,8 @@
               <p class="poster"><span>{{ c.poster }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
               <p class="details">{{ c.comment }}</p>
               <div class="ratings">
-                <i class="fas fa-heart upvote"></i>
-                <i class="fas fa-thumbs-down downvote"></i>
+                <span @click="rateComment(c._id, c.poster)" ><i class="fas fa-heart upvote"></i><span>{{ c.upvotes }}</span></span>
+                <i @click="rateComment(c._id, c.poster)" class="fas fa-thumbs-down downvote"></i><span>{{ c.downvotes }}</span>
               </div>
             </div>
             <button>Reply</button>
@@ -131,9 +131,10 @@ export default {
     ...mapActions(['getProfile']),
     ...mapActions(['getAllPosts']),
 
-    ...mapActions(['getPostComment']),
+    ...mapActions(['getComment']),
     ...mapActions(['postComment']),
     ...mapActions(['deleteComment']),
+    ...mapActions(['patchComment']),
 
     async enlargePost(post) {
       try {
@@ -141,6 +142,10 @@ export default {
       } catch (e) {
         alert(e);
       }
+    },
+
+    testFunction() {
+      alert("hello");
     },
 
     addComment(postId) {
@@ -164,7 +169,7 @@ export default {
 
     getComments(postId) {
       this.recentComments = [];
-      this.getPostComment(postId).then(res => {
+      this.getComment(postId).then(res => {
         if (res.data.success) {
           this.recentComments(res.data.comment);
           this.commentDetails = "";
@@ -207,10 +212,28 @@ export default {
           console.log(res);
           this.comments = [];
           this.recentComments = [];
-          this.getPostComment(postId)
+          this.getComment(postId);
         });
-      } catch(e) {
-        console.log(e);
+      } catch(err) {
+        console.log(err);
+      }
+    },
+
+    rateComment(commentId, postId) {
+      let comment = {
+        upvotes: 55,
+        downvotes: 55,
+      };
+
+      try {
+        this.patchComment(commentId, comment).then(res => {
+          console.log(res);
+          this.comments = [];
+          this.recentComments = [];
+          this.getComment(postId);
+        });
+      } catch(err) {
+        console.log(err);
       }
     }
   },

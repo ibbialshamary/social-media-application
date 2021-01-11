@@ -527,7 +527,8 @@ a {
             width: 500px;
             height: 500px;
             border-radius: 18px;
-            border: 1px solid var(--borderColour)
+            border: 1px solid var(--borderColour);
+            margin-top: 10px;
         }
 
 
@@ -555,15 +556,18 @@ a {
         }
         .previousComments {
             .red {
-                background-color: orangered;
+                background: #f71735 linear-gradient(147deg, #f71735 0%, #db3445 74%);
+                &:hover {
+                    background: #fe7bb0 linear-gradient(315deg, #fe7bb0 0%, #ff748b 74%);
+                }
             }
             button {
                 margin-left: 2px;
                 margin-top: 10px;
-                background-color: #2BAE66FF;
+                background: #2BAE66FF linear-gradient(315deg, #3bb78f 0%, #0bab64 74%);
                 transition: all ease-in .3s;
                 &:hover {
-                    background-color: hotpink;
+                    background: #4dcc7c linear-gradient(315deg, #4dcc86 0%, #96e4a3 100%);
                 }
             }
 
@@ -588,11 +592,13 @@ a {
                     position: absolute;
                     right: 0;
                     top: 50%;
-                    transform: translate(-50%, -50%);
+                    transform: translateY(-50%);
                     font-size: 22px;
+                    margin-right: 10px;
 
                     .upvote, .downvote {
-                        margin-left: 5px;
+                        margin-left: 15px;
+                        margin-right: 2px;
                         transition: all ease-in .3s;
                         &:hover {
                             cursor: pointer;
@@ -604,7 +610,6 @@ a {
                     .downvote:hover {
                         color: orangered;
                     }
-
                 }
             }
         }

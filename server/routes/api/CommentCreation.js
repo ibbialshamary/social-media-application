@@ -3,37 +3,15 @@ const router = express.Router();
 const Comment = require('../../model/Comment');
 const { commentValidation } = require('../../validation/validation');
 
-// create post
-router.post('/comment', async(req, res) => {
-    // validate data before user is created
-    const { error } = commentValidation(req.body);
-    if(error) {
-        return res.status(404).json({
-            success: false,
-            msg: 'Your ' + error.details[0].message
-        });
-    }
-
-
-    // create new post, get the Post schema from the model
-    const newComment = new Comment({
-        comment: req.body.comment,
-        upvotes: req.body.upvotes,
-        downvotes: req.body.downvotes,
-        poster: req.body.poster,
-        postId: req.body.postId
-    });
+// get post
+router.get("/comment", async(req, res) => {
     try {
-        newComment.save().then(comment => {
-            console.log(comment);
-            return res.status(201).json({
-                success: true,
-                msg: "Comment added successfully",
-                comment: comment
-            });
+        const comments = await Comment.find().sort({date: -1});
+        return res.json({
+            comments: comments
         });
     } catch(err) {
-        res.status(404).send(err);
+        res.status(404).send(err.message);
     }
 })
 
@@ -72,6 +50,40 @@ router.patch('/comment/id/:id', async (req, res) => {
         });
     } catch(err) {
         res.status(404).send(err.message);
+    }
+})
+
+// create post
+router.post('/comment', async(req, res) => {
+    // validate data before user is created
+    const { error } = commentValidation(req.body);
+    if(error) {
+        return res.status(404).json({
+            success: false,
+            msg: 'Your ' + error.details[0].message
+        });
+    }
+
+
+    // create new post, get the Post schema from the model
+    const newComment = new Comment({
+        comment: req.body.comment,
+        upvotes: req.body.upvotes,
+        downvotes: req.body.downvotes,
+        poster: req.body.poster,
+        postId: req.body.postId
+    });
+    try {
+        newComment.save().then(comment => {
+            console.log(comment);
+            return res.status(201).json({
+                success: true,
+                msg: "Comment added successfully",
+                comment: comment
+            });
+        });
+    } catch(err) {
+        res.status(404).send(err);
     }
 })
 

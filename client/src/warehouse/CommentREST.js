@@ -31,15 +31,15 @@ const actions = {
     },
 
     // action for getting all comments that belong to certain post
-    async getPostComment({ commit }, id) {
+    async getComment({ commit }, id) {
         try {
-            commit('getPostCommentRequest');
+            commit('getCommentRequest');
             let res = await axios.get('http://localhost:5000/comment/id/' + id);
             const comments = res.data.comments;
-            commit('getPostCommentInfo', comments);
+            commit('getCommentInfo', comments);
             return res;
         } catch(err) {
-            commit('getPostCommentError', err);
+            commit('getCommentError', err);
         }
     },
 
@@ -53,20 +53,32 @@ const actions = {
         } catch(err) {
             commit("deleteCommentError", err)
         }
-    }
+    },
+
+    async patchComment({ commit }, id, comment) {
+        try {
+            commit("patchCommentRequest");
+            let res = await axios.patch("http://localhost:5000/comment/id/" + id, comment);
+            const comments = res.data.comments;
+            commit("patchCommentInfo", comments);
+            return res;
+        } catch(err) {
+            commit("patchCommentError", err)
+        }
+    },
 
 
 };
 
 // mutations
 const mutations = {
-    getPostCommentRequest(state) {
+    getCommentRequest(state) {
         state.status = 'Loading'
     },
-    getPostCommentInfo(state, comments) {
+    getCommentInfo(state, comments) {
         state.comments = comments
     },
-    getPostCommentError(state, error) {
+    getCommentError(state, error) {
         state.error = error.response.data.msg
     },
 
@@ -94,6 +106,19 @@ const mutations = {
     },
 
     deleteCommentError(state, error) {
+        state.error = error.response.data.msg
+    },
+
+    patchCommentRequest(state) {
+        state.error = null
+        state.status = 'Loading'
+    },
+
+    patchCommentInfo(state, comments) {
+        state.comments = comments
+    },
+
+    patchCommentError(state, error) {
         state.error = error.response.data.msg
     }
 };
