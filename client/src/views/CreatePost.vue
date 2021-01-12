@@ -12,8 +12,8 @@
         <label for="postDescription">Post Description</label>
         <input type="text" class="form-control" id="postDescription" v-model="description" required>
 
-        <label for="postImage">Image</label>
         <input type="file" class="form-control" id="postImage" v-on:change="fileSelected" required>
+        <label class="customFileUpload" for="postImage"></label>
 
         <label for="postPrivacy">Post Privacy</label><br>
         <select id="postPrivacy" v-model="privacy" required>

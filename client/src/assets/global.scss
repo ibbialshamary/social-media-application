@@ -42,6 +42,8 @@ input[type=text] {
     --redButtonBackground: #f71735;
     --redButtonHoverBackground: #a40419;
     --whiteButtonHoverBackground: #d6cfcf;
+    --primaryGreenFont: #bdeed0;
+    --uploadFileText: "Upload File";
 
     /* secondary */
     --secondaryColour: rgb(54, 47, 104);
@@ -101,6 +103,7 @@ input[type=text] {
     --postContentBackground: 42, 45, 52;
     --scrollBarThumb: rgb(88, 71, 205);
     --defaultButtonHoverBackground: #533ce9;
+    --primaryGreenFont: #bdeed0;
 
     /* secondary */
     --secondaryColour:rgb(54, 47, 104);
@@ -137,6 +140,7 @@ input[type=text] {
     --postContentBackground: 220, 221, 225;
     --scrollBarThumb: rgb(255, 172, 92);
     --defaultButtonHoverBackground: #ee933f;
+    --primaryGreenFont: darkgreen;
 
     /* secondary */
     --secondaryColour: #ffa351;
@@ -209,7 +213,7 @@ body {
 
     &:hover {
         cursor: pointer;
-        color: #a4a4a4;
+        color: var(--buttonBackgroundColour);
     }
 }
 
@@ -882,8 +886,8 @@ br, img, button {
     background-color: #356afa;
 }
 
-green {
-    color: #ADEFD1FF;
+span .green {
+    color: darkgreen;
 }
 
 .chatApp h1, p {
@@ -965,6 +969,10 @@ green {
     background: var(--primaryColour);
     text-align: left;
     color: var(--primaryFontColour);
+}
+
+.green span{
+    color: var(--primaryGreenFont);
 }
 
 .activeUsers {
@@ -1124,9 +1132,42 @@ green {
     transition: all .4s ease;
 }
 
+.customFileUpload:before {
+    content: var(--uploadFileText);
+}
+
+.customFileUpload {
+    background: var(--mainContainerGradientFirefox);
+    width: 20%;
+    border-radius: 10px;
+    border: 1px solid var(--borderColour);
+    padding: 6px 12px;
+    cursor: pointer;
+    text-align: center;
+    transition: all ease-in .3s;
+}
+
+input[type="file"]  {
+    display: none;
+}
+
+input[type="file"]:valid + .customFileUpload  {
+    background: mediumseagreen;
+    --uploadFileText: "File Chosen";
+}
+
+
+
+
+
+#postImage {
+    background-color: pink !important;
+}
+
 .createPostForm {
     background-color: var(--secondaryColour);
     padding: 34px;
+
 
     /* for the border */
     border-radius: 0 0 0 0 / 0 0 0 0;

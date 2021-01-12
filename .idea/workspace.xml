@@ -22,6 +22,8 @@
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Chat.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/CreatePost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/CreatePost.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -141,7 +143,9 @@
       <workItem from="1610367876070" duration="3824000" />
       <workItem from="1610371717181" duration="1133000" />
       <workItem from="1610387036373" duration="3204000" />
-      <workItem from="1610397130582" duration="9268000" />
+      <workItem from="1610397130582" duration="9534000" />
+      <workItem from="1610448682640" duration="726000" />
+      <workItem from="1610466073788" duration="1472000" />
     </task>
     <servers />
   </component>

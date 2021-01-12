@@ -5,7 +5,7 @@
     <div class="chatHeading">
 <!--      <p v-if="!username">Loading, please wait</p>-->
       <p>Welcome to your chat and chat history, {{ username }}, the chat is deleted upon server restart</p>
-      <p>Active right now: <green>{{ users.length }} user(s)</green></p>
+      <p class="green">Active right now: <span>{{ users.length }} user(s)</span></p>
     </div>
 
 
@@ -94,8 +94,6 @@ export default {
     this.joinServer();
   },
   mounted() {
-    global.console.log(this.username);
-
     // setTimeout(function() {
     //   if(this.username !== this.userFromMapGetters.username) {
     //     alert("Your username does not match with our registered users database");
@@ -103,8 +101,6 @@ export default {
     //     alert(this.username + "\n" + this.userFromMapGetters.username);
     //   }
     // }, 2000);
-
-
   },
 
 }
