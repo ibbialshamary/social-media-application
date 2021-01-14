@@ -7,10 +7,10 @@
       <form @submit.prevent="publishPost">
 
         <label for="postName">Post Name</label>
-        <input type="text" class="form-control" id="postName" v-model="name" required>
+        <input type="text" class="form-control" id="postName" v-model="name" required minlength="6">
 
         <label for="postDescription">Post Description</label>
-        <input type="text" class="form-control" id="postDescription" v-model="description" required>
+        <input type="text" class="form-control" id="postDescription" v-model="description" required  minlength="6">
 
         <input type="file" class="form-control" id="postImage" v-on:change="fileSelected" required>
         <label class="customFileUpload" for="postImage"></label>

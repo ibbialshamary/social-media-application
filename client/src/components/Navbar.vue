@@ -9,9 +9,9 @@
                     <router-link to="/Home">Home</router-link>
                 </p>
 
-                <p v-if="isLoggedIn">
-                    <router-link to="/Explore">Explore</router-link>
-                </p>
+<!--                <p v-if="isLoggedIn">-->
+<!--                    <router-link to="/Explore">Explore</router-link>-->
+<!--                </p>-->
 
                 <p v-if="isLoggedIn">
                     <router-link to="/ProfileSettings">Settings</router-link>
@@ -21,9 +21,9 @@
                     <router-link to="/CreatePost">Post</router-link>
                 </p>
 
-                <p v-if="isLoggedIn">
-                    <router-link to="/CreateWhisper">Whisper</router-link>
-                </p>
+<!--                <p v-if="isLoggedIn">-->
+<!--                    <router-link to="/CreateWhisper">Whisper</router-link>-->
+<!--                </p>-->
 
                 <p v-if="isLoggedIn">
                     <router-link to="/Chat">Chat</router-link>

@@ -21,6 +21,7 @@ const commentSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    // remove below at a later stage
     poster: {
         type: String,
         required: true,

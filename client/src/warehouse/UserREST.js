@@ -6,6 +6,7 @@ const state = {
     // get token from local storage or set it to empty string
     token: localStorage.getItem('token') || '',
     user: {},
+    users: {},
     status: '',
     error: null,
 };
@@ -14,15 +15,29 @@ const getters = {
     // using arrow functions
     isLoggedIn: state => !!state.token,
     user: state => state.user,
+    users: state => state.users,
     userError: state => state.error
 };
 
 const actions = {
+    // action for getting all users
+    async getAllUsers({ commit }) {
+        try {
+            commit('getUsersRequest');
+            let res = await axios.get('http://localhost:5000/user');
+            const users = res.data.users;
+            commit('getUsersInfo', users);
+            return res;
+        } catch(err) {
+            commit('getUsersError', err);
+        }
+    },
+
     // login action
     async login({ commit }, user) {
         commit('auth_request');
         try {
-            let res = await axios.post('http://localhost:5000/api/UserCreation/Login', user)
+            let res = await axios.post('http://localhost:5000/login', user)
             if(res.data.success){
                 const token = res.data.token;
                 const user = res.data.user;
@@ -42,7 +57,7 @@ const actions = {
     async register({ commit }, user) {
         commit('register_request');
         try {
-            let res = await axios.post('http://localhost:5000/api/UserCreation/Register', user);
+            let res = await axios.post('http://localhost:5000/Register', user);
             if(res.data.success !== undefined) {
                 commit('register_success');
             }
@@ -56,7 +71,7 @@ const actions = {
     async getProfile({ commit }) {
         try {
             commit('profile_request');
-            let res = await axios.get('http://localhost:5000/api/UserCreation/Profile');
+            let res = await axios.get('http://localhost:5000/Profile');
             commit('user_profile', res.data.user);
             return res;
         } catch(err) {
@@ -74,6 +89,17 @@ const actions = {
 };
 
 const mutations = {
+    // get all users
+    getUsersRequest(state) {
+        state.status = 'Loading'
+    },
+    getUsersInfo(state, users) {
+        state.users = users
+    },
+    getUsersError(state, error) {
+        state.error = error.response.data.msg
+    },
+
     auth_request(state) {
         state.error = null
         state.status = 'loading'

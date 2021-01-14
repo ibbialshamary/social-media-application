@@ -7,10 +7,18 @@ const passport = require('passport');
 const key = require('../../config/keys').secret;
 
 /**
- * @route POST api/UserCreation/Register
+ * @route POST /register
  * @desc Register the User
  * @access Public
  */
+
+// get all users
+router.get('/user',  async (req, res) => {
+    const users = await User.find();
+    return res.json({
+        users: users
+    });
+})
 
 // register
 router.post('/Register', async(req, res) => {
@@ -69,7 +77,7 @@ router.post('/Register', async(req, res) => {
 
 
 /**
- * @route POST api/UserCreation/Login
+ * @route POST /login
  * @desc Signing in the User
  * @access Public
  */
@@ -125,7 +133,7 @@ router.post('/Login', async(req, res) => {
 
 
 /**
- * @route POST api/UserCreation/Profile
+ * @route POST /profile
  * @desc Return the User's Data
  * @access Private
  */

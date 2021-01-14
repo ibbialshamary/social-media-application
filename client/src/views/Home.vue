@@ -3,47 +3,59 @@
     <br>
     <h2 style="text-align: center;">Welcome back, {{ user.name }}, here is what you have missed:</h2>
 
-    <div class="enlargedPost" v-for="p of post" :key="p._id">
-      <div class="content">
-        <div class="postHeading">
-          <p><span>{{ p.poster }}</span> posted <i>{{ p.name }}</i> on <span>{{ formatDate(p.date) }}</span></p>
-        </div>
-        <p>{{ p.description }}</p>
-        <img src="../images/defaultAvatar.png">
-        <div class="comments">
-          <textarea v-model="commentDetails" placeholder="Add a comment" style="resize: none" required
-                    minlength="20"></textarea><br>
-          <button class="postCommentButton" @click="addComment(p._id)">Post Comment</button>
-          <br>
-          <div id="errorMessage"></div>
-
-          <p v-if="recentComments.length">Recently Added Comments</p>
-          <div class="previousComments" v-for="c in recentComments" :key="c._id">
-            <div class="comment">
-              <p class="poster"><span>{{ c.poster }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
-              <p class="details">{{ c.comment }}</p>
-            </div>
+    <div class="outerEnlargedPost">
+      <div class="enlargedPost" v-for="p of post" :key="p._id">
+        <div class="content">
+          <div class="postHeading">
+            <p><span>{{ p.poster }}</span> posted <i>{{ p.name }}</i> on <span>{{ formatDate(p.date) }}</span></p>
+          </div>
+          <p>{{ p.description }}</p>
+          <img src="../images/defaultAvatar.png">
+          <div class="comments">
+            <textarea v-model="commentDetails" placeholder="Add a comment" style="resize: none" required
+                      minlength="20"></textarea><br>
+            <button class="postCommentButton" @click="addComment(p._id)">Post Comment</button>
             <br>
-          </div>
+            <div id="errorMessage"></div>
 
-          <p>Previous Comments</p>
-          <div class="previousComments" v-for="c in comments" :key="c._id">
-            <div class="comment">
-              <p class="poster"><span>{{ c.poster }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
-              <p class="details">{{ c.comment }}</p>
-              <div class="ratings">
-                <span @click="rateComment(c._id, c.postId, c.upvotes, 'upvote')"><i class="fas fa-heart upvote"></i><span>{{ c.upvotes }}</span></span>
-                <span @click="rateComment(c._id, c.postId, c.downvotes, 'downvote')"><i class="fas fa-thumbs-down downvote"></i><span>{{ c.downvotes }}</span></span>
+            <p v-if="recentComments.length">Recently Added Comments</p>
+            <div class="previousComments" v-for="c in recentComments" :key="c._id">
+              <div class="comment">
+                <p class="poster"><span>{{ c.poster }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
+                <p class="details">{{ c.comment }}</p>
               </div>
+              <br>
             </div>
-            <button>Reply</button>
-            <button>View Replies</button>
-            <button v-if="isCommentOwner(c.poster)" @click="removeComment(c._id, c.postId)" class="red">Delete Comment</button>
-            <br><br>
+
+            <p>Previous Comments</p>
+            <div class="previousComments" v-for="c in comments" :key="c._id">
+              <div class="comment">
+                <p class="poster"><span>{{ c.poster }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
+                <p class="details">{{ c.comment }}</p>
+                <div class="ratings">
+                  <span @click="rateComment(c._id, c.postId, c.upvotes, 'upvote')"><i class="fas fa-heart upvote"></i><span>{{ c.upvotes }}</span></span>
+                  <span @click="rateComment(c._id, c.postId, c.downvotes, 'downvote')"><i class="fas fa-thumbs-down downvote"></i><span>{{ c.downvotes }}</span></span>
+                </div>
+              </div>
+              <button>Reply</button>
+              <button>View Replies</button>
+              <button v-if="isCommentOwner(c.poster)" @click="removeComment(c._id, c.postId)" class="red">Delete Comment</button>
+              <br><br>
+            </div>
           </div>
         </div>
+        <span @click="closeEnlargedContent('post')"><i class="fas fa-times closeContentButton"></i></span>
       </div>
-      <button @click="closeEnlargedPost"><i id="closePostButton" class="fas fa-times"></i></button>
+
+      <div class="enlargedUser" v-for="u of enlargedUser" :key="u._id">
+        <div class="content">
+          <div class="userHeading">
+            <p><span>{{ u.name }}</span> welcomes you to their profile</p>
+          </div>
+          <img src="../images/defaultAvatar.png">
+        </div>
+        <span @click="closeEnlargedContent('user')"><i class="fas fa-times closeContentButton"></i></span>
+      </div>
     </div>
 
     <div class="postsContainer">
@@ -66,9 +78,23 @@
       </div>
     </div>
 
-    <div class="whispersContainer">
+    <div class="usersContainer">
       <br>
-      <h1 style="text-align: center">Whispers</h1>
+      <h1 style="text-align: center">Explore recommended users</h1>
+      <div class="grid-container" v-for="user in users" :key="user._id">
+        <div class="users">
+          <div class="usersGridItem">
+            <div class="userContent" @click="enlargeUser(user); getComments(user._id)">
+              <img src="../images/defaultAvatar.png">
+              <p><strong>{{ user.name }}</strong></p>
+              <p>{{ user.username }}</p>
+            </div>
+          </div>
+          <button>View Profile</button><br>
+          <button>Follow</button><br>
+          <button>Block</button><br>
+        </div>
+      </div>
     </div>
   </div>
 </template>
@@ -82,6 +108,7 @@ export default {
   data() {
     return {
       post: [],
+      enlargedUser: [],
       formattedDate: '',
 
       commentDetails: "",
@@ -94,13 +121,24 @@ export default {
   computed: {
     ...mapGetters({
       gettersUser: 'user',
+      gettersUsers: 'users',
+
       gettersPosts: 'posts',
+
 
       gettersComments: 'comments',
     }),
     user: {
       get() {
         return this.gettersUser
+      },
+      set(name) {
+        return name
+      }
+    },
+    users: {
+      get() {
+        return this.gettersUsers
       },
       set(name) {
         return name
@@ -128,6 +166,8 @@ export default {
   components: {},
   methods: {
     ...mapActions(['getProfile']),
+    ...mapActions(['getAllUsers']),
+
     ...mapActions(['getAllPosts']),
 
     ...mapActions(['getComment']),
@@ -135,9 +175,23 @@ export default {
     ...mapActions(['deleteComment']),
     ...mapActions(['patchComment']),
 
+    test() {
+      console.log(this.users)
+      alert("Hello");
+      console.log("Hello");
+    },
+
     async enlargePost(post) {
       try {
         this.post.push(post);
+      } catch (e) {
+        alert(e);
+      }
+    },
+
+    async enlargeUser(user) {
+      try {
+        this.enlargedUser.push(user);
       } catch (e) {
         alert(e);
       }
@@ -172,8 +226,12 @@ export default {
       })
     },
 
-    closeEnlargedPost() {
-      this.post = [];
+    closeEnlargedContent(content) {
+      if(content === "post") {
+        this.post = [];
+      } else {
+        this.enlargedUser = [];
+      }
     },
 
     goToCreatePost: function () {
@@ -242,6 +300,7 @@ export default {
   },
   created() {
     this.getProfile();
+    this.getAllUsers();
     this.getAllPosts();
   },
 }

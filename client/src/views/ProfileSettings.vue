@@ -1,7 +1,7 @@
 <template>
   <div class="profileSettingsHeading">
     <div class="settingsTitleHeading">
-      <br><h1>Profile Settings</h1>
+      <h1>Profile Settings</h1>
     </div>
     <div class="leftSection">
       <img src="../images/defaultAvatar.png">

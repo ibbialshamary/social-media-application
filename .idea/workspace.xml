@@ -22,8 +22,18 @@
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/views/Chat.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Chat.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/components/Navbar.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/Navbar.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/CreatePost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/CreatePost.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Explore.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Explore.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/ProfileSettings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/ProfileSettings.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/warehouse/UserREST.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/warehouse/UserREST.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/NodeServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/NodeServer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Comment.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/api/UserCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/UserCreation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -34,6 +44,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="JavaScript File" />
+        <option value="Vue Single File Component" />
       </list>
     </option>
   </component>
@@ -145,7 +156,11 @@
       <workItem from="1610387036373" duration="3204000" />
       <workItem from="1610397130582" duration="9534000" />
       <workItem from="1610448682640" duration="726000" />
-      <workItem from="1610466073788" duration="1472000" />
+      <workItem from="1610466073788" duration="1577000" />
+      <workItem from="1610477290817" duration="3361000" />
+      <workItem from="1610532032945" duration="38000" />
+      <workItem from="1610547103397" duration="8857000" />
+      <workItem from="1610591167541" duration="4253000" />
     </task>
     <servers />
   </component>
@@ -169,11 +184,11 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1024" y="525" key="#Notifications/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1609563343015" />
-    <state x="1061" y="443" key="FileChooserDialogImpl" timestamp="1610034863166">
+    <state x="1061" y="443" key="FileChooserDialogImpl" timestamp="1610532061118">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="-1124" y="695" key="FileChooserDialogImpl/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@-1920.366.1920.1040" timestamp="1606667581310" />
-    <state x="1061" y="443" key="FileChooserDialogImpl/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610034863166" />
+    <state x="1061" y="443" key="FileChooserDialogImpl/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610532061118" />
     <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1606399186364">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -198,11 +213,11 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1098" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606685471957" />
-    <state x="912" y="248" width="986" height="801" key="find.popup" timestamp="1610402898865">
+    <state x="912" y="248" width="986" height="801" key="find.popup" timestamp="1610594297896">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="-1179" y="589" width="555" height="596" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@-1920.366.1920.1040" timestamp="1608029984694" />
-    <state x="912" y="248" width="986" height="801" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610402898865" />
+    <state x="912" y="248" width="986" height="801" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610594297896" />
     <state x="937" y="331" key="run.anything.popup" timestamp="1610200804921">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

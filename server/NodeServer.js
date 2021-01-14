@@ -8,8 +8,6 @@ const passport = require('passport');
 // initialise the app
 const app = express();
 // chat variables
-const http = require("http").Server(app);
-const io = require('socket.io')(http);
 
 // middlewares
 // form data middleware
@@ -48,7 +46,7 @@ mongoose.connect('mongodb://localhost:27017/SocialMediaApplication', {
 
 // bring in the users route
 const usersConst = require('./routes/api/UserCreation');
-app.use('/api/UserCreation', usersConst);
+app.use('/', usersConst);
 
 // bring in the posts route, can be found under routers/api/PostCreation
 const postConst = require('./routes/api/PostCreation');

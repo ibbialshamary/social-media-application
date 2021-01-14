@@ -29,10 +29,15 @@ const postSchema = new Schema({
         max: 1024,
         min: 6
     },
+    // get rid of this at later stage of development
     poster: {
         type: String,
         required: true,
     },
+    comment: {
+        commentId: []
+    }
+
 });
 
 module.exports = Post = mongoose.model('posts', postSchema);

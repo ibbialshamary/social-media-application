@@ -30,7 +30,10 @@ const userSchema = new Schema({
     date: {
         type: Date,
         default: Date.now
-    }
+    },
+    posts: {
+      postId: []
+    },
 });
 
 module.exports = User = mongoose.model('users', userSchema);
