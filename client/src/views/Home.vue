@@ -90,7 +90,7 @@
               <p>{{ user.username }}</p>
             </div>
           </div>
-          <button>View Profile</button><br>
+          <button @click="enlargeUser(user.name)">View Profile</button><br>
           <button>Follow</button><br>
           <button>Block</button><br>
         </div>

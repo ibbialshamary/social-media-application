@@ -541,6 +541,7 @@ a {
 //    align-items: center;
 //    justify-content: center;
 //}
+
 .enlargedPost, .enlargedUser {
   .content {
     text-align: center;
@@ -1155,7 +1156,7 @@ span .green {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: 80%;
+  width: var(--defaultWidth);
 }
 
 .headingClass h1 {
@@ -1215,7 +1216,6 @@ input[type="file"]:valid + .customFileUpload {
   select {
     background: var(--mainContainerGradientFirefox);
     color: var(--primarySubHeadingFontColour);
-    width: 20%;
     height: 40px;
     border-radius: 6px;
   }
@@ -1228,11 +1228,13 @@ input[type="file"]:valid + .customFileUpload {
   input {
     background: var(--mainContainerGradientFirefox);
     color: var(--primarySubHeadingFontColour);
-    width: 20%;
-
     &:focus {
-      color: var(--fontColour);
     }
+  }
+
+  input[type=text], label, select {
+    width: 95%;
+    text-align: center;
   }
 }
 
