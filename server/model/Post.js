@@ -35,9 +35,13 @@ const postSchema = new Schema({
         required: true,
     },
     comment: {
-        commentId: []
-    }
-
+        type: Schema.ObjectId,
+        ref: "Comment"
+    },
+    createdBy: {
+        type: Schema.ObjectId,
+        ref: "User"
+    },
 });
 
 module.exports = Post = mongoose.model('posts', postSchema);
