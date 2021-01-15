@@ -24,7 +24,6 @@
 
         <div class="buttonContainer">
           <input type="submit" class="button" value="Publish Post"><br><br>
-          <router-link to="/CreateWhisper" class="button" tag="button">Create whisper instead</router-link>
         </div>
         <!-- grab the error from mapGetters under computed -->
         <div id="errorMessage"></div>

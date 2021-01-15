@@ -20,7 +20,13 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
+      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/CreatePost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/CreatePost.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/package-lock.json" beforeDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -38,9 +44,6 @@
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
-  <component name="PackageJsonUpdateNotifier">
-    <dismissed value="$PROJECT_DIR$/package.json" />
-  </component>
   <component name="ProjectId" id="1kpNMosSynLafKFlpxdFbVjUqFp" />
   <component name="ProjectViewState">
     <option name="hideEmptyMiddlePackages" value="true" />
@@ -51,7 +54,9 @@
     <property name="ASKED_SHARE_PROJECT_CONFIGURATION_FILES" value="true" />
     <property name="RunOnceActivity.OpenProjectViewOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../SolutionAND.js" />
+    <property name="javascript.nodejs.core.library.configured.version" value="14.15.0" />
+    <property name="javascript.nodejs.core.library.typings.version" value="14.14.21" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/server" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
@@ -63,9 +68,12 @@
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
       <recent name="C:\Users\alsha\Desktop\Social Media Application\server" />
+      <recent name="C:\Users\alsha\Desktop\Social Media Application" />
+      <recent name="C:\Users\alsha\Desktop\Social Media Application\client" />
       <recent name="C:\Users\alsha\Desktop\Social Media Application\client\src\components" />
     </key>
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\alsha\Desktop\Social Media Application" />
       <recent name="C:\Users\alsha\Desktop\Social Media Application\server" />
     </key>
   </component>
@@ -149,7 +157,11 @@
       <workItem from="1610547103397" duration="8857000" />
       <workItem from="1610591167541" duration="4253000" />
       <workItem from="1610615435110" duration="4653000" />
-      <workItem from="1610633476033" duration="301000" />
+      <workItem from="1610633476033" duration="837000" />
+      <workItem from="1610692693904" duration="1790000" />
+      <workItem from="1610695990891" duration="1145000" />
+      <workItem from="1610697483715" duration="3646000" />
+      <workItem from="1610701284107" duration="1591000" />
     </task>
     <servers />
   </component>
@@ -178,22 +190,22 @@
     </state>
     <state x="-1124" y="695" key="FileChooserDialogImpl/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@-1920.366.1920.1040" timestamp="1606667581310" />
     <state x="1061" y="443" key="FileChooserDialogImpl/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610532061118" />
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom" timestamp="1606399186364">
+    <state width="2539" height="400" key="GridCell.Tab.0.bottom" timestamp="1610705858907">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606399186364" />
-    <state width="2539" height="401" key="GridCell.Tab.0.center" timestamp="1606399186364">
+    <state width="2539" height="400" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610705858907" />
+    <state width="2539" height="400" key="GridCell.Tab.0.center" timestamp="1610705858907">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606399186364" />
-    <state width="2539" height="401" key="GridCell.Tab.0.left" timestamp="1606399186364">
+    <state width="2539" height="400" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610705858907" />
+    <state width="2539" height="400" key="GridCell.Tab.0.left" timestamp="1610705858906">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606399186364" />
-    <state width="2539" height="401" key="GridCell.Tab.0.right" timestamp="1606399186364">
+    <state width="2539" height="400" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610705858906" />
+    <state width="2539" height="400" key="GridCell.Tab.0.right" timestamp="1610705858907">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="401" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606399186364" />
+    <state width="2539" height="400" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610705858907" />
     <state x="782" y="346" key="SettingsEditor" timestamp="1610217721787">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -202,11 +214,11 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1098" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606685471957" />
-    <state x="912" y="248" width="986" height="801" key="find.popup" timestamp="1610594297896">
+    <state x="912" y="248" width="986" height="801" key="find.popup" timestamp="1610697604874">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="-1179" y="589" width="555" height="596" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@-1920.366.1920.1040" timestamp="1608029984694" />
-    <state x="912" y="248" width="986" height="801" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610594297896" />
+    <state x="912" y="248" width="986" height="801" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610697604874" />
     <state x="937" y="331" key="run.anything.popup" timestamp="1610618077930">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
