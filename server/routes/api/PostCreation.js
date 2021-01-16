@@ -1,10 +1,12 @@
 const express = require('express');
 const router = express.Router();
 const Post = require('../../model/Post');
+const User = require('../../model/User');
 const { postValidation } = require('../../validation/validation');
 
+
 // create post
-router.post('/post', async(req, res) => {
+router.post('/:id/post', async(req, res) => {
     // validate data before user is created
     const { error } = postValidation(req.body);
     if(error) {
@@ -14,6 +16,8 @@ router.post('/post', async(req, res) => {
         });
     }
 
+    // find the user so we can pass it as a post's owner
+    const user = await User.findById({_id: req.params.id})
 
     // create new post, get the Post schema from the model
     const newPost = new Post({
@@ -21,9 +25,12 @@ router.post('/post', async(req, res) => {
         description: req.body.description,
         privacy: req.body.privacy,
         image: req.body.image,
-        poster: req.body.poster
+        // add the user id request parameter to the owner field
+        owner: user._id
     });
+
     try {
+        // save the post
         newPost.save().then(post => {
             console.log(post);
             return res.status(201).json({
@@ -32,6 +39,10 @@ router.post('/post', async(req, res) => {
                 post: post
             });
         });
+
+        // now push the post to the user so we that the one to many relationship is maintained
+        user.posts.push(newPost);
+        await user.save();
     } catch(err) {
         res.status(404).send(err);
     }

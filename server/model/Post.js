@@ -19,28 +19,19 @@ const postSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    privacy: {
-        type: String,
-        required: true,
-    },
     image: {
         type: String,
         required: true,
         max: 1024,
         min: 6
     },
-    // get rid of this at later stage of development
-    poster: {
+    privacy: {
         type: String,
         required: true,
     },
-    comment: {
-        type: Schema.ObjectId,
-        ref: "Comment"
-    },
-    createdBy: {
-        type: Schema.ObjectId,
-        ref: "User"
+    owner: {
+      type: Schema.Types.ObjectId,
+      ref: "User"
     },
 });
 

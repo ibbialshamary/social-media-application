@@ -21,15 +21,16 @@ const commentSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    // remove below at a later stage
-    poster: {
-        type: String,
-        required: true,
-    },
-    postId: {
-        type: String,
-        required: true,
-    }
+
+    // // remove below at a later stage
+    // poster: {
+    //     type: String,
+    //     required: true,
+    // },
+    // postId: {
+    //     type: String,
+    //     required: true,
+    // }
 });
 
 module.exports = SingleComment = mongoose.model('comments', commentSchema);

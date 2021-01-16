@@ -56,7 +56,6 @@ app.use('/', postConst);
 const commentConst = require('./routes/api/CommentCreation');
 app.use('/', commentConst);
 
-
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));
 })

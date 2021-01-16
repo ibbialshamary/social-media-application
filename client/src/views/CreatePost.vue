@@ -94,7 +94,7 @@ export default {
           description: this.description,
           privacy: this.privacy,
           image: this.image,
-          poster: this.user.username
+          user: "6002be660ab98a3928a3c0eb"
         };
 
         this.post(post).then(res => {

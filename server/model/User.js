@@ -31,9 +31,10 @@ const userSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    posts: {
-      postId: []
-    },
+    posts: [{
+        type: Schema.Types.ObjectId,
+        ref: "Post"
+    }]
 });
 
 module.exports = User = mongoose.model('users', userSchema);

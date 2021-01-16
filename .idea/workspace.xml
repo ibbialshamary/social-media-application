@@ -21,11 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/CreatePost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/CreatePost.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/NodeServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/NodeServer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Comment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/model/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Post.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/api/PostCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/PostCreation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/routes/api/UserCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/UserCreation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/validation/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/validation/validation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -162,7 +166,11 @@
       <workItem from="1610695990891" duration="1145000" />
       <workItem from="1610697483715" duration="3646000" />
       <workItem from="1610701284107" duration="1591000" />
-      <workItem from="1610719295691" duration="1990000" />
+      <workItem from="1610719295691" duration="2181000" />
+      <workItem from="1610785790873" duration="6986000" />
+      <workItem from="1610796859710" duration="6000" />
+      <workItem from="1610796953421" duration="110000" />
+      <workItem from="1610832429804" duration="3385000" />
     </task>
     <servers />
   </component>
@@ -186,35 +194,39 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1024" y="525" key="#Notifications/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1609563343015" />
-    <state x="1011" y="448" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1610719683861">
+    <state x="1011" y="448" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1610834987919">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="1011" y="448" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610719683861" />
+    <state x="1011" y="448" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610834987919" />
     <state x="1061" y="443" key="FileChooserDialogImpl" timestamp="1610532061118">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="-1124" y="695" key="FileChooserDialogImpl/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@-1920.366.1920.1040" timestamp="1606667581310" />
     <state x="1061" y="443" key="FileChooserDialogImpl/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610532061118" />
-    <state width="2539" height="400" key="GridCell.Tab.0.bottom" timestamp="1610719488197">
+    <state width="2539" height="400" key="GridCell.Tab.0.bottom" timestamp="1610729463007">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="400" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610719488197" />
-    <state width="2539" height="400" key="GridCell.Tab.0.center" timestamp="1610719488197">
+    <state width="2539" height="400" key="GridCell.Tab.0.bottom/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610729463007" />
+    <state width="2539" height="400" key="GridCell.Tab.0.center" timestamp="1610729463007">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="400" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610719488197" />
-    <state width="2539" height="400" key="GridCell.Tab.0.left" timestamp="1610719488196">
+    <state width="2539" height="400" key="GridCell.Tab.0.center/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610729463007" />
+    <state width="2539" height="400" key="GridCell.Tab.0.left" timestamp="1610729463007">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="400" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610719488196" />
-    <state width="2539" height="400" key="GridCell.Tab.0.right" timestamp="1610719488197">
+    <state width="2539" height="400" key="GridCell.Tab.0.left/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610729463007" />
+    <state width="2539" height="400" key="GridCell.Tab.0.right" timestamp="1610729463007">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state width="2539" height="400" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610719488197" />
+    <state width="2539" height="400" key="GridCell.Tab.0.right/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610729463007" />
     <state x="782" y="346" key="SettingsEditor" timestamp="1610217721787">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="782" y="346" key="SettingsEditor/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610217721787" />
+    <state x="885" y="311" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser" timestamp="1610796407324">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="885" y="311" key="com.intellij.openapi.editor.actions.MultiplePasteAction$ClipboardContentChooser/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610796407324" />
     <state x="1098" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2" timestamp="1606685471957">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

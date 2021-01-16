@@ -12,6 +12,17 @@ const key = require('../../config/keys').secret;
  * @access Public
  */
 
+
+// testing
+// getAllPosts
+router.get("/post/:username", async(req, res) => {
+    const foundUser = await User.find({name: req.params.username}).populate("posts");
+    return res.json({
+        posts: foundUser
+    })
+})
+// testing ends here
+
 // get all users
 router.get('/user',  async (req, res) => {
     const users = await User.find();
