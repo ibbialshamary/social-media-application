@@ -21,14 +21,9 @@
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/views/CreatePost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/CreatePost.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/NodeServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/NodeServer.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/model/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Comment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/model/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/model/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/User.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/api/PostCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/PostCreation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/api/UserCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/UserCreation.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/validation/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/validation/validation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
@@ -170,7 +165,7 @@
       <workItem from="1610785790873" duration="6986000" />
       <workItem from="1610796859710" duration="6000" />
       <workItem from="1610796953421" duration="110000" />
-      <workItem from="1610832429804" duration="3385000" />
+      <workItem from="1610832429804" duration="4129000" />
     </task>
     <servers />
   </component>

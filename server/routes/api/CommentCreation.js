@@ -1,6 +1,7 @@
 const express = require('express');
 const router = express.Router();
 const Comment = require('../../model/Comment');
+const Post = require('../../model/Post');
 const { commentValidation } = require('../../validation/validation');
 
 // get post
@@ -55,7 +56,7 @@ router.patch('/comment/id/:id', async (req, res) => {
 })
 
 // create post
-router.post('/comment', async(req, res) => {
+router.post('/:id/comment', async(req, res) => {
     // validate data before user is created
     const { error } = commentValidation(req.body);
     if(error) {
@@ -65,14 +66,16 @@ router.post('/comment', async(req, res) => {
         });
     }
 
+    // find the post so we can pass it as a comment's postId
+    const post = await Post.findById({_id: req.params.id})
 
     // create new post, get the Post schema from the model
     const newComment = new Comment({
         comment: req.body.comment,
         upvotes: req.body.upvotes,
         downvotes: req.body.downvotes,
-        poster: req.body.poster,
-        postId: req.body.postId
+        // add the post id request parameter to the postId field
+        postId: post._id
     });
     try {
         newComment.save().then(comment => {
@@ -83,6 +86,10 @@ router.post('/comment', async(req, res) => {
                 comment: comment
             });
         });
+
+        // now push the comment to the post so we that the one to many relationship is maintained
+        post.comments.push(newComment);
+        await post.save();
     } catch(err) {
         res.status(404).send(err);
     }
