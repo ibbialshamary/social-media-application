@@ -1228,6 +1228,7 @@ input[type="file"]:valid + .customFileUpload {
   input {
     background: var(--mainContainerGradientFirefox);
     color: var(--primarySubHeadingFontColour);
+    height: 40px;
     &:focus {
     }
   }

@@ -7,7 +7,7 @@
       <div class="enlargedPost" v-for="p of post" :key="p._id">
         <div class="content">
           <div class="postHeading">
-            <p><span>{{ p.poster }}</span> posted <i>{{ p.name }}</i> on <span>{{ formatDate(p.date) }}</span></p>
+            <p><span>{{ p.ownerName }}</span> posted <i>{{ p.name }}</i> on <span>{{ formatDate(p.date) }}</span></p>
           </div>
           <p>{{ p.description }}</p>
           <img src="../images/defaultAvatar.png">
@@ -21,7 +21,7 @@
             <p v-if="recentComments.length">Recently Added Comments</p>
             <div class="previousComments" v-for="c in recentComments" :key="c._id">
               <div class="comment">
-                <p class="poster"><span>{{ c.poster }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
+                <p class="poster"><span>{{ c.ownerName }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
                 <p class="details">{{ c.comment }}</p>
               </div>
               <br>
@@ -30,7 +30,7 @@
             <p>Previous Comments</p>
             <div class="previousComments" v-for="c in comments" :key="c._id">
               <div class="comment">
-                <p class="poster"><span>{{ c.poster }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
+                <p class="poster"><span>{{ c.ownerName }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
                 <p class="details">{{ c.comment }}</p>
                 <div class="ratings">
                   <span @click="rateComment(c._id, c.postId, c.upvotes, 'upvote')"><i class="fas fa-heart upvote"></i><span>{{ c.upvotes }}</span></span>
@@ -39,7 +39,7 @@
               </div>
               <button>Reply</button>
               <button>View Replies</button>
-              <button v-if="isCommentOwner(c.poster)" @click="removeComment(c._id, c.postId)" class="red">Delete Comment</button>
+              <button v-if="isCommentOwner(c.ownerName)" @click="removeComment(c._id, c.postId)" class="red">Delete Comment</button>
               <br><br>
             </div>
           </div>
@@ -202,11 +202,9 @@ export default {
         comment: this.commentDetails,
         upvotes: 0,
         downvotes: 0,
-        poster: this.user.username,
-        postId: postId,
       };
 
-      this.postComment(comment).then(res => {
+      this.postComment([comment, postId]).then(res => {
         if (res.data.success) {
           this.recentComments.push(res.data.comment);
           this.commentDetails = "";

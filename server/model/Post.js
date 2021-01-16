@@ -33,6 +33,9 @@ const postSchema = new Schema({
       type: Schema.Types.ObjectId,
       ref: "User"
     },
+    ownerName: {
+      type: String
+    },
     comments: [{
         type: Schema.Types.ObjectId,
         ref: "Comment"

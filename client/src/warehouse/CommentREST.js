@@ -41,10 +41,10 @@ const actions = {
     },
 
     // action for creating comment
-    async postComment({ commit }, comment) {
+    async postComment({ commit }, [comment, postId]) {
         commit('createCommentRequest');
         try {
-            let res = await axios.post('http://localhost:5000/comment', comment);
+            let res = await axios.post(`http://localhost:5000/${postId}/comment`, comment);
             if(res.data.success !== undefined) {
                 const comment = res.data.comment;
                 commit('createCommentSuccess', comment);

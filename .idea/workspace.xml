@@ -21,10 +21,15 @@
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/CreatePost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/CreatePost.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/warehouse/CommentREST.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/warehouse/CommentREST.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/warehouse/PostREST.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/warehouse/PostREST.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/model/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Comment.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/model/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Post.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/validation/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/validation/validation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/api/PostCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/PostCreation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -165,7 +170,8 @@
       <workItem from="1610785790873" duration="6986000" />
       <workItem from="1610796859710" duration="6000" />
       <workItem from="1610796953421" duration="110000" />
-      <workItem from="1610832429804" duration="4129000" />
+      <workItem from="1610832429804" duration="5178000" />
+      <workItem from="1610838140367" duration="1173000" />
     </task>
     <servers />
   </component>
@@ -226,11 +232,11 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1098" y="615" key="com.intellij.openapi.vcs.update.UpdateOrStatusOptionsDialogupdate-v2/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1606685471957" />
-    <state x="912" y="248" width="986" height="801" key="find.popup" timestamp="1610719527539">
+    <state x="912" y="248" width="986" height="801" key="find.popup" timestamp="1610838201247">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="-1179" y="589" width="555" height="596" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@-1920.366.1920.1040" timestamp="1608029984694" />
-    <state x="912" y="248" width="986" height="801" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610719527539" />
+    <state x="912" y="248" width="986" height="801" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1610838201247" />
     <state x="937" y="331" key="run.anything.popup" timestamp="1610618077930">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>

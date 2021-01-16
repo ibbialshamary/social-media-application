@@ -75,7 +75,8 @@ router.post('/:id/comment', async(req, res) => {
         upvotes: req.body.upvotes,
         downvotes: req.body.downvotes,
         // add the post id request parameter to the postId field
-        postId: post._id
+        postId: post._id,
+        owner: post.ownerName
     });
     try {
         newComment.save().then(comment => {

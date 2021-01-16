@@ -16,10 +16,10 @@ const getters = {
 
 const actions = {
     // action for creating post
-    async post({ commit }, post) {
+    async post({ commit }, [post, id]) {
         commit('createPostRequest');
         try {
-            let res = await axios.post('http://localhost:5000/Post', post);
+            let res = await axios.post(`http://localhost:5000/${id}/post`, post);
             if(res.data.success !== undefined) {
                 const post = res.data.post;
                 commit('createPostSuccess', post);

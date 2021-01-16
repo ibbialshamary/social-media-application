@@ -24,6 +24,9 @@ const commentSchema = new Schema({
     postId: {
         type: Schema.Types.ObjectId,
         ref: "Post"
+    },
+    owner: {
+        type: String
     }
 });
 

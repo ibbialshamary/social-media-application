@@ -4,7 +4,7 @@
       <h1>Create and publish posts here</h1>
     </div>
     <div class="createPostForm">
-      <form @submit.prevent="publishPost">
+      <form @submit.prevent="publishPost(user._id)">
 
         <label for="postName">Post Name</label>
         <input type="text" id="postName" v-model="name" required minlength="6">
@@ -88,16 +88,15 @@ export default {
       this.image = e.target.files[0].name
     },
 
-    publishPost() {
+    publishPost(id) {
         let post = {
           name: this.name,
           description: this.description,
           privacy: this.privacy,
-          image: this.image,
-          user: "6002be660ab98a3928a3c0eb"
+          image: this.image
         };
 
-        this.post(post).then(res => {
+        this.post([post, id]).then(res => {
           if (res.data.success) {
             this.$router.replace('/Home');
           }
