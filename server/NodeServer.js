@@ -52,9 +52,11 @@ app.use('/', usersConst);
 const postConst = require('./routes/api/PostCreation');
 app.use('/', postConst);
 
-// bring in the posts route, can be found under routers/api/PostCreation
 const commentConst = require('./routes/api/CommentCreation');
 app.use('/', commentConst);
+
+const replyConst = require('./routes/api/ReplyCreation');
+app.use('/', replyConst);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));

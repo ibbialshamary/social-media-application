@@ -2,8 +2,8 @@ const mongoose = require('mongoose');
 const Schema = mongoose.Schema;
 
 // create post schema
-const commentSchema = new Schema({
-    comment: {
+const replySchema = new Schema({
+    reply: {
         type: String,
         required: true,
         max: 255,
@@ -21,12 +21,6 @@ const commentSchema = new Schema({
         type: Date,
         default: Date.now
     },
-    ownerId: {
-        type: String
-    },
-    ownerName: {
-        type: String
-    },
     usersRated: [{
         type: String
     }],
@@ -34,10 +28,16 @@ const commentSchema = new Schema({
         type: Schema.Types.ObjectId,
         ref: "Post"
     },
-    replies: [{
+    ownerId: {
+        type: String
+    },
+    ownerName: {
+        type: String
+    },
+    commentId: {
         type: Schema.Types.ObjectId,
-        ref: "Reply"
-    }]
+        ref: "Comment"
+    }
 });
 
-module.exports = SingleComment = mongoose.model('comments', commentSchema);
+module.exports = Reply = mongoose.model('replies', replySchema);

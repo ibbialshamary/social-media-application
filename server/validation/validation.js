@@ -1,11 +1,12 @@
 const Joi = require('@hapi/joi');
 
-const postValidation = (data) => {
+const replyValidation = (data) => {
     const schema = Joi.object({
-        name: Joi.string().min(6).required(),
-        description: Joi.string().min(6).required(),
-        image: Joi.string().min(6).required(),
-        privacy: Joi.string().min(6).required(),
+        reply: Joi.string().min(2).required(),
+        upvotes: Joi.required(),
+        downvotes: Joi.required(),
+        ownerId: Joi.string().min(6).required(),
+        ownerName: Joi.string().min(6).required()
     });
 
     const options = {
@@ -16,7 +17,7 @@ const postValidation = (data) => {
         }
     };
     return schema.validate(data, options);
-};
+}
 
 const commentValidation = (data) => {
     const schema = Joi.object({
@@ -36,6 +37,24 @@ const commentValidation = (data) => {
     };
     return schema.validate(data, options);
 }
+
+const postValidation = (data) => {
+    const schema = Joi.object({
+        name: Joi.string().min(6).required(),
+        description: Joi.string().min(6).required(),
+        image: Joi.string().min(6).required(),
+        privacy: Joi.string().min(6).required(),
+    });
+
+    const options = {
+        errors: {
+            wrap: {
+                label: ''
+            }
+        }
+    };
+    return schema.validate(data, options);
+};
 
 const registerValidation = (data) => {
     const schema = Joi.object({
@@ -81,8 +100,8 @@ const loginValidation = (data) => {
     };
     return schema.validate(data, options);
 };
-
 module.exports.postValidation = postValidation;
+module.exports.commentValidation = commentValidation;
+module.exports.replyValidation = replyValidation;
 module.exports.registerValidation = registerValidation;
 module.exports.loginValidation = loginValidation;
-module.exports.commentValidation = commentValidation;
