@@ -54,6 +54,7 @@ input[type=text] {
   --errorMessageColour: orangered;
   --buttonHoveredColour: rgb(46, 36, 112);
   --buttonBackgroundColour: slateblue;
+  --anchorLinkHoveredColour: slateblue;
   --buttonTextColour: white;
   --defaultButtonHoverBackground: #533ce9;
 
@@ -113,6 +114,7 @@ input[type=text] {
   --errorMessageColour: orangered;
   --buttonHoveredColour: rgb(46, 36, 112);
   --buttonBackgroundColour: slateblue;
+  --anchorLinkHoveredColour: slateblue;
   --buttonTextColour: white;
   --scrollBarTrack: rgb(43, 34, 96);
 
@@ -147,9 +149,10 @@ input[type=text] {
   --secondaryColour: #ffa351;
   --borderSecondaryColour: rgba(30, 81, 235, 0.25);
   --secondaryFontColour: #3c4040;
-  --errorMessageColour: rgba(121, 0, 0, 0.95);
+  --errorMessageColour: #ff0000;
   --buttonHoveredColour: black;
-  --buttonBackgroundColour: var(--primaryColour);
+  --buttonBackgroundColour: #FFBE7B;
+  --anchorLinkHoveredColour: #f8cba0;
   --buttonTextColour: black;
   --scrollBarTrack: rgb(231, 145, 63);
 
@@ -211,7 +214,7 @@ body {
 
   &:hover {
     cursor: pointer;
-    color: var(--buttonBackgroundColour);
+    color: var(--anchorLinkHoveredColour);
   }
 }
 
@@ -239,7 +242,7 @@ body {
   }
 
   a:hover {
-    color: var(--buttonBackgroundColour);
+    color: var(--anchorLinkHoveredColour);
     text-decoration: none;
     list-style-type: none;
   }

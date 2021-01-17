@@ -21,14 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/public/index.html" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/ChatRoom.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/ChatRoom.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Home.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/warehouse/CommentREST.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/warehouse/CommentREST.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/model/Comment.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Comment.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/model/Post.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/Post.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/api/PostCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/PostCreation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/CreatePost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/CreatePost.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Register.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -171,7 +167,9 @@
       <workItem from="1610796953421" duration="110000" />
       <workItem from="1610832429804" duration="5178000" />
       <workItem from="1610838140367" duration="1980000" />
-      <workItem from="1610879014977" duration="4196000" />
+      <workItem from="1610879014977" duration="4476000" />
+      <workItem from="1610888080697" duration="8000" />
+      <workItem from="1610888624494" duration="1690000" />
     </task>
     <servers />
   </component>

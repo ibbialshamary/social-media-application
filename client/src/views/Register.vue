@@ -3,19 +3,19 @@
     <form @submit.prevent="registerUser">
       <h1>Register Here</h1>
       <label for="username">Username</label>
-      <input type="text" placeholder="e.g., Alshamaryi99" v-model="username" class="form-control" id="username"  autocomplete="username" required>
+      <input type="text" placeholder="e.g., Alshamaryi99" v-model="username" class="form-control" id="username"  autocomplete="username" required minlength="6">
 
       <label for="name">Full Name</label>
-      <input type="text" placeholder="e.g., Ibbi Alshamary" v-model="name" class="form-control" id="name"  autocomplete="name" required>
+      <input type="text" placeholder="e.g., Ibbi Alshamary" v-model="name" class="form-control" id="name"  autocomplete="name" required minlength="6">
       
       <label for="email">Email</label>
       <input type="text" placeholder="e.g., alshamary@gmail.com" v-model="email" class="form-control" id="email"  autocomplete="email" required>
 
       <label for="password">Password</label>
-      <input type="password" placeholder="e.g., Secret19@$" v-model="password" class="form-control" id="password"  autocomplete="current-password" required>
+      <input type="password" placeholder="e.g., Secret19@$" v-model="password" class="form-control" id="password"  autocomplete="current-password" required minlength="6">
 
       <label for="password">Confirm Password</label>
-      <input type="password" v-model="confirm_password" class="form-control" id="confirm_password"  autocomplete="new-password" required><br>
+      <input type="password" v-model="confirm_password" class="form-control" id="confirm_password"  autocomplete="new-password" required minlength="6"><br>
 
       <div class="buttonContainer">
           <input type="submit" class="button" tag="button" value="Register"><br><br>

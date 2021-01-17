@@ -18,7 +18,7 @@
 
         <label for="postPrivacy">Post Privacy</label><br>
         <select id="postPrivacy" v-model="privacy" required>
-          <option value="public">Public</option>
+          <option  value="public">Public</option>
           <option value="private">Private</option>
         </select><br><br>
 
@@ -40,7 +40,7 @@ export default {
     return {
       name: "",
       description: "",
-      privacy: "",
+      privacy: "public",
       image: ""
     }
   },
