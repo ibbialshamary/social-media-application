@@ -76,9 +76,13 @@ router.post('/:id/comment', async(req, res) => {
         downvotes: req.body.downvotes,
         // add the post id request parameter to the postId field
         postId: post._id,
-        owner: post.ownerName
+        ownerName: post.ownerName,
+        ownerId: post.ownerId
     });
     try {
+        // // push the users that have already rated so they can be limited 1 rating at a time
+        // newComment.usersRated.push(req.body.userRated);
+        // save the new comment
         newComment.save().then(comment => {
             console.log(comment);
             return res.status(201).json({

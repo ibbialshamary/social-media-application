@@ -21,11 +21,17 @@ const commentSchema = new Schema({
         type: Date,
         default: Date.now
     },
+    usersRated: [{
+        type: String
+    }],
     postId: {
         type: Schema.Types.ObjectId,
         ref: "Post"
     },
-    owner: {
+    ownerId: {
+        type: String
+    },
+    ownerName: {
         type: String
     }
 });

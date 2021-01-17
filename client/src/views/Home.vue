@@ -12,8 +12,7 @@
           <p>{{ p.description }}</p>
           <img src="../images/defaultAvatar.png">
           <div class="comments">
-            <textarea v-model="commentDetails" placeholder="Add a comment" style="resize: none" required
-                      minlength="20"></textarea><br>
+            <textarea v-model="commentDetails" placeholder="Add a comment" style="resize: none" required minlength="20"></textarea><br>
             <button class="postCommentButton" @click="addComment(p._id)">Post Comment</button>
             <br>
             <div id="errorMessage"></div>
@@ -39,7 +38,7 @@
               </div>
               <button>Reply</button>
               <button>View Replies</button>
-              <button v-if="isCommentOwner(c.ownerName)" @click="removeComment(c._id, c.postId)" class="red">Delete Comment</button>
+              <button v-if="isCommentOwner(c.ownerId)" @click="removeComment(c._id, c.postId)" class="red">Delete Comment</button>
               <br><br>
             </div>
           </div>
@@ -175,12 +174,6 @@ export default {
     ...mapActions(['deleteComment']),
     ...mapActions(['patchComment']),
 
-    test() {
-      console.log(this.users)
-      alert("Hello");
-      console.log("Hello");
-    },
-
     async enlargePost(post) {
       try {
         this.post.push(post);
@@ -226,6 +219,8 @@ export default {
 
     closeEnlargedContent(content) {
       if(content === "post") {
+        // clear the text area input
+        this.commentDetails = "";
         this.post = [];
       } else {
         this.enlargedUser = [];
@@ -253,8 +248,8 @@ export default {
     },
 
     // if the comment belongs to the logged in user, return true
-    isCommentOwner(poster) {
-      return poster === this.user.username;
+    isCommentOwner(ownerId) {
+      return ownerId === this.user._id;
     },
 
     removeComment(commentId, postId) {
@@ -274,12 +269,15 @@ export default {
       let commentToPatch;
       console.log(ratingCount);
 
+
       if(ratingType === "upvote") {
         commentToPatch = {
+          userRated: this.user,
           upvotes: ratingCount + 1
         }
       } else {
         commentToPatch = {
+          userRated: this.user,
           downvotes: ratingCount + 1
         }
       }

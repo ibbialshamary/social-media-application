@@ -638,7 +638,7 @@ a {
         p {
           text-align: left;
           font-size: 16px;
-          margin: 0 70px 0 0;
+          margin: 0 90px 0 0;
           color: var(--primarySubHeadingFontColour);
         }
 
@@ -1032,6 +1032,10 @@ span .green {
   background: var(--secondaryColour);
   display: inline-block;
   float: right;
+  input[type=text] {
+    margin-left: 15px !important;
+    padding: 0 15px 0 15px;
+  }
 }
 
 .chatApp .chatHeading {
@@ -1100,7 +1104,7 @@ span .green {
 .blueMessageBubble {
   border: 2px solid var(--secondaryColour);
   background-color: var(--secondaryColour);
-  color: white;
+  color: var(--primarySubHeadingFontColour);
   border-radius: 5px;
   padding: 10px;
   margin: 10px 10px 10px 30%;
@@ -1295,7 +1299,7 @@ input:not([type=submit]), select, textarea {
         outline: none;
         border: 1px solid #2BAE66FF !important;
         background-color: #FCF6F5FF;
-        color: #2BAE66FF;
+        color: #2BAE66FF !important;
     }
 
     &:focus {
