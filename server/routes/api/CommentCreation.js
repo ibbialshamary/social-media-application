@@ -74,10 +74,10 @@ router.post('/:id/comment', async(req, res) => {
         comment: req.body.comment,
         upvotes: req.body.upvotes,
         downvotes: req.body.downvotes,
+        ownerName: req.body.ownerName,
+        ownerId: req.body.ownerId,
         // add the post id request parameter to the postId field
-        postId: post._id,
-        ownerName: post.ownerName,
-        ownerId: post.ownerId
+        postId: post._id
     });
     try {
         // // push the users that have already rated so they can be limited 1 rating at a time

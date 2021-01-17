@@ -26,7 +26,7 @@
               <br>
             </div>
 
-            <p>Previous Comments</p>
+            <p v-if="comments.length !== 0">Previous Comments</p>
             <div class="previousComments" v-for="c in comments" :key="c._id">
               <div class="comment">
                 <p class="poster"><span>{{ c.ownerName }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
@@ -89,7 +89,7 @@
               <p>{{ user.username }}</p>
             </div>
           </div>
-          <button @click="enlargeUser(user.name)">View Profile</button><br>
+          <button @click="enlargeUser(user)">View Profile</button><br>
           <button>Follow</button><br>
           <button>Block</button><br>
         </div>
@@ -195,6 +195,8 @@ export default {
         comment: this.commentDetails,
         upvotes: 0,
         downvotes: 0,
+        ownerName: this.user.name,
+        ownerId: this.user._id
       };
 
       this.postComment([comment, postId]).then(res => {

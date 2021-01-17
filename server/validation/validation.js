@@ -5,7 +5,7 @@ const postValidation = (data) => {
         name: Joi.string().min(6).required(),
         description: Joi.string().min(6).required(),
         image: Joi.string().min(6).required(),
-        privacy: Joi.string().min(6).required()
+        privacy: Joi.string().min(6).required(),
     });
 
     const options = {
@@ -22,7 +22,9 @@ const commentValidation = (data) => {
     const schema = Joi.object({
         comment: Joi.string().min(2).required(),
         upvotes: Joi.required(),
-        downvotes: Joi.required()
+        downvotes: Joi.required(),
+        ownerId: Joi.string().min(6).required(),
+        ownerName: Joi.string().min(6).required()
     });
 
     const options = {

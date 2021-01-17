@@ -679,6 +679,12 @@ a {
         }
       }
     }
+    /* for the border */
+    box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
+    transition: all .4s ease;
+    &:hover {
+      box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
+    }
   }
 
   .closeContentButton {
@@ -700,7 +706,6 @@ a {
 
     &:hover {
       cursor: pointer;
-      color: var(--primaryColour);
       background: #c6c5c5;
     }
   }
@@ -1225,6 +1230,9 @@ input[type="file"]:valid + .customFileUpload {
     color: var(--primarySubHeadingFontColour);
     height: 40px;
     border-radius: 6px;
+    &:hover {
+      cursor: pointer;
+    }
   }
 
   option {
