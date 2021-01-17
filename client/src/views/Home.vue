@@ -13,7 +13,7 @@
           <img src="../images/defaultAvatar.png">
           <div class="comments">
             <textarea v-model="commentDetails" placeholder="Add a comment" style="resize: none" required minlength="20"></textarea><br>
-            <button class="postCommentButton" @click="addComment(p._id)">Post Comment</button>
+            <button class="postDataButton" @click="addComment(p._id)">Post Comment</button>
             <br>
             <div id="errorMessage"></div>
 
@@ -36,9 +36,13 @@
                   <span @click="rateComment(c._id, c.postId, c.downvotes, 'downvote')"><i class="fas fa-thumbs-down downvote"></i><span>{{ c.downvotes }}</span></span>
                 </div>
               </div>
-              <button>Reply</button>
+              <button @click="showReplyContainer">Reply</button>
               <button>View Replies</button>
               <button v-if="isCommentOwner(c.ownerId)" @click="removeComment(c._id, c.postId)" class="red">Delete Comment</button>
+              <div class="replyContainer" v-if="isReplyContainerVisible">
+                <textarea v-model="replyDetails" placeholder="Add a reply" style="resize: none" required minlength="20"></textarea><br>
+                <button class="postDataButton" @click="addReply(c._id)">Post Reply</button>
+              </div>
               <br><br>
             </div>
           </div>
@@ -113,7 +117,11 @@ export default {
       commentDetails: "",
       recentComments: [],
       upvotes: 0,
-      downvotes: 0
+      downvotes: 0,
+
+      replyDetails: "",
+
+      isReplyContainerVisible: false
     }
   },
 
@@ -174,6 +182,9 @@ export default {
     ...mapActions(['deleteComment']),
     ...mapActions(['patchComment']),
 
+    // replies
+    ...mapActions(['postReply']),
+
     async enlargePost(post) {
       try {
         this.post.push(post);
@@ -188,6 +199,28 @@ export default {
       } catch (e) {
         alert(e);
       }
+    },
+
+    showReplyContainer() {
+      this.isReplyContainerVisible = !this.isReplyContainerVisible;
+    },
+
+    addReply(commentId) {
+      let reply = {
+        reply: this.replyDetails,
+        upvotes: 0,
+        downvotes: 0,
+        ownerName: this.user.name,
+        ownerId: this.user._id
+      };
+
+      this.postReply([reply, commentId]).then(res => {
+        if (res.data.success) {
+          this.replyDetails = "";
+        }
+      }).catch(() => {
+        alert("failed");
+      });
     },
 
     addComment(postId) {

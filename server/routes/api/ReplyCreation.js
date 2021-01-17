@@ -4,20 +4,46 @@ const Comment = require('../../model/Comment');
 const Reply = require('../../model/Reply');
 const { replyValidation } = require("../../validation/validation");
 
-// get post
-router.get("/comment", async(req, res) => {
+// get reply
+router.get("/reply", async(req, res) => {
     try {
-        const comments = await Comment.find().sort({date: -1});
+        const replies = await Reply.find().sort({date: -1});
         return res.json({
-            comments: comments
+            replies: replies
         });
     } catch(err) {
         res.status(404).send(err.message);
     }
 })
 
-// create post
-router.post('/:id/reply', async(req, res) => {
+// get all replies of certain comment id
+router.get("/reply/commentId/:id", async(req, res) => {
+    try {
+        const replies = await Reply.find({commentId: {$eq: req.params.id}}).sort({date: -1});
+        return res.json({
+            replies: replies
+        });
+    } catch(err) {
+        res.status(404).send(err.message);
+    }
+})
+
+// delete reply
+router.delete('/reply/replyId/:id',  async (req, res) => {
+    try {
+        const post = await Reply.findByIdAndDelete({_id: req.params.id})
+        return res.json({
+            id: post._id,
+            name: post.name,
+            status: "Successfully deleted"
+        });
+    } catch(err) {
+        res.status(404).send(err.message);
+    }
+})
+
+// create reply
+router.post('/reply/commentId/:id', async(req, res) => {
     // validate data before user is created
     const { error } = replyValidation(req.body);
     if(error) {

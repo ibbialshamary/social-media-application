@@ -559,13 +559,13 @@ a {
     animation-duration: .5s;
     overflow-y: scroll;
 
-    .postCommentButton {
+    .postDataButton {
       color: #1e2020;
-      background-color: var(--whiteButtonBackground);
+      background-color: var(--whiteButtonBackground) !important;
       border: 1px solid var(--borderColour);
 
       &:hover {
-        background-color: var(--whiteButtonHoverBackground);
+        background-color: var(--whiteButtonHoverBackground) !important;
       }
     }
 
