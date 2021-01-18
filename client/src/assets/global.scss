@@ -347,6 +347,14 @@ button, .button, #button {
     border-radius: 0 0 50% 50% / 0% 0% 5% 5%;
     box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
   }
+  input:not([type=submit]) {
+    background: var(--mainContainerGradientFirefox);
+    color: var(--primarySubHeadingFontColour);
+    border-radius: 10px;
+    outline: 0;
+    border: 1px solid var(--borderColour);
+    padding: 6px 12px;
+  }
 }
 
 /* hover over the login form border */
@@ -388,6 +396,14 @@ button, .button, #button {
   &:hover {
     border-radius: 0 0 50% 50% / 0 0 5% 5%;
     box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
+  }
+  input:not([type=submit]) {
+    background: var(--mainContainerGradientFirefox);
+    color: var(--primarySubHeadingFontColour);
+    border-radius: 10px;
+    outline: 0;
+    border: 1px solid var(--borderColour);
+    padding: 6px 12px;
   }
 }
 
@@ -1292,25 +1308,25 @@ input[type="file"]:valid + .customFileUpload {
 }
 
 input {
-    transition: all ease-in .25s;
+  transition: all ease-in .25s;
 }
 
 input:not([type=submit]), select, textarea {
 
-    &:valid {
-        outline: none;
-        border: 1px solid #2BAE66FF !important;
-        background-color: #FCF6F5FF;
-        color: #2BAE66FF !important;
-    }
+  &:valid {
+    outline: none;
+    border: 1px solid #2BAE66FF !important;
+    background-color: #FCF6F5FF;
+    color: #2BAE66FF !important;
+  }
 
-    &:focus {
-        &:invalid {
-            outline: none;
-            border: 1px solid rgba(255, 69, 0, .55);
-            color: orangered;
-        }
+  &:focus {
+    &:invalid {
+      outline: none;
+      border: 1px solid rgba(255, 69, 0, .55);
+      color: orangered;
     }
+  }
 }
 
 #repliesContainer {
