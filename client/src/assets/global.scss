@@ -1159,7 +1159,7 @@ span .green {
   top: 50%;
   left: 50%;
   transform: translate(-50%, -50%);
-  width: var(--defaultWidth);
+  width: calc(var(--defaultWidth));
 }
 
 .headingClass h1 {
@@ -1198,13 +1198,13 @@ input[type="file"]:valid + .customFileUpload {
 
 .createPostForm {
   background-color: var(--secondaryColour);
-  padding-bottom: 1px;
 
   /* for the border */
   border-radius: 0 0 0 0 / 0 0 0 0;
   box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
   transition: all .4s ease;
   user-select: none;
+  padding: 12px 6px;
 
   input, label, select {
     margin-left: 50%;

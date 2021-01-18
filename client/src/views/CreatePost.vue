@@ -40,7 +40,6 @@ export default {
     return {
       name: "",
       description: "",
-      privacy: "public",
       image: ""
     }
   },
