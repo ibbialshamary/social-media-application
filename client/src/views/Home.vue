@@ -37,7 +37,7 @@
                 </div>
               </div>
               <button @click="showReplyContainer">Reply</button>
-              <button>View Replies</button>
+              <button @click="showReplies(c._id)">View Replies</button>
               <button v-if="isCommentOwner(c.ownerId)" @click="removeComment(c._id, c.postId)" class="red">Delete Comment</button>
               <div class="replyContainer" v-if="isReplyContainerVisible">
                 <textarea v-model="replyDetails" placeholder="Add a reply" style="resize: none" required minlength="20"></textarea><br>
@@ -120,6 +120,7 @@ export default {
       downvotes: 0,
 
       replyDetails: "",
+      replies: [],
 
       isReplyContainerVisible: false
     }
@@ -172,18 +173,24 @@ export default {
   },
   components: {},
   methods: {
-    ...mapActions(['getProfile']),
+    // users
     ...mapActions(['getAllUsers']),
+    ...mapActions(['getProfile']),
 
+    // posts
     ...mapActions(['getAllPosts']),
 
+    // comments
     ...mapActions(['getComment']),
     ...mapActions(['postComment']),
     ...mapActions(['deleteComment']),
     ...mapActions(['patchComment']),
 
     // replies
+    ...mapActions(['getAllReplies']),
     ...mapActions(['postReply']),
+    ...mapActions(['getCommentReplies']),
+
 
     async enlargePost(post) {
       try {
@@ -203,6 +210,21 @@ export default {
 
     showReplyContainer() {
       this.isReplyContainerVisible = !this.isReplyContainerVisible;
+    },
+
+    showReplies(commentId) {
+      // this.getCommentReplies(commentId).then(res => {
+      //   if (res.data.success) {
+      //     this.replies(res.data.replies);
+      //   }
+      // })
+      this.getAllReplies().then(res => {
+        if (res.data.success) {
+          console.log(res.data.replies);
+        } else {
+          console.log("Failed");
+        }
+      })
     },
 
     addReply(commentId) {
@@ -332,7 +354,10 @@ export default {
   created() {
     this.getProfile();
     this.getAllUsers();
+
     this.getAllPosts();
+
+    this.getAllReplies();
   },
 }
 </script>
