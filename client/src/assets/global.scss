@@ -45,6 +45,7 @@ input[type=text] {
   --whiteButtonHoverBackground: #d6cfcf;
   --primaryGreenFont: #bdeed0;
   --uploadFileText: "Upload File";
+  --replyBoxShadow: rgba(109, 109, 109, 0.2);
 
   /* secondary */
   --secondaryColour: rgb(54, 47, 104);
@@ -106,6 +107,7 @@ input[type=text] {
   --scrollBarThumb: rgb(88, 71, 205);
   --defaultButtonHoverBackground: #533ce9;
   --primaryGreenFont: #bdeed0;
+  --replyBoxShadow: rgba(109, 109, 109, 0.2);
 
   /* secondary */
   --secondaryColour: rgb(54, 47, 104);
@@ -144,6 +146,7 @@ input[type=text] {
   --scrollBarThumb: rgb(255, 172, 92);
   --defaultButtonHoverBackground: #ee933f;
   --primaryGreenFont: darkgreen;
+  --replyBoxShadow: rgba(0, 0, 0, 0.2);
 
   /* secondary */
   --secondaryColour: #ffa351;
@@ -417,6 +420,7 @@ a {
 
 /* homepage css */
 
+
 .mainContainer {
   border-radius: 0 100% 50% 50% / 0 0 100% 100%;
   position: relative;
@@ -531,19 +535,6 @@ a {
   margin-left: 50%;
   transform: translateX(-50%);
 }
-
-//.outerEnlargedPost {
-//    position: fixed;
-//    left: 0;
-//    right: 0;
-//    bottom: 0;
-//    z-index: 99;
-//    background: rgba(0, 0, 0, 1);
-//
-//    display: flex;
-//    align-items: center;
-//    justify-content: center;
-//}
 
 .enlargedPost, .enlargedUser {
   .content {
@@ -1320,4 +1311,71 @@ input:not([type=submit]), select, textarea {
             color: orangered;
         }
     }
+}
+
+#repliesContainer {
+  display: none;
+  position: absolute;
+  left: 50%;
+  top: 50%;
+  transform: translate(-50%, -50%);
+  z-index: 1000;
+  width: 100%;
+  height: 100%;
+  padding: 16px;
+  opacity: 1;
+  transition: .4s;
+  background-color: rgba(0, 0, 0, 0.4);
+  text-align: center;
+
+  .main {
+    background: var(--mainContainerGradientFirefox);
+    width: 50%;
+    max-height: 600px;
+
+    position: relative;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%, -50%);
+    border-radius: 16px;
+    padding: 16px;
+  }
+  button {
+    color: #1e2020;
+    background-color: var(--whiteButtonBackground) !important;
+    border: 1px solid var(--borderColour);
+    margin-top: 16px;
+    &:hover {
+      background-color: var(--whiteButtonHoverBackground) !important;
+    }
+  }
+  .reply {
+    background-color: white;
+    padding: 32px 16px;
+    max-width: 768px;
+    border-radius: 16px;
+    box-shadow: 0 6px 6px var(--replyBoxShadow);
+    transform: translateX(-50%);
+    position: relative;
+    left: 50%;
+    margin-top: 10px;
+    margin-bottom: 8px;
+  }
+
+  .replies {
+    max-height: 350px;
+    overflow-y: scroll;
+  }
+
+  textarea {
+    width: 500px;
+    padding: 15px 15px 0;
+    background: var(--mainContainerGradientFirefox);
+    color: var(--primarySubHeadingFontColour);
+    transition: all ease-in .5s;
+    border-radius: 8px;
+    margin: 10px 0 0 0;
+    vertical-align: top;
+    border: 1px solid var(--borderColour);
+  }
 }

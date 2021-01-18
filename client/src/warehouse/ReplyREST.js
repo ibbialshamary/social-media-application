@@ -57,7 +57,7 @@ const actions = {
     async getCommentReplies({ commit }, commentId) {
         try {
             commit('getCommentRepliesRequest');
-            let res = await axios.get(`https://localhost:5000/reply/commentId/600445a91b047e5f1c13a673`);
+            let res = await axios.get(`http://localhost:5000/reply/commentId/${commentId}`);
             const replies = res.data.replies;
             commit('getCommentRepliesInfo', replies);
             return res;

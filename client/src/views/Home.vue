@@ -36,18 +36,30 @@
                   <span @click="rateComment(c._id, c.postId, c.downvotes, 'downvote')"><i class="fas fa-thumbs-down downvote"></i><span>{{ c.downvotes }}</span></span>
                 </div>
               </div>
-              <button @click="showReplyContainer">Reply</button>
+              <button @click="showReplies(c._id)">Reply</button>
               <button @click="showReplies(c._id)">View Replies</button>
               <button v-if="isCommentOwner(c.ownerId)" @click="removeComment(c._id, c.postId)" class="red">Delete Comment</button>
-              <div class="replyContainer" v-if="isReplyContainerVisible">
-                <textarea v-model="replyDetails" placeholder="Add a reply" style="resize: none" required minlength="20"></textarea><br>
-                <button class="postDataButton" @click="addReply(c._id)">Post Reply</button>
-              </div>
               <br><br>
             </div>
           </div>
         </div>
         <span @click="closeEnlargedContent('post')"><i class="fas fa-times closeContentButton"></i></span>
+      </div>
+
+      <div id="repliesContainer">
+        <div class="main">
+          <p>Replies below</p>
+          <div class="replies">
+            <div v-for="r in replies" :key="r._id" class="reply">
+              <p class="details" style="color: #1e2020">{{ r.ownerName }}: {{ r.reply }}</p>
+            </div>
+          </div>
+          <div class="replyContainer">
+            <textarea v-model="replyDetails" placeholder="Add a reply" style="resize: none" required minlength="20"></textarea><br>
+            <button v-for="commentId in replyCommentId" :key="commentId" class="postDataButton" @click="addReply(commentId)">Post Reply</button>
+          </div>
+          <button @click="hideReplies">Go back</button>
+        </div>
       </div>
 
       <div class="enlargedUser" v-for="u of enlargedUser" :key="u._id">
@@ -121,6 +133,7 @@ export default {
 
       replyDetails: "",
       replies: [],
+      replyCommentId: [],
 
       isReplyContainerVisible: false
     }
@@ -208,23 +221,22 @@ export default {
       }
     },
 
-    showReplyContainer() {
-      this.isReplyContainerVisible = !this.isReplyContainerVisible;
-    },
-
     showReplies(commentId) {
-      // this.getCommentReplies(commentId).then(res => {
-      //   if (res.data.success) {
-      //     this.replies(res.data.replies);
-      //   }
-      // })
-      this.getAllReplies().then(res => {
-        if (res.data.success) {
-          console.log(res.data.replies);
+      document.getElementById("repliesContainer").style.display = "block";
+      this.getCommentReplies(commentId).then(res => {
+        if (res.data) {
+          this.replies = res.data.replies;
+          this.replyCommentId = [];
+          this.replyCommentId.push(commentId);
         } else {
-          console.log("Failed");
+          alert("Failed");
         }
       })
+    },
+
+    hideReplies() {
+      document.getElementById("repliesContainer").style.display = "none";
+      this.replies = [];
     },
 
     addReply(commentId) {
@@ -239,6 +251,7 @@ export default {
       this.postReply([reply, commentId]).then(res => {
         if (res.data.success) {
           this.replyDetails = "";
+          this.showReplies(commentId);
         }
       }).catch(() => {
         alert("failed");
