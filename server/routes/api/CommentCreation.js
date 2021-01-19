@@ -4,7 +4,7 @@ const Comment = require('../../model/Comment');
 const Post = require('../../model/Post');
 const { commentValidation } = require('../../validation/validation');
 
-// get post
+// get all comments
 router.get("/comment", async(req, res) => {
     try {
         const comments = await Comment.find().sort({date: -1});
@@ -16,8 +16,20 @@ router.get("/comment", async(req, res) => {
     }
 })
 
+// get a specific comment
+router.get('/comment/commentId/:id', async(req, res) => {
+    try {
+        const comment = await Comment.find({_id: {$eq: req.params.id}}).sort({date: -1});
+        return res.json({
+            comment: comment
+        });
+    } catch(err) {
+        res.status(404).send(err.message);
+    }
+})
+
 // get a specific post's comments
-router.get('/comment/id/:id',  async (req, res) => {
+router.get('/comment/postId/:id',  async (req, res) => {
     try {
         const comments = await Comment.find({postId: {$eq: req.params.id}}).sort({date: -1});
         return res.json({

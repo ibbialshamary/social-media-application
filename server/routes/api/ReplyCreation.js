@@ -19,7 +19,7 @@ router.get("/reply", async(req, res) => {
 // get all replies of certain comment id
 router.get("/reply/commentId/:id", async(req, res) => {
     try {
-        const replies = await Reply.find({commentId: {$eq: req.params.id}}).sort({date: -1});
+        const replies = await Reply.find({commentId: {$eq: req.params.id}}).sort({date: 1});
         return res.json({
             replies: replies
         });

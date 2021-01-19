@@ -15,54 +15,67 @@ const getters = {
 };
 
 const actions = {
-    // action for getting all comments that belong to certain post
-    async getComment({ commit }, id) {
+
+    // get a single comment by its id
+    async getComment({commit}, id) {
         try {
-            commit('getCommentRequest');
-            let res = await axios.get('http://localhost:5000/comment/id/' + id);
-            const comments = res.data.comments;
-            commit('getCommentInfo', comments);
+            commit("getCommentRequest");
+            let res = await axios.get('http://localhost:5000/comment/commentId/' + id);
+            const comment = res.data.comment;
+            commit("getCommentInfo", comment);
             return res;
-        } catch(err) {
-            commit('getCommentError', err);
+        } catch (err) {
+            commit("getCommentError", err)
+        }
+    },
+    // action for getting all comments that belong to certain post
+    async getPostComments({commit}, id) {
+        try {
+            commit("getPostCommentsRequest");
+            let res = await axios.get('http://localhost:5000/comment/postId/' + id);
+            const comments = res.data.comments;
+            commit("getPostCommentsInfo", comments);
+            return res;
+        } catch (err) {
+            commit("getPostCommentsError", err);
         }
     },
 
-    async deleteComment({ commit }, id) {
+    async deleteComment({commit}, id) {
         try {
             commit('deleteCommentRequest');
             let res = await axios.delete("http://localhost:5000/comment/id/" + id);
             const comments = res.data.comments;
             commit('deleteCommentInfo', comments);
             return res;
-        } catch(err) {
+        } catch (err) {
             commit("deleteCommentError", err)
         }
     },
     // action for creating comment
-    async postComment({ commit }, [comment, postId]) {
+    async postComment({commit}, [comment, postId]) {
         commit('createCommentRequest');
         try {
             let res = await axios.post(`http://localhost:5000/${postId}/comment`, comment);
             // push the users that have already rated so they can be limited 1 rating at a time
-            if(res.data.success !== undefined) {
+            if (res.data.success !== undefined) {
                 const comment = res.data.comment;
                 commit('createCommentSuccess', comment);
             }
             return res;
-        } catch(err) {
+        } catch (err) {
             commit('createCommentError', err);
         }
     },
 
-    async patchComment({ commit }, [commentToPatch, commentId]) {
+    async patchComment({commit}, [commentToPatch, commentId]) {
         try {
             commit("patchCommentRequest");
             let res = await axios.patch("http://localhost:5000/comment/id/" + commentId, commentToPatch);
             const comment = res.data.comment;
             commit("patchCommentSuccess", comment);
             return res;
-        } catch(err) {
+        } catch (err) {
             commit("patchCommentError", err)
         }
     },
@@ -72,11 +85,22 @@ const actions = {
 
 // mutations
 const mutations = {
+    getPostCommentsRequest(state) {
+        state.status = 'Loading'
+    },
+    getPostCommentsInfo(state, comments) {
+        state.comments = comments
+    },
+    getPostCommentsError(state, error) {
+        state.error = error.response.data.msg
+    },
+
+    // by id
     getCommentRequest(state) {
         state.status = 'Loading'
     },
-    getCommentInfo(state, comments) {
-        state.comments = comments
+    getCommentInfo(state, comment) {
+        state.comment = comment
     },
     getCommentError(state, error) {
         state.error = error.response.data.msg

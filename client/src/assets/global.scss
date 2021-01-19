@@ -331,7 +331,7 @@ button, .button, #button {
   background-color: var(--secondaryColour);
   padding: 34px;
   width: var(--defaultWidth);
-
+  text-align: center;
   /*height: calc(var(--defaultHeight) - 26%);*/
   /* border-radius: var(--defaultBorderRadius); */
   top: 50%;
@@ -346,6 +346,10 @@ button, .button, #button {
   &:hover {
     border-radius: 0 0 50% 50% / 0% 0% 5% 5%;
     box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
+  }
+
+  label {
+    margin-bottom: 0;
   }
   input:not([type=submit]) {
     background: var(--mainContainerGradientFirefox);
@@ -382,7 +386,7 @@ button, .button, #button {
   background-color: var(--secondaryColour);
   padding: 34px;
   width: var(--defaultWidth);
-
+  text-align: center;
   /* border-radius: var(--defaultBorderRadius); */
   top: 50%;
   left: 50%;
@@ -392,6 +396,10 @@ button, .button, #button {
   border-radius: 0 0 0 0 / 0 0 0 0;
   box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
   transition: all .4s ease;
+
+  label {
+    margin-bottom: 0;
+  }
 
   &:hover {
     border-radius: 0 0 50% 50% / 0 0 5% 5%;
@@ -404,6 +412,7 @@ button, .button, #button {
     outline: 0;
     border: 1px solid var(--borderColour);
     padding: 6px 12px;
+    margin-bottom: 2%;
   }
 }
 
@@ -777,7 +786,6 @@ br, img, button {
 }
 
 /* styling of settings page */
-
 .profileSettingsHeading {
   background-color: white;
   color: rgba(255, 255, 255, 0.863);
@@ -787,6 +795,7 @@ br, img, button {
   position: relative;
   left: 50%;
   transform: translateX(-50%);
+  top: 50%;
 
   /* for the border */
   box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
@@ -1222,13 +1231,18 @@ input[type="file"]:valid + .customFileUpload {
   user-select: none;
   padding: 12px 6px;
 
+  input:not([type=submit]), .customFileUpload {
+    margin-bottom: 2%;
+  }
+
+  label {
+  }
   input, label, select {
     margin-left: 50%;
     transform: translateX(-50%);
   }
 
   label {
-    margin-top: 1%;
     margin-bottom: 0;
   }
 

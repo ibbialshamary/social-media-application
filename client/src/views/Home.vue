@@ -56,7 +56,7 @@
           </div>
           <div class="replyContainer">
             <textarea v-model="replyDetails" placeholder="Add a reply" style="resize: none" required minlength="20"></textarea><br>
-            <button v-for="commentId in replyCommentId" :key="commentId" class="postDataButton" @click="addReply(commentId)">Post Reply</button>
+            <button v-for="(fc, index) in focusedCommentInfo" :key="index" class="postDataButton" @click="addReply(fc._id)">Post Reply</button>
           </div>
           <button @click="hideReplies">Go back</button>
         </div>
@@ -133,7 +133,7 @@ export default {
 
       replyDetails: "",
       replies: [],
-      replyCommentId: [],
+      focusedCommentInfo: [],
 
       isReplyContainerVisible: false
     }
@@ -194,7 +194,7 @@ export default {
     ...mapActions(['getAllPosts']),
 
     // comments
-    ...mapActions(['getComment']),
+    ...mapActions(['getPostComments']),
     ...mapActions(['postComment']),
     ...mapActions(['deleteComment']),
     ...mapActions(['patchComment']),
@@ -203,6 +203,7 @@ export default {
     ...mapActions(['getAllReplies']),
     ...mapActions(['postReply']),
     ...mapActions(['getCommentReplies']),
+    ...mapActions(['getComment']),
 
 
     async enlargePost(post) {
@@ -226,8 +227,13 @@ export default {
       this.getCommentReplies(commentId).then(res => {
         if (res.data) {
           this.replies = res.data.replies;
-          this.replyCommentId = [];
-          this.replyCommentId.push(commentId);
+
+          // get a comment clicked on information
+          this.focusedCommentInfo = [];
+          this.getComment(commentId).then(res => {
+            // console.log(res.data.comment[0]);
+            this.focusedCommentInfo.push(res.data.comment[0])
+          });
         } else {
           alert("Failed");
         }
@@ -279,7 +285,7 @@ export default {
 
     getComments(postId) {
       this.recentComments = [];
-      this.getComment(postId).then(res => {
+      this.getPostComments(postId).then(res => {
         if (res.data.success) {
           this.recentComments(res.data.comment);
           this.commentDetails = "";
