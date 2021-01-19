@@ -21,14 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/warehouse/CommentREST.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/warehouse/CommentREST.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/warehouse/PostREST.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/warehouse/PostREST.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/warehouse/ReplyREST.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/warehouse/ReplyREST.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/warehouse/UserREST.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/warehouse/UserREST.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/api/PostCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/PostCreation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/api/ReplyCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/ReplyCreation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/api/UserCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/UserCreation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.scss" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -185,7 +178,7 @@
       <workItem from="1611003067972" duration="1556000" />
       <workItem from="1611012196453" duration="419000" />
       <workItem from="1611050441007" duration="4821000" />
-      <workItem from="1611068228755" duration="1170000" />
+      <workItem from="1611068228755" duration="1521000" />
     </task>
     <servers />
   </component>

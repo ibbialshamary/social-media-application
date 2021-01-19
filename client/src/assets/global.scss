@@ -1349,6 +1349,8 @@ input:not([type=submit]), select, textarea {
   transition: .4s;
   background-color: rgba(0, 0, 0, 0.4);
   text-align: center;
+  animation-name: fadeIn;
+  animation-duration: .5s;
 
   .main {
     background: var(--mainContainerGradientFirefox);
