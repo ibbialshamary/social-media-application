@@ -574,6 +574,7 @@ a {
     animation-name: fadeIn;
     animation-duration: .5s;
     overflow-y: scroll;
+    outline: 3px solid var(--secondaryColour);
 
     .postDataButton {
       color: #1e2020;
