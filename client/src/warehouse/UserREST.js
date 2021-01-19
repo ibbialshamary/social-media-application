@@ -57,7 +57,7 @@ const actions = {
     async register({ commit }, user) {
         commit('register_request');
         try {
-            let res = await axios.post('http://localhost:5000/Register', user);
+            let res = await axios.post('http://localhost:5000/register', user);
             if(res.data.success !== undefined) {
                 commit('register_success');
             }
@@ -71,7 +71,7 @@ const actions = {
     async getProfile({ commit }) {
         try {
             commit('profile_request');
-            let res = await axios.get('http://localhost:5000/Profile');
+            let res = await axios.get('http://localhost:5000/profile');
             commit('user_profile', res.data.user);
             return res;
         } catch(err) {

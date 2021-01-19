@@ -19,7 +19,7 @@ const actions = {
     async post({ commit }, [post, id]) {
         commit('createPostRequest');
         try {
-            let res = await axios.post(`http://localhost:5000/${id}/post`, post);
+            let res = await axios.post(`http://localhost:5000/post/user-id/${id}`, post);
             if(res.data.success !== undefined) {
                 const post = res.data.post;
                 commit('createPostSuccess', post);
@@ -34,7 +34,7 @@ const actions = {
     async getAllPosts({ commit }) {
         try {
             commit('getPostsRequest');
-            let res = await axios.get('http://localhost:5000/Post');
+            let res = await axios.get('http://localhost:5000/post');
             const posts = res.data.posts;
             commit('getPostsInfo', posts);
             return res;
@@ -42,36 +42,10 @@ const actions = {
             commit('getPostsError', err);
         }
     },
-
-    // action for getting one post
-    async getSinglePost({ commit }, post) {
-        try {
-            commit("getSinglePostRequest");
-            let res = await axios.get("http://localhost:5000/post/id", post)
-            commit("getSinglePostInfo", res.data.posts);
-            return res;
-        } catch(err) {
-            commit("getSinglePostError", err);
-        }
-    }
 };
 
 // mutations
 const mutations = {
-    // get single post
-    getSinglePostRequest(state) {
-        state.status = "Loading";
-    },
-
-    getSinglePostInfo(state, post) {
-        state.post = post;
-    },
-
-    getSinglePostError(state, error) {
-        // state.error = error.response.data.msg
-        state.error = error
-    },
-
     // get all posts
     getPostsRequest(state) {
         state.status = 'Loading'

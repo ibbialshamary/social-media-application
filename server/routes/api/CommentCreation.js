@@ -17,7 +17,7 @@ router.get("/comment", async(req, res) => {
 })
 
 // get a specific comment
-router.get('/comment/commentId/:id', async(req, res) => {
+router.get('/comment/comment-id/:id', async(req, res) => {
     try {
         const comment = await Comment.find({_id: {$eq: req.params.id}}).sort({date: -1});
         return res.json({
@@ -29,7 +29,7 @@ router.get('/comment/commentId/:id', async(req, res) => {
 })
 
 // get a specific post's comments
-router.get('/comment/postId/:id',  async (req, res) => {
+router.get('/comment/post-id/:id',  async (req, res) => {
     try {
         const comments = await Comment.find({postId: {$eq: req.params.id}}).sort({date: -1});
         return res.json({
@@ -41,7 +41,7 @@ router.get('/comment/postId/:id',  async (req, res) => {
 })
 
 // delete comment
-router.delete('/comment/id/:id',  async (req, res) => {
+router.delete('/comment/comment-id/:id',  async (req, res) => {
     try {
         const post = await Comment.findByIdAndDelete({_id: req.params.id})
         return res.json({
@@ -55,7 +55,7 @@ router.delete('/comment/id/:id',  async (req, res) => {
 })
 
 // update or patch comment
-router.patch('/comment/id/:id', async (req, res) => {
+router.patch('/comment/comment-id/:id', async (req, res) => {
     try {
         const comment = await Comment.findOneAndUpdate({_id: req.params.id}, {$set: req.body});
         return res.json({
@@ -68,7 +68,7 @@ router.patch('/comment/id/:id', async (req, res) => {
 })
 
 // create post
-router.post('/:id/comment', async(req, res) => {
+router.post('/comment/post-id/:id', async(req, res) => {
     // validate data before user is created
     const { error } = commentValidation(req.body);
     if(error) {

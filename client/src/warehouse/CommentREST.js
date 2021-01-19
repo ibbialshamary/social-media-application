@@ -20,7 +20,7 @@ const actions = {
     async getComment({commit}, id) {
         try {
             commit("getCommentRequest");
-            let res = await axios.get('http://localhost:5000/comment/commentId/' + id);
+            let res = await axios.get('http://localhost:5000/comment/comment-id/' + id);
             const comment = res.data.comment;
             commit("getCommentInfo", comment);
             return res;
@@ -32,7 +32,7 @@ const actions = {
     async getPostComments({commit}, id) {
         try {
             commit("getPostCommentsRequest");
-            let res = await axios.get('http://localhost:5000/comment/postId/' + id);
+            let res = await axios.get('http://localhost:5000/comment/post-id/' + id);
             const comments = res.data.comments;
             commit("getPostCommentsInfo", comments);
             return res;
@@ -44,7 +44,7 @@ const actions = {
     async deleteComment({commit}, id) {
         try {
             commit('deleteCommentRequest');
-            let res = await axios.delete("http://localhost:5000/comment/id/" + id);
+            let res = await axios.delete("http://localhost:5000/comment/comment-id/" + id);
             const comments = res.data.comments;
             commit('deleteCommentInfo', comments);
             return res;
@@ -56,7 +56,7 @@ const actions = {
     async postComment({commit}, [comment, postId]) {
         commit('createCommentRequest');
         try {
-            let res = await axios.post(`http://localhost:5000/${postId}/comment`, comment);
+            let res = await axios.post(`http://localhost:5000/comment/post-id/${postId}`, comment);
             // push the users that have already rated so they can be limited 1 rating at a time
             if (res.data.success !== undefined) {
                 const comment = res.data.comment;
@@ -71,7 +71,7 @@ const actions = {
     async patchComment({commit}, [commentToPatch, commentId]) {
         try {
             commit("patchCommentRequest");
-            let res = await axios.patch("http://localhost:5000/comment/id/" + commentId, commentToPatch);
+            let res = await axios.patch("http://localhost:5000/comment/comment-id/" + commentId, commentToPatch);
             const comment = res.data.comment;
             commit("patchCommentSuccess", comment);
             return res;

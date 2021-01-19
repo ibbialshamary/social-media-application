@@ -12,17 +12,6 @@ const key = require('../../config/keys').secret;
  * @access Public
  */
 
-
-// testing
-// getAllPosts
-router.get("/post/:username", async(req, res) => {
-    const foundUser = await User.find({name: req.params.username}).populate("posts");
-    return res.json({
-        posts: foundUser
-    })
-})
-// testing ends here
-
 // get all users
 router.get('/user',  async (req, res) => {
     const users = await User.find();
@@ -32,7 +21,7 @@ router.get('/user',  async (req, res) => {
 })
 
 // register
-router.post('/Register', async(req, res) => {
+router.post('/register', async(req, res) => {
     // validate data before user is created
     const { error } = registerValidation(req.body);
     if(error) {
@@ -94,7 +83,7 @@ router.post('/Register', async(req, res) => {
  */
 
 // login
-router.post('/Login', async(req, res) => {
+router.post('/login', async(req, res) => {
     // validate data
     const { error } = loginValidation(req.body);
     if(error) {
@@ -150,7 +139,7 @@ router.post('/Login', async(req, res) => {
  */
 
  // profile
-router.get('/Profile', passport.authenticate('jwt', {
+router.get('/profile', passport.authenticate('jwt', {
     session: false
 }), (req, res) => {
     return res.json({

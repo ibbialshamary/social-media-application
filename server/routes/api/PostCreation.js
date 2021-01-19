@@ -6,7 +6,7 @@ const { postValidation } = require('../../validation/validation');
 
 
 // create post
-router.post('/:id/post', async(req, res) => {
+router.post('/post/user-id/:id', async(req, res) => {
     // validate data before user is created
     const { error } = postValidation(req.body);
     if(error) {
@@ -64,7 +64,7 @@ router.get('/post',  async (req, res) => {
 })
 
 // get specific post
-router.get('/post/id/:id',  async (req, res) => {
+router.get('/post/post-id/:id',  async (req, res) => {
     try {
         const post = await Post.findById({_id: req.params.id})
         return res.json({
@@ -76,7 +76,7 @@ router.get('/post/id/:id',  async (req, res) => {
 })
 
 // delete post
-router.delete('/post/id/:id',  async (req, res) => {
+router.delete('/post/post-id/:id',  async (req, res) => {
     try {
         const post = await Post.findByIdAndDelete({_id: req.params.id})
         return res.json({
@@ -90,7 +90,7 @@ router.delete('/post/id/:id',  async (req, res) => {
 })
 
 // update or patch post
-router.patch('/post/id/:id', async (req, res) => {
+router.patch('/post/post-id/:id', async (req, res) => {
     try {
         const post = await Post.updateOne({_id: req.params.id}, {$set: req.body});
         return res.json({

@@ -15,31 +15,6 @@ const getters = {
 };
 
 const actions = {
-    // // action for getting all comments that belong to certain post
-    // async getReply({ commit }, id) {
-    //     try {
-    //         commit('getCommentRequest');
-    //         let res = await axios.get('http://localhost:5000/comment/id/' + id);
-    //         const comments = res.data.comments;
-    //         commit('getCommentInfo', comments);
-    //         return res;
-    //     } catch(err) {
-    //         commit('getCommentError', err);
-    //     }
-    // },
-    //
-    // async deleteComment({ commit }, id) {
-    //     try {
-    //         commit('deleteCommentRequest');
-    //         let res = await axios.delete("http://localhost:5000/comment/id/" + id);
-    //         const comments = res.data.comments;
-    //         commit('deleteCommentInfo', comments);
-    //         return res;
-    //     } catch(err) {
-    //         commit("deleteCommentError", err)
-    //     }
-    // },
-
     // action for getting all posts
     async getAllReplies({ commit }) {
         try {
@@ -57,7 +32,7 @@ const actions = {
     async getCommentReplies({ commit }, commentId) {
         try {
             commit('getCommentRepliesRequest');
-            let res = await axios.get(`http://localhost:5000/reply/commentId/${commentId}`);
+            let res = await axios.get(`http://localhost:5000/reply/comment-id/${commentId}`);
             const replies = res.data.replies;
             commit('getCommentRepliesInfo', replies);
             return res;
@@ -70,7 +45,7 @@ const actions = {
     async postReply({ commit }, [comment, commentId]) {
         commit('createReplyRequest');
         try {
-            let res = await axios.post(`http://localhost:5000/reply/commentId/${commentId}`, comment);
+            let res = await axios.post(`http://localhost:5000/reply/comment-id/${commentId}`, comment);
             if(res.data.success !== undefined) {
                 const reply = res.data.reply;
                 commit('createReplySuccess', reply);
@@ -80,49 +55,10 @@ const actions = {
             commit('createReplyError', err);
         }
     },
-
-
-    // async patchComment({ commit }, [commentToPatch, commentId]) {
-    //     try {
-    //         commit("patchCommentRequest");
-    //         let res = await axios.patch("http://localhost:5000/comment/id/" + commentId, commentToPatch);
-    //         const comment = res.data.comment;
-    //         commit("patchCommentSuccess", comment);
-    //         return res;
-    //     } catch(err) {
-    //         commit("patchCommentError", err)
-    //     }
-    // },
-
-
 };
 
 // mutations
 const mutations = {
-    // getReplyRequest(state) {
-    //     state.status = 'Loading'
-    // },
-    // getReplyInfo(state, replies) {
-    //     state.replies = replies
-    // },
-    // getReplyError(state, error) {
-    //     state.error = error.response.data.msg
-    // },
-
-    // // delete reply
-    // deleteReplyRequest(state) {
-    //     state.error = null
-    //     state.status = 'Loading'
-    // },
-    //
-    // deleteReplyInfo(state, replies) {
-    //     state.comments = replies
-    // },
-    //
-    // deleteReplyError(state, error) {
-    //     state.error = error.response.data.msg
-    // },
-
     // get all replies that exist
     // get all posts
     getAllRepliesRequest(state) {
@@ -158,20 +94,6 @@ const mutations = {
     createReplyError(state, error) {
         state.error = error.response.data.msg
     },
-
-    // patchCommentRequest(state) {
-    //     state.error = null
-    //     state.status = 'Loading'
-    // },
-    //
-    // patchCommentSuccess(state) {
-    //     state.error = null
-    //     state.status = 'Comment successfully patched'
-    // },
-    //
-    // patchCommentError(state, error) {
-    //     state.error = error.response.data.msg
-    // }
 };
 
 export default {
