@@ -48,7 +48,7 @@
 
       <div id="repliesContainer">
         <div class="main">
-          <p>Replies below</p>
+          <p v-for="(fc, index) in focusedCommentInfo" :key="index">Replies for {{ fc.ownerName }}'s comment</p>
           <div class="replies">
             <div v-for="r in replies" :key="r._id" class="reply">
               <p class="details" style="color: #1e2020">{{ r.ownerName }}: {{ r.reply }}</p>
