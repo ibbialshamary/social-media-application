@@ -7,7 +7,7 @@ const replySchema = new Schema({
         type: String,
         required: true,
         max: 255,
-        min: 20
+        min: 6
     },
     upvotes: {
         type: Number,

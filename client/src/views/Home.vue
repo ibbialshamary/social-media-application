@@ -38,7 +38,7 @@
               </div>
               <button @click="showReplies(c._id)">Reply</button>
               <button @click="showReplies(c._id)">View Replies</button>
-              <button v-if="isCommentOwner(c.ownerId)" @click="removeComment(c._id, c.postId)" class="red">Delete Comment</button>
+              <button v-if="isCommentOwner(c.ownerId)" @click="removeComment(c._id, c.postId)" class="red-background">Delete Comment</button>
               <br><br>
             </div>
           </div>
@@ -52,13 +52,17 @@
           <div class="replies">
             <div v-for="r in replies" :key="r._id" class="reply">
               <p class="details" style="color: #1e2020">{{ r.ownerName }}: {{ r.reply }}</p>
+              <div class="ratings">
+                <span @click="rateComment('upvote')"><i class="fas fa-heart upvote"></i><span>{{ r.upvotes }}</span></span>
+                <span @click="rateComment('downvote')"><i class="fas fa-thumbs-down downvote"></i><span>{{ r.downvotes }}</span></span>
+              </div>
             </div>
           </div>
           <div class="replyContainer">
-            <textarea v-model="replyDetails" placeholder="Add a reply" style="resize: none" required minlength="20"></textarea><br>
+            <textarea v-model="replyDetails" placeholder="Add a reply" style="resize: none" required minlength="6"></textarea><br>
             <button v-for="(fc, index) in focusedCommentInfo" :key="index" class="postDataButton" @click="addReply(fc._id)">Post Reply</button>
           </div>
-          <button @click="hideReplies">Go back</button>
+          <button class="red-background" @click="hideReplies">Go back</button>
         </div>
       </div>
 

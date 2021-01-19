@@ -625,14 +625,6 @@ a {
     }
 
     .previousComments {
-      .red {
-        background: var(--redButtonBackground);
-
-        &:hover {
-          background: var(--redButtonHoverBackground);
-        }
-      }
-
       button {
         margin-left: 8px;
         background: var(--blueButtonBackground);
@@ -1372,11 +1364,11 @@ input:not([type=submit]), select, textarea {
   }
   button {
     color: #1e2020;
-    background-color: var(--whiteButtonBackground) !important;
+    background-color: var(--whiteButtonBackground);
     border: 1px solid var(--borderColour);
     margin-top: 16px;
     &:hover {
-      background-color: var(--whiteButtonHoverBackground) !important;
+      background-color: var(--whiteButtonHoverBackground);
     }
   }
   .reply {
@@ -1390,6 +1382,42 @@ input:not([type=submit]), select, textarea {
     left: 50%;
     margin-top: 10px;
     margin-bottom: 8px;
+
+    span {
+      color: #1e2020;
+    }
+    .ratings {
+      position: absolute;
+      right: 0;
+      top: 50%;
+      transform: translateY(-50%);
+      font-size: 22px;
+      margin-right: 10px;
+      user-select: none;
+      cursor: pointer;
+
+      .upvote, .downvote {
+        margin-left: 15px;
+        margin-right: 2px;
+        transition: all ease-in .3s;
+
+        &:hover {
+          cursor: pointer;
+        }
+      }
+
+      .upvote {
+        color: mediumseagreen;
+      }
+
+      .downvote {
+        color: #e34a4a;
+      }
+
+      .upvote:hover, .downvote:hover {
+        color: var(--whiteButtonHoverBackground);
+      }
+    }
   }
 
   .replies {
@@ -1398,7 +1426,7 @@ input:not([type=submit]), select, textarea {
   }
 
   textarea {
-    width: 500px;
+    width: 768px;
     padding: 15px 15px 0;
     background: var(--mainContainerGradientFirefox);
     color: var(--primarySubHeadingFontColour);
@@ -1406,6 +1434,13 @@ input:not([type=submit]), select, textarea {
     border-radius: 8px;
     margin: 10px 0 0 0;
     vertical-align: top;
-    border: 1px solid var(--borderColour);
+  }
+}
+
+.red-background {
+  background: var(--redButtonBackground) !important;
+  color: var(--buttonTextColour) !important;
+  &:hover {
+    background: var(--redButtonHoverBackground) !important;
   }
 }
