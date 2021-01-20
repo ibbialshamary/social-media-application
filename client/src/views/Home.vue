@@ -102,7 +102,8 @@
     <div class="usersContainer">
       <br>
       <h1 style="text-align: center">Explore recommended users</h1>
-      <div class="grid-container" v-for="user in users" :key="user._id">
+      <p v-if="users.length < 1">Sorry, no users available<br>Come back later</p>
+      <div v-else class="grid-container" v-for="user in users" :key="user._id">
         <div class="users">
           <div class="usersGridItem">
             <div class="userContent" @click="enlargeUser(user); getComments(user._id)">
