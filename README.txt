@@ -1,4 +1,4 @@
-How to setup the project:
+Project Setup:
 1. After cloning/downloading the project, make sure you are on the SocialMediaApplication main directory and type "npm install" in the terminal
 2. Change the directory to the client package inside the SocialMediaApplication main directory by typing "cd client" and type "npm install" in the terminal
 3. Change back to the main directory by typing "cd ../"
