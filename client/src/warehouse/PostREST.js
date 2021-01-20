@@ -42,6 +42,18 @@ const actions = {
             commit('getPostsError', err);
         }
     },
+
+    async deletePost({commit}, id) {
+        try {
+            commit('deletePostRequest');
+            let res = await axios.delete("http://localhost:5000/post/post-id/" + id);
+            const posts = res.data.posts;
+            commit('deletePostInfo', posts);
+            return res;
+        } catch (err) {
+            commit("deletePostError", err)
+        }
+    },
 };
 
 // mutations
@@ -67,6 +79,20 @@ const mutations = {
         state.status = 'Post successfully added'
     },
     createPostError(state, error) {
+        state.error = error.response.data.msg
+    },
+
+    // delete post
+    deletePostRequest(state) {
+        state.error = null
+        state.status = 'Loading'
+    },
+
+    deletePostInfo(state, posts) {
+        state.posts = posts
+    },
+
+    deletePostError(state, error) {
         state.error = error.response.data.msg
     },
 };

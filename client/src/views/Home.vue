@@ -38,7 +38,7 @@
               </div>
               <button @click="showReplies(c._id)">Reply</button>
               <button @click="showReplies(c._id)">View Replies</button>
-              <button v-if="isCommentOwner(c.ownerId)" @click="removeComment(c._id, c.postId)" class="red-background">Delete Comment</button>
+              <button v-if="isPostOwner(c.ownerId)" @click="removePost(c._id)" class="red-background">Delete Comment</button>
               <br><br>
             </div>
           </div>
@@ -80,7 +80,8 @@
     <div class="postsContainer">
       <br>
       <h1 style="text-align: center">Posts</h1>
-      <div class="grid-container" v-for="post in posts" :key="post._id">
+      <p v-if="posts.length < 1">Hmm, this place seems deserted 😞<br>Why not create a post?</p>
+      <div v-else class="grid-container" v-for="post in posts" :key="post._id">
         <div class="posts">
           <div class="postsGridItem">
             <div class="postContent" @click="enlargePost(post); getComments(post._id)">
@@ -90,6 +91,7 @@
             </div>
           </div>
           <button v-on:click="enlargePost(post); getComments(post._id)">Enlarge Post</button>
+          <button v-if="isPostOwner(post.ownerId)" @click="removePost(post._id)" class="red-background">Delete Comment</button>
         </div>
       </div>
       <div class="createPostButton">
@@ -196,6 +198,7 @@ export default {
 
     // posts
     ...mapActions(['getAllPosts']),
+    ...mapActions(['deletePost']),
 
     // comments
     ...mapActions(['getPostComments']),
@@ -339,6 +342,24 @@ export default {
           this.comments = [];
           this.recentComments = [];
           this.getComment(postId);
+        });
+      } catch(err) {
+        console.log(err);
+      }
+    },
+
+    // if the post belongs to the logged in user, return true
+    isPostOwner(ownerId) {
+      return ownerId === this.user._id;
+    },
+
+    removePost(postId) {
+      try {
+        this.deletePost(postId).then(res => {
+          console.log(res);
+          this.comments = [];
+          this.recentComments = [];
+          this.getAllPosts();
         });
       } catch(err) {
         console.log(err);
