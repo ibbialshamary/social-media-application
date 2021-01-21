@@ -26,7 +26,7 @@
               <br>
             </div>
 
-            <p v-if="comments.length !== 0">Previous Comments</p>
+            <p v-if="comments !== undefined && comments.length !== 0">Previous Comments</p>
             <div class="previousComments" v-for="c in comments" :key="c._id">
               <div class="comment">
                 <p class="poster"><span>{{ c.ownerName }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
@@ -81,7 +81,7 @@
     <div class="postsContainer">
       <br>
       <h1 style="text-align: center">Posts</h1>
-      <p v-if="posts.length < 1">Hmm, this place seems deserted 😞<br>Why not create a post?</p>
+      <p v-if="posts === undefined || posts.length < 1">Hmm, this place seems deserted 😞<br>Why not create a post?</p>
       <div v-else class="grid-container" v-for="post in posts" :key="post._id">
         <div class="posts">
           <div class="postsGridItem">
@@ -93,7 +93,7 @@
             </div>
           </div>
           <button v-on:click="enlargePost(post); getComments(post._id)">Enlarge Post</button>
-          <button v-if="isPostOwner(post.ownerId)" @click="removePost(post._id)" class="red-background">Delete Comment</button>
+          <button v-if="isPostOwner(post.ownerId)" @click="removePost(post._id)" class="red-background">Delete Post</button>
         </div>
       </div>
       <div class="createPostButton">
@@ -104,7 +104,7 @@
     <div class="usersContainer">
       <br>
       <h1 style="text-align: center">Explore recommended users</h1>
-      <p v-if="users.length < 1">Sorry, no users available<br>Come back later</p>
+      <p v-if="users  === undefined || users.length < 1">Sorry, no users available<br>Come back later</p>
       <div v-else class="grid-container" v-for="user in users" :key="user._id">
         <div class="users">
           <div class="usersGridItem">
@@ -202,6 +202,7 @@ export default {
     // posts
     ...mapActions(['getAllPosts']),
     ...mapActions(['deletePost']),
+    ...mapActions(['patchPost']),
 
     // comments
     ...mapActions(['getPostComments']),
@@ -345,6 +346,9 @@ export default {
           this.comments = [];
           this.recentComments = [];
           this.getPostComments(postId);
+
+          // patch the post so we the comment count is updated for the post
+          this.patchPostFunction(postId);
         });
       } catch(err) {
         console.log(err);
@@ -354,6 +358,24 @@ export default {
     // if the post belongs to the logged in user, return true
     isPostOwner(ownerId) {
       return ownerId === this.user._id;
+    },
+
+    patchPostFunction(postId) {
+      let post = {
+        comment: this.commentDetails,
+        upvotes: 0,
+        downvotes: 0,
+        ownerName: this.user.name,
+        ownerId: this.user._id
+      };
+
+      this.patchPost([postId, post]).then(res => {
+        if (res.data.success) {
+          alert("Success");
+        }
+      }).catch(() => {
+        alert("Fail");
+      });
     },
 
     removePost(postId) {

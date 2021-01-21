@@ -43,10 +43,22 @@ router.get('/comment/post-id/:id',  async (req, res) => {
 // delete comment
 router.delete('/comment/comment-id/:id',  async (req, res) => {
     try {
-        const post = await Comment.findByIdAndDelete({_id: req.params.id})
+        const comment = await Comment.findByIdAndDelete({_id: req.params.id})
+
+
+        // delete references so comments is updated
+        const post = await Post.findById({_id: comment.postId})
+        const index = post.comments.indexOf(req.params.id);
+        if (index > -1) {
+            post.comments.splice(index, 1);
+            await post.save();
+        }
+        // above code ends here
+
+
         return res.json({
-            id: post._id,
-            name: post.name,
+            id: comment._id,
+            name: comment.name,
             status: "Successfully deleted"
         });
     } catch(err) {
@@ -67,7 +79,7 @@ router.patch('/comment/comment-id/:id', async (req, res) => {
     }
 })
 
-// create post
+// create comment
 router.post('/comment/post-id/:id', async(req, res) => {
     // validate data before user is created
     const { error } = commentValidation(req.body);

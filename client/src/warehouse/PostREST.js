@@ -54,6 +54,20 @@ const actions = {
             commit("deletePostError", err)
         }
     },
+
+    async patchPost({ commit }, [postId, postBody]) {
+        commit('patchPostRequest');
+        try {
+            let res = await axios.patch(`http://localhost:5000/post/post-id/${postId}`, postBody);
+            if(res.data.success !== undefined) {
+                const post = res.data.post;
+                commit('patchPostSuccess', post);
+            }
+            return res;
+        } catch(err) {
+            commit('patchPostError', err);
+        }
+    },
 };
 
 // mutations
@@ -93,6 +107,20 @@ const mutations = {
     },
 
     deletePostError(state, error) {
+        state.error = error.response.data.msg
+    },
+
+    // patch post
+    patchPostRequest(state) {
+        state.error = null
+        state.status = 'Loading'
+    },
+
+    patchPostInfo(state, posts) {
+        state.posts = posts
+    },
+
+    patchPostError(state, error) {
         state.error = error.response.data.msg
     },
 };

@@ -44,7 +44,7 @@ const actions = {
     async deleteComment({commit}, id) {
         try {
             commit('deleteCommentRequest');
-            let res = await axios.delete("http://localhost:5000/comment/comment-id/" + id);
+            let res = await axios.delete(`http://localhost:5000/comment/comment-id/${id}`);
             const comments = res.data.comments;
             commit('deleteCommentInfo', comments);
             return res;
