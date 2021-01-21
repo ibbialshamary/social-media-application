@@ -31,6 +31,7 @@
               <div class="comment">
                 <p class="poster"><span>{{ c.ownerName }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
                 <p class="details">{{ c.comment }}</p>
+                <p><i class="fas fa-comment-dots"></i> {{ c.replies.length }}</p>
                 <div class="ratings">
                   <span @click="rateComment(c._id, c.postId, c.upvotes, 'upvote')"><i class="fas fa-heart upvote"></i><span>{{ c.upvotes }}</span></span>
                   <span @click="rateComment(c._id, c.postId, c.downvotes, 'downvote')"><i class="fas fa-thumbs-down downvote"></i><span>{{ c.downvotes }}</span></span>
@@ -38,7 +39,7 @@
               </div>
               <button @click="showReplies(c._id)">Reply</button>
               <button @click="showReplies(c._id)">View Replies</button>
-              <button v-if="isPostOwner(c.ownerId)" @click="removePost(c._id)" class="red-background">Delete Comment</button>
+              <button v-if="isCommentOwner(c.ownerId)" @click="removeComment(c._id, c.postId)" class="red-background">Delete Comment</button>
               <br><br>
             </div>
           </div>
@@ -88,6 +89,7 @@
               <p><strong>{{ post.name }}</strong></p>
               <p>{{ post.description }}</p>
               <p>Posted on {{ formatDate(post.date) }}</p>
+              <label class="totalCommentsLabel"><i class="fas fa-comment-dots"></i> {{ post.comments.length }}</label>
             </div>
           </div>
           <button v-on:click="enlargePost(post); getComments(post._id)">Enlarge Post</button>
@@ -342,7 +344,7 @@ export default {
           console.log(res);
           this.comments = [];
           this.recentComments = [];
-          this.getComment(postId);
+          this.getPostComments(postId);
         });
       } catch(err) {
         console.log(err);
