@@ -309,6 +309,7 @@ export default {
         // clear the text area input
         this.commentDetails = "";
         this.post = [];
+        this.getAllPosts();
       } else {
         this.enlargedUser = [];
       }
