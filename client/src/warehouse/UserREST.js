@@ -7,6 +7,7 @@ const state = {
     token: localStorage.getItem('token') || '',
     user: {},
     users: {},
+    explorableUsers: {},
     status: '',
     error: null,
 };
@@ -16,6 +17,7 @@ const getters = {
     isLoggedIn: state => !!state.token,
     user: state => state.user,
     users: state => state.users,
+    explorableUsers: state => state.explorableUsers,
     userError: state => state.error
 };
 
@@ -30,6 +32,19 @@ const actions = {
             return res;
         } catch(err) {
             commit('getUsersError', err);
+        }
+    },
+
+    // get all users that are not you (logged in user)
+    async getExplorableUsers({ commit }, username) {
+        try {
+            commit('getExplorableUsersRequest');
+            let res = await axios.get(`http://localhost:5000/explorable-users/username/${username}`);
+            const users = res.data.users;
+            commit('getExplorableUsersInfo', users);
+            return res;
+        } catch(err) {
+            commit('getExplorableUsersError', err);
         }
     },
 
@@ -97,6 +112,17 @@ const mutations = {
         state.users = users
     },
     getUsersError(state, error) {
+        state.error = error.response.data.msg
+    },
+
+    // get explorable users
+    getExplorableUsersRequest(state) {
+        state.status = 'Loading'
+    },
+    getExplorableUsersInfo(state, users) {
+        state.explorableUsers = users
+    },
+    getExplorableUsersError(state, error) {
         state.error = error.response.data.msg
     },
 

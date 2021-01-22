@@ -104,8 +104,8 @@
     <div class="usersContainer">
       <br>
       <h1 style="text-align: center">Explore recommended users</h1>
-      <p v-if="users  === undefined || users.length < 1">Sorry, no users available<br>Come back later</p>
-      <div v-else class="grid-container" v-for="user in users" :key="user._id">
+      <p v-if="explorableUsers  === undefined || explorableUsers.length < 1">Sorry, no users available<br>Come back later</p>
+      <div v-else class="grid-container" v-for="user in explorableUsers" :key="user._id">
         <div class="users">
           <div class="usersGridItem">
             <div class="userContent" @click="enlargeUser(user); getComments(user._id)">
@@ -120,6 +120,7 @@
         </div>
       </div>
     </div>
+    
   </div>
 </template>
 
@@ -152,6 +153,7 @@ export default {
     ...mapGetters({
       gettersUser: 'user',
       gettersUsers: 'users',
+      gettersExplorableUsers: 'explorableUsers',
 
       gettersPosts: 'posts',
 
@@ -169,6 +171,15 @@ export default {
     users: {
       get() {
         return this.gettersUsers
+      },
+      set(name) {
+        return name
+      }
+    },
+
+    explorableUsers: {
+      get() {
+        return this.gettersExplorableUsers
       },
       set(name) {
         return name
@@ -196,7 +207,8 @@ export default {
   components: {},
   methods: {
     // users
-    ...mapActions(['getAllUsers']),
+    // ...mapActions(['getAllUsers']),
+    ...mapActions(['getExplorableUsers']),
     ...mapActions(['getProfile']),
 
     // posts
@@ -423,7 +435,8 @@ export default {
   },
   created() {
     this.getProfile();
-    this.getAllUsers();
+    // this.getAllUsers();
+    this.getExplorableUsers(this.user.username);
 
     this.getAllPosts();
 

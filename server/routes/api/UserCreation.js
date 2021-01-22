@@ -20,6 +20,14 @@ router.get('/user',  async (req, res) => {
     });
 })
 
+// get all users except one
+router.get('/explorable-users/username/:username',  async (req, res) => {
+    const users = await User.find({ username: { $ne: req.params.username } });
+    return res.json({
+        users: users
+    });
+})
+
 // register
 router.post('/register', async(req, res) => {
     // validate data before user is created
