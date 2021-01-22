@@ -586,6 +586,34 @@ a {
     transform: translateX(-50%);
     border-radius: 12px;
     background: var(--mainContainerGradientFirefox);
+
+    .post {
+      background-color: var(--postBackgroundColour);
+      background-image: url("../images/defaultAvatar.png");
+      background-size: cover;
+      border-radius: 12px;
+      /* passing: inside or the content of the grid container, so the text for example, how far away it is from the div */
+      padding: 20px 50px 20px 50px;
+      text-align: center;
+      width: 320px;
+      height: 300px;
+      overflow-y: scroll;
+
+      float: left;
+      margin: 12px 0 0 12px;
+
+      .postContent {
+        background: var(--mainContainerGradientFirefox);
+        opacity: .9;
+        border-radius: 12px;
+        padding: 12px;
+        position: relative;
+        left: 50%;
+        transform: translateX(-50%);
+        transition: all ease-in 0.225s;
+
+      }
+    }
   }
 }
 

@@ -73,8 +73,11 @@
             <p><span>{{ u.name }}</span> welcomes you to their profile</p>
           </div>
           <p class="userStats"><strong>{{ u.posts.length }}</strong> posts <strong>998</strong> followers <strong>890</strong> following</p><br>
+          <p>Posts</p>
           <div class="userPosts">
-            <div class="postsGridItem" v-for="(up, index) in userPosts" :key="index">{{ up }}</div>
+            <div class="post" v-for="(up, index) in userPosts" :key="index">
+              <div class="postContent">{{ up }}</div>
+            </div>
           </div>
         </div>
         <span @click="closeEnlargedContent('user')"><i class="fas fa-times closeContentButton"></i></span>
