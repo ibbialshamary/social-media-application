@@ -4,6 +4,7 @@ const bcrypt = require('bcryptjs');
 const { registerValidation, loginValidation } = require('../../validation/validation');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
+const {followUserValidation} = require("../../validation/validation");
 const key = require('../../config/keys').secret;
 
 /**
@@ -27,6 +28,37 @@ router.get('/explorable-users/username/:username',  async (req, res) => {
         users: users
     });
 })
+
+// follow user
+router.patch('/follow/user-id/:id', async (req, res) => {
+    // const { error } = followUserValidation(req.body.username);
+    // console.log(error);
+    //
+    // if(error) {
+    //     return res.status(404).json({
+    //         success: false,
+    //         msg: 'Your ' + error.details[0].message
+    //     });
+    // }
+
+    try {
+        const userToFollow = await User.findOne({ _id: req.params.id });
+        const userFollowing = await User.findOne({ username: req.body.username });
+
+        userToFollow.followers.push(req.body.username);
+        userFollowing.following.push(userToFollow.username);
+
+        await userToFollow.save();
+        await userFollowing.save();
+
+        return res.json({
+            status: "Successfully patched"
+        });
+    } catch(err) {
+        res.status(404).send(err.message);
+    }
+})
+
 
 // register
 router.post('/register', async(req, res) => {
@@ -137,8 +169,6 @@ router.post('/login', async(req, res) => {
         });
     }
 })
-
-
 
 /**
  * @route POST /profile

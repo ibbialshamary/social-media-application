@@ -77,9 +77,10 @@
           <div class="userPosts">
             <div class="post" v-for="(up, index) in userPosts" :key="index">
               <div class="postContent">
+                <p style="font-style: italic">Post {{ index + 1}}</p>
                 <p><strong>{{ up.name }}</strong></p>
                 <p>{{ up.description }}</p>
-                <p>Posted on {{ formatDate(up.date) }}</p>
+                <p>Posted on {{ formatDate(up.date) }}</p><br>
                 <label class="totalCommentsLabel"><i class="fas fa-comment-dots"></i> {{ up.comments.length }}</label>
               </div>
             </div>
