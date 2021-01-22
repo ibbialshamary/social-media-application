@@ -481,11 +481,6 @@ a {
     .previousComments {
       button {
         margin-left: 8px;
-        background: var(--blueButtonBackground);
-
-        &:hover {
-          background: var(--blueButtonHoverBackground);
-        }
       }
 
       .comment {
@@ -612,6 +607,10 @@ a {
         transform: translateX(-50%);
         transition: all ease-in 0.225s;
 
+        p:last-of-type {
+          background-color: var(--buttonBackgroundColour);
+          color: var(--buttonTextColour);
+        }
       }
     }
   }
@@ -1339,8 +1338,16 @@ input:not([type=submit]), select, textarea {
 
 .red-background {
   background: var(--redButtonBackground) !important;
-  color: var(--buttonTextColour) !important;
+  color: white !important;
   &:hover {
     background: var(--redButtonHoverBackground) !important;
+  }
+}
+
+.blue-background {
+  background: var(--blueButtonBackground) !important;
+  color: white !important;
+  &:hover {
+    background: var(--blueButtonHoverBackground) !important;
   }
 }

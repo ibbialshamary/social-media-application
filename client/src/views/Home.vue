@@ -37,8 +37,8 @@
                   <span @click="rateComment(c._id, c.postId, c.downvotes, 'downvote')"><i class="fas fa-thumbs-down downvote"></i><span>{{ c.downvotes }}</span></span>
                 </div>
               </div>
-              <button @click="showReplies(c._id)">Reply</button>
-              <button @click="showReplies(c._id)">View Replies</button>
+              <button class="blue-background" @click="showReplies(c._id)">Reply</button>
+              <button class="blue-background" @click="showReplies(c._id)">View Replies</button>
               <button v-if="isCommentOwner(c.ownerId)" @click="removeComment(c._id, c.postId)" class="red-background">Delete Comment</button>
               <br><br>
             </div>
@@ -76,7 +76,12 @@
           <p>Posts</p>
           <div class="userPosts">
             <div class="post" v-for="(up, index) in userPosts" :key="index">
-              <div class="postContent">{{ up }}</div>
+              <div class="postContent">
+                <p><strong>{{ up.name }}</strong></p>
+                <p>{{ up.description }}</p>
+                <p>Posted on {{ formatDate(up.date) }}</p>
+                <label class="totalCommentsLabel"><i class="fas fa-comment-dots"></i> {{ up.comments.length }}</label>
+              </div>
             </div>
           </div>
         </div>
