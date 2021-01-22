@@ -607,6 +607,10 @@ a {
         transform: translateX(-50%);
         transition: all ease-in 0.225s;
 
+        p {
+          font-size: 16px;
+        }
+
         p:last-of-type {
           background-color: var(--buttonBackgroundColour);
           color: var(--buttonTextColour);
