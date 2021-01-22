@@ -3,6 +3,7 @@ import axios from 'axios';
 const state = {
     post: {},
     posts: {},
+    userPosts: {},
     status: '',
     error: null
 };
@@ -10,6 +11,7 @@ const state = {
 const getters = {
     post: state => state.post,
     posts: state => state.posts,
+    userPosts: state => state.userPosts,
     postStatus: state => state.status,
     postError: state => state.error
 };
@@ -101,8 +103,8 @@ const mutations = {
         state.status = 'Loading'
     },
 
-    getUserPostsInfo(state, posts) {
-        state.posts = posts
+    getUserPostsInfo(state, userPosts) {
+        state.userPosts = userPosts
     },
 
     getUserPostsError(state, error) {

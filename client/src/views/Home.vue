@@ -73,7 +73,7 @@
             <p><span>{{ u.name }}</span> welcomes you to their profile</p>
           </div>
           <p class="userStats"><strong>{{ u.posts.length }}</strong> posts <strong>998</strong> followers <strong>890</strong> following</p><br>
-          <div class="userPosts" v-for="up in getUserPosts" :key="up">{{ up }}</div>
+          <div class="userPosts" v-for="(up, index) in userPosts" :key="index">{{ up }}</div>
         </div>
         <span @click="closeEnlargedContent('user')"><i class="fas fa-times closeContentButton"></i></span>
       </div>
@@ -115,7 +115,7 @@
               <p>{{ user.username }}</p>
             </div>
           </div>
-          <button @click="enlargeUser(user)">View Profile</button><br>
+          <button @click="enlargeUser(user); getPosts(user._id)">View Profile</button><br>
           <button>Follow</button><br>
           <button>Block</button><br>
         </div>
@@ -157,6 +157,7 @@ export default {
       gettersExplorableUsers: 'explorableUsers',
 
       gettersPosts: 'posts',
+      gettersUserPosts: 'userPosts',
 
 
       gettersComments: 'comments',
@@ -190,6 +191,15 @@ export default {
     posts: {
       get() {
         return this.gettersPosts
+      },
+      set(name) {
+        return name
+      }
+    },
+
+    userPosts: {
+      get() {
+        return this.gettersUserPosts
       },
       set(name) {
         return name
@@ -318,6 +328,16 @@ export default {
       })
     },
 
+    getPosts(userId) {
+      this.getUserPosts(userId).then(res => {
+        if (res.data) {
+          console.log(res.data);
+        } else {
+          console.log("Failed");
+        }
+      })
+    },
+
     closeEnlargedContent(content) {
       if(content === "post") {
         // clear the text area input
@@ -441,9 +461,6 @@ export default {
     this.getExplorableUsers(this.user.username);
 
     this.getAllPosts();
-    // pass the id of the post as the argument below
-    this.getUserPosts(this.user._id);
-
     this.getAllReplies();
   },
 }
