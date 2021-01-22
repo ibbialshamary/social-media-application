@@ -73,7 +73,9 @@
             <p><span>{{ u.name }}</span> welcomes you to their profile</p>
           </div>
           <p class="userStats"><strong>{{ u.posts.length }}</strong> posts <strong>998</strong> followers <strong>890</strong> following</p><br>
-          <div class="userPosts" v-for="(up, index) in userPosts" :key="index">{{ up }}</div>
+          <div class="userPosts">
+            <div class="postsGridItem" v-for="(up, index) in userPosts" :key="index">{{ up }}</div>
+          </div>
         </div>
         <span @click="closeEnlargedContent('user')"><i class="fas fa-times closeContentButton"></i></span>
       </div>
@@ -109,7 +111,7 @@
       <div v-else class="grid-container" v-for="user in explorableUsers" :key="user._id">
         <div class="users">
           <div class="usersGridItem">
-            <div class="userContent" @click="enlargeUser(user); getComments(user._id)">
+            <div class="userContent" @click="enlargeUser(user); getPosts(user._id);">
               <img src="../images/defaultAvatar.png">
               <p><strong>{{ user.name }}</strong></p>
               <p>{{ user.username }}</p>
