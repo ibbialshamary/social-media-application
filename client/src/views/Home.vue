@@ -72,7 +72,8 @@
           <div class="userHeading">
             <p><span>{{ u.name }}</span> welcomes you to their profile</p>
           </div>
-          <img src="../images/defaultAvatar.png">
+          <p class="userStats"><strong>{{ u.posts.length }}</strong> posts <strong>998</strong> followers <strong>890</strong> following</p><br>
+          <div class="userPosts" v-for="up in getUserPosts" :key="up">{{ up }}</div>
         </div>
         <span @click="closeEnlargedContent('user')"><i class="fas fa-times closeContentButton"></i></span>
       </div>
@@ -215,6 +216,7 @@ export default {
     ...mapActions(['getAllPosts']),
     ...mapActions(['deletePost']),
     ...mapActions(['patchPost']),
+    ...mapActions(['getUserPosts']),
 
     // comments
     ...mapActions(['getPostComments']),
@@ -439,6 +441,8 @@ export default {
     this.getExplorableUsers(this.user.username);
 
     this.getAllPosts();
+    // pass the id of the post as the argument below
+    this.getUserPosts(this.user._id);
 
     this.getAllReplies();
   },

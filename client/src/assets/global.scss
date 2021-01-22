@@ -723,6 +723,22 @@ a {
   }
 }
 
+.enlargedUser {
+  .userStats strong {
+    margin-left: 20px;
+  }
+  .userPosts {
+    background: #1e2020;
+    width: 60%;
+    height: 80%;
+    position: relative;
+    left: 50%;
+    transform: translateX(-50%);
+    border-radius: 12px;
+    background: var(--mainContainerGradientFirefox);
+  }
+}
+
 .createPostButton {
   position: absolute;
 

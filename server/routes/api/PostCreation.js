@@ -63,6 +63,14 @@ router.get('/post',  async (req, res) => {
     });
 })
 
+// get post by user id
+router.get('/post/user-id/:id',  async (req, res) => {
+    const posts = await Post.find({ownerId: req.params.id});
+    return res.json({
+        posts: posts
+    });
+})
+
 // get specific post
 router.get('/post/post-id/:id',  async (req, res) => {
     try {

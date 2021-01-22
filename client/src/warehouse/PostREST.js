@@ -43,6 +43,19 @@ const actions = {
         }
     },
 
+    // action for a user's posts
+    async getUserPosts({ commit }, userId) {
+        try {
+            commit('getUserPostsRequest');
+            let res = await axios.get(`http://localhost:5000/post/user-id/${userId}`);
+            const posts = res.data.posts;
+            commit('getUserPostsInfo', posts);
+            return res;
+        } catch(err) {
+            commit('getUserPostsError', err);
+        }
+    },
+
     async deletePost({commit}, id) {
         try {
             commit('deletePostRequest');
@@ -80,6 +93,19 @@ const mutations = {
         state.posts = posts
     },
     getPostsError(state, error) {
+        state.error = error.response.data.msg
+    },
+
+    // get a user's posts
+    getUserPostsRequest(state) {
+        state.status = 'Loading'
+    },
+
+    getUserPostsInfo(state, posts) {
+        state.posts = posts
+    },
+
+    getUserPostsError(state, error) {
         state.error = error.response.data.msg
     },
 
