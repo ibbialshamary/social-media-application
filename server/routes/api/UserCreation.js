@@ -63,6 +63,42 @@ router.patch('/follow/user-id/:id', async (req, res) => {
     }
 })
 
+// unfollow user and update following
+router.patch('/unfollow/user-id/:id', async (req, res) => {
+    try {
+        const userToUnfollow = await User.findOne({_id: req.params.id});
+        const userUnfollowing = await User.findOne({username: req.body.username});
+
+        if(userToUnfollow.username === userUnfollowing.username) {
+            return res.status(404).json({
+                success: false,
+                msg: `Users are not permitted to unfollow themselves`
+            })
+        }
+
+        // empty out the user from the following array
+        const indexY = userUnfollowing.following.indexOf(userToUnfollow.username);
+        if (indexY > -1) {
+            userUnfollowing.following.splice(indexY, 1);
+            await userUnfollowing.save();
+        }
+        // above code ends here
+
+        // empty out the user from the followers array so that references are cleared
+        const indexX = userToUnfollow.followers.indexOf(userUnfollowing.username);
+        if (indexX > -1) {
+            userToUnfollow.followers.splice(indexX, 1);
+            await userToUnfollow.save();
+        }
+        // above code ends here
+
+        return res.json({
+            status: "Successfully unfollowed",
+        });
+    } catch (err) {
+        res.status(404).send(err.message);
+    }
+})
 
 // register
 router.post('/register', async (req, res) => {
