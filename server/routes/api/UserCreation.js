@@ -1,7 +1,7 @@
 const router = require('express').Router();
 const User = require('../../model/User');
 const bcrypt = require('bcryptjs');
-const { registerValidation, loginValidation } = require('../../validation/validation');
+const {registerValidation, loginValidation} = require('../../validation/validation');
 const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const {followUserValidation} = require("../../validation/validation");
@@ -14,7 +14,7 @@ const key = require('../../config/keys').secret;
  */
 
 // get all users
-router.get('/user',  async (req, res) => {
+router.get('/user', async (req, res) => {
     const users = await User.find();
     return res.json({
         users: users
@@ -22,49 +22,53 @@ router.get('/user',  async (req, res) => {
 })
 
 // get all users except one
-router.get('/explorable-users/username/:username',  async (req, res) => {
-    const users = await User.find({ username: { $ne: req.params.username } });
+router.get('/explorable-users/username/:username', async (req, res) => {
+    const users = await User.find({username: {$ne: req.params.username}});
     return res.json({
         users: users
     });
 })
 
-// follow user
+// follow user and update following
 router.patch('/follow/user-id/:id', async (req, res) => {
-    // const { error } = followUserValidation(req.body.username);
-    // console.log(error);
-    //
-    // if(error) {
-    //     return res.status(404).json({
-    //         success: false,
-    //         msg: 'Your ' + error.details[0].message
-    //     });
-    // }
-
     try {
-        const userToFollow = await User.findOne({ _id: req.params.id });
-        const userFollowing = await User.findOne({ username: req.body.username });
+        const userToFollow = await User.findOne({_id: req.params.id});
+        const userFollowing = await User.findOne({username: req.body.username});
 
-        userToFollow.followers.push(req.body.username);
-        userFollowing.following.push(userToFollow.username);
+        if(userToFollow.username === userFollowing.username) {
+            return res.status(404).json({
+                success: false,
+                msg: `Users are not permitted to follow themselves`
+            })
+        }
 
-        await userToFollow.save();
-        await userFollowing.save();
+        if(!userToFollow.followers.includes(req.body.username) && !userFollowing.following.includes(userToFollow.username)) {
+            userToFollow.followers.push(req.body.username);
+            userFollowing.following.push(userToFollow.username);
+            await userToFollow.save();
+            await userFollowing.save();
+        } else {
+            return res.status(404).json({
+                success: false,
+                msg: `The user ${userFollowing.username} is already following ${userToFollow.username}`
+            });
+        }
+
 
         return res.json({
-            status: "Successfully patched"
+            status: "Successfully followed"
         });
-    } catch(err) {
+    } catch (err) {
         res.status(404).send(err.message);
     }
 })
 
 
 // register
-router.post('/register', async(req, res) => {
+router.post('/register', async (req, res) => {
     // validate data before user is created
-    const { error } = registerValidation(req.body);
-    if(error) {
+    const {error} = registerValidation(req.body);
+    if (error) {
         return res.status(404).json({
             success: false,
             msg: 'Your ' + error.details[0].message
@@ -72,10 +76,10 @@ router.post('/register', async(req, res) => {
     }
 
     // check if user exists
-    const isUsernameTaken = await User.findOne({ username: req.body.username });
-    const isEmailTaken = await User.findOne({ email: req.body.email });
+    const isUsernameTaken = await User.findOne({username: req.body.username});
+    const isEmailTaken = await User.findOne({email: req.body.email});
 
-    if(isUsernameTaken || isEmailTaken) {
+    if (isUsernameTaken || isEmailTaken) {
         return res.status(404).json({
             success: false,
             msg: 'The username or email you have entered is already registered'
@@ -83,7 +87,7 @@ router.post('/register', async(req, res) => {
     }
 
     // check if passwords match
-    if(req.body.password !== req.body.confirm_password) {
+    if (req.body.password !== req.body.confirm_password) {
         return res.status(404).json({
             success: false,
             msg: 'The passwords you have entered do not match'
@@ -110,7 +114,7 @@ router.post('/register', async(req, res) => {
                 msg: "Registration successful"
             });
         });
-    } catch(err) {
+    } catch (err) {
         res.status(404).send(err);
     }
 });
@@ -123,20 +127,20 @@ router.post('/register', async(req, res) => {
  */
 
 // login
-router.post('/login', async(req, res) => {
+router.post('/login', async (req, res) => {
     // validate data
-    const { error } = loginValidation(req.body);
-    if(error) {
+    const {error} = loginValidation(req.body);
+    if (error) {
         return res.status(404).json({
             success: false,
             msg: error.details[0].message
         });
     }
-    
-    // check if email exists
-    const user = await User.findOne({ username: req.body.username });
 
-    if(!user) {
+    // check if email exists
+    const user = await User.findOne({username: req.body.username});
+
+    if (!user) {
         return res.status(404).json({
             success: false,
             msg: 'The username you have entered does not exist'
@@ -145,7 +149,7 @@ router.post('/login', async(req, res) => {
 
     // if password is correct
     const validPassword = await bcrypt.compare(req.body.password, user.password);
-    if(validPassword) {
+    if (validPassword) {
         const payload = {
             _id: user._id,
             username: user.username,
@@ -176,7 +180,7 @@ router.post('/login', async(req, res) => {
  * @access Private
  */
 
- // profile
+// profile
 router.get('/profile', passport.authenticate('jwt', {
     session: false
 }), (req, res) => {
