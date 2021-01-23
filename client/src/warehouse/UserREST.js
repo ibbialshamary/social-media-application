@@ -22,6 +22,36 @@ const getters = {
 };
 
 const actions = {
+    // action for following
+    async followUser({ commit }, [body, userId]) {
+        commit('followUserRequest');
+        try {
+            let res = await axios.patch(`http://localhost:5000/follow/user-id/${userId}`, body);
+            if(res.data.success !== undefined) {
+                const user = res.data.username;
+                commit('followUserSuccess', user);
+            }
+            return res;
+        } catch(err) {
+            commit('followUserError', err);
+        }
+    },
+
+    // action for unfollowing
+    async unfollowUser({ commit }, [body, userId]) {
+        commit('unfollowUserRequest');
+        try {
+            let res = await axios.patch(`http://localhost:5000/unfollow/user-id/${userId}`, body);
+            if(res.data.success !== undefined) {
+                const user = res.data.username;
+                commit('unfollowUserSuccess', user);
+            }
+            return res;
+        } catch(err) {
+            commit('unfollowUserError', err);
+        }
+    },
+
     // action for getting all users
     async getAllUsers({ commit }) {
         try {
@@ -104,6 +134,32 @@ const actions = {
 };
 
 const mutations = {
+    // follow user mutations
+    followUserRequest(state) {
+        state.error = null
+        state.status = 'loading'
+    },
+    followUserSuccess(state) {
+        state.error = null
+        state.status = 'success'
+    },
+    followUserError(state, err) {
+        state.error = err.response.data.msg
+    },
+
+    // unfollow user mutations
+    unfollowUserRequest(state) {
+        state.error = null
+        state.status = 'loading'
+    },
+    unfollowUserSuccess(state) {
+        state.error = null
+        state.status = 'success'
+    },
+    unfollowUserError(state, err) {
+        state.error = err.response.data.msg
+    },
+
     // get all users
     getUsersRequest(state) {
         state.status = 'Loading'

@@ -75,7 +75,8 @@
           <p class="userStats"><strong>{{ u.posts.length }}</strong> posts <strong>998</strong> followers <strong>890</strong> following</p><br>
           <p>Posts</p>
           <div class="userPosts">
-            <div class="post" v-for="(up, index) in userPosts" :key="index">
+            <p v-if="userPosts !== undefined && userPosts.length < 1">Hmm, this place seems deserted 😞<br>Come back later?</p>
+            <div v-else class="post" v-for="(up, index) in userPosts" :key="index">
               <div class="postContent">
                 <p style="font-style: italic">Post {{ index + 1}}</p>
                 <p><strong>{{ up.name }}</strong></p>
@@ -117,18 +118,19 @@
       <br>
       <h1 style="text-align: center">Explore recommended users</h1>
       <p v-if="explorableUsers  === undefined || explorableUsers.length < 1">Sorry, no users available<br>Come back later</p>
-      <div v-else class="grid-container" v-for="user in explorableUsers" :key="user._id">
+      <div v-else class="grid-container" v-for="u in explorableUsers" :key="u._id">
         <div class="users">
           <div class="usersGridItem">
-            <div class="userContent" @click="enlargeUser(user); getPosts(user._id);">
+            <div class="userContent" @click="enlargeUser(u); getPosts(u._id);">
               <img src="../images/defaultAvatar.png">
-              <p><strong>{{ user.name }}</strong></p>
-              <p>{{ user.username }}</p>
+              <p><strong>{{ u.name }}</strong></p>
+              <p>{{ u.username }}</p>
             </div>
           </div>
-          <button @click="enlargeUser(user); getPosts(user._id)">View Profile</button><br>
-          <button>Follow</button><br>
-          <button>Block</button><br>
+          <button @click="enlargeUser(u); getPosts(u._id)">View Profile</button><br>
+          <button class="blue-background" v-if="!u.followers.includes(user.username)" @click="connect(u._id, 'follow')">Follow</button>
+          <button v-else @click="connect(u._id, 'unfollow')">Unfollow</button><br>
+          <button class="red-background">Block</button><br>
         </div>
       </div>
     </div>
@@ -232,6 +234,8 @@ export default {
     // ...mapActions(['getAllUsers']),
     ...mapActions(['getExplorableUsers']),
     ...mapActions(['getProfile']),
+    ...mapActions(['followUser']),
+    ...mapActions(['unfollowUser']),
 
     // posts
     ...mapActions(['getAllPosts']),
@@ -308,6 +312,28 @@ export default {
       }).catch(() => {
         alert("failed");
       });
+    },
+
+    connect(userToFollowId, connectOption) {
+      let body = {
+        username: this.user.username
+      };
+
+      if(connectOption === "follow") {
+        this.followUser([body, userToFollowId]).then(res => {
+          console.log(res);
+          this.getExplorableUsers(this.user.username);
+        }).catch((e) => {
+          console.log(e);
+        });
+      } else {
+        this.unfollowUser([body, userToFollowId]).then(res => {
+          console.log(res);
+          this.getExplorableUsers(this.user.username);
+        }).catch((e) => {
+          console.log(e);
+        });
+      }
     },
 
     addComment(postId) {

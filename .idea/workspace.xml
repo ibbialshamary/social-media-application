@@ -21,7 +21,8 @@
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/api/UserCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/UserCreation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/warehouse/UserREST.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/warehouse/UserREST.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
