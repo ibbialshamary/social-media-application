@@ -73,7 +73,6 @@
             <p><span>{{ u.name }}</span> welcomes you to their profile</p>
           </div>
           <p class="userStats"><strong>{{ u.posts.length }}</strong> posts <strong>{{ u.followers.length }}</strong> followers <strong>{{ u.following.length }}</strong> following</p><br>
-          <p>User Media</p>
 
           <div class="userPosts">
             <p>Posts</p>
@@ -90,15 +89,28 @@
           </div>
 
           <div class="userFollowersFollowing">
-            <p class="desertedParagraph" v-if="userPosts !== undefined && userPosts.length < 1">Hmm, this place seems deserted 😞<br>Come back later?</p>
-            <div v-else class="post" v-for="(up, index) in userPosts" :key="index">
-              <div class="postContent">
-                <p style="font-style: italic">Post {{ index + 1}}</p>
-                <p><strong>{{ up.name }}</strong></p>
-                <p>{{ up.description }}</p>
-                <p>Posted on {{ formatDate(up.date) }}</p><br>
-                <label class="totalCommentsLabel"><i class="fas fa-comment-dots"></i> {{ up.comments.length }}</label>
-              </div>
+            <p>Users</p>
+            <div class="followFollowersContainer">
+              <div class="followersContainer">
+                  <p v-if="u.followers.length !== undefined && u.followers.length > 0">Followers</p>
+                  <p v-else>{{ u.username }} has no followers</p>
+                  <div class="usersGridItem" v-for="follower in u.followers" :key="follower">
+                    <div class="userContent">
+                      <img src="../images/defaultAvatar.png">
+                      <p><strong>{{ follower }}</strong></p>
+                    </div>
+                  </div>
+                </div>
+                <div class="followingContainer">
+                  <p v-if="u.following.length !== undefined && u.following.length > 0">Following</p>
+                  <p v-else>{{ u.username }} is not following anyone</p>
+                  <div class="usersGridItem" v-for="following in u.following" :key="following">
+                    <div class="userContent">
+                      <img src="../images/defaultAvatar.png">
+                      <p><strong>{{ following }}</strong></p>
+                    </div>
+                  </div>
+                </div>
             </div>
           </div>
 
@@ -144,8 +156,8 @@
             </div>
           </div>
           <button @click="enlargeUser(u); getPosts(u._id)">View Profile</button><br>
-          <button class="blue-background" v-if="!u.followers.includes(user.username)" @click="connect(u._id, 'follow')">Follow</button>
-          <button class="red-background" v-else @click="connect(u._id, 'unfollow')">Unfollow</button><br>
+          <button v-if="!u.followers.includes(user.username)" @click="connect(u._id, 'follow')">Follow</button>
+          <button v-else @click="connect(u._id, 'unfollow')">Unfollow</button><br>
           <button class="red-background">Block</button><br>
         </div>
       </div>
