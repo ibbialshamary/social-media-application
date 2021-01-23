@@ -574,13 +574,20 @@ a {
   }
   .userPosts {
     background: #1e2020;
-    width: 60%;
+    width: 45%;
     height: 80%;
     position: relative;
-    left: 50%;
-    transform: translateX(-50%);
     border-radius: 12px;
     background: var(--mainContainerGradientFirefox);
+    float: left;
+    padding: 0 40px 40px;
+
+    p:first-child {
+      margin: 18px;
+    }
+    .desertedParagraph {
+      padding: 10px;
+    }
 
     .post {
       background-color: var(--postBackgroundColour);
@@ -590,12 +597,9 @@ a {
       /* passing: inside or the content of the grid container, so the text for example, how far away it is from the div */
       padding: 20px 50px 20px 50px;
       text-align: center;
-      width: 320px;
       height: 300px;
-      overflow-y: scroll;
+      left: 50%;
 
-      float: left;
-      margin: 12px 0 0 12px;
 
       .postContent {
         background: var(--mainContainerGradientFirefox);
@@ -606,6 +610,8 @@ a {
         left: 50%;
         transform: translateX(-50%);
         transition: all ease-in 0.225s;
+        overflow-y: scroll;
+        height: 100%;
 
         p {
           font-size: 16px;
@@ -614,9 +620,21 @@ a {
         p:last-of-type {
           background-color: var(--buttonBackgroundColour);
           color: var(--buttonTextColour);
+          width: fit-content;
+          margin-left: 50%;
+          transform: translateX(-50%);
         }
       }
     }
+  }
+
+  .userFollowersFollowing {
+    background: pink !important;
+    width: 45%;
+    height: 80%;
+    border-radius: 12px;
+    background: var(--mainContainerGradientFirefox);
+    float: right;
   }
 }
 

@@ -72,10 +72,12 @@
           <div class="userHeading">
             <p><span>{{ u.name }}</span> welcomes you to their profile</p>
           </div>
-          <p class="userStats"><strong>{{ u.posts.length }}</strong> posts <strong>998</strong> followers <strong>890</strong> following</p><br>
-          <p>Posts</p>
+          <p class="userStats"><strong>{{ u.posts.length }}</strong> posts <strong>{{ u.followers.length }}</strong> followers <strong>{{ u.following.length }}</strong> following</p><br>
+          <p>User Media</p>
+
           <div class="userPosts">
-            <p v-if="userPosts !== undefined && userPosts.length < 1">Hmm, this place seems deserted 😞<br>Come back later?</p>
+            <p>Posts</p>
+            <p class="desertedParagraph" v-if="userPosts !== undefined && userPosts.length < 1">Hmm, this place seems deserted 😞<br>Come back later?</p>
             <div v-else class="post" v-for="(up, index) in userPosts" :key="index">
               <div class="postContent">
                 <p style="font-style: italic">Post {{ index + 1}}</p>
@@ -86,6 +88,20 @@
               </div>
             </div>
           </div>
+
+          <div class="userFollowersFollowing">
+            <p class="desertedParagraph" v-if="userPosts !== undefined && userPosts.length < 1">Hmm, this place seems deserted 😞<br>Come back later?</p>
+            <div v-else class="post" v-for="(up, index) in userPosts" :key="index">
+              <div class="postContent">
+                <p style="font-style: italic">Post {{ index + 1}}</p>
+                <p><strong>{{ up.name }}</strong></p>
+                <p>{{ up.description }}</p>
+                <p>Posted on {{ formatDate(up.date) }}</p><br>
+                <label class="totalCommentsLabel"><i class="fas fa-comment-dots"></i> {{ up.comments.length }}</label>
+              </div>
+            </div>
+          </div>
+
         </div>
         <span @click="closeEnlargedContent('user')"><i class="fas fa-times closeContentButton"></i></span>
       </div>
@@ -129,7 +145,7 @@
           </div>
           <button @click="enlargeUser(u); getPosts(u._id)">View Profile</button><br>
           <button class="blue-background" v-if="!u.followers.includes(user.username)" @click="connect(u._id, 'follow')">Follow</button>
-          <button v-else @click="connect(u._id, 'unfollow')">Unfollow</button><br>
+          <button class="red-background" v-else @click="connect(u._id, 'unfollow')">Unfollow</button><br>
           <button class="red-background">Block</button><br>
         </div>
       </div>
