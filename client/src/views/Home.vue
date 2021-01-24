@@ -91,26 +91,29 @@
           <div class="userFollowersFollowing">
             <p>Users</p>
             <div class="followFollowersContainer">
-              <div class="followersContainer">
-                  <p v-if="u.followers.length !== undefined && u.followers.length > 0">Followers</p>
-                  <p v-else>{{ u.username }} has no followers</p>
-                  <div class="usersGridItem" v-for="follower in u.followers" :key="follower">
-                    <div class="userContent">
-                      <img src="../images/defaultAvatar.png">
-                      <p><strong>{{ follower }}</strong></p>
-                    </div>
+
+              <div class="userFollowers">
+                <p v-if="u.followers.length !== undefined && u.followers.length > 0">Followers</p>
+                <p v-else>{{ u.username }} is not followed by anyone</p>
+                <div class="follower" v-for="(follower, index) in u.followers" :key="index">
+                  <div class="followerContent">
+                    <p style="font-style: italic">Follower {{ index + 1}}</p>
+                    <p><strong>{{ follower }}</strong></p>
                   </div>
                 </div>
-                <div class="followingContainer">
-                  <p v-if="u.following.length !== undefined && u.following.length > 0">Following</p>
-                  <p v-else>{{ u.username }} is not following anyone</p>
-                  <div class="usersGridItem" v-for="following in u.following" :key="following">
-                    <div class="userContent">
-                      <img src="../images/defaultAvatar.png">
-                      <p><strong>{{ following }}</strong></p>
-                    </div>
+              </div>
+
+              <div class="userFollowing">
+                <p v-if="u.following.length !== undefined && u.following.length > 0">Following</p>
+                <p v-else>{{ u.username }} is not following anyone</p>
+                <div class="following" v-for="(following, index) in u.following" :key="index">
+                  <div class="followingContent">
+                    <p style="font-style: italic">Following {{ index + 1}}</p>
+                    <p><strong>{{ following }}</strong></p>
                   </div>
                 </div>
+              </div>
+
             </div>
           </div>
 
@@ -395,7 +398,7 @@ export default {
 
     getPosts(userId) {
       this.getUserPosts(userId).then(res => {
-        if (res.data) {
+        if(res.data) {
           console.log(res.data);
         } else {
           console.log("Failed");

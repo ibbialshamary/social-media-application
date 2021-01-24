@@ -426,7 +426,6 @@ a {
     background: var(--secondaryColour);
     animation-name: fadeIn;
     animation-duration: .5s;
-    overflow-y: scroll;
     outline: 3px solid var(--secondaryColour);
 
     .postDataButton {
@@ -572,7 +571,7 @@ a {
   .userStats strong {
     margin-left: 20px;
   }
-  .userPosts {
+  .userPosts, .userFollowers, .userFollowing {
     background: #1e2020;
     width: 45%;
     height: 80%;
@@ -590,7 +589,7 @@ a {
       padding: 10px;
     }
 
-    .post {
+    .post, .follower, .following {
       background-color: var(--postBackgroundColour);
       background-image: url("../images/defaultAvatar.png");
       background-size: cover;
@@ -600,7 +599,7 @@ a {
       height: 300px;
       left: 50%;
 
-      .postContent {
+      .postContent, .followerContent, .followingContent {
         background: var(--mainContainerGradientFirefox);
         opacity: .9;
         border-radius: 12px;
@@ -627,6 +626,12 @@ a {
     }
   }
 
+  .userFollowers, .userFollowing {
+    overflow-y: scroll;
+    .follower {
+      margin-top: 5%;
+    }
+  }
 
   .userFollowersFollowing {
     width: 45%;
@@ -635,7 +640,6 @@ a {
     background: var(--mainContainerGradientFirefox);
     float: right;
     margin-right: 3%;
-    overflow-y: scroll;
     p:first-child {
       margin: 18px;
     }
@@ -654,42 +658,32 @@ a {
   margin: 20px;
   border-radius: 12px;
 }
-.followersContainer {
-  float: left;
-  width: 45%;
-  overflow-y: auto;
-  margin-left: 3.5%;
 
-  .usersGridItem {
-    overflow-y: auto;
-    margin: 0 !important;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: 5% !important;
-    background: none;
-    .userContent {
-      &:hover {
-        transform: translateX(-50%) scale(1);
-        opacity: .8;
-        cursor: default;
-      }
-    }
-    img {
-      position: relative;
-      max-width: 150px;
-      max-height: 150px;
-      border-radius: 50%;
-      padding: 8px;
-      border: solid 3px var(--buttonBackgroundColour);
-      margin-bottom: 6px;
-    }
+.followersContent {
+  background: var(--mainContainerGradientFirefox);
+  opacity: 0.9;
+  border-radius: 12px;
+  padding: 12px;
+  position: relative;
+  height: 300px;
+  background-image: url("../images/defaultAvatar.png");
+  background-size: cover;
+
+  p {
+    font-size: 16px !important;
   }
 }
 
+.followersContainer {
+  height: 300px;
+  overflow-y: scroll;
+  border: 1px solid var(--borderColour);
+
+
+}
+
 .followingContainer {
-  float: right;
-  width: 45%;
+  width: 95%;
   overflow-y: auto;
   margin-right: 3.5%;
   .usersGridItem {
@@ -699,9 +693,10 @@ a {
     left: 50%;
     transform: translateX(-50%);
     margin-bottom: 5% !important;
-    background: none;
+    background: red;
 
     .userContent {
+      background: none !important;
       &:hover {
         transform: translateX(-50%) scale(1);
         opacity: .8;
