@@ -582,6 +582,7 @@ a {
     float: left;
     padding: 0 40px 40px;
     margin-left: 3%;
+    overflow-y: scroll;
 
     p:first-child {
       margin: 18px;
@@ -592,12 +593,12 @@ a {
 
     .post, .follower, .following {
       background-color: var(--postBackgroundColour);
-      background-image: url("../images/defaultAvatar.png");
-      background-size: cover;
+      background-size: cover !important;
       border-radius: 12px;
       /* passing: inside or the content of the grid container, so the text for example, how far away it is from the div */
       text-align: center;
       height: 300px;
+      background-position: center;
       left: 50%;
 
       .postContent, .followerContent, .followingContent {
@@ -612,6 +613,7 @@ a {
         height: 100%;
         border: 1px solid var(--borderColour);
         margin-top: 20px;
+
 
         p {
           font-size: 16px;
@@ -628,12 +630,7 @@ a {
     }
   }
 
-  .userFollowers, .userFollowing {
-    overflow-y: scroll;
-    .follower {
-      margin-top: 5%;
-    }
-  }
+
 
   .userFollowersFollowing {
     width: 45%;

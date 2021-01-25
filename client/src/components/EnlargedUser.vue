@@ -1,18 +1,20 @@
 <template>
-  <div class="testing">
+  <div class="app">
     <div class="enlargedUser" v-for="u of enlargedUser" :key="u._id">
       <div class="content">
         <div class="userHeading">
           <p><span>{{ u.name }}</span> welcomes you to their profile</p>
         </div>
-        <p class="userStats"><strong>{{ u.posts.length }}</strong> posts <strong>{{ u.followers.length }}</strong> followers <strong>{{ u.following.length }}</strong> following</p><br>
+        <p class="userStats"><strong>{{ u.posts.length }}</strong> posts <strong>{{ u.followers.length }}</strong>
+          followers <strong>{{ u.following.length }}</strong> following</p><br>
 
         <div class="userPosts">
           <p>Posts</p>
-          <p class="desertedParagraph" v-if="userPosts !== undefined && userPosts.length < 1">Hmm, this place seems deserted 😞<br>Come back later?</p>
-          <div v-else class="post" v-for="(up, index) in userPosts" :key="index">
+          <p class="desertedParagraph" v-if="userPosts !== undefined && userPosts.length < 1">Hmm, this place seems
+            deserted 😞<br>Come back later?</p>
+          <div v-else class="post" v-for="(up, index) in userPosts" :key="index" :style="{'background-image': 'url(' + require('../images/defaultAvatar.png') + ')'}">
             <div class="postContent">
-              <p style="font-style: italic">Post {{ index + 1}}</p>
+              <p style="font-style: italic">Post {{ index + 1 }}</p>
               <p><strong>{{ up.name }}</strong></p>
               <p>{{ up.description }}</p>
               <p>Posted on {{ formatDate(up.date) }}</p><br>
@@ -28,9 +30,9 @@
             <div class="userFollowers">
               <p v-if="u.followers.length !== undefined && u.followers.length > 0">Followers</p>
               <p v-else>{{ u.username }} is not followed by anyone</p>
-              <div class="follower" v-for="(follower, index) in u.followers" :key="index">
+              <div class="follower" v-for="(follower, index) in u.followers" :key="index" :style="{'background-image': 'url(' + require('../images/defaultAvatar.png') + ')'}">
                 <div class="followerContent">
-                  <p style="font-style: italic">Follower {{ index + 1}}</p>
+                  <p style="font-style: italic">Follower {{ index + 1 }}</p>
                   <p><strong>{{ follower }}</strong></p>
                 </div>
               </div>
@@ -39,9 +41,9 @@
             <div class="userFollowing">
               <p v-if="u.following.length !== undefined && u.following.length > 0">Following</p>
               <p v-else>{{ u.username }} is not following anyone</p>
-              <div class="following" v-for="(following, index) in u.following" :key="index">
+              <div class="following" v-for="(following, index) in u.following" :key="index" :style="{'background-image': 'url(' + require('../images/defaultAvatar.png') + ')'}">
                 <div class="followingContent">
-                  <p style="font-style: italic">Following {{ index + 1}}</p>
+                  <p style="font-style: italic">Following {{ index + 1 }}</p>
                   <p><strong>{{ following }}</strong></p>
                 </div>
               </div>
@@ -58,11 +60,14 @@
 
 <script>
 export default {
-name: "EnlargedUser",
+  name: "EnlargedUser",
   props: ["enlargedUser", "userPosts", "closeEnlargedContent", "formatDate"],
+  data() {
+    return {
+    }
+  },
 }
 </script>
 
 <style scoped>
-
 </style>

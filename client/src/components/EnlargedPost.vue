@@ -1,6 +1,5 @@
 <template>
-  <div class="testing">
-
+  <div class="app">
     <div class="enlargedPost" v-for="p of post" :key="p._id">
       <div class="content">
         <div class="postHeading">
@@ -72,7 +71,7 @@ export default {
 name: "EnlargedPost",
   props: ["post", "formatDate", "formatTime", "commentDetails", "addComment", "recentComments", "comments",
     "rateComment", "showReplies", "isCommentOwner", "removeComment", "closeEnlargedContent",
-  "focusedCommentInfo", "replies", "replyDetails", "addReply", "hideReplies"],
+  "focusedCommentInfo", "replies", "replyDetails", "addReply", "hideReplies", "testing"],
 }
 </script>
 

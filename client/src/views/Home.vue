@@ -13,7 +13,7 @@
           :post="post" :format-date="formatDate" :format-time="formatTime" :comment-details="commentDetails" :add-comment="addComment"
           :recent-comments="recentComments" :comments="comments" :rate-comment="rateComment" :show-replies="showReplies" :is-comment-owner="isCommentOwner"
           :remove-comment="removeComment" :close-enlarged-content="closeEnlargedContent" :focused-comment-info="focusedCommentInfo" :replies="replies"
-          :reply-details="replyDetails" :add-reply="addReply" :hide-replies="hideReplies">
+          :reply-details="replyDetails" :add-reply="addReply" :hide-replies="hideReplies" :testing="testing">
       </EnlargedPost>
 
       <EnlargedUser
@@ -36,6 +36,7 @@ export default {
       post: [],
       enlargedUser: [],
       formattedDate: '',
+      testing: "hello",
 
       commentDetails: "",
       recentComments: [],
