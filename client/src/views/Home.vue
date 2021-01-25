@@ -3,22 +3,28 @@
     <br>
     <h2 style="text-align: center;">Welcome back, {{ user.name }}, here is what you have missed:</h2>
     <RecommendedContent
-          :posts="posts" :enlarge-post="enlargePost" :get-comments="getComments" :format-date="formatDate" :is-post-owner="isPostOwner"
-          :remove-post="removePost" :go-to-create-post="goToCreatePost" :explorable-users="explorableUsers" :enlarge-user="enlargeUser"
-          :get-posts="getPosts" :user="user" :connect="connect">
+        :posts="posts" :enlarge-post="enlargePost" :get-comments="getComments" :format-date="formatDate"
+        :is-post-owner="isPostOwner"
+        :remove-post="removePost" :go-to-create-post="goToCreatePost" :explorable-users="explorableUsers"
+        :enlarge-user="enlargeUser"
+        :get-posts="getPosts" :user="user" :connect="connect">
     </RecommendedContent>
 
     <div class="outerContentContainer">
       <EnlargedPost
           :post="post" :format-date="formatDate" :format-time="formatTime"
-          :recent-comments="recentComments" :comments="comments" :rate-comment="rateComment" :show-replies="showReplies" :is-comment-owner="isCommentOwner"
-          :remove-comment="removeComment" :close-enlarged-content="closeEnlargedContent" :focused-comment-info="focusedCommentInfo" :replies="replies"
-          :reply-details="replyDetails" :add-reply="addReply" :rate-reply="rateReply" :hide-replies="hideReplies" @replyDetailsChanged="replyDetails = $event"
+          :recent-comments="recentComments" :comments="comments" :rate-comment="rateComment" :show-replies="showReplies"
+          :is-comment-owner="isCommentOwner"
+          :remove-comment="removeComment" :close-enlarged-content="closeEnlargedContent"
+          :focused-comment-info="focusedCommentInfo" :replies="replies"
+          :reply-details="replyDetails" :add-reply="addReply" :rate-reply="rateReply" :hide-replies="hideReplies"
+          @replyDetailsChanged="replyDetails = $event"
           :comment-details="commentDetails" :add-comment="addComment" @commentDetailsChanged="commentDetails = $event">
       </EnlargedPost>
 
       <EnlargedUser
-          :user-posts="userPosts" :close-enlarged-content="closeEnlargedContent" :enlarged-user="enlargedUser" :format-date="formatDate">
+          :user-posts="userPosts" :close-enlarged-content="closeEnlargedContent" :enlarged-user="enlargedUser"
+          :format-date="formatDate">
       </EnlargedUser>
     </div>
   </div>
@@ -29,9 +35,10 @@ import {mapActions, mapGetters} from 'vuex';
 import EnlargedPost from "@/components/EnlargedPost";
 import EnlargedUser from "@/components/EnlargedUser";
 import RecommendedContent from "@/components/RecommendedContent";
+
 export default {
   name: 'Home',
-  components: {RecommendedContent, EnlargedUser, EnlargedPost },
+  components: {RecommendedContent, EnlargedUser, EnlargedPost},
   data() {
     return {
       post: [],
@@ -141,7 +148,7 @@ export default {
     ...mapActions(['postReply']),
     ...mapActions(['getCommentReplies']),
     ...mapActions(['getComment']),
-
+    ...mapActions(['patchReply']),
 
     async enlargePost(post) {
       try {
@@ -206,7 +213,7 @@ export default {
         username: this.user.username
       };
 
-      if(connectOption === "follow") {
+      if (connectOption === "follow") {
         this.followUser([body, userToFollowId]).then(res => {
           console.log(res);
           this.getExplorableUsers(this.user.username);
@@ -254,7 +261,7 @@ export default {
 
     getPosts(userId) {
       this.getUserPosts(userId).then(res => {
-        if(res.data) {
+        if (res.data) {
           console.log(res.data);
         } else {
           console.log("Failed");
@@ -263,7 +270,7 @@ export default {
     },
 
     closeEnlargedContent(content) {
-      if(content === "post") {
+      if (content === "post") {
         // clear the text area input
         this.commentDetails = "";
         this.post = [];
@@ -309,7 +316,7 @@ export default {
           // patch the post so we the comment count is updated for the post
           this.patchPostFunction(postId);
         });
-      } catch(err) {
+      } catch (err) {
         console.log(err);
       }
     },
@@ -345,7 +352,7 @@ export default {
           this.recentComments = [];
           this.getAllPosts();
         });
-      } catch(err) {
+      } catch (err) {
         console.log(err);
       }
     },
@@ -353,7 +360,7 @@ export default {
     rateComment(commentId, postId, ratingCount, ratingType) {
       let commentToPatch;
 
-      if(ratingType === "upvote") {
+      if (ratingType === "upvote") {
         commentToPatch = {
           userRated: this.user.username,
           upvotes: ratingCount + 1,
@@ -367,13 +374,13 @@ export default {
       }
       try {
         this.patchComment([commentToPatch, commentId]).then(res => {
-          if(res.status === 200) {
+          if (res.status === 200) {
             this.comments = [];
             this.recentComments = [];
             this.getComments(postId)
           }
         });
-      } catch(err) {
+      } catch (err) {
         console.log(err);
       }
     },
@@ -381,7 +388,7 @@ export default {
     rateReply(replyId, commentId, ratingCount, ratingType) {
       let replyToPatch;
 
-      if(ratingType === "upvote") {
+      if (ratingType === "upvote") {
         replyToPatch = {
           userRated: this.user.username,
           upvotes: ratingCount + 1,
@@ -393,13 +400,14 @@ export default {
         }
       }
       try {
-        this.patchComment([replyToPatch, replyId]).then(res => {
-          if(res.status === 200) {
-            this.replies = [];
-            this.getCommentReplies(commentId)
+        this.patchReply([replyToPatch, replyId]).then(res => {
+          if (res.status === 200) {
+            this.getCommentReplies(commentId).then(res => {
+              this.replies = res.data.replies;
+            })
           }
         });
-      } catch(err) {
+      } catch (err) {
         console.log(err);
       }
     }

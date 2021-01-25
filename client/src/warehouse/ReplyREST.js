@@ -55,6 +55,18 @@ const actions = {
             commit('createReplyError', err);
         }
     },
+
+    async patchReply({commit}, [replyToPatch, replyId]) {
+        try {
+            commit("patchReplyRequest");
+            let res = await axios.patch("http://localhost:5000/reply/reply-id/" + replyId, replyToPatch);
+            const comment = res.data.comment;
+            commit("patchReplySuccess", comment);
+            return res;
+        } catch (err) {
+            commit("patchReplyError", err)
+        }
+    },
 };
 
 // mutations
@@ -94,6 +106,19 @@ const mutations = {
     createReplyError(state, error) {
         state.error = error.response.data.msg
     },
+    patchReplyRequest(state) {
+        state.error = null
+        state.status = 'Loading'
+    },
+
+    patchReplySuccess(state) {
+        state.error = null
+        state.status = 'Reply successfully patched'
+    },
+
+    patchReplyError(state, error) {
+        state.error = error.response.data.msg
+    }
 };
 
 export default {
