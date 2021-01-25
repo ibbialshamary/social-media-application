@@ -10,10 +10,11 @@
 
     <div class="outerContentContainer">
       <EnlargedPost
-          :post="post" :format-date="formatDate" :format-time="formatTime" :comment-details="commentDetails" :add-comment="addComment"
+          :post="post" :format-date="formatDate" :format-time="formatTime"
           :recent-comments="recentComments" :comments="comments" :rate-comment="rateComment" :show-replies="showReplies" :is-comment-owner="isCommentOwner"
           :remove-comment="removeComment" :close-enlarged-content="closeEnlargedContent" :focused-comment-info="focusedCommentInfo" :replies="replies"
-          :reply-details="replyDetails" :add-reply="addReply" :hide-replies="hideReplies" :testing="testing">
+          :reply-details="replyDetails" :add-reply="addReply" :hide-replies="hideReplies" @replyDetailsChanged="replyDetails = $event"
+          :comment-details="commentDetails" :add-comment="addComment" @commentDetailsChanged="commentDetails = $event">
       </EnlargedPost>
 
       <EnlargedUser
@@ -36,7 +37,6 @@ export default {
       post: [],
       enlargedUser: [],
       formattedDate: '',
-      testing: "hello",
 
       commentDetails: "",
       recentComments: [],
@@ -197,7 +197,7 @@ export default {
           this.showReplies(commentId);
         }
       }).catch(() => {
-        alert("failed");
+        alert("Failed");
       });
     },
 
@@ -238,7 +238,7 @@ export default {
           this.commentDetails = "";
         }
       }).catch(() => {
-        alert("failed");
+        alert("Failed");
       });
     },
 

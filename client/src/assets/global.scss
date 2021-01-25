@@ -1153,7 +1153,6 @@ input[type="file"]:valid + .customFileUpload {
 
 .createPostForm {
   background-color: var(--secondaryColour);
-
   /* for the border */
   border-radius: 0 0 0 0 / 0 0 0 0;
   box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
@@ -1202,6 +1201,10 @@ input[type="file"]:valid + .customFileUpload {
   input[type=text], label, select {
     width: 95%;
     text-align: center;
+  }
+
+  form {
+    padding: 18px 28px 0 28px;
   }
 }
 

@@ -8,7 +8,7 @@
         <p>{{ p.description }}</p>
         <img src="../images/defaultAvatar.png">
         <div class="comments">
-          <textarea v-model="commentDetails" placeholder="Add a comment" style="resize: none" required minlength="20"></textarea><br>
+          <textarea :value="commentDetails" @input="changeCommentDetails" placeholder="Add a comment" style="resize: none" required minlength="20"></textarea><br>
           <button class="postDataButton" @click="addComment(p._id)">Post Comment</button>
           <br>
           <div id="errorMessage"></div>
@@ -56,7 +56,7 @@
           </div>
         </div>
         <div class="replyContainer">
-          <textarea v-model="replyDetails" placeholder="Add a reply" style="resize: none" required minlength="6"></textarea><br>
+          <textarea :value="replyDetails" @input="changeReplyDetails" placeholder="Add a reply" style="resize: none" required minlength="6"></textarea><br>
           <button v-for="(fc, index) in focusedCommentInfo" :key="index" class="postDataButton" @click="addReply(fc._id)">Post Reply</button>
         </div>
         <button class="red-background" @click="hideReplies">Go back</button>
@@ -71,7 +71,29 @@ export default {
 name: "EnlargedPost",
   props: ["post", "formatDate", "formatTime", "commentDetails", "addComment", "recentComments", "comments",
     "rateComment", "showReplies", "isCommentOwner", "removeComment", "closeEnlargedContent",
-  "focusedCommentInfo", "replies", "replyDetails", "addReply", "hideReplies", "testing"],
+  "focusedCommentInfo", "replies", "replyDetails", "addReply", "hideReplies"],
+
+  computed: {
+
+  },
+
+  data() {
+    return {
+      childCommentDetails: "",
+    }
+  },
+
+  methods: {
+    changeCommentDetails(event) {
+      this.childCommentDetails = event.target.value;
+      this.$emit("commentDetailsChanged", this.childCommentDetails);
+    },
+
+    changeReplyDetails(event) {
+      this.childReplyDetails = event.target.value;
+      this.$emit("replyDetailsChanged", this.childReplyDetails);
+    },
+  },
 }
 </script>
 
