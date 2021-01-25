@@ -2,179 +2,35 @@
   <div class="mainContainer">
     <br>
     <h2 style="text-align: center;">Welcome back, {{ user.name }}, here is what you have missed:</h2>
+    <RecommendedContent
+          :posts="posts" :enlarge-post="enlargePost" :get-comments="getComments" :format-date="formatDate" :is-post-owner="isPostOwner"
+          :remove-post="removePost" :go-to-create-post="goToCreatePost" :explorable-users="explorableUsers" :enlarge-user="enlargeUser"
+          :get-posts="getPosts" :user="user" :connect="connect">
+    </RecommendedContent>
 
-    <div class="outerEnlargedPost">
-      <div class="enlargedPost" v-for="p of post" :key="p._id">
-        <div class="content">
-          <div class="postHeading">
-            <p><span>{{ p.ownerName }}</span> posted <i>{{ p.name }}</i> on <span>{{ formatDate(p.date) }}</span></p>
-          </div>
-          <p>{{ p.description }}</p>
-          <img src="../images/defaultAvatar.png">
-          <div class="comments">
-            <textarea v-model="commentDetails" placeholder="Add a comment" style="resize: none" required minlength="20"></textarea><br>
-            <button class="postDataButton" @click="addComment(p._id)">Post Comment</button>
-            <br>
-            <div id="errorMessage"></div>
+    <div class="outerContentContainer">
+      <EnlargedPost
+          :post="post" :format-date="formatDate" :format-time="formatTime" :comment-details="commentDetails" :add-comment="addComment"
+          :recent-comments="recentComments" :comments="comments" :rate-comment="rateComment" :show-replies="showReplies" :is-comment-owner="isCommentOwner"
+          :remove-comment="removeComment" :close-enlarged-content="closeEnlargedContent" :focused-comment-info="focusedCommentInfo" :replies="replies"
+          :reply-details="replyDetails" :add-reply="addReply" :hide-replies="hideReplies">
+      </EnlargedPost>
 
-            <p v-if="recentComments.length">Recently Added Comments</p>
-            <div class="previousComments" v-for="c in recentComments" :key="c._id">
-              <div class="comment">
-                <p class="poster"><span>{{ c.ownerName }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
-                <p class="details">{{ c.comment }}</p>
-              </div>
-              <br>
-            </div>
-
-            <p v-if="comments !== undefined && comments.length !== 0">Previous Comments</p>
-            <div class="previousComments" v-for="c in comments" :key="c._id">
-              <div class="comment">
-                <p class="poster"><span>{{ c.ownerName }}</span> on <span>{{ formatDate(c.date) }}</span> at <span>{{ formatTime(c.date) }}</span></p>
-                <p class="details">{{ c.comment }}</p>
-                <p><i class="fas fa-comment-dots"></i> {{ c.replies.length }}</p>
-                <div class="ratings">
-                  <span @click="rateComment(c._id, c.postId, c.upvotes, 'upvote')"><i class="fas fa-heart upvote"></i><span>{{ c.upvotes }}</span></span>
-                  <span @click="rateComment(c._id, c.postId, c.downvotes, 'downvote')"><i class="fas fa-thumbs-down downvote"></i><span>{{ c.downvotes }}</span></span>
-                </div>
-              </div>
-              <button class="blue-background" @click="showReplies(c._id)">Reply</button>
-              <button class="blue-background" @click="showReplies(c._id)">View Replies</button>
-              <button v-if="isCommentOwner(c.ownerId)" @click="removeComment(c._id, c.postId)" class="red-background">Delete Comment</button>
-              <br><br>
-            </div>
-          </div>
-        </div>
-        <span @click="closeEnlargedContent('post')"><i class="fas fa-times closeContentButton"></i></span>
-      </div>
-
-      <div id="repliesContainer">
-        <div class="main">
-          <p v-for="(fc, index) in focusedCommentInfo" :key="index">Replies for {{ fc.ownerName }}'s comment</p>
-          <div class="replies">
-            <div v-for="r in replies" :key="r._id" class="reply">
-              <p class="details" style="color: #1e2020">{{ r.ownerName }}: {{ r.reply }}</p>
-              <div class="ratings">
-                <span @click="rateComment('upvote')"><i class="fas fa-heart upvote"></i><span>{{ r.upvotes }}</span></span>
-                <span @click="rateComment('downvote')"><i class="fas fa-thumbs-down downvote"></i><span>{{ r.downvotes }}</span></span>
-              </div>
-            </div>
-          </div>
-          <div class="replyContainer">
-            <textarea v-model="replyDetails" placeholder="Add a reply" style="resize: none" required minlength="6"></textarea><br>
-            <button v-for="(fc, index) in focusedCommentInfo" :key="index" class="postDataButton" @click="addReply(fc._id)">Post Reply</button>
-          </div>
-          <button class="red-background" @click="hideReplies">Go back</button>
-        </div>
-      </div>
-
-      <div class="enlargedUser" v-for="u of enlargedUser" :key="u._id">
-        <div class="content">
-          <div class="userHeading">
-            <p><span>{{ u.name }}</span> welcomes you to their profile</p>
-          </div>
-          <p class="userStats"><strong>{{ u.posts.length }}</strong> posts <strong>{{ u.followers.length }}</strong> followers <strong>{{ u.following.length }}</strong> following</p><br>
-
-          <div class="userPosts">
-            <p>Posts</p>
-            <p class="desertedParagraph" v-if="userPosts !== undefined && userPosts.length < 1">Hmm, this place seems deserted 😞<br>Come back later?</p>
-            <div v-else class="post" v-for="(up, index) in userPosts" :key="index">
-              <div class="postContent">
-                <p style="font-style: italic">Post {{ index + 1}}</p>
-                <p><strong>{{ up.name }}</strong></p>
-                <p>{{ up.description }}</p>
-                <p>Posted on {{ formatDate(up.date) }}</p><br>
-                <label class="totalCommentsLabel"><i class="fas fa-comment-dots"></i> {{ up.comments.length }}</label>
-              </div>
-            </div>
-          </div>
-
-          <div class="userFollowersFollowing">
-            <p>Users</p>
-            <div class="followFollowersContainer">
-
-              <div class="userFollowers">
-                <p v-if="u.followers.length !== undefined && u.followers.length > 0">Followers</p>
-                <p v-else>{{ u.username }} is not followed by anyone</p>
-                <div class="follower" v-for="(follower, index) in u.followers" :key="index">
-                  <div class="followerContent">
-                    <p style="font-style: italic">Follower {{ index + 1}}</p>
-                    <p><strong>{{ follower }}</strong></p>
-                  </div>
-                </div>
-              </div>
-
-              <div class="userFollowing">
-                <p v-if="u.following.length !== undefined && u.following.length > 0">Following</p>
-                <p v-else>{{ u.username }} is not following anyone</p>
-                <div class="following" v-for="(following, index) in u.following" :key="index">
-                  <div class="followingContent">
-                    <p style="font-style: italic">Following {{ index + 1}}</p>
-                    <p><strong>{{ following }}</strong></p>
-                  </div>
-                </div>
-              </div>
-
-            </div>
-          </div>
-
-        </div>
-        <span @click="closeEnlargedContent('user')"><i class="fas fa-times closeContentButton"></i></span>
-      </div>
+      <EnlargedUser
+          :user-posts="userPosts" :close-enlarged-content="closeEnlargedContent" :enlarged-user="enlargedUser" :format-date="formatDate">
+      </EnlargedUser>
     </div>
-
-    <div class="postsContainer">
-      <br>
-      <h1 style="text-align: center">Posts</h1>
-      <p v-if="posts === undefined || posts.length < 1">Hmm, this place seems deserted 😞<br>Why not create a post?</p>
-      <div v-else class="grid-container" v-for="post in posts" :key="post._id">
-        <div class="posts">
-          <div class="postsGridItem">
-            <div class="postContent" @click="enlargePost(post); getComments(post._id)">
-              <p><strong>{{ post.name }}</strong></p>
-              <p>{{ post.description }}</p>
-              <p>Posted on {{ formatDate(post.date) }}</p>
-              <label class="totalCommentsLabel"><i class="fas fa-comment-dots"></i> {{ post.comments.length }}</label>
-            </div>
-          </div>
-          <button v-on:click="enlargePost(post); getComments(post._id)">Enlarge Post</button>
-          <button v-if="isPostOwner(post.ownerId)" @click="removePost(post._id)" class="red-background">Delete Post</button>
-        </div>
-      </div>
-      <div class="createPostButton">
-        <button @click="goToCreatePost">Create a post</button>
-      </div>
-    </div>
-
-    <div class="usersContainer">
-      <br>
-      <h1 style="text-align: center">Explore recommended users</h1>
-      <p v-if="explorableUsers  === undefined || explorableUsers.length < 1">Sorry, no users available<br>Come back later</p>
-      <div v-else class="grid-container" v-for="u in explorableUsers" :key="u._id">
-        <div class="users">
-          <div class="usersGridItem">
-            <div class="userContent" @click="enlargeUser(u); getPosts(u._id);">
-              <img src="../images/defaultAvatar.png">
-              <p><strong>{{ u.name }}</strong></p>
-              <p>{{ u.username }}</p>
-            </div>
-          </div>
-          <button @click="enlargeUser(u); getPosts(u._id)">View Profile</button><br>
-          <button v-if="!u.followers.includes(user.username)" @click="connect(u._id, 'follow')">Follow</button>
-          <button v-else @click="connect(u._id, 'unfollow')">Unfollow</button><br>
-          <button class="red-background">Block</button><br>
-        </div>
-      </div>
-    </div>
-    
   </div>
 </template>
 
 <script>
 import {mapActions, mapGetters} from 'vuex';
-
+import EnlargedPost from "@/components/EnlargedPost";
+import EnlargedUser from "@/components/EnlargedUser";
+import RecommendedContent from "@/components/RecommendedContent";
 export default {
   name: 'Home',
-
+  components: {RecommendedContent, EnlargedUser, EnlargedPost },
   data() {
     return {
       post: [],
@@ -259,7 +115,6 @@ export default {
       }
     },
   },
-  components: {},
   methods: {
     // users
     // ...mapActions(['getAllUsers']),

@@ -319,7 +319,7 @@ a {
   border-radius: 0 0 0 0 / 0 0 0 0;
   box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
   transition: all .4s ease;
-  overflow: scroll;
+  overflow: scroll !important;
   height: 77%;
   overflow-x: hidden !important;
 
@@ -334,6 +334,12 @@ a {
 
   .totalCommentsLabel {
     margin: 15px 0 0;
+  }
+}
+
+.app {
+  .usersContainer, .postsContainer {
+    height: 600px;
   }
 }
 
@@ -427,16 +433,7 @@ a {
     animation-name: fadeIn;
     animation-duration: .5s;
     outline: 3px solid var(--secondaryColour);
-
-    .postDataButton {
-      color: #1e2020;
-      background-color: var(--whiteButtonBackground) !important;
-      border: 1px solid var(--borderColour);
-
-      &:hover {
-        background-color: var(--whiteButtonHoverBackground) !important;
-      }
-    }
+    overflow-y: scroll;
 
     button {
       margin-top: 10px;
@@ -571,6 +568,10 @@ a {
   .userStats strong {
     margin-left: 20px;
   }
+
+  .content {
+    overflow-y: hidden;
+  }
   .userPosts, .userFollowers, .userFollowing {
     background: #1e2020;
     width: 45%;
@@ -610,6 +611,7 @@ a {
         transition: all ease-in 0.225s;
         height: 100%;
         border: 1px solid var(--borderColour);
+        margin-top: 20px;
 
         p {
           font-size: 16px;
@@ -648,7 +650,6 @@ a {
       margin-left: 5%;
       float: left;
 
-
     }
   }
 }
@@ -657,62 +658,6 @@ a {
   height: 100%;
   margin: 20px;
   border-radius: 12px;
-}
-
-.followersContent {
-  background: var(--mainContainerGradientFirefox);
-  opacity: 0.9;
-  border-radius: 12px;
-  padding: 12px;
-  position: relative;
-  height: 300px;
-  background-image: url("../images/defaultAvatar.png");
-  background-size: cover;
-
-  p {
-    font-size: 16px !important;
-  }
-}
-
-.followersContainer {
-  height: 300px;
-  overflow-y: scroll;
-  border: 1px solid var(--borderColour);
-
-
-}
-
-.followingContainer {
-  width: 95%;
-  overflow-y: auto;
-  margin-right: 3.5%;
-  .usersGridItem {
-    overflow-y: auto;
-    margin: 0 !important;
-    position: relative;
-    left: 50%;
-    transform: translateX(-50%);
-    margin-bottom: 5% !important;
-    background: red;
-
-    .userContent {
-      background: none !important;
-      &:hover {
-        transform: translateX(-50%) scale(1);
-        opacity: .8;
-        cursor: default;
-      }
-    }
-    img {
-      position: relative;
-      max-width: 150px;
-      max-height: 150px;
-      border-radius: 50%;
-      padding: 8px;
-      border: solid 3px var(--buttonBackgroundColour);
-      margin-bottom: 6px;
-    }
-  }
 }
 
 .createPostButton {
@@ -1448,5 +1393,14 @@ input:not([type=submit]), select, textarea {
   color: white !important;
   &:hover {
     background: var(--blueButtonHoverBackground) !important;
+  }
+}
+
+.white-background {
+  color: #1e2020;
+  background-color: var(--whiteButtonBackground) !important;
+  border: 1px solid var(--borderColour);
+  &:hover {
+    background-color: var(--whiteButtonHoverBackground) !important;
   }
 }
