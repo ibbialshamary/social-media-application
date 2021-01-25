@@ -13,7 +13,7 @@
           :post="post" :format-date="formatDate" :format-time="formatTime"
           :recent-comments="recentComments" :comments="comments" :rate-comment="rateComment" :show-replies="showReplies" :is-comment-owner="isCommentOwner"
           :remove-comment="removeComment" :close-enlarged-content="closeEnlargedContent" :focused-comment-info="focusedCommentInfo" :replies="replies"
-          :reply-details="replyDetails" :add-reply="addReply" :hide-replies="hideReplies" @replyDetailsChanged="replyDetails = $event"
+          :reply-details="replyDetails" :add-reply="addReply" :rate-reply="rateReply" :hide-replies="hideReplies" @replyDetailsChanged="replyDetails = $event"
           :comment-details="commentDetails" :add-comment="addComment" @commentDetailsChanged="commentDetails = $event">
       </EnlargedPost>
 
@@ -352,18 +352,17 @@ export default {
 
     rateComment(commentId, postId, ratingCount, ratingType) {
       let commentToPatch;
-      console.log(ratingCount);
-
 
       if(ratingType === "upvote") {
         commentToPatch = {
-          userRated: this.user,
-          upvotes: ratingCount + 1
+          userRated: this.user.username,
+          upvotes: ratingCount + 1,
         }
       } else {
         commentToPatch = {
-          userRated: this.user,
-          downvotes: ratingCount + 1
+          // userRated: this.user,
+          userRated: this.user.username,
+          downvotes: ratingCount + 1,
         }
       }
       try {
@@ -377,7 +376,34 @@ export default {
       } catch(err) {
         console.log(err);
       }
+    },
+
+    rateReply(replyId, commentId, ratingCount, ratingType) {
+      let replyToPatch;
+
+      if(ratingType === "upvote") {
+        replyToPatch = {
+          userRated: this.user.username,
+          upvotes: ratingCount + 1,
+        }
+      } else {
+        replyToPatch = {
+          userRated: this.user.username,
+          downvotes: ratingCount + 1,
+        }
+      }
+      try {
+        this.patchComment([replyToPatch, replyId]).then(res => {
+          if(res.status === 200) {
+            this.replies = [];
+            this.getCommentReplies(commentId)
+          }
+        });
+      } catch(err) {
+        console.log(err);
+      }
     }
+
   },
   created() {
     this.getProfile();

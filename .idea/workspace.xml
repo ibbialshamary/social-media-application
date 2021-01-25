@@ -21,13 +21,10 @@
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/App.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/App.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/components/EnlargedPost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/EnlargedPost.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Login.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Modal.vue" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/Register.vue" beforeDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/Home.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Home.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/CommentCreation.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/api/ReplyCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/ReplyCreation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -204,7 +201,8 @@
       <workItem from="1611452053536" duration="2401000" />
       <workItem from="1611503651828" duration="19616000" />
       <workItem from="1611578501039" duration="3895000" />
-      <workItem from="1611583320005" duration="5975000" />
+      <workItem from="1611583320005" duration="6379000" />
+      <workItem from="1611598117075" duration="3608000" />
     </task>
     <servers />
   </component>
@@ -228,6 +226,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="1024" y="525" key="#Notifications/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1609563343015" />
+    <state x="1027" y="503" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1611590973696">
+      <screen x="0" y="0" width="2560" height="1400" />
+    </state>
+    <state x="1027" y="503" key="#com.intellij.fileTypes.FileTypeChooser/-1920.435.1920.1020/-3840.435.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1611590973696" />
     <state x="1011" y="448" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1611590761916">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
@@ -275,10 +277,10 @@
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
     <state x="102" y="0" width="1754" height="777" key="dock-window-1/-1920.435.1920.1020/-3840.435.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1611537531029" />
-    <state x="912" y="248" width="986" height="801" key="find.popup" timestamp="1611590804932">
+    <state x="912" y="248" width="986" height="801" key="find.popup" timestamp="1611599136677">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="912" y="248" width="986" height="801" key="find.popup/-1920.435.1920.1020/-3840.435.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1611590804932" />
+    <state x="912" y="248" width="986" height="801" key="find.popup/-1920.435.1920.1020/-3840.435.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1611599136677" />
     <state x="-1179" y="589" width="555" height="596" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@-1920.366.1920.1040" timestamp="1608029984694" />
     <state x="912" y="248" width="986" height="801" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1611003590236" />
     <state x="937" y="331" key="run.anything.popup" timestamp="1611061725146">

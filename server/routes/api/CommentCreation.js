@@ -2,46 +2,46 @@ const express = require('express');
 const router = express.Router();
 const Comment = require('../../model/Comment');
 const Post = require('../../model/Post');
-const { commentValidation } = require('../../validation/validation');
+const {commentValidation} = require('../../validation/validation');
 
 // get all comments
-router.get("/comment", async(req, res) => {
+router.get("/comment", async (req, res) => {
     try {
         const comments = await Comment.find().sort({date: -1});
         return res.json({
             comments: comments
         });
-    } catch(err) {
+    } catch (err) {
         res.status(404).send(err.message);
     }
 })
 
 // get a specific comment
-router.get('/comment/comment-id/:id', async(req, res) => {
+router.get('/comment/comment-id/:id', async (req, res) => {
     try {
         const comment = await Comment.find({_id: {$eq: req.params.id}}).sort({date: -1});
         return res.json({
             comment: comment
         });
-    } catch(err) {
+    } catch (err) {
         res.status(404).send(err.message);
     }
 })
 
 // get a specific post's comments
-router.get('/comment/post-id/:id',  async (req, res) => {
+router.get('/comment/post-id/:id', async (req, res) => {
     try {
         const comments = await Comment.find({postId: {$eq: req.params.id}}).sort({date: -1});
         return res.json({
             comments: comments
         });
-    } catch(err) {
+    } catch (err) {
         res.status(404).send(err.message);
     }
 })
 
 // delete comment
-router.delete('/comment/comment-id/:id',  async (req, res) => {
+router.delete('/comment/comment-id/:id', async (req, res) => {
     try {
         const comment = await Comment.findByIdAndDelete({_id: req.params.id})
 
@@ -61,29 +61,41 @@ router.delete('/comment/comment-id/:id',  async (req, res) => {
             name: comment.name,
             status: "Successfully deleted"
         });
-    } catch(err) {
+    } catch (err) {
         res.status(404).send(err.message);
     }
 })
 
 // update or patch comment
 router.patch('/comment/comment-id/:id', async (req, res) => {
-    try {
-        const comment = await Comment.findOneAndUpdate({_id: req.params.id}, {$set: req.body});
-        return res.json({
-            status: "Successfully patched",
-            comment: comment
-        });
-    } catch(err) {
-        res.status(404).send(err.message);
+    const commentToUpdateUsersRated = await Comment.findOne({_id: req.params.id});
+    if(commentToUpdateUsersRated.usersRated.includes(req.body.userRated)) {
+        res.status(404).send("Sorry, you have already rated");
+        console.log("Sorry, you have already rated");
+    } else {
+        try {
+            const comment = await Comment.findOneAndUpdate({_id: req.params.id}, {$set: req.body});
+
+            // update the usersRated
+            commentToUpdateUsersRated.usersRated.push(req.body.userRated);
+            await commentToUpdateUsersRated.save();
+
+            return res.json({
+                status: "Successfully patched",
+                comment: comment
+            });
+
+        } catch (err) {
+            res.status(404).send(err.message);
+        }
     }
 })
 
 // create comment
-router.post('/comment/post-id/:id', async(req, res) => {
+router.post('/comment/post-id/:id', async (req, res) => {
     // validate data before user is created
-    const { error } = commentValidation(req.body);
-    if(error) {
+    const {error} = commentValidation(req.body);
+    if (error) {
         return res.status(404).json({
             success: false,
             msg: 'Your ' + error.details[0].message
@@ -119,11 +131,10 @@ router.post('/comment/post-id/:id', async(req, res) => {
         // now push the comment to the post so we that the one to many relationship is maintained
         post.comments.push(newComment);
         await post.save();
-    } catch(err) {
+    } catch (err) {
         res.status(404).send(err);
     }
 })
-
 
 
 module.exports = router;

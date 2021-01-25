@@ -42,6 +42,31 @@ router.delete('/reply/reply-id/:id',  async (req, res) => {
     }
 })
 
+// update or patch reply
+router.patch('/reply/reply-id/:id', async (req, res) => {
+    const replyToUpdateUsersRated = await Reply.findOne({_id: req.params.id});
+    if(replyToUpdateUsersRated.usersRated.includes(req.body.userRated)) {
+        res.status(404).send("Sorry, you have already rated");
+        console.log("Sorry, you have already rated");
+    } else {
+        try {
+            const reply = await Reply.findOneAndUpdate({_id: req.params.id}, {$set: req.body});
+
+            // update the usersRated
+            replyToUpdateUsersRated.usersRated.push(req.body.userRated);
+            await replyToUpdateUsersRated.save();
+
+            return res.json({
+                status: "Successfully patched",
+                reply: reply
+            });
+
+        } catch (err) {
+            res.status(404).send(err.message);
+        }
+    }
+})
+
 // create reply
 router.post('/reply/comment-id/:id', async(req, res) => {
     // validate data before user is created

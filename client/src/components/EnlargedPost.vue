@@ -9,7 +9,7 @@
         <img src="../images/defaultAvatar.png">
         <div class="comments">
           <textarea :value="commentDetails" @input="changeCommentDetails" placeholder="Add a comment" style="resize: none" required minlength="20"></textarea><br>
-          <button class="postDataButton" @click="addComment(p._id)">Post Comment</button>
+          <button class="postDataButton white-background" @click="addComment(p._id)">Post Comment</button>
           <br>
           <div id="errorMessage"></div>
 
@@ -50,8 +50,8 @@
           <div v-for="r in replies" :key="r._id" class="reply">
             <p class="details" style="color: #1e2020">{{ r.ownerName }}: {{ r.reply }}</p>
             <div class="ratings">
-              <span @click="rateComment('upvote')"><i class="fas fa-heart upvote"></i><span>{{ r.upvotes }}</span></span>
-              <span @click="rateComment('downvote')"><i class="fas fa-thumbs-down downvote"></i><span>{{ r.downvotes }}</span></span>
+              <span @click="rateReply(r._id, r.commentId, r.upvotes, 'upvote')"><i class="fas fa-heart upvote"></i><span>{{ r.upvotes }}</span></span>
+              <span @click="rateReply(r._id, r.commentId, r.upvotes, 'downvote')"><i class="fas fa-thumbs-down downvote"></i><span>{{ r.downvotes }}</span></span>
             </div>
           </div>
         </div>
@@ -70,8 +70,8 @@
 export default {
 name: "EnlargedPost",
   props: ["post", "formatDate", "formatTime", "commentDetails", "addComment", "recentComments", "comments",
-    "rateComment", "showReplies", "isCommentOwner", "removeComment", "closeEnlargedContent",
-  "focusedCommentInfo", "replies", "replyDetails", "addReply", "hideReplies"],
+    "rateComment", "showReplies", "isCommentOwner", "removeComment", "closeEnlargedContent", "focusedCommentInfo",
+    "rateReply", "replies", "replyDetails", "addReply", "hideReplies"],
 
   computed: {
 
