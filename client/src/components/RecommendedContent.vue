@@ -31,7 +31,7 @@
       <div class="users">
         <div class="usersGridItem">
           <div class="userContent" @click="enlargeUser(u); getPosts(u._id);">
-            <img src="../images/defaultAvatar.png">
+            <img :src="u.image">
             <p><strong>{{ u.name }}</strong></p>
             <p>{{ u.username }}</p>
           </div>

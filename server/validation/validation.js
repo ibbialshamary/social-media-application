@@ -79,7 +79,8 @@ const registerValidation = (data) => {
         name: Joi.string().min(6).required(),
         email: Joi.string().min(6).required().email(),
         password: Joi.string().min(6).required(),
-        confirm_password: Joi.string().min(6).required()
+        confirm_password: Joi.string().min(6).required(),
+        image: Joi.string().required(),
     });
 
     const options = {

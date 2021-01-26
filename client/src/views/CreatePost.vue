@@ -13,10 +13,8 @@
         <input type="text" id="postDescription" v-model="description" required  minlength="6">
 
         <label>Post File</label>
-        <input type="file" id="postImage" v-on:change="fileSelected" required @change="onFileChange">
+        <input type="file" id="postImage" required @change="uploadImage">
         <label class="customFileUpload" for="postImage"></label>
-<!--        <img v-if="url" :src="url" style="margin-bottom: 5px; border-radius: 18px">-->
-<!--        <img src="blob:http://localhost:8080/c66eede7-53ed-4142-a4cb-db32af0ad4a1" style="margin-bottom: 5px; border-radius: 18px">-->
 
         <label for="postPrivacy">Post Privacy</label><br>
         <select id="postPrivacy" v-model="privacy" required>
@@ -37,6 +35,8 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
+import {fb} from "@/firebase";
+
 export default {
   data() {
     return {
@@ -44,7 +44,6 @@ export default {
       description: "",
       image: "",
       privacy: "",
-      url: "",
     }
   },
 
@@ -85,15 +84,33 @@ export default {
 
 
   methods: {
-    onFileChange(e) {
-      const file = e.target.files[0];
-      this.url = URL.createObjectURL(file);
-    },
-
     ...mapActions(['post']),
 
-    fileSelected(e) {
-      this.image = e.target.files[0].name
+    uploadImage(e) {
+      const today = new Date();
+      const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      const dateTime = date+time;
+
+      let file = e.target.files[0];
+      let storageRef = fb.storage().ref(`images/${this.user.username}-${dateTime}-${file.name}`);
+      let uploadTask = storageRef.put(file);
+
+      uploadTask.on('state_changed',
+          (snapshot) => {
+          },
+          (error) => {
+            // handle unsuccessful uploads
+          },
+          () => {
+            // handle successful uploads on complete
+            uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+              console.log('File available at', downloadURL);
+              this.image = downloadURL;
+            });
+          }
+      );
+
     },
 
     publishPost(id) {
@@ -101,7 +118,7 @@ export default {
           name: this.name,
           description: this.description,
           privacy: this.privacy,
-          image: this.url
+          image: this.image
         };
 
         this.post([post, id]).then(res => {

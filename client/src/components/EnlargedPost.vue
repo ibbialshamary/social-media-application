@@ -6,7 +6,7 @@
           <p><span>{{ p.ownerName }}</span> posted <i>{{ p.name }}</i> on <span>{{ formatDate(p.date) }}</span></p>
         </div>
         <p>{{ p.description }}</p>
-        <img src="../images/defaultAvatar.png">
+        <img :src="p.image">
         <div class="comments">
           <textarea :value="commentDetails" @input="changeCommentDetails" placeholder="Add a comment" style="resize: none" required minlength="20"></textarea><br>
           <button class="postDataButton white-background" @click="addComment(p._id)">Post Comment</button>

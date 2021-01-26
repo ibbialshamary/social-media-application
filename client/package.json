@@ -17,6 +17,7 @@
     "@fortawesome/vue-fontawesome": "^2.0.0",
     "axios": "^0.21.0",
     "core-js": "^3.6.5",
+    "firebase": "^8.2.4",
     "node-sass": "^5.0.0",
     "sass": "^1.29.0",
     "sass-loader": "^10.1.0",

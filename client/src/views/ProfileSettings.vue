@@ -4,7 +4,7 @@
       <h1>Profile Settings</h1>
     </div>
     <div class="leftSection">
-      <img src="../images/defaultAvatar.png">
+      <img :src="user.image">
       <p class="userNameParagraph"> {{ user.name }}</p>
       <div class="settingsOptions">
         <button @click="showSelectedPage('buttonHighlighter', 'aboutSection', 'sectionClass', 'rightAboutSection')"><div class="buttonHighlighter" id="aboutSection"></div><p>About</p></button>

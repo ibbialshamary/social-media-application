@@ -1,6 +1,6 @@
 <template>
   <div class="profileHeading" v-if="user">
-      <img src="../images/defaultAvatar.png">
+      <img :src="user.image">
       <h2>{{ user.name }}</h2>
       <p>{{ user.username }}</p>
       <button class="profileSettingsButton" @click="goToProfileSettings">Profile Settings</button>

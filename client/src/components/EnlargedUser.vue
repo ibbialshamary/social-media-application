@@ -12,7 +12,7 @@
           <p>Posts</p>
           <p class="desertedParagraph" v-if="userPosts !== undefined && userPosts.length < 1">Hmm, this place seems
             deserted 😞<br>Come back later?</p>
-          <div v-else class="post" v-for="(up, index) in userPosts" :key="index" :style="{'background-image': 'url(' + require('../images/defaultAvatar.png') + ')'}">
+          <div v-else class="post" v-for="(up, index) in userPosts" :key="index" :style="{'background-image': 'url(' + up.image + ')'}">
             <div class="postContent">
               <p style="font-style: italic">Post {{ index + 1 }}</p>
               <p><strong>{{ up.name }}</strong></p>
@@ -30,7 +30,7 @@
             <div class="userFollowers">
               <p v-if="u.followers.length !== undefined && u.followers.length > 0">Followers</p>
               <p v-else>{{ u.username }} is not followed by anyone</p>
-              <div class="follower" v-for="(follower, index) in u.followers" :key="index" :style="{'background-image': 'url(' + require('../images/defaultAvatar.png') + ')'}">
+              <div class="follower" v-for="(follower, index) in u.followers" :key="index" :style="{'background-image': 'url(' + u.image + ')'}">
                 <div class="followerContent">
                   <p style="font-style: italic">Follower {{ index + 1 }}</p>
                   <p><strong>{{ follower }}</strong></p>
@@ -41,7 +41,7 @@
             <div class="userFollowing">
               <p v-if="u.following.length !== undefined && u.following.length > 0">Following</p>
               <p v-else>{{ u.username }} is not following anyone</p>
-              <div class="following" v-for="(following, index) in u.following" :key="index" :style="{'background-image': 'url(' + require('../images/defaultAvatar.png') + ')'}">
+              <div class="following" v-for="(following, index) in u.following" :key="index" :style="{'background-image': 'url(' + u.image + ')'}">
                 <div class="followingContent">
                   <p style="font-style: italic">Following {{ index + 1 }}</p>
                   <p><strong>{{ following }}</strong></p>

@@ -15,10 +15,14 @@
       <input type="password" placeholder="e.g., Secret19@$" v-model="password" class="form-control" id="password"  autocomplete="current-password" required minlength="6">
 
       <label for="password">Confirm Password</label>
-      <input type="password" v-model="confirm_password" class="form-control" id="confirm_password"  autocomplete="new-password" required minlength="6"><br>
+      <input type="password" v-model="confirm_password" class="form-control" id="confirm_password"  autocomplete="new-password" required minlength="6">
+
+      <label>Display Picture</label><br>
+      <input type="file" id="displayImage" required @change="uploadImage">
+      <label style="width: 100%; margin-bottom: 5%" class="customFileUpload" for="displayImage"></label>
 
       <div class="buttonContainer">
-          <input type="submit" class="button" tag="button" value="Register"><br><br>
+          <input type="submit" class="button" value="Register"><br><br>
           <router-link to="/Login" tag="button" id="loginInsteadLink">Login instead</router-link>
       </div>
       <!-- grab the error from mapGetters under computed -->
@@ -31,6 +35,7 @@
 <script>
 import { mapGetters } from 'vuex';
 import { mapActions } from 'vuex';
+import {fb} from "@/firebase";
 export default {
   data(){
     return {
@@ -39,6 +44,7 @@ export default {
       email: "",
       password: "",
       confirm_password: "",
+      image: ""
     };
   },
   created: function () {
@@ -52,6 +58,33 @@ export default {
     ...mapGetters(['userError'])
   },
   methods: {
+    uploadImage(e) {
+      const today = new Date();
+      const date = today.getFullYear()+'-'+(today.getMonth()+1)+'-'+today.getDate();
+      const time = today.getHours() + ":" + today.getMinutes() + ":" + today.getSeconds();
+      const dateTime = date+time;
+
+      let file = e.target.files[0];
+      let storageRef = fb.storage().ref(`images/${dateTime}-${file.name}`);
+      let uploadTask = storageRef.put(file);
+
+      uploadTask.on('state_changed',
+          (snapshot) => {
+          },
+          (error) => {
+            // handle unsuccessful uploads
+          },
+          () => {
+            // handle successful uploads on complete
+            uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
+              console.log('File available at', downloadURL);
+              this.image = downloadURL;
+            });
+          }
+      );
+
+    },
+
     clearErrorMessage() {
       let focusedElement = document.getElementById('errorMessage');
       focusedElement.innerHTML = '';
@@ -72,7 +105,8 @@ export default {
         password: this.password,
         confirm_password: this.confirm_password,
         email: this.email,
-        name: this.name
+        name: this.name,
+        image: this.image
       };
       this.register(user).then(res => {
         if(res.data.success) {
