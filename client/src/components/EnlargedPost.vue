@@ -59,7 +59,7 @@
           <textarea :value="replyDetails" @input="changeReplyDetails" placeholder="Add a reply" style="resize: none" required minlength="6"></textarea><br>
           <button v-for="(fc, index) in focusedCommentInfo" :key="index" class="postDataButton" @click="addReply(fc._id)">Post Reply</button>
         </div>
-        <button class="red-background" @click="hideReplies">Go back</button>
+        <button v-for="fc in focusedCommentInfo" :key="fc.postId" class="red-background" @click="hideReplies(fc.postId)">Go back</button>
       </div>
     </div>
 

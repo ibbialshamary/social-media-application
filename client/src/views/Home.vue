@@ -184,9 +184,10 @@ export default {
       })
     },
 
-    hideReplies() {
+    hideReplies(postId) {
       document.getElementById("repliesContainer").style.display = "none";
       this.replies = [];
+      this.getPostComments(postId);
     },
 
     addReply(commentId) {
@@ -194,7 +195,7 @@ export default {
         reply: this.replyDetails,
         upvotes: 0,
         downvotes: 0,
-        ownerName: this.user.name,
+        ownerName: this.user.username,
         ownerId: this.user._id
       };
 
@@ -235,7 +236,7 @@ export default {
         comment: this.commentDetails,
         upvotes: 0,
         downvotes: 0,
-        ownerName: this.user.name,
+        ownerName: this.user.username,
         ownerId: this.user._id
       };
 
@@ -331,7 +332,7 @@ export default {
         comment: this.commentDetails,
         upvotes: 0,
         downvotes: 0,
-        ownerName: this.user.name,
+        ownerName: this.user.username,
         ownerId: this.user._id
       };
 

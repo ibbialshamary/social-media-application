@@ -1,8 +1,8 @@
 <template>
   <div class="profileHeading" v-if="user">
       <img src="../images/defaultAvatar.png">
-      <h2>User goes here: {{ user.username }} </h2>
-      <p>User description: {{ user.name }}</p>
+      <h2>{{ user.name }}</h2>
+      <p>{{ user.username }}</p>
       <button class="profileSettingsButton" @click="goToProfileSettings">Profile Settings</button>
   </div>
 </template>

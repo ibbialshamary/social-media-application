@@ -27,7 +27,7 @@ router.post('/post/user-id/:id', async(req, res) => {
         image: req.body.image,
         // add the user id request parameter to the owner field
         ownerId: user._id,
-        ownerName: user.name
+        ownerName: user.username
     });
 
     try {
