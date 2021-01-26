@@ -13,8 +13,10 @@
         <input type="text" id="postDescription" v-model="description" required  minlength="6">
 
         <label>Post File</label>
-        <input type="file" id="postImage" v-on:change="fileSelected" required>
+        <input type="file" id="postImage" v-on:change="fileSelected" required @change="onFileChange">
         <label class="customFileUpload" for="postImage"></label>
+<!--        <img v-if="url" :src="url" style="margin-bottom: 5px; border-radius: 18px">-->
+<!--        <img src="blob:http://localhost:8080/c66eede7-53ed-4142-a4cb-db32af0ad4a1" style="margin-bottom: 5px; border-radius: 18px">-->
 
         <label for="postPrivacy">Post Privacy</label><br>
         <select id="postPrivacy" v-model="privacy" required>
@@ -40,7 +42,9 @@ export default {
     return {
       name: "",
       description: "",
-      image: ""
+      image: "",
+      privacy: "",
+      url: "",
     }
   },
 
@@ -81,6 +85,11 @@ export default {
 
 
   methods: {
+    onFileChange(e) {
+      const file = e.target.files[0];
+      this.url = URL.createObjectURL(file);
+    },
+
     ...mapActions(['post']),
 
     fileSelected(e) {
@@ -92,7 +101,7 @@ export default {
           name: this.name,
           description: this.description,
           privacy: this.privacy,
-          image: this.image
+          image: this.url
         };
 
         this.post([post, id]).then(res => {

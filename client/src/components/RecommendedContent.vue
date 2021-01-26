@@ -6,11 +6,11 @@
     <p v-if="posts === undefined || posts.length < 1">Hmm, this place seems deserted 😞<br>Why not create a post?</p>
     <div v-else class="grid-container" v-for="post in posts" :key="post._id">
       <div class="posts">
-        <div class="postsGridItem">
+        <div class="postsGridItem" :style="{'background-image': 'url(' + post.image + ')'}">
           <div class="postContent" @click="enlargePost(post); getComments(post._id)">
             <p><strong>{{ post.name }}</strong></p>
             <p>{{ post.description }}</p>
-            <p>Posted on {{ formatDate(post.date) }}</p>
+            <p>Posted on {{ formatDate(post.date) }} by {{ post.ownerName }}</p>
             <label class="totalCommentsLabel"><i class="fas fa-comment-dots"></i> {{ post.comments.length }}</label>
           </div>
         </div>
