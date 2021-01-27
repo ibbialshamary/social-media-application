@@ -1153,12 +1153,16 @@ input[type="file"] {
 
 input[type="file"]:valid + .customFileUpload {
   background: #ff6f00;
-  --uploadFileText: "Uploading...";
-  pointer-events: none;
+  --uploadFileText: "Uploading";
 }
 
-.fileUploading {
+.fileUploadError {
+  background: #a40419 !important;
+}
+
+.fileUploaded {
   background: mediumseagreen !important;
+  pointer-events: none;
 }
 
 

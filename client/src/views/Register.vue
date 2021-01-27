@@ -66,7 +66,14 @@ export default {
       const dateTime = date+time;
 
       let file = e.target.files[0];
+      if(!(file.name.endsWith("jpeg") || file.name.endsWith("png") || file.name.endsWith("jpg"))) {
+        console.log("Please choose an appropriate format");
+        document.getElementById("customFileUpload").classList.add("fileUploadError");
+        this.uploadProgress = " failed";
+        return
+      }
       let storageRef = fb.storage().ref(`images/${dateTime}-${file.name}`);
+
       let uploadTask = storageRef.put(file);
 
       uploadTask.on('state_changed',
@@ -81,7 +88,7 @@ export default {
               console.log('File available at', downloadURL);
               const fileProgressLabel = document.getElementById("customFileUpload");
               fileProgressLabel.classList.add("noBefore");
-              fileProgressLabel.classList.add("fileUploading");
+              fileProgressLabel.classList.add("fileUploaded");
               this.uploadProgress = "File Upload Complete";
               this.image = downloadURL;
             });
