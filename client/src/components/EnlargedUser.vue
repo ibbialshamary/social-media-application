@@ -9,7 +9,9 @@
           followers <strong>{{ u.following.length }}</strong> following</p><br>
 
         <div class="userPosts">
-          <p>Posts</p>
+          <div class="heading">
+            <p>Posts</p>
+          </div>
           <p class="desertedParagraph" v-if="userPosts !== undefined && userPosts.length < 1">Hmm, this place seems
             deserted 😞<br>Come back later?</p>
           <div v-else class="post" v-for="(up, index) in userPosts" :key="index" :style="{'background-image': 'url(' + up.image + ')'}">
@@ -24,7 +26,9 @@
         </div>
 
         <div class="userFollowersFollowing">
-          <p>Users</p>
+          <div class="heading">
+            <p>Users</p>
+          </div>
           <div class="followFollowersContainer">
 
             <div class="userFollowers">

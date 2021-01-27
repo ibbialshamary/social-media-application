@@ -193,6 +193,7 @@ button, .button, #button {
   label {
     margin-bottom: 0;
   }
+
   input:not([type=submit]) {
     background: var(--mainContainerGradientFirefox);
     color: var(--primarySubHeadingFontColour);
@@ -247,6 +248,7 @@ button, .button, #button {
     border-radius: 0 0 50% 50% / 0 0 5% 5%;
     box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
   }
+
   input:not([type=submit]) {
     background: var(--mainContainerGradientFirefox);
     color: var(--primarySubHeadingFontColour);
@@ -414,7 +416,6 @@ a {
 }
 
 
-
 .posts button, .users button {
   position: relative;
   margin-left: 50%;
@@ -533,9 +534,11 @@ a {
         }
       }
     }
+
     /* for the border */
     box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
     transition: all .4s ease;
+
     &:hover {
       box-shadow: 10px 10px rgba(0, 0, 0, 0.25);
     }
@@ -573,6 +576,7 @@ a {
   .content {
     overflow-y: hidden;
   }
+
   .userPosts, .userFollowers, .userFollowing {
     background: #1e2020;
     width: 45%;
@@ -588,6 +592,7 @@ a {
     p:first-child {
       margin: 18px;
     }
+
     .desertedParagraph {
       padding: 10px;
     }
@@ -632,7 +637,6 @@ a {
   }
 
 
-
   .userFollowersFollowing {
     width: 45%;
     height: 80%;
@@ -640,6 +644,7 @@ a {
     background: var(--mainContainerGradientFirefox);
     float: right;
     margin-right: 3%;
+
     p:first-child {
       margin: 18px;
     }
@@ -988,6 +993,7 @@ span .green {
   background: var(--secondaryColour);
   display: inline-block;
   float: right;
+
   input[type=text] {
     margin-left: 15px !important;
     padding: 0 15px 0 15px;
@@ -1182,6 +1188,7 @@ input[type="file"]:valid + .customFileUpload {
 
   label {
   }
+
   input, label, select {
     margin-left: 50%;
     transform: translateX(-50%);
@@ -1196,6 +1203,7 @@ input[type="file"]:valid + .customFileUpload {
     color: var(--primarySubHeadingFontColour);
     height: 40px;
     border-radius: 6px;
+
     &:hover {
       cursor: pointer;
     }
@@ -1210,6 +1218,7 @@ input[type="file"]:valid + .customFileUpload {
     background: var(--mainContainerGradientFirefox);
     color: var(--primarySubHeadingFontColour);
     height: 40px;
+
     &:focus {
     }
   }
@@ -1321,15 +1330,18 @@ input:not([type=submit]), select, textarea {
     border-radius: 16px;
     padding: 16px;
   }
+
   button {
     color: #1e2020;
     background-color: var(--whiteButtonBackground);
     border: 1px solid var(--borderColour);
     margin-top: 16px;
+
     &:hover {
       background-color: var(--whiteButtonHoverBackground);
     }
   }
+
   .reply {
     background-color: white;
     padding: 32px 16px;
@@ -1345,6 +1357,7 @@ input:not([type=submit]), select, textarea {
     span {
       color: #1e2020;
     }
+
     .ratings {
       position: absolute;
       right: 0;
@@ -1399,6 +1412,7 @@ input:not([type=submit]), select, textarea {
 .red-background {
   background: var(--redButtonBackground) !important;
   color: white !important;
+
   &:hover {
     background: var(--redButtonHoverBackground) !important;
   }
@@ -1407,6 +1421,7 @@ input:not([type=submit]), select, textarea {
 .blue-background {
   background: var(--blueButtonBackground) !important;
   color: white !important;
+
   &:hover {
     background: var(--blueButtonHoverBackground) !important;
   }
@@ -1416,16 +1431,33 @@ input:not([type=submit]), select, textarea {
   color: #1e2020;
   background-color: var(--whiteButtonBackground) !important;
   border: 1px solid var(--borderColour);
+
   &:hover {
     background-color: var(--whiteButtonHoverBackground) !important;
   }
 }
 
-@media only screen and (max-width: 600px) {
+/* responsiveness */
+@media only screen and (max-width: 2390px) {
+  /* homepage */
   .mainContainer {
     border-radius: 0;
     width: 450px;
     height: 1200px;
+
+    #repliesContainer {
+      .main {
+        width: 400px;
+        textarea {
+          width: 350px;
+        }
+        .replies {
+          .reply {
+            padding-right: 120px;
+          }
+        }
+      }
+    }
   }
 
   h2, h1 {
@@ -1443,16 +1475,24 @@ input:not([type=submit]), select, textarea {
     margin-top: 5%;
     margin-left: 50%;
     transform: translateX(-50%);
+
+  }
+
+  .createPostButton {
+    display: none;
   }
 
   .grid-container {
     button {
       width: 110px;
       height: 20px;
+
       br {
-        content:' ';
+        content: ' ';
         display: none;
       }
+
+
     }
   }
   .usersGridItem {
@@ -1468,10 +1508,71 @@ input:not([type=submit]), select, textarea {
     }
   }
 
+  /* when enlarged */
+  .userHeading p, .postHeading p {
+    margin: 4% 12% 4% 12% !important;
+  }
+
+  .enlargedUser {
+    .userPosts, .userFollowersFollowing {
+      float: none !important;
+      margin: 2%;
+      width: 420px !important;
+      height: 510px !important;
+
+
+      .userFollowers, .userFollowing {
+        float: none;
+        width: 350px;
+        height: 200px;
+        margin: 2%;
+      }
+    }
+    .heading p {
+      margin-top: 0 !important;
+    }
+  }
+
+  .enlargedPost {
+    img {
+      width: 400px !important;
+      height: 400px !important;
+    }
+
+    textarea, .previousComments .comment {
+      width: 400px !important;
+    }
+  }
+
+
   /* WORK ON THIS AT A LATER STAGE*/
   #navigationBar {
+    .navigationLinks {
+      left: 50%;
+      transform: translate(-70%, -50%);
+      width: fit-content;
+    }
+
     .navigationBarLogo, #lightBulb {
       display: none;
+    }
+  }
+
+  /* above code ends here */
+
+  /* settings page */
+  .profileSettingsHeading {
+    width: 450px;
+    margin-top: 2%;
+    img {
+      width: 80px;
+      height: 80px;
+    }
+
+    .leftSection .settingsOptions {
+      height: 30px;
+      margin-bottom: 16%;
+
     }
   }
 }
