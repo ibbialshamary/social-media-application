@@ -2,6 +2,10 @@
   <div class="registerForm">
     <form @submit.prevent="registerUser">
       <h1>Register Here</h1>
+      <label>Display Picture</label><br>
+      <input type="file" id="displayImage" required @change="uploadImage">
+      <label style="width: 100%; margin-bottom: 2%" class="customFileUpload" id="customFileUpload" for="displayImage">{{ uploadProgress }}</label>
+
       <label for="username">Username</label>
       <input type="text" placeholder="e.g., Alshamaryi99" v-model="username" class="form-control" id="username"  autocomplete="username" required minlength="6">
 
@@ -16,10 +20,6 @@
 
       <label for="password">Confirm Password</label>
       <input type="password" v-model="confirm_password" class="form-control" id="confirm_password"  autocomplete="new-password" required minlength="6">
-
-      <label>Display Picture</label><br>
-      <input type="file" id="displayImage" required @change="uploadImage">
-      <label style="width: 100%; margin-bottom: 5%" class="customFileUpload" for="displayImage"></label>
 
       <div class="buttonContainer">
           <input type="submit" class="button" value="Register"><br><br>
@@ -44,7 +44,8 @@ export default {
       email: "",
       password: "",
       confirm_password: "",
-      image: ""
+      image: "",
+      uploadProgress: "",
     };
   },
   created: function () {
@@ -78,6 +79,10 @@ export default {
             // handle successful uploads on complete
             uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
               console.log('File available at', downloadURL);
+              const fileProgressLabel = document.getElementById("customFileUpload");
+              fileProgressLabel.classList.add("noBefore");
+              fileProgressLabel.classList.add("fileUploading");
+              this.uploadProgress = "File Upload Complete";
               this.image = downloadURL;
             });
           }

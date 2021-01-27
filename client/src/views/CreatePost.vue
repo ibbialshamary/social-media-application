@@ -5,16 +5,15 @@
     </div>
     <div class="createPostForm">
       <form @submit.prevent="publishPost(user._id)">
+        <label>Post File</label>
+        <input type="file" id="postImage" required @change="uploadImage">
+        <label class="customFileUpload" id="customFileUpload" for="postImage">{{ uploadProgress }}</label>
 
         <label for="postName">Post Name</label>
         <input type="text" id="postName" v-model="name" required minlength="6">
 
         <label for="postDescription">Post Description</label>
         <input type="text" id="postDescription" v-model="description" required  minlength="6">
-
-        <label>Post File</label>
-        <input type="file" id="postImage" required @change="uploadImage">
-        <label class="customFileUpload" for="postImage"></label>
 
         <label for="postPrivacy">Post Privacy</label><br>
         <select id="postPrivacy" v-model="privacy" required>
@@ -44,6 +43,7 @@ export default {
       description: "",
       image: "",
       privacy: "",
+      uploadProgress: "",
     }
   },
 
@@ -106,6 +106,10 @@ export default {
             // handle successful uploads on complete
             uploadTask.snapshot.ref.getDownloadURL().then((downloadURL) => {
               console.log('File available at', downloadURL);
+              const fileProgressLabel = document.getElementById("customFileUpload");
+              fileProgressLabel.classList.add("noBefore");
+              fileProgressLabel.classList.add("fileUploading");
+              this.uploadProgress = "File Upload Complete";
               this.image = downloadURL;
             });
           }

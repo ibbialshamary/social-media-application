@@ -20,21 +20,11 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/EnlargedPost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/EnlargedPost.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/EnlargedUser.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/EnlargedUser.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/RecommendedContent.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/RecommendedContent.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/variables.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/CreatePost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/CreatePost.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/views/Profile.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Profile.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/views/ProfileSettings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/ProfileSettings.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Register.vue" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/model/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/User.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/routes/api/UserCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/UserCreation.js" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/server/validation/validation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/validation/validation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +205,8 @@
       <workItem from="1611598117075" duration="3769000" />
       <workItem from="1611607374008" duration="1113000" />
       <workItem from="1611665100433" duration="4851000" />
-      <workItem from="1611688190941" duration="8075000" />
+      <workItem from="1611688190941" duration="8142000" />
+      <workItem from="1611706425636" duration="1927000" />
     </task>
     <servers />
   </component>

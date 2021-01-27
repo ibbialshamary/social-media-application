@@ -130,7 +130,8 @@ body {
   img {
     margin-top: 8%;
     position: relative;
-    height: 20%;
+    width: 150px;
+    height: 150px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -793,7 +794,8 @@ br, img, button {
   img {
     margin-top: 8%;
     position: relative;
-    height: 20%;
+    width: 150px;
+    height: 150px;
     left: 50%;
     transform: translateX(-50%);
     border-radius: 50%;
@@ -1130,6 +1132,10 @@ span .green {
   content: var(--uploadFileText);
 }
 
+.noBefore::before {
+  display: none;
+}
+
 .customFileUpload {
   background: var(--mainContainerGradientFirefox);
   width: 20%;
@@ -1146,10 +1152,15 @@ input[type="file"] {
 }
 
 input[type="file"]:valid + .customFileUpload {
-  background: mediumseagreen;
-  --uploadFileText: "File Chosen";
+  background: #ff6f00;
+  --uploadFileText: "Uploading...";
   pointer-events: none;
 }
+
+.fileUploading {
+  background: mediumseagreen !important;
+}
+
 
 .createPostForm {
   background-color: var(--secondaryColour);
