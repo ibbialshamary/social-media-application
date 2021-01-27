@@ -6,7 +6,7 @@
     <div class="createPostForm">
       <form @submit.prevent="publishPost(user._id)">
         <label>Post File</label>
-        <input type="file" id="postImage" required @change="uploadImage">
+        <input type="file" id="postImage" required @change="uploadImage" accept="image/*">
         <label class="customFileUpload" id="customFileUpload" for="postImage">{{ uploadProgress }}</label>
 
         <label for="postName">Post Name</label>
