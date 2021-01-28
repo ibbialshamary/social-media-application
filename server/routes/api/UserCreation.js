@@ -61,7 +61,19 @@ router.patch('/follow/user-id/:id', async (req, res) => {
     } catch (err) {
         res.status(404).send(err.message);
     }
-})
+});
+
+// update or patch user
+router.patch('/user/user-id/:id', async (req, res) => {
+    try {
+        const user = await User.updateOne({_id: req.params.id}, {$set: req.body});
+        return res.json({
+            status: "Successfully patched user"
+        });
+    } catch(err) {
+        res.status(404).send(err.message);
+    }
+});
 
 // unfollow user and update following
 router.patch('/unfollow/user-id/:id', async (req, res) => {

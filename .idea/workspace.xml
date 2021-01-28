@@ -22,7 +22,12 @@
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/EnlargedUser.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/EnlargedUser.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/assets/variables.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/variables.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/ProfileSettings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/ProfileSettings.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/warehouse/PostREST.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/warehouse/PostREST.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/warehouse/UserREST.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/warehouse/UserREST.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/model/User.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/model/User.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/api/UserCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/UserCreation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -207,7 +212,8 @@
       <workItem from="1611706425636" duration="4428000" />
       <workItem from="1611743210086" duration="324000" />
       <workItem from="1611748864156" duration="68000" />
-      <workItem from="1611766247281" duration="7089000" />
+      <workItem from="1611766247281" duration="7247000" />
+      <workItem from="1611816100124" duration="4155000" />
     </task>
     <servers />
   </component>

@@ -4,6 +4,7 @@
       <h1>Profile Settings</h1>
     </div>
     <div class="leftSection">
+
       <img :src="user.image">
       <p class="userNameParagraph"> {{ user.name }}</p>
       <div class="settingsOptions">
@@ -23,15 +24,16 @@
       </div>
     </div>
 
+
     <div class="rightSection">
       <div id="sectionsContainer">
         <div id="rightAboutSection" class="sectionClass">
           <br><h2>About</h2><br>
-          Name: <br><input type="text" value="Ibrahim" readonly><br><br>
-          Username: <br><input type="text" value="ibbialshamary" readonly><br><br>
-          Email: <br><input type="text" value="ibbialshamary@gmail.com" readonly><br><br>
-          Biography: <br><input type="text" value="No created biography" readonly><br><br>
-          Location: <br><input type="text" value="Manchester" readonly><br>
+          Name: <br><input type="text" v-model="user.name"><br><br>
+          Biography: <br><input type="text" v-model="user.biography"><br><br>
+          Location: <br><input type="text" v-model="user.location"><br><br>
+          <button v-if="hasBeenUpdated" @click="patchProfileSettings(user._id)">Save changes</button><br><br>
+          <p style="color: #2BAE66FF; text-align: left;">{{ statusMessage }}</p>
         </div>
 
         <div id="rightProfileSection" class="sectionClass">
@@ -51,38 +53,72 @@
         </div>
       </div>
     </div>
+
+
   </div>
 </template>
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
 export default {
-  computed: mapGetters(['user']),
   data() {
     return {
+      bio: "",
+      loc: "",
+      statusMessage: "",
     }
   },
+
+  computed: {
+    ...mapGetters({
+      user: 'user',
+    }),
+    hasBeenUpdated() {
+      return this.user.biography !== "" && this.user.location !== "";
+    }
+
+  },
+
   methods: {
+    ...mapActions(['patchUser']),
+
+    patchProfileSettings(userId) {
+      let patchedUserSettings = {
+        name: this.user.name,
+        biography: this.user.biography,
+        location: this.user.location,
+      };
+
+      this.patchUser([userId, patchedUserSettings]).then(res => {
+        if (res.data) {
+          console.log(res.data.status);
+          this.statusMessage = res.data.status;
+        }
+      }).catch(() => {
+        alert("Fail");
+      });
+    },
+
     showSelectedPage: function(elementClass, elementId, rightSectionClass, rightSectionContent) {
       // loop through the nodes for the classes with the same name
-      var items = document.getElementsByClassName(elementClass);
-      for (var i=0; i < items.length; i++) {
+      const items = document.getElementsByClassName(elementClass);
+      for (let i=0; i < items.length; i++) {
         // remove the selected marker/highlighter for every class
         items[i].style.visibility = "hidden";
       }
       // highlight the selected one with the provided id
-      var selectedSettingsHighlighter = document.getElementById(elementId);
+      const selectedSettingsHighlighter = document.getElementById(elementId);
       selectedSettingsHighlighter.style.visibility = "visible";
 
       if (window.getComputedStyle(selectedSettingsHighlighter).visibility === "visible") {
         // loop through the nodes for the classes with the same name
-        var rightSectionClassDefiner = document.getElementsByClassName(rightSectionClass);
-        for (var a = 0; a < rightSectionClassDefiner.length; a++) {
+        const rightSectionClassDefiner = document.getElementsByClassName(rightSectionClass);
+        for (let a = 0; a < rightSectionClassDefiner.length; a++) {
           // remove the selected marker/highlighter for every class
           rightSectionClassDefiner[a].style.display = "none";
         }
       }
-      var selectedSettingsContent = document.getElementById(rightSectionContent);
+      const selectedSettingsContent = document.getElementById(rightSectionContent);
       selectedSettingsContent.style.display = "block";
     },
 

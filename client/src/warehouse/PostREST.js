@@ -144,7 +144,7 @@ const mutations = {
         state.status = 'Loading'
     },
 
-    patchPostInfo(state, posts) {
+    patchPostSuccess(state, posts) {
         state.posts = posts
     },
 

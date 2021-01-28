@@ -22,6 +22,20 @@ const getters = {
 };
 
 const actions = {
+    async patchUser({ commit }, [userId, userBody]) {
+        commit('patchUserRequest');
+        try {
+            let res = await axios.patch(`http://localhost:5000/user/user-id/${userId}`, userBody);
+            if(res.data.success !== undefined) {
+                const post = res.data.post;
+                commit('patchUserSuccess', post);
+            }
+            return res;
+        } catch(err) {
+            commit('patchUserError', err);
+        }
+    },
+
     // action for following
     async followUser({ commit }, [body, userId]) {
         commit('followUserRequest');
@@ -134,6 +148,20 @@ const actions = {
 };
 
 const mutations = {
+    // patch user
+    patchUserRequest(state) {
+        state.error = null
+        state.status = 'Loading'
+    },
+
+    patchUserSuccess(state, user) {
+        state.user = user
+    },
+
+    patchUserError(state, error) {
+        state.error = error.response.data.msg
+    },
+
     // follow user mutations
     followUserRequest(state) {
         state.error = null

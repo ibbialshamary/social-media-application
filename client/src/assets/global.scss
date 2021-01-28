@@ -769,7 +769,7 @@ br, img, button {
 .leftSection {
   position: absolute;
   background-color: var(--leftSideBackgroundColour);
-  width: 25%;
+  width: var(--leftSectionWidth);
   height: calc(100% - var(--settingsTitleHeadingHeight));
   top: calc(0% + var(--settingsTitleHeadingHeight));
 
@@ -790,6 +790,7 @@ br, img, button {
   top: calc(0% + var(--settingsTitleHeadingHeight));
   left: var(--leftSectionWidth);
   box-shadow: inset 25px 0 25px -25px rgba(0, 0, 0, 0.45);
+
 }
 
 .sectionClass {
@@ -867,7 +868,6 @@ br, img, button {
     background-color: var(--primaryInputColourThemeOpp);
     width: 80%;
     user-select: none;
-    pointer-events: none;
     color: var(--secondaryFontColour);
     border: solid 3px var(--primaryInputColourThemeOpp);
     border-radius: 2px;

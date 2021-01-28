@@ -31,6 +31,12 @@ const userSchema = new Schema({
         type: String,
         required: true
     },
+    biography: {
+        type: String
+    },
+    location: {
+        type: String
+    },
     date: {
         type: Date,
         default: Date.now
@@ -44,7 +50,7 @@ const userSchema = new Schema({
     }],
     following: [{
         type: String
-    }]
+    }],
 });
 
 module.exports = User = mongoose.model('users', userSchema);
