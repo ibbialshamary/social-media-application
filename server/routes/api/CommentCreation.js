@@ -71,7 +71,6 @@ router.patch('/comment/comment-id/:id', async (req, res) => {
     const commentToUpdateUsersRated = await Comment.findOne({_id: req.params.id});
     if(commentToUpdateUsersRated.usersRated.includes(req.body.userRated)) {
         res.status(404).send("Sorry, you have already rated");
-        console.log("Sorry, you have already rated");
     } else {
         try {
             const comment = await Comment.findOneAndUpdate({_id: req.params.id}, {$set: req.body});

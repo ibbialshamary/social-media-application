@@ -100,9 +100,9 @@ body {
   width: var(--defaultWidth);
   height: var(--defaultHeight);
   position: absolute;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
+  margin-top: 2%;
   border-radius: var(--defaultBorderRadius);
 
   /* for the border */
@@ -176,10 +176,9 @@ button, .button, #button {
   text-align: center;
   /*height: calc(var(--defaultHeight) - 26%);*/
   /* border-radius: var(--defaultBorderRadius); */
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-
+  transform: translateX(-50%);
+  margin-top: 2%;
   /* for the border */
   border-radius: 0 0 0 0 / 0 0 0 0;
   box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
@@ -231,10 +230,9 @@ button, .button, #button {
   width: var(--defaultWidth);
   text-align: center;
   /* border-radius: var(--defaultBorderRadius); */
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
-
+  transform: translateX(-50%);
+  margin-top: 2%;
   /* for the border */
   border-radius: 0 0 0 0 / 0 0 0 0;
   box-shadow: 20px 20px rgba(0, 0, 0, 0.15);
@@ -926,6 +924,7 @@ span .green {
   border-top: solid 1px rgba(128, 128, 128, 0.25);
   border-bottom: solid 1px rgba(128, 128, 128, 0.25);
   border-left: solid 1px rgba(128, 128, 128, 0.25);
+  border-right: solid 1px rgba(128, 128, 128, 0.25);
   height: var(--subHeadingHeight);
   background-color: var(--primaryColour);
 }
@@ -933,6 +932,10 @@ span .green {
 .chatHeading p, .chatApp .chatHeading {
   color: var(--primaryFontColour);
   text-align: left;
+}
+
+.chatApp {
+  margin-top: 2%;
 }
 
 /* active users tab */
@@ -946,6 +949,10 @@ span .green {
 
 .chatApp .activeUsersHeading {
   width: 25%;
+  border-top: solid 1px rgba(128, 128, 128, 0.25);
+  border-bottom: solid 1px rgba(128, 128, 128, 0.25);
+  border-left: solid 1px rgba(128, 128, 128, 0.25);
+  border-right: solid 1px rgba(128, 128, 128, 0.25);
 }
 
 .activeUsersHeading, .chatApp .activeUsersHeading {
@@ -1119,9 +1126,9 @@ span .green {
 
 .mainPostContainer {
   position: absolute;
-  top: 50%;
   left: 50%;
-  transform: translate(-50%, -50%);
+  transform: translateX(-50%);
+  margin-top: 2%;
   width: calc(var(--defaultWidth));
 }
 
@@ -1437,8 +1444,20 @@ input:not([type=submit]), select, textarea {
   }
 }
 
+.red-color {
+  color: #fd2544;
+  font-weight: bold;
+}
+
 /* responsiveness */
 @media only screen and (max-width: 2390px) {
+  $containerWidth: 450px;
+  $fontSize: 14px;
+  $buttonSize: 150px;
+
+  input[type="submit"], button {
+    width: $buttonSize !important;
+  }
   /* homepage */
   .mainContainer {
     border-radius: 0;
@@ -1557,7 +1576,6 @@ input:not([type=submit]), select, textarea {
       display: none;
     }
   }
-
   /* above code ends here */
 
   /* settings page */
@@ -1572,7 +1590,34 @@ input:not([type=submit]), select, textarea {
     .leftSection .settingsOptions {
       height: 30px;
       margin-bottom: 16%;
-
     }
   }
+  /* above code ends here */
+
+  /* login page */
+  .loginForm, .registerForm, .profileHeading, .mainPostContainer {
+    width: $containerWidth;
+  }
+
+  .activeUsersHeading, .chatHeading {
+    height: 120px !important;
+
+    p {
+      font-size: $fontSize;
+    }
+  }
+
+  .activeUsersHeading {
+    //width: 200px !important;
+    //width: 25% !important;
+  }
+
+  .chatHeading {
+    //width: 310px !important;
+    //width: 75% !important;
+  }
+
+
+
+
 }

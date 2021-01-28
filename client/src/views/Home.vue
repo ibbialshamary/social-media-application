@@ -19,7 +19,7 @@
           :focused-comment-info="focusedCommentInfo" :replies="replies"
           :reply-details="replyDetails" :add-reply="addReply" :rate-reply="rateReply" :hide-replies="hideReplies"
           @replyDetailsChanged="replyDetails = $event"
-          :comment-details="commentDetails" :add-comment="addComment" @commentDetailsChanged="commentDetails = $event">
+          :comment-details="commentDetails" :add-comment="addComment" @commentDetailsChanged="commentDetails = $event" :error-status="replyErrorStatus">
       </EnlargedPost>
 
       <EnlargedUser
@@ -54,7 +54,8 @@ export default {
       replies: [],
       focusedCommentInfo: [],
 
-      isReplyContainerVisible: false
+      isReplyContainerVisible: false,
+      replyErrorStatus: "",
     }
   },
 
@@ -383,6 +384,7 @@ export default {
         });
       } catch (err) {
         console.log(err);
+        this.replyErrorStatus = err;
       }
     },
 

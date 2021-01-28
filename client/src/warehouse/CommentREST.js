@@ -145,6 +145,7 @@ const mutations = {
 
     patchCommentError(state, error) {
         state.error = error.response.data.msg
+
     }
 };
 

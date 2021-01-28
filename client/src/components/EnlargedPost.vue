@@ -56,7 +56,9 @@
           </div>
         </div>
         <div class="replyContainer">
-          <textarea :value="replyDetails" @input="changeReplyDetails" placeholder="Add a reply" style="resize: none" required minlength="6"></textarea><br>
+          <textarea :value="replyDetails" @input="changeReplyDetails" placeholder="Add a reply" style="resize: none" required minlength="6"></textarea>
+          <p v-if="replyErrorStatus" class="red-color" style="margin-top: 5%">{{ replyErrorStatus }}</p>
+
           <button v-for="(fc, index) in focusedCommentInfo" :key="index" class="postDataButton" @click="addReply(fc._id)">Post Reply</button>
         </div>
         <button v-for="fc in focusedCommentInfo" :key="fc.postId" class="red-background" @click="hideReplies(fc.postId)">Go back</button>
@@ -71,7 +73,7 @@ export default {
 name: "EnlargedPost",
   props: ["post", "formatDate", "formatTime", "commentDetails", "addComment", "recentComments", "comments",
     "rateComment", "showReplies", "isCommentOwner", "removeComment", "closeEnlargedContent", "focusedCommentInfo",
-    "rateReply", "replies", "replyDetails", "addReply", "hideReplies"],
+    "rateReply", "replies", "replyDetails", "addReply", "hideReplies", "replyErrorStatus"],
 
   computed: {
 
