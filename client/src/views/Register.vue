@@ -1,7 +1,7 @@
 <template>
   <div class="registerForm">
     <form @submit.prevent="registerUser">
-      <h1>Register Here</h1>
+      <h1>Register Here</h1><br>
       <label>Display Picture</label><br>
       <input type="file" id="displayImage" required @change="uploadImage" accept="image/*">
       <label style="width: 100%; margin-bottom: 2%" class="customFileUpload" id="customFileUpload" for="displayImage">{{ uploadProgress }}</label>

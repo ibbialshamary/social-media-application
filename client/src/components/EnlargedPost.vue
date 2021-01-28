@@ -57,7 +57,7 @@
         </div>
         <div class="replyContainer">
           <textarea :value="replyDetails" @input="changeReplyDetails" placeholder="Add a reply" style="resize: none" required minlength="6"></textarea>
-          <p v-if="replyErrorStatus" class="red-color" style="margin-top: 5%">{{ replyErrorStatus }}</p>
+          <p v-if="replyErrorStatus" class="red-color" style="margin-top: 5%">{{ replyErrorStatus }}</p><br>
 
           <button v-for="(fc, index) in focusedCommentInfo" :key="index" class="postDataButton" @click="addReply(fc._id)">Post Reply</button>
         </div>

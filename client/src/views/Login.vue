@@ -1,7 +1,7 @@
 <template>
   <div class="loginForm">
     <form @submit.prevent="loginUser">
-      <h1>Login Here</h1>
+      <h1>Login Here</h1><br>
       <label for="username">Username</label>
       <input type="text" v-model="username" class="form-control" id="username" autocomplete="username" required><br>
 
