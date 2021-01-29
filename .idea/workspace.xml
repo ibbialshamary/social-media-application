@@ -21,9 +21,7 @@
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/global.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/global.scss" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/assets/responsiveness.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/responsiveness.scss" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/components/EnlargedPost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/components/EnlargedPost.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -215,7 +213,9 @@
       <workItem from="1611838154578" duration="8000" />
       <workItem from="1611864418589" duration="2129000" />
       <workItem from="1611875919751" duration="1631000" />
-      <workItem from="1611923583557" duration="2486000" />
+      <workItem from="1611923583557" duration="2553000" />
+      <workItem from="1611931517949" duration="599000" />
+      <workItem from="1611962631362" duration="894000" />
     </task>
     <servers />
   </component>
@@ -235,9 +235,10 @@
     <option name="oldMeFiltersMigrated" value="true" />
   </component>
   <component name="WindowStateProjectService">
-    <state x="1024" y="525" key="#Notifications" timestamp="1609563343015">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="-1152" y="818" key="#Notifications" timestamp="1611962633395">
+      <screen x="-1920" y="435" width="1920" height="1020" />
     </state>
+    <state x="-1152" y="818" key="#Notifications/-1920.435.1920.1020/-3840.435.1920.1040/0.0.2560.1400@-1920.435.1920.1020" timestamp="1611962633395" />
     <state x="1024" y="525" key="#Notifications/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1609563343015" />
     <state x="1027" y="503" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1611590973696">
       <screen x="0" y="0" width="2560" height="1400" />
