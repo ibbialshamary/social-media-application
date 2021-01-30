@@ -4,10 +4,16 @@
   $fontSize: 9px;
   $buttonSize: 100px;
 
-  input[type="submit"], button {
+  .closeContentButton {
+    width: 20px !important;
+    height: 20px !important;
+    margin-right: 5px !important;
+  }
+  input[type="submit"], button:not(.settingsOptions button)  {
     width: $buttonSize !important;
     height: 10px !important;
-    font-size: $fontSize + 3px;
+    font-size: $fontSize + 3px !important;
+
   }
 
   #navigationBar {
@@ -17,20 +23,21 @@
   }
   /* homepage */
   .mainContainer {
-    p, h1, h2 {
-      font-size: $fontSize + 2px;
-    }
     border-radius: 0;
     width: $containerWidth;
     height: 1200px;
     overflow-y: scroll;
 
     #repliesContainer {
+      .ratings {
+        font-size: $fontSize !important;
+      }
+
       .main {
-        width: 400px;
+        width: 200px;
 
         textarea {
-          width: 350px;
+          width: 180px;
         }
 
         .replies {
@@ -50,9 +57,10 @@
     padding: 0 40px 0 40px;
   }
 
-  p {
-    font-size: $fontSize + 6px;
+  p, h1, h2 {
+    font-size: $fontSize + 2px !important;
   }
+
   .postsContainer, .usersContainer {
     float: none;
     width: 80%;
@@ -106,13 +114,13 @@
     .userPosts, .userFollowersFollowing {
       float: none !important;
       margin: 2%;
-      width: 420px !important;
+      width: 220px !important;
       height: 510px !important;
 
 
       .userFollowers, .userFollowing {
         float: none;
-        width: 350px;
+        width: 180px;
         height: 200px;
         margin: 2%;
       }
@@ -123,14 +131,15 @@
     }
   }
 
+
   .enlargedPost {
     img {
-      width: 400px !important;
-      height: 400px !important;
+      width: 200px !important;
+      height: 200px !important;
     }
 
     textarea, .previousComments .comment {
-      width: 400px !important;
+      width: 200px !important;
     }
   }
 
@@ -151,12 +160,12 @@
 
   /* settings page */
   .profileSettingsHeading {
-    width: 450px;
+    width: $containerWidth !important;
     margin-top: 2%;
 
     img {
-      width: 80px;
-      height: 80px;
+      width: 60px;
+      height: 60px;
     }
 
     .leftSection .settingsOptions {
@@ -169,6 +178,10 @@
   /* login page */
   .loginForm, .registerForm, .profileHeading, .mainPostContainer {
     width: $containerWidth;
+  }
+
+  .profileHeading {
+    height: 400px;
   }
 
   /* chat */
