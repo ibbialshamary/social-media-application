@@ -1,29 +1,24 @@
-@media only screen and (min-width: 0px) and (max-width: 300px) {
-  body {
-    display: none;
-    background-color: #a40419;
-  }
-}
-
-@media only screen and (min-width: 300px) and (max-width: 500px)  {
+@media only screen and (min-width: 0px) and (max-width: 500px)  {
 
   $containerWidth: 250px;
-  $fontSize: 14px;
-  $buttonSize: 150px;
+  $fontSize: 9px;
+  $buttonSize: 100px;
 
   input[type="submit"], button {
     width: $buttonSize !important;
+    height: 10px !important;
+    font-size: $fontSize + 3px;
   }
 
   #navigationBar {
     p {
-      font-size: 10px !important;
+      font-size: $fontSize !important;
     }
   }
   /* homepage */
   .mainContainer {
     p, h1, h2 {
-      font-size: 16px;
+      font-size: $fontSize + 2px;
     }
     border-radius: 0;
     width: $containerWidth;
@@ -47,7 +42,7 @@
     }
   }
 
-  .postsGridItem {
+  .postsGridItem, .usersGridItem {
     width: 150px;
   }
 
@@ -56,7 +51,7 @@
   }
 
   p {
-    font-size: 15px;
+    font-size: $fontSize + 6px;
   }
   .postsContainer, .usersContainer {
     float: none;
@@ -65,8 +60,12 @@
     margin-top: 5%;
     margin-left: 50%;
     transform: translateX(-50%);
-
   }
+
+  .postContent, .userContent {
+    width: 100px;
+  }
+
 
   .createPostButton {
     display: none;
