@@ -21,7 +21,11 @@
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/assets/responsiveness.scss" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/assets/responsiveness.scss" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/src/views/CreateWhisper.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/CreateWhisper.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/NodeServer.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/NodeServer.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/routes/api/UserCreation.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/routes/api/UserCreation.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -216,7 +220,9 @@
       <workItem from="1611923583557" duration="2553000" />
       <workItem from="1611931517949" duration="599000" />
       <workItem from="1611962631362" duration="3993000" />
-      <workItem from="1612010781680" duration="1502000" />
+      <workItem from="1612010781680" duration="1550000" />
+      <workItem from="1612042237916" duration="47000" />
+      <workItem from="1612098130744" duration="7805000" />
     </task>
     <servers />
   </component>
@@ -241,9 +247,10 @@
     </state>
     <state x="-1152" y="818" key="#Notifications/-1920.435.1920.1020/-3840.435.1920.1040/0.0.2560.1400@-1920.435.1920.1020" timestamp="1611962633395" />
     <state x="1024" y="525" key="#Notifications/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1609563343015" />
-    <state x="1027" y="503" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1611590973696">
-      <screen x="0" y="0" width="2560" height="1400" />
+    <state x="-1150" y="801" key="#com.intellij.fileTypes.FileTypeChooser" timestamp="1612106799823">
+      <screen x="-1920" y="435" width="1920" height="1020" />
     </state>
+    <state x="-1150" y="801" key="#com.intellij.fileTypes.FileTypeChooser/-1920.435.1920.1020/-3840.435.1920.1040/0.0.2560.1400@-1920.435.1920.1020" timestamp="1612106799823" />
     <state x="1027" y="503" key="#com.intellij.fileTypes.FileTypeChooser/-1920.435.1920.1020/-3840.435.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1611590973696" />
     <state x="1011" y="448" key="#com.intellij.refactoring.safeDelete.UnsafeUsagesDialog" timestamp="1611590761916">
       <screen x="0" y="0" width="2560" height="1400" />
@@ -298,10 +305,10 @@
     <state x="912" y="248" width="986" height="801" key="find.popup/-1920.435.1920.1020/-3840.435.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1611923610604" />
     <state x="-1179" y="589" width="555" height="596" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@-1920.366.1920.1040" timestamp="1608029984694" />
     <state x="912" y="248" width="986" height="801" key="find.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1611003590236" />
-    <state x="937" y="331" width="672" height="677" key="run.anything.popup" timestamp="1611864584941">
+    <state x="937" y="331" width="672" height="677" key="run.anything.popup" timestamp="1612098213240">
       <screen x="0" y="0" width="2560" height="1400" />
     </state>
-    <state x="937" y="331" width="672" height="677" key="run.anything.popup/-1920.435.1920.1020/-3840.435.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1611864584941" />
+    <state x="937" y="331" width="672" height="677" key="run.anything.popup/-1920.435.1920.1020/-3840.435.1920.1040/0.0.2560.1400@0.0.2560.1400" timestamp="1612098213240" />
     <state x="937" y="331" key="run.anything.popup/0.0.2560.1400/-1920.366.1920.1040/-3840.349.1920.1040@0.0.2560.1400" timestamp="1611061725146" />
     <state x="943" y="315" width="672" height="678" key="search.everywhere.popup" timestamp="1610397521318">
       <screen x="0" y="0" width="2560" height="1400" />

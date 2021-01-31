@@ -1,42 +1,38 @@
 <template>
-
-  <div class="yo">
-    <div>
-      <input style="display: block" type="file" accept="image/jpeg" @change=uploadImage>
-      <img :src=previewImage class="uploading-image">
+  <div class="section">
+    <div class="container">
+      <simple-upload/>
     </div>
   </div>
 </template>
 
 <script>
-import axios from "axios";
+import SimpleUpload from '@/components/SimpleUpload.vue';
 export default {
+  components: { SimpleUpload },
   data() {
     return {
       previewImage: null,
     }
   },
   methods: {
-    uploadImage(e){
-      const image = e.target.files[0];
-      const reader = new FileReader();
-      reader.readAsDataURL(image);
-      reader.onload = e => {
-        this.previewImage = e.target.result;
-        console.log(this.previewImage);
-      };
-    }
+
   },
 }
 </script>
 
 <style>
-.yo {
+.section {
+  text-align: center;
+  margin-top: 5%;
   background-color: rgba(15, 15, 15, .95);
-  width: 100%;
-  height: 100vh;
   z-index: 1000;
   position: fixed;
+  padding: 1%;
+
+  input {
+    background-color: white
+  }
 
   img {
     width: 30%;

@@ -28,6 +28,7 @@
     "socket.io": "^3.0.3"
   },
   "devDependencies": {
-    "@fortawesome/fontawesome-free": "^5.15.1"
+    "@fortawesome/fontawesome-free": "^5.15.1",
+    "multer": "^1.4.2"
   }
 }

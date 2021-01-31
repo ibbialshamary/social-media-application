@@ -60,7 +60,19 @@ app.use('/', replyConst);
 
 app.get('*', (req, res) => {
     res.sendFile(path.join(__dirname, 'public/index.html'));
-})
+});
+
+
+// image validation
+app.use((err, req, res, next) => {
+    if (err.code === "LIMIT_FILE_TYPES") {
+        res.status(422).json({ error: "Only images are allowed"});
+    }
+
+    if(err.code === "LIMIT_FILE_SIZE") {
+        res.status(422).json({ error: `Too large. Max size is 20MB`});
+    }
+});
 
 const PORT = process.env.PORT || 5000;
 

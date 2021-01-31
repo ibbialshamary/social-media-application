@@ -6,12 +6,40 @@ const jwt = require('jsonwebtoken');
 const passport = require('passport');
 const {followUserValidation} = require("../../validation/validation");
 const key = require('../../config/keys').secret;
+const multer = require('multer');
 
-/**
- * @route POST /register
- * @desc Register the User
- * @access Public
- */
+const fileFilter = (req, file, cb) => {
+    const allowedTypes = ["image/jpeg", "image/png", "image/gif"];
+
+    if(!allowedTypes.includes(file.mimetype)) {
+        const error = new Error("Wrong file type");
+        error.code = "LIMIT_FILE_TYPES";
+        return cb(error, false);
+    }
+    cb(null, true);
+}
+
+const MAX_SIZE = 20000000;
+const storage = multer.diskStorage(
+    {
+        destination: 'client/src/images/',
+        filename: function (req, file, cb) {
+            cb(null, file.originalname);
+        },
+        limits: {
+            fileSize: MAX_SIZE
+        }
+    }
+);
+
+const upload = multer({storage: storage});
+router.route('/upload').post(upload.single('file'), post);
+function post(request, response) {
+    response.json({
+        message: 'Files Uploaded!'
+    });
+}
+
 
 // get all users
 router.get('/user', async (req, res) => {
@@ -35,14 +63,14 @@ router.patch('/follow/user-id/:id', async (req, res) => {
         const userToFollow = await User.findOne({_id: req.params.id});
         const userFollowing = await User.findOne({username: req.body.username});
 
-        if(userToFollow.username === userFollowing.username) {
+        if (userToFollow.username === userFollowing.username) {
             return res.status(404).json({
                 success: false,
                 msg: `Users are not permitted to follow themselves`
             })
         }
 
-        if(!userToFollow.followers.includes(req.body.username) && !userFollowing.following.includes(userToFollow.username)) {
+        if (!userToFollow.followers.includes(req.body.username) && !userFollowing.following.includes(userToFollow.username)) {
             userToFollow.followers.push(req.body.username);
             userFollowing.following.push(userToFollow.username);
             await userToFollow.save();
@@ -70,7 +98,7 @@ router.patch('/user/user-id/:id', async (req, res) => {
         return res.json({
             status: "Successfully patched user"
         });
-    } catch(err) {
+    } catch (err) {
         res.status(404).send(err.message);
     }
 });
@@ -81,7 +109,7 @@ router.patch('/unfollow/user-id/:id', async (req, res) => {
         const userToUnfollow = await User.findOne({_id: req.params.id});
         const userUnfollowing = await User.findOne({username: req.body.username});
 
-        if(userToUnfollow.username === userUnfollowing.username) {
+        if (userToUnfollow.username === userUnfollowing.username) {
             return res.status(404).json({
                 success: false,
                 msg: `Users are not permitted to unfollow themselves`
