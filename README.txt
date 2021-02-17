@@ -5,7 +5,6 @@ Project Setup:
 4. Run the project by typing "npm run dev" in the terminal
 5. Access the website by entering the correct port used, normally localhost:8080
 
-This is part of my final year project that I have picked.
 Due to technical issues with the project and the technology used, 
 the early stages of development have been lost. I am choosing to use Node.js for
 my server-side and Vue.js for my client-side. Socket.io will be used for the chat
