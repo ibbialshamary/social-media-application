@@ -2,14 +2,13 @@ import firebase from "firebase/app";
 import "firebase/storage";
 
 const firebaseConfig = {
-    apiKey: "AIzaSyC5jT1LPf8MUa4BaoAMTg7kdSm0WJzHauM",
-    authDomain: "cardiomyopathy-project-94ccf.firebaseapp.com",
-    projectId: "cardiomyopathy-project-94ccf",
-    storageBucket: "cardiomyopathy-project-94ccf.appspot.com",
-    messagingSenderId: "673422606828",
-    appId: "1:673422606828:web:71b24533166e9d155100c9"
+    apiKey: "AIzaSyBDIhspeuzq3lvFZkpr4vH8g8qI18ElS7Y",
+    authDomain: "socialmediaapplication-c5759.firebaseapp.com",
+    projectId: "socialmediaapplication-c5759",
+    storageBucket: "socialmediaapplication-c5759.appspot.com",
+    messagingSenderId: "606022679926",
+    appId: "1:606022679926:web:520bab886e62a9c355ce57",
+    measurementId: "G-9V2TS9NQT6"
 };
 
-firebase.initializeApp(firebaseConfig);
-const fb = firebase.storage();
-export { fb };
+export const firebaseExport = firebase.initializeApp(firebaseConfig);

@@ -20,12 +20,55 @@
   </component>
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" afterPath="$PROJECT_DIR$/.gitignore" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package-lock.json" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/client/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/client/dist/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/app.27e92c97.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/app.27e92c97.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-17d62b78.cfb7d1dd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-17d62b78.cfb7d1dd.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-20999ad1.0d284a30.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-20999ad1.0d284a30.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-2d0d6d35.08a13137.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-2d0d6d35.08a13137.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-2d0d76f4.e5246d3a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-2d0d76f4.e5246d3a.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-2d2086b7.e3e35485.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-2d2086b7.e3e35485.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-2d217357.1a32c68b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-2d217357.1a32c68b.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-2d2183db.961f1c12.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-2d2183db.961f1c12.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-2d22d5a9.46ef4b1d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-2d22d5a9.46ef4b1d.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-89ea1f90.bd4b1b41.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-89ea1f90.bd4b1b41.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/dist/js/chunk-vendors.5705ed7a.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/dist/js/chunk-vendors.5705ed7a.js" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/client/firebase.js" beforeDir="false" afterPath="$PROJECT_DIR$/client/firebase.js" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/CreatePost.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/CreatePost.vue" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/client/src/views/Register.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/Register.vue" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/index.html" beforeDir="false" afterPath="$PROJECT_DIR$/server/public/index.html" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/app.27e92c97.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/app.27e92c97.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-17d62b78.cfb7d1dd.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-17d62b78.cfb7d1dd.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-20999ad1.0d284a30.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-20999ad1.0d284a30.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-2d0d6d35.08a13137.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-2d0d6d35.08a13137.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-2d0d76f4.e5246d3a.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-2d0d76f4.e5246d3a.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-2d2086b7.e3e35485.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-2d2086b7.e3e35485.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-2d217357.1a32c68b.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-2d217357.1a32c68b.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-2d2183db.961f1c12.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-2d2183db.961f1c12.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-2d22d5a9.46ef4b1d.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-2d22d5a9.46ef4b1d.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-89ea1f90.bd4b1b41.js" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-89ea1f90.bd4b1b41.js.map" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/server/public/js/chunk-vendors.5705ed7a.js" beforeDir="false" afterPath="$PROJECT_DIR$/server/public/js/chunk-vendors.5705ed7a.js" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -239,7 +282,7 @@
       <workItem from="1614349061017" duration="780000" />
       <workItem from="1614847341381" duration="1708000" />
       <workItem from="1614858729795" duration="75000" />
-      <workItem from="1614858826128" duration="5067000" />
+      <workItem from="1614858826128" duration="7948000" />
     </task>
     <servers />
   </component>
