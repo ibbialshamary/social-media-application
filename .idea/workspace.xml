@@ -21,7 +21,6 @@
   <component name="ChangeListManager">
     <list default="true" id="15c0f701-f351-490f-bc5a-8c1d7fbd4885" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/client/src/views/ProfileSettings.vue" beforeDir="false" afterPath="$PROJECT_DIR$/client/src/views/ProfileSettings.vue" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -53,7 +52,7 @@
     <property name="aspect.path.notification.shown" value="true" />
     <property name="javascript.nodejs.core.library.configured.version" value="14.15.0" />
     <property name="javascript.nodejs.core.library.typings.version" value="14.14.25" />
-    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../../Advanced Web Development/CardiompsDataSharingPlatform" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.detected.package.tslint" value="true" />
     <property name="node.js.path.for.package.eslint" value="project" />
@@ -229,7 +228,9 @@
       <workItem from="1612524954551" duration="598000" />
       <workItem from="1612743448110" duration="842000" />
       <workItem from="1612744360125" duration="32000" />
-      <workItem from="1613160487664" duration="140000" />
+      <workItem from="1613160487664" duration="218000" />
+      <workItem from="1614346309770" duration="622000" />
+      <workItem from="1614349061017" duration="780000" />
     </task>
     <servers />
   </component>

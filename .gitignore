@@ -1,2 +1,5 @@
 node_modules/
 firebase.js
+.idea/workspace.xml
+.idea
+server/config/keys.js

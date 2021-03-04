@@ -31,8 +31,9 @@ require('./config/passport')(passport);
 
 // bring in database config and connect with database
 // not currently using
-const databaseKey = require('./config/keys').mongoURI;
-mongoose.connect('mongodb://localhost:27017/SocialMediaApplication', {
+const onlineMongoDatabaseKey = require('./config/keys').mongoURI;
+const localMongoDatabaseKey = require('./config/keys').localMongoURI;
+mongoose.connect(onlineMongoDatabaseKey, {
     useNewUrlParser: true,
     useUnifiedTopology: true,
     useFindAndModify: false
