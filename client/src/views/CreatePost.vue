@@ -34,7 +34,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import {fb} from "@/firebase";
+import { fb } from "../../firebase";
 
 export default {
   data() {
