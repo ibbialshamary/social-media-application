@@ -19,6 +19,7 @@ const actions = {
     // get a single comment by its id
     async getComment({commit}, id) {
         try {
+            // http://localhost:5000/comment/comment-id/
             commit("getCommentRequest");
             let res = await axios.get('/comment/comment-id/' + id);
             const comment = res.data.comment;
@@ -31,6 +32,7 @@ const actions = {
     // action for getting all comments that belong to certain post
     async getPostComments({commit}, id) {
         try {
+            // `http://localhost:5000/comment/post-id/${id}`
             commit("getPostCommentsRequest");
             let res = await axios.get('/comment/post-id/' + id);
             const comments = res.data.comments;
@@ -43,6 +45,7 @@ const actions = {
 
     async deleteComment({commit}, id) {
         try {
+            // `http://localhost:5000/comment/comment-id/${id}`
             commit('deleteCommentRequest');
             let res = await axios.delete(`/comment/comment-id/${id}`);
             const comments = res.data.comments;

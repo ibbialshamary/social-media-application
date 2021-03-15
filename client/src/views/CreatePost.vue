@@ -34,7 +34,7 @@
 
 <script>
 import { mapActions, mapGetters } from 'vuex';
-import { firebaseExport } from "../../firebase";
+import { fb } from "../../firebase";
 
 export default {
   data() {
@@ -99,7 +99,7 @@ export default {
         this.uploadProgress = " failed";
         return
       }
-      let storageRef = firebaseExport.storage().ref(`images/${this.user.username}-${dateTime}-${file.name}`);
+      let storageRef = fb.storage().ref(`images/${this.user.username}-${dateTime}-${file.name}`);
 
       let uploadTask = storageRef.put(file);
 
