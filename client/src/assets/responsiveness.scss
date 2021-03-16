@@ -160,7 +160,7 @@
 
   /* settings page */
   .profileSettingsHeading {
-    width: $containerWidth !important;
+    //width: $containerWidth !important;
     margin-top: 2%;
 
     img {
@@ -331,7 +331,7 @@
 
   /* settings page */
   .profileSettingsHeading {
-    width: 450px;
+    width: $containerWidth;
     margin-top: 2%;
 
     img {
@@ -497,7 +497,7 @@
 
   /* settings page */
   .profileSettingsHeading {
-    width: 450px;
+    width: $containerWidth;
     margin-top: 2%;
 
     img {
@@ -666,7 +666,7 @@
 
   /* settings page */
   .profileSettingsHeading {
-    width: 450px;
+    width: $containerWidth;
     margin-top: 2%;
 
     img {

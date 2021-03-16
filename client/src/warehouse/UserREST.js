@@ -25,7 +25,7 @@ const actions = {
     async patchUser({ commit }, [userId, userBody]) {
         commit('patchUserRequest');
         try {
-            let res = await axios.patch(`/user/user-id/${userId}`, userBody);
+            let res = await axios.patch(`http://localhost:5000/user/user-id/${userId}`, userBody);
             if(res.data.success !== undefined) {
                 const post = res.data.post;
                 commit('patchUserSuccess', post);
@@ -40,7 +40,7 @@ const actions = {
     async followUser({ commit }, [body, userId]) {
         commit('followUserRequest');
         try {
-            let res = await axios.patch(`/follow/user-id/${userId}`, body);
+            let res = await axios.patch(`http://localhost:5000/follow/user-id/${userId}`, body);
             if(res.data.success !== undefined) {
                 const user = res.data.username;
                 commit('followUserSuccess', user);
@@ -55,7 +55,7 @@ const actions = {
     async unfollowUser({ commit }, [body, userId]) {
         commit('unfollowUserRequest');
         try {
-            let res = await axios.patch(`/unfollow/user-id/${userId}`, body);
+            let res = await axios.patch(`http://localhost:5000/unfollow/user-id/${userId}`, body);
             if(res.data.success !== undefined) {
                 const user = res.data.username;
                 commit('unfollowUserSuccess', user);
@@ -70,7 +70,7 @@ const actions = {
     async getAllUsers({ commit }) {
         try {
             commit('getUsersRequest');
-            let res = await axios.get('/user');
+            let res = await axios.get(`http://localhost:5000/user`);
             const users = res.data.users;
             commit('getUsersInfo', users);
             return res;
@@ -83,7 +83,7 @@ const actions = {
     async getExplorableUsers({ commit }, username) {
         try {
             commit('getExplorableUsersRequest');
-            let res = await axios.get(`/explorable-users/username/${username}`);
+            let res = await axios.get(`http://localhost:5000/explorable-users/username/${username}`);
             const users = res.data.users;
             commit('getExplorableUsersInfo', users);
             return res;
@@ -96,7 +96,7 @@ const actions = {
     async login({ commit }, user) {
         commit('auth_request');
         try {
-            let res = await axios.post('/login', user)
+            let res = await axios.post(`http://localhost:5000/login`, user)
             if(res.data.success){
                 const token = res.data.token;
                 const user = res.data.user;
@@ -116,7 +116,7 @@ const actions = {
     async register({ commit }, user) {
         commit('register_request');
         try {
-            let res = await axios.post('/register', user);
+            let res = await axios.post(`http://localhost:5000/register`, user);
             if(res.data.success !== undefined) {
                 commit('register_success');
             }
@@ -130,7 +130,7 @@ const actions = {
     async getProfile({ commit }) {
         try {
             commit('profile_request');
-            let res = await axios.get('/profile');
+            let res = await axios.get(`http://localhost:5000/profile`);
             commit('user_profile', res.data.user);
             return res;
         } catch(err) {
