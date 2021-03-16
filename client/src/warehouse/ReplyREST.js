@@ -19,7 +19,7 @@ const actions = {
     async getAllReplies({ commit }) {
         try {
             commit('getAllRepliesRequest');
-            let res = await axios.get(`http://localhost:5000/reply`);
+            let res = await axios.get(`/reply`);
             const replies = res.data.replies;
             commit('getAllRepliesInfo', replies);
             return res;
@@ -32,7 +32,7 @@ const actions = {
     async getCommentReplies({ commit }, commentId) {
         try {
             commit('getCommentRepliesRequest');
-            let res = await axios.get(`http://localhost:5000/reply/comment-id/${commentId}`);
+            let res = await axios.get(`/reply/comment-id/${commentId}`);
             const replies = res.data.replies;
             commit('getCommentRepliesInfo', replies);
             return res;
@@ -45,7 +45,7 @@ const actions = {
     async postReply({ commit }, [comment, commentId]) {
         commit('createReplyRequest');
         try {
-            let res = await axios.post(`http://localhost:5000/reply/comment-id/${commentId}`, comment);
+            let res = await axios.post(`/reply/comment-id/${commentId}`, comment);
             if(res.data.success !== undefined) {
                 const reply = res.data.reply;
                 commit('createReplySuccess', reply);
@@ -59,7 +59,7 @@ const actions = {
     async patchReply({commit}, [replyToPatch, replyId]) {
         try {
             commit("patchReplyRequest");
-            let res = await axios.patch(`http://localhost:5000/reply/reply-id/` + replyId, replyToPatch);
+            let res = await axios.patch(`/reply/reply-id/` + replyId, replyToPatch);
             const comment = res.data.comment;
             commit("patchReplySuccess", comment);
             return res;

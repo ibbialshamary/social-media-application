@@ -19,9 +19,9 @@ const actions = {
     // get a single comment by its id
     async getComment({commit}, id) {
         try {
-            // http://localhost:5000/comment/comment-id/
+            // /comment/comment-id/
             commit("getCommentRequest");
-            let res = await axios.get(`http://localhost:5000/comment/comment-id/` + id);
+            let res = await axios.get(`/comment/comment-id/` + id);
             const comment = res.data.comment;
             commit("getCommentInfo", comment);
             return res;
@@ -32,9 +32,9 @@ const actions = {
     // action for getting all comments that belong to certain post
     async getPostComments({commit}, id) {
         try {
-            // `http://localhost:5000/comment/post-id/${id}`
+            // `/comment/post-id/${id}`
             commit("getPostCommentsRequest");
-            let res = await axios.get(`http://localhost:5000/comment/post-id/` + id);
+            let res = await axios.get(`/comment/post-id/` + id);
             const comments = res.data.comments;
             commit("getPostCommentsInfo", comments);
             return res;
@@ -45,9 +45,9 @@ const actions = {
 
     async deleteComment({commit}, id) {
         try {
-            // `http://localhost:5000/comment/comment-id/${id}`
+            // `/comment/comment-id/${id}`
             commit('deleteCommentRequest');
-            let res = await axios.delete(`http://localhost:5000/comment/comment-id/${id}`);
+            let res = await axios.delete(`/comment/comment-id/${id}`);
             const comments = res.data.comments;
             commit('deleteCommentInfo', comments);
             return res;
@@ -59,7 +59,7 @@ const actions = {
     async postComment({commit}, [comment, postId]) {
         commit('createCommentRequest');
         try {
-            let res = await axios.post(`http://localhost:5000/comment/post-id/${postId}`, comment);
+            let res = await axios.post(`/comment/post-id/${postId}`, comment);
             // push the users that have already rated so they can be limited 1 rating at a time
             if (res.data.success !== undefined) {
                 const comment = res.data.comment;
@@ -74,7 +74,7 @@ const actions = {
     async patchComment({commit}, [commentToPatch, commentId]) {
         try {
             commit("patchCommentRequest");
-            let res = await axios.patch(`http://localhost:5000/comment/comment-id/` + commentId, commentToPatch);
+            let res = await axios.patch(`/comment/comment-id/` + commentId, commentToPatch);
             const comment = res.data.comment;
             commit("patchCommentSuccess", comment);
             return res;

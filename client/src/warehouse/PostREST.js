@@ -21,7 +21,7 @@ const actions = {
     async post({ commit }, [post, id]) {
         commit('createPostRequest');
         try {
-            let res = await axios.post(`http://localhost:5000/post/user-id/${id}`, post);
+            let res = await axios.post(`/post/user-id/${id}`, post);
             if(res.data.success !== undefined) {
                 const post = res.data.post;
                 commit('createPostSuccess', post);
@@ -36,7 +36,7 @@ const actions = {
     async getAllPosts({ commit }) {
         try {
             commit('getPostsRequest');
-            let res = await axios.get(`http://localhost:5000/post`);
+            let res = await axios.get(`/post`);
             const posts = res.data.posts;
             commit('getPostsInfo', posts);
             return res;
@@ -49,7 +49,7 @@ const actions = {
     async getUserPosts({ commit }, userId) {
         try {
             commit('getUserPostsRequest');
-            let res = await axios.get(`http://localhost:5000/post/user-id/${userId}`);
+            let res = await axios.get(`/post/user-id/${userId}`);
             const posts = res.data.posts;
             commit('getUserPostsInfo', posts);
             return res;
@@ -61,7 +61,7 @@ const actions = {
     async deletePost({commit}, id) {
         try {
             commit('deletePostRequest');
-            let res = await axios.delete(`http://localhost:5000/post/post-id/` + id);
+            let res = await axios.delete(`/post/post-id/` + id);
             const posts = res.data.posts;
             commit('deletePostInfo', posts);
             return res;
@@ -73,7 +73,7 @@ const actions = {
     async patchPost({ commit }, [postId, postBody]) {
         commit('patchPostRequest');
         try {
-            let res = await axios.patch(`http://localhost:5000/post/post-id/${postId}`, postBody);
+            let res = await axios.patch(`/post/post-id/${postId}`, postBody);
             if(res.data.success !== undefined) {
                 const post = res.data.post;
                 commit('patchPostSuccess', post);
