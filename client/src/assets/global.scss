@@ -823,7 +823,7 @@ br, img, button {
 
   button {
     margin-top: 5px;
-    width: 100%;
+    width: 100% !important;
     text-align: left;
     background: var(--secondaryColour);
 
@@ -1136,6 +1136,7 @@ span .green {
   transform: translateX(-50%);
   margin-top: 2%;
   width: calc(var(--defaultWidth));
+  overflow-x: hidden;
 }
 
 .headingClass h1 {

@@ -8,7 +8,7 @@ if (process.env.NODE_ENV === 'production') {
     }
 } else {
     module.exports = {
-        mongoURI: localMongoURI,
+        mongoURI: cloudMongoURI,
         secret: 'password'
     }
 }

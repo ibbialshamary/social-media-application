@@ -25,9 +25,9 @@
 <!--                    <router-link to="/CreateWhisper">Whisper</router-link>-->
 <!--                </p>-->
 
-                <p v-if="isLoggedIn">
-                    <router-link to="/Chat">Chat</router-link>
-                </p>
+<!--                <p v-if="isLoggedIn">-->
+<!--                    <router-link to="/Chat">Chat</router-link>-->
+<!--                </p>-->
 
                 <p v-if="!isLoggedIn">
                     <router-link to="/Login">Login</router-link>
