@@ -34,7 +34,7 @@
             <div class="userFollowers">
               <p v-if="u.followers.length !== undefined && u.followers.length > 0">Followers</p>
               <p v-else>{{ u.username }} is not followed by anyone</p>
-              <div class="follower" v-for="(follower, index) in u.followers" :key="index" :style="{'background-image': 'url(' + u.image + ')'}">
+              <div class="follower" v-for="(follower, index) in u.followers" :key="index" :style="{'background-image': 'url(' +  + ')'}">
                 <div class="followerContent">
                   <p style="font-style: italic">Follower {{ index + 1 }}</p>
                   <p><strong>{{ follower }}</strong></p>
@@ -45,7 +45,7 @@
             <div class="userFollowing">
               <p v-if="u.following.length !== undefined && u.following.length > 0">Following</p>
               <p v-else>{{ u.username }} is not following anyone</p>
-              <div class="following" v-for="(following, index) in u.following" :key="index" :style="{'background-image': 'url(' + u.image + ')'}">
+              <div class="following" v-for="(following, index) in u.following" :key="index" :style="{'background-image': 'url(' +  + ')'}">
                 <div class="followingContent">
                   <p style="font-style: italic">Following {{ index + 1 }}</p>
                   <p><strong>{{ following }}</strong></p>

@@ -2,7 +2,8 @@
   <div class="profileHeading" v-if="user">
       <img :src="user.image">
       <h2>{{ user.name }}</h2>
-      <p>{{ user.username }}</p>
+      <p>{{ user.biography }}</p>
+      <p>{{ user.location }}</p>
       <button class="profileSettingsButton" @click="goToProfileSettings">Profile Settings</button>
   </div>
 </template>

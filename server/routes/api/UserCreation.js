@@ -57,6 +57,14 @@ router.get('/explorable-users/username/:username', async (req, res) => {
     });
 })
 
+// get by username
+router.get('/user/username/:username', async (req, res) => {
+    const users = await User.find({username: req.params.username});
+    return res.json({
+        users: users
+    });
+})
+
 // follow user and update following
 router.patch('/follow/user-id/:id', async (req, res) => {
     try {
